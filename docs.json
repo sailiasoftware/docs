@@ -38,6 +38,12 @@
             ]
           },
           {
+            "group": "Payments",
+            "pages": [
+              "payments/discount-codes"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               "integrations/accounting-sync"
