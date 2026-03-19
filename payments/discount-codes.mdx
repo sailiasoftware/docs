@@ -59,10 +59,30 @@ You can combine multiple limits on a single discount code:
 | **Max usages per family** | The maximum number of times a single family or customer account can use the code |
 | **Date range** | The code is only valid between a start and end date |
 | **Surge** | The code is only valid within a certain number of days before a session starts |
+| **Activity date range** | The code only applies to sessions that take place within a specified date range |
 | **Min clients** | A minimum number of clients must be registered on a session for the code to apply |
 | **Same item quantity** | The basket must contain a minimum quantity of the same item |
 | **Total items quantity** | The basket must contain a minimum total number of items |
 | **Previous purchase** | The customer must have previously purchased the same session |
+
+### Activity date range limit
+
+The **activity date range** limit restricts a discount so it only applies to sessions scheduled within a specific date window. Unlike the standard **date range** limit — which controls when the code can be entered — the activity date range checks the actual date the session takes place.
+
+This is useful when you want to auto-apply a discount to sessions in a particular season or promotional period, regardless of when the customer makes the booking.
+
+You can configure the range in four modes:
+
+| Mode | Behavior |
+| --- | --- |
+| **On** | The session must take place on a specific date |
+| **Before** | The session must take place before a given date |
+| **After** | The session must take place after a given date |
+| **Between** | The session must take place within a start and end date |
+
+<Note>
+  The activity date range limit only applies to session-based products (courses, activities, and hires). For non-session products like shop items or activity passes, the limit is ignored and the discount applies normally.
+</Note>
 
 ### How usage counting works
 
