@@ -29,6 +29,12 @@
             ]
           },
           {
+            "group": "Updates",
+            "pages": [
+              "essentials/terminology-updates"
+            ]
+          },
+          {
             "group": "Writing content",
             "pages": [
               "essentials/markdown",
