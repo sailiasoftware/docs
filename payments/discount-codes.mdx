@@ -1,0 +1,102 @@
+---
+title: "Discount codes"
+description: "Create and manage discount codes with usage limits, product restrictions, and tiered pricing"
+---
+
+Discount codes let you offer fixed-amount or percentage-based discounts on bookings, shop products, activity passes, memberships, and add-ons. You can control how many times a code can be used, which products it applies to, and whether it stacks with other discounts.
+
+## Discount types
+
+Sailia supports two discount types:
+
+| Type | Description |
+| --- | --- |
+| **Fixed** | A flat monetary amount off the price (e.g., £5 off) |
+| **Percentage** | A percentage off the price (e.g., 20% off) |
+
+Both types also support **tiered discounts**, where the discount amount changes based on the number of items booked. For example, you could offer £5 off for 3 or more bookings and £10 off for 5 or more. A discount code uses either a single amount or a tiered structure, not both.
+
+## Create a discount code
+
+When creating a discount code, you configure the following:
+
+| Setting | Description |
+| --- | --- |
+| **Code** | The text customers enter at checkout (e.g., `SUMMER20`). Not required for auto-applied discounts. |
+| **Type** | Fixed amount or percentage |
+| **Amount** | The discount value — a currency amount for fixed discounts, or a percentage for percentage discounts |
+| **Description** | An optional label shown to customers |
+| **Auto-apply** | When enabled, the discount is applied automatically without entering a code |
+| **Stackable** | When enabled, this discount can be combined with other discounts in the same basket |
+
+### Product eligibility
+
+Control which product types the discount applies to:
+
+- **Sessions** — course bookings, activity bookings, and hires
+- **Shop products** — items sold through your shop
+- **Add-ons** — optional extras added to bookings
+- **Activity passes** — prepaid pass bundles
+- **Memberships** — recurring membership plans
+
+You can further restrict a discount to specific items within each product type. For example, you could create a code that only applies to certain sessions or specific shop products.
+
+## Usage limits
+
+Usage limits control how many times a discount code can be redeemed. Each item in a basket that receives the discount counts as one usage.
+
+<Warning>
+  Usage is counted **per item**, not per basket. If a customer applies a discount code to a basket containing 3 activity passes, that counts as **3 usages** toward the limit — not 1.
+</Warning>
+
+### Limit types
+
+You can combine multiple limits on a single discount code:
+
+| Limit | Description |
+| --- | --- |
+| **Usage** | A global cap on the total number of times the code can be used across all customers |
+| **Max usages per family** | The maximum number of times a single family or customer account can use the code |
+| **Date range** | The code is only valid between a start and end date |
+| **Surge** | The code is only valid within a certain number of days before a session starts |
+| **Min clients** | A minimum number of clients must be registered on a session for the code to apply |
+| **Same item quantity** | The basket must contain a minimum quantity of the same item |
+| **Total items quantity** | The basket must contain a minimum total number of items |
+| **Previous purchase** | The customer must have previously purchased the same session |
+
+### How usage counting works
+
+When a customer checks out, each basket item that uses the discount increments the usage count by the item's quantity. This means:
+
+- A basket with 1 swimming lesson using the discount = **1 usage**
+- A basket with 3 activity passes using the discount = **3 usages**
+- A basket with 2 different items each using the discount = **2 usages**
+
+This per-item counting applies to both the global usage limit and the per-family usage limit.
+
+<Info>
+  Usage counts are validated in real time as items are added to the basket, so customers see an error immediately if a code has reached its limit.
+</Info>
+
+## Membership discounts
+
+Discount codes can be linked to a specific membership as a benefit. Membership-linked discounts are always auto-applied and stackable — members receive the discount automatically when they check out.
+
+For membership discounts, you can configure how long the associated Stripe coupon lasts:
+
+- **Forever** — the discount applies for the entire membership duration
+- **Time-limited** — the discount applies for a specified number of months
+
+## Stacking behavior
+
+When **stackable** is enabled, a discount code can be combined with other discounts in the same basket. When disabled, only one non-stackable discount can be applied at a time.
+
+Membership-linked discounts are always stackable, so members can combine their membership benefit with a promotional code (if that code is also stackable).
+
+## Deactivating a discount code
+
+You can deactivate a discount code at any time. Deactivating a code:
+
+- Prevents it from being applied to new baskets
+- Cleans up any associated Stripe coupon (for membership discounts)
+- Does not affect baskets where the code was already applied
