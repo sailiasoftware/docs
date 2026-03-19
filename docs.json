@@ -38,6 +38,12 @@
             ]
           },
           {
+            "group": "Integrations",
+            "pages": [
+              "integrations/accounting-sync"
+            ]
+          },
+          {
             "group": "AI tools",
             "pages": [
               "ai-tools/cursor",

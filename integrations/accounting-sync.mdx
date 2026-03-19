@@ -1,0 +1,113 @@
+---
+title: "Accounting sync"
+description: "Automatically sync your Sailia payouts to Xero as categorized invoices"
+---
+
+Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) and automatically creates invoices for each payout. Every invoice is categorized by VAT rate and account code, marked as paid, and includes a detailed CSV breakdown for reconciliation.
+
+<Note>
+  When you enable accounting sync, only payouts created **after** you turn on syncing are sent to Xero automatically. Historical payouts are not back-synced, but you can send individual past payouts manually.
+</Note>
+
+## Prerequisites
+
+Before you can enable accounting sync, you need:
+
+- An active Xero organization
+- A Stripe-connected Sailia account with payouts enabled
+
+## Set up accounting sync
+
+<Steps>
+  <Step title="Connect your Xero account">
+    Navigate to your accounting settings and select **Connect to Xero**. You are redirected to Xero to authorize Sailia. Once authorized, Sailia automatically creates two clearing accounts in your Xero organization:
+
+    - **Sailia Stripe Clearing Account** — receives Stripe payout payments
+    - **Sailia Cash Clearing Account** — receives cash payout payments
+  </Step>
+
+  <Step title="Configure accounting categories">
+    Set up at least two accounting categories:
+
+    - A **default** category with your standard VAT rate
+    - A **no-VAT** category with a 0% rate
+
+    You can create additional categories for other VAT rates. Once a category has been used on a transaction, its rate is locked and cannot be changed.
+
+    <Warning>
+      You cannot modify the VAT rate of a category after it has been applied to a basket item. Archive the category and create a new one if you need a different rate.
+    </Warning>
+  </Step>
+
+  <Step title="Map categories to Xero">
+    Map each accounting category to:
+
+    - A **Xero tax type** (e.g., `OUTPUT2` for 20% VAT)
+    - A **Xero account code** (e.g., a revenue account)
+
+    You also need to configure two special mappings:
+
+    | Mapping type | Purpose |
+    | --- | --- |
+    | **Gift card** | The Xero account code for gift card redemptions |
+    | **Fee** | The Xero account code for processing fees (e.g., Stripe fees) |
+
+    The setup status indicator shows whether all required mappings are complete.
+  </Step>
+
+  <Step title="Assign categories to products">
+    Assign accounting categories to your products — sessions, shop products, membership plans, activity passes, and add-ons. This determines how each sale is categorized on the Xero invoice.
+
+    If you change category assignments after baskets have been created, use the **Recalculate** action to re-apply categories to any basket items that have not yet been synced.
+  </Step>
+
+  <Step title="Enable sync">
+    Toggle **Sync to Xero** on. Sailia records the current timestamp and only syncs payouts created from this point forward.
+
+    <Info>
+      If you disable and re-enable sync, the timestamp resets. Only payouts created after re-enabling are automatically synced.
+    </Info>
+  </Step>
+</Steps>
+
+## How sync works
+
+Once enabled, a scheduled process handles automatic syncing:
+
+1. **Finds new payouts** — picks up all paid payouts created after you enabled syncing that have not yet been sent to Xero.
+2. **Creates an invoice in Xero** — each payout becomes a single authorized invoice with line items grouped by VAT rate and account code.
+3. **Marks the invoice as paid** — a payment is recorded against the appropriate clearing account (Stripe or cash).
+4. **Attaches a CSV breakdown** — a detailed product-level breakdown is attached to each invoice for auditing.
+
+<Info>
+  If a payout has a negative net total (refunds exceed charges), Sailia creates an accounts payable bill in Xero instead of a receivable invoice.
+</Info>
+
+## Send a historical payout manually
+
+To sync a payout that was created before you enabled accounting sync, locate the payout in your finances section and select **Send to Xero**. This sends the individual payout regardless of when it was created.
+
+## Disconnect Xero
+
+To disconnect your Xero integration, go to your accounting settings and select **Disconnect**. This revokes the OAuth connection on both Sailia and Xero. Invoices already created in Xero are not affected.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Setup status shows incomplete">
+    Verify that every accounting category has both a Xero tax type and a Xero account code mapped. Check that the special gift card and fee mappings are also configured.
+  </Accordion>
+
+  <Accordion title="Payouts are not appearing in Xero">
+    Confirm that:
+
+    - **Sync to Xero** is toggled on
+    - The payout was created **after** you enabled syncing
+    - The payout status is **paid**
+    - Your Xero connection is active (check the accounting settings page)
+  </Accordion>
+
+  <Accordion title="Xero connection expired">
+    Sailia automatically refreshes your Xero OAuth tokens. If the connection expires (for example, after extended downtime), reconnect by selecting **Connect to Xero** again in your accounting settings.
+  </Accordion>
+</AccordionGroup>
