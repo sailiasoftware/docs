@@ -59,11 +59,25 @@ You can combine multiple limits on a single discount code:
 | **Max usages per family** | The maximum number of times a single family or customer account can use the code |
 | **Purchase date** | The code can only be used on purchases made within a start and end date |
 | **Surge** | The code is only valid within a certain number of days before a session starts |
+| **Early bird** | The code is only valid when the booking is made at least a certain number of days before the session starts |
 | **Activity date range** | The code only applies to sessions that take place within a specified date range |
 | **Min clients** | A minimum number of clients must be registered on a session for the code to apply |
 | **Same item quantity** | The basket must contain a minimum quantity of the same item |
 | **Total items quantity** | The basket must contain a minimum total number of items |
 | **Previous purchase** | The customer must have previously purchased the same session |
+
+### Surge and early bird limits
+
+The **surge** and **early bird** limits both control when a discount can be used relative to a session's start date, but in opposite directions:
+
+- **Surge** — the discount is only valid within a specified number of days *before* the session starts. Use this for last-minute deals that encourage filling remaining spots.
+- **Early bird** — the discount is only valid when the booking is made *at least* a specified number of days before the session starts. Use this to reward customers who book well in advance.
+
+For example, an early bird limit of 30 days means customers must book at least 30 days before the session to receive the discount. A surge limit of 7 days means the discount only applies within the final 7 days before the session.
+
+<Note>
+  Both limits only apply to session-based products (courses, activities, and hires). For non-session products, the limit is ignored and the discount applies normally.
+</Note>
 
 ### Activity date range limit
 
