@@ -65,6 +65,7 @@ You can combine multiple limits on a single discount code:
 | **Same item quantity** | The basket must contain a minimum quantity of the same item |
 | **Total items quantity** | The basket must contain a minimum total number of items |
 | **Previous purchase** | The customer must have previously purchased the same session |
+| **Session combination** | All specified sessions must be present in the basket for the discount to apply |
 
 ### Surge and early bird limits
 
@@ -98,6 +99,22 @@ You can configure the range in four modes:
   The activity date range limit only applies to session-based products (courses, activities, and hires). For non-session products like shop items or activity passes, the limit is ignored and the discount applies normally.
 </Note>
 
+### Session combination limit
+
+The **session combination** limit restricts a discount so it only applies when a customer's basket contains all of a specified set of sessions. Use this for bundle promotions where you want to reward customers for booking multiple activities together.
+
+For example, you could create a 10% discount that only applies when a customer books both a "Kayaking" and "Paddleboarding" session in the same basket. If either session is missing, the discount does not apply.
+
+To configure a session combination limit:
+
+1. Open the discount code and navigate to the session redemption limits
+2. Add a **Session combination** limit
+3. Select all the sessions that must be present in the basket
+
+<Note>
+  The session combination limit only applies to session-based products (courses, activities, and hires). It is not available for auto-apply discount codes.
+</Note>
+
 ### How usage counting works
 
 When a customer checks out, each basket item that uses the discount increments the usage count by the item's quantity. This means:
@@ -126,7 +143,7 @@ This partial application works with both discount types:
 Partial application recalculates automatically when item quantities change. If a customer removes an item from the basket, any freed-up usages may expand the discount to cover more items elsewhere in the basket.
 
 <Note>
-  Partial application only affects usage-based limits (global usage and per-family usage). All other limit types — such as date range, surge, and early bird — are all-or-nothing: the discount either applies to every qualifying item or none.
+  Partial application only affects usage-based limits (global usage and per-family usage). All other limit types — such as date range, surge, early bird, and session combination — are all-or-nothing: the discount either applies to every qualifying item or none.
 </Note>
 
 ## Membership discounts
