@@ -112,6 +112,23 @@ This per-item counting applies to both the global usage limit and the per-family
   Usage counts are validated in real time as items are added to the basket, so customers see an error immediately if a code has reached its limit.
 </Info>
 
+### Partially applied discounts
+
+When a discount code has a **usage** or **max usages per family** limit that is close to being exhausted, the discount applies to as many items as the remaining limit allows rather than failing entirely.
+
+For example, if a discount code has a global usage limit of 10 and 8 have already been used, a customer adding 5 items to their basket receives the discount on **2 of the 5 items** — the remaining available usages — instead of losing the discount altogether.
+
+This partial application works with both discount types:
+
+- **Fixed discounts** — the per-item amount is applied only to the qualifying items. A £5-off discount applied to 2 of 5 items deducts £10 total.
+- **Percentage discounts** — the percentage is prorated based on the number of qualifying items. A 20% discount applied to 2 of 5 items deducts 20% of the cost of those 2 items.
+
+Partial application recalculates automatically when item quantities change. If a customer removes an item from the basket, any freed-up usages may expand the discount to cover more items elsewhere in the basket.
+
+<Note>
+  Partial application only affects usage-based limits (global usage and per-family usage). All other limit types — such as date range, surge, and early bird — are all-or-nothing: the discount either applies to every qualifying item or none.
+</Note>
+
 ## Membership discounts
 
 Discount codes can be linked to a specific membership as a benefit. Membership-linked discounts are always auto-applied and stackable — members receive the discount automatically when they check out.
