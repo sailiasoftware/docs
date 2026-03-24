@@ -33,13 +33,13 @@ When creating a discount code, you configure the following:
 
 Control which product types the discount applies to:
 
-- **Sessions** — course bookings, activity bookings, and hires
+- **Activities** — courses, hires, and other bookable activities
 - **Shop products** — items sold through your shop
 - **Add-ons** — optional extras added to bookings
 - **Activity passes** — prepaid pass bundles
 - **Memberships** — recurring membership plans
 
-You can further restrict a discount to specific items within each product type. For example, you could create a code that only applies to certain sessions or specific shop products.
+You can further restrict a discount to specific items within each product type. For example, you could create a code that only applies to certain activities or specific shop products.
 
 ## Usage limits
 
@@ -58,61 +58,61 @@ You can combine multiple limits on a single discount code:
 | **Usage** | A global cap on the total number of times the code can be used across all customers |
 | **Max usages per family** | The maximum number of times a single family or customer account can use the code |
 | **Purchase date** | The code can only be used on purchases made within a start and end date |
-| **Surge** | The code is only valid within a certain number of days before a session starts |
-| **Early bird** | The code is only valid when the booking is made at least a certain number of days before the session starts |
-| **Activity date range** | The code only applies to sessions that take place within a specified date range |
-| **Min clients** | A minimum number of clients must be registered on a session for the code to apply |
+| **Surge** | The code is only valid within a certain number of days before an activity starts |
+| **Early bird** | The code is only valid when the booking is made at least a certain number of days before the activity starts |
+| **Activity date range** | The code only applies to activities that take place within a specified date range |
+| **Min clients** | A minimum number of clients must be registered on an activity for the code to apply |
 | **Same item quantity** | The basket must contain a minimum quantity of the same item |
 | **Total items quantity** | The basket must contain a minimum total number of items |
-| **Previous purchase** | The customer must have previously purchased the same session |
-| **Session combination** | All specified sessions must be present in the basket for the discount to apply |
+| **Previous purchase** | The customer must have previously purchased the same activity |
+| **Activity combination** | All specified activities must be present in the basket for the discount to apply |
 
 ### Surge and early bird limits
 
-The **surge** and **early bird** limits both control when a discount can be used relative to a session's start date, but in opposite directions:
+The **surge** and **early bird** limits both control when a discount can be used relative to an activity's start date, but in opposite directions:
 
-- **Surge** — the discount is only valid within a specified number of days *before* the session starts. Use this for last-minute deals that encourage filling remaining spots.
-- **Early bird** — the discount is only valid when the booking is made *at least* a specified number of days before the session starts. Use this to reward customers who book well in advance.
+- **Surge** — the discount is only valid within a specified number of days *before* the activity starts. Use this for last-minute deals that encourage filling remaining spots.
+- **Early bird** — the discount is only valid when the booking is made *at least* a specified number of days before the activity starts. Use this to reward customers who book well in advance.
 
-For example, an early bird limit of 30 days means customers must book at least 30 days before the session to receive the discount. A surge limit of 7 days means the discount only applies within the final 7 days before the session.
+For example, an early bird limit of 30 days means customers must book at least 30 days before the activity to receive the discount. A surge limit of 7 days means the discount only applies within the final 7 days before the activity.
 
 <Note>
-  Both limits only apply to session-based products (courses, activities, and hires). For non-session products, the limit is ignored and the discount applies normally.
+  Both limits only apply to activity-based products (courses and hires). For non-activity products like shop items or memberships, the limit is ignored and the discount applies normally.
 </Note>
 
 ### Activity date range limit
 
-The **activity date range** limit restricts a discount so it only applies to sessions scheduled within a specific date window. Unlike the **purchase date** limit — which controls when the code can be used — the activity date range checks the actual date the session takes place.
+The **activity date range** limit restricts a discount so it only applies to activities scheduled within a specific date window. Unlike the **purchase date** limit — which controls when the code can be used — the activity date range checks the actual date the activity takes place.
 
-This is useful when you want to auto-apply a discount to sessions in a particular season or promotional period, regardless of when the customer makes the booking.
+This is useful when you want to auto-apply a discount to activities in a particular season or promotional period, regardless of when the customer makes the booking.
 
 You can configure the range in four modes:
 
 | Mode | Behavior |
 | --- | --- |
-| **On** | The session must take place on a specific date |
-| **Before** | The session must take place before a given date |
-| **After** | The session must take place after a given date |
-| **Between** | The session must take place within a start and end date |
+| **On** | The activity must take place on a specific date |
+| **Before** | The activity must take place before a given date |
+| **After** | The activity must take place after a given date |
+| **Between** | The activity must take place within a start and end date |
 
 <Note>
-  The activity date range limit only applies to session-based products (courses, activities, and hires). For non-session products like shop items or activity passes, the limit is ignored and the discount applies normally.
+  The activity date range limit only applies to activity-based products (courses and hires). For non-activity products like shop items or activity passes, the limit is ignored and the discount applies normally.
 </Note>
 
-### Session combination limit
+### Activity combination limit
 
-The **session combination** limit restricts a discount so it only applies when a customer's basket contains all of a specified set of sessions. Use this for bundle promotions where you want to reward customers for booking multiple activities together.
+The **activity combination** limit restricts a discount so it only applies when a customer's basket contains all of a specified set of activities. Use this for bundle promotions where you want to reward customers for booking multiple activities together.
 
-For example, you could create a 10% discount that only applies when a customer books both a "Kayaking" and "Paddleboarding" session in the same basket. If either session is missing, the discount does not apply.
+For example, you could create a 10% discount that only applies when a customer books both a "Kayaking" and "Paddleboarding" activity in the same basket. If either activity is missing, the discount does not apply.
 
-To configure a session combination limit:
+To configure an activity combination limit:
 
-1. Open the discount code and navigate to the session redemption limits
-2. Add a **Session combination** limit
-3. Select all the sessions that must be present in the basket
+1. Open the discount code and navigate to the activity redemption limits
+2. Add an **Activity combination** limit
+3. Select all the activities that must be present in the basket
 
 <Note>
-  The session combination limit only applies to session-based products (courses, activities, and hires). It is not available for auto-apply discount codes.
+  The activity combination limit only applies to activity-based products (courses and hires). It is not available for auto-apply discount codes.
 </Note>
 
 ### How usage counting works
@@ -143,7 +143,7 @@ This partial application works with both discount types:
 Partial application recalculates automatically when item quantities change. If a customer removes an item from the basket, any freed-up usages may expand the discount to cover more items elsewhere in the basket.
 
 <Note>
-  Partial application only affects usage-based limits (global usage and per-family usage). All other limit types — such as date range, surge, early bird, and session combination — are all-or-nothing: the discount either applies to every qualifying item or none.
+  Partial application only affects usage-based limits (global usage and per-family usage). All other limit types — such as date range, surge, early bird, and activity combination — are all-or-nothing: the discount either applies to every qualifying item or none.
 </Note>
 
 ## Membership discounts
