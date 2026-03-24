@@ -44,6 +44,12 @@
             ]
           },
           {
+            "group": "Usage",
+            "pages": [
+              "usage/meter-tracking"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               "integrations/accounting-sync"
