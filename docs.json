@@ -46,7 +46,8 @@
           {
             "group": "Payments",
             "pages": [
-              "payments/discount-codes"
+              "payments/discount-codes",
+              "payments/expected-payouts"
             ]
           },
           {
