@@ -40,14 +40,14 @@
           {
             "group": "Features",
             "pages": [
-              "features/file-uploads"
+              "features/file-uploads",
+              "features/custom-pricing"
             ]
           },
           {
             "group": "Payments",
             "pages": [
-              "payments/discount-codes",
-              "payments/expected-payouts"
+              "payments/discount-codes"
             ]
           },
           {
