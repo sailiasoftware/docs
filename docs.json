@@ -38,6 +38,12 @@
             ]
           },
           {
+            "group": "Features",
+            "pages": [
+              "features/file-uploads"
+            ]
+          },
+          {
             "group": "Payments",
             "pages": [
               "payments/discount-codes"
