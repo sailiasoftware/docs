@@ -119,6 +119,7 @@ Sailia automatically records usage entries for certain platform events. These me
 | --- | --- | --- |
 | `order-completed` | A customer completes a purchase and payment succeeds | `BasketID` — the ID of the completed basket |
 | `waitlist-notified` | A waitlist notification email is sent to a customer | `WaitlistID`, `MultiBookingID` — identifiers for the waitlist entry and booking |
+| `workflow-email-sent` | An automated workflow sends an email on your behalf | None |
 
 ### Example summary with built-in meters
 
@@ -132,14 +133,19 @@ When you query usage for a date range, built-in meters are included in the respo
       "To": "2026-03-31"
     },
     "Totals": {
-      "Usage": 85.0,
-      "Events": 85
+      "Usage": 135.0,
+      "Events": 135
     },
     "Meters": [
       {
         "Meter": "order-completed",
         "TotalUsage": 72.0,
         "EventCount": 72
+      },
+      {
+        "Meter": "workflow-email-sent",
+        "TotalUsage": 50.0,
+        "EventCount": 50
       },
       {
         "Meter": "waitlist-notified",
