@@ -111,6 +111,50 @@ The response includes totals per meter, along with the overall usage and event c
   The `to` date must be on or after the `from` date. Both parameters are required — omitting either returns a `422` error.
 </Note>
 
+## Built-in meters
+
+Sailia automatically records usage entries for certain platform events. These meters appear in your usage summaries alongside any custom meters you define — no additional setup is required.
+
+| Meter | Trigger | Extra info |
+| --- | --- | --- |
+| `order-completed` | A customer completes a purchase and payment succeeds | `BasketID` — the ID of the completed basket |
+| `waitlist-notified` | A waitlist notification email is sent to a customer | `WaitlistID`, `MultiBookingID` — identifiers for the waitlist entry and booking |
+
+### Example summary with built-in meters
+
+When you query usage for a date range, built-in meters are included in the response:
+
+```json
+{
+  "data": {
+    "Period": {
+      "From": "2026-03-01",
+      "To": "2026-03-31"
+    },
+    "Totals": {
+      "Usage": 85.0,
+      "Events": 85
+    },
+    "Meters": [
+      {
+        "Meter": "order-completed",
+        "TotalUsage": 72.0,
+        "EventCount": 72
+      },
+      {
+        "Meter": "waitlist-notified",
+        "TotalUsage": 13.0,
+        "EventCount": 13
+      }
+    ]
+  }
+}
+```
+
+<Note>
+  Built-in meter entries include an `ExtraInfo` field with a JSON-encoded payload containing contextual identifiers. You can use these to cross-reference events with other parts of the system.
+</Note>
+
 ## Error handling
 
 All error responses follow the standard problem detail format:
