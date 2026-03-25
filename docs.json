@@ -41,7 +41,8 @@
             "group": "Features",
             "pages": [
               "features/file-uploads",
-              "features/custom-pricing"
+              "features/custom-pricing",
+              "features/auto-timesheets"
             ]
           },
           {

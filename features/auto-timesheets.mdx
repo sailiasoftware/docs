@@ -1,0 +1,58 @@
+---
+title: "Auto timesheets"
+description: "Automatically generate daily timesheet entries from a staff member's scheduled bookings"
+---
+
+Auto timesheets save time by automatically creating timesheet entries for staff members based on their scheduled bookings. Instead of manually logging hours each day, the system generates timesheet items that reflect what the staff member was assigned to work on.
+
+## How it works
+
+When auto timesheets are enabled for a staff member, a daily process runs that:
+
+1. Looks up all bookings the staff member is assigned to for the current day — including courses, hire sessions, and events
+2. Calculates the working period for each booking, including any setup and pack-down time
+3. Creates timesheet entries automatically using the staff member's configured pay rate
+
+Each generated timesheet entry records the start time, duration, pay rate, and location. If a rate amendment exists for a specific booking, that rate is used instead of the default.
+
+<Note>
+  Auto-generated timesheet entries are skipped if they overlap with an existing timesheet item. This prevents duplicates if you've already logged time manually.
+</Note>
+
+## Enable auto timesheets for a staff member
+
+You can enable auto timesheets when creating a new staff member.
+
+### When creating a new staff member
+
+1. Open the staff dashboard
+2. Click the button to create a new staff member
+3. Fill in the staff member's name, email, and other details
+4. Set **Auto Timesheet** to **Yes**
+5. Submit the form
+
+The **Auto Timesheet** dropdown defaults to **No**. Setting it to **Yes** means timesheets are generated daily from that point forward.
+
+## Auto-fill timesheets on demand
+
+You can also trigger auto-fill for a specific staff member and date range without waiting for the daily process. This is useful for backfilling timesheets or generating entries for a specific period.
+
+Provide the staff member's ID and a start date (and optionally an end date) to generate timesheet items for all scheduled bookings in that range.
+
+<Warning>
+  Auto-generated entries that overlap with existing timesheet items are skipped. If some entries cannot be added due to overlaps, they are returned separately so you can review them.
+</Warning>
+
+## What gets included
+
+Auto timesheets pull from the staff member's full schedule for the day:
+
+- **Courses** they are assigned to instruct
+- **Hire sessions** they are staffing
+- **Events** they are scheduled to work
+
+Setup and pack-down time configured on each booking is included in the timesheet entry duration.
+
+## Pay rates
+
+Each auto-generated timesheet entry uses the staff member's pay rate for that date. If a specific rate amendment has been set for a particular booking, the amendment takes precedence over the default rate.
