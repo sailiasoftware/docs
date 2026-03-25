@@ -1,0 +1,85 @@
+---
+title: Memberships and activity passes
+description: Offer recurring memberships and prepaid activity pass bundles to your customers.
+---
+
+Memberships and activity passes give customers flexible ways to pay for your activities beyond one-off bookings. Memberships provide ongoing access with recurring billing, while activity passes let customers prepay for a bundle of sessions.
+
+## Memberships
+
+Memberships are recurring subscription plans that give customers access to benefits like discounted bookings, exclusive activities, or automatic discounts at checkout.
+
+### Create a membership plan
+
+<Steps>
+  <Step title="Open memberships">
+    Navigate to your memberships section and select **Create Membership**.
+  </Step>
+  <Step title="Set the plan details">
+    Enter the membership name, description, and recurring price. Choose a billing interval (monthly, quarterly, or yearly).
+  </Step>
+  <Step title="Add benefits">
+    Define what members receive. This typically includes a [membership discount](/booking-and-sales/discount-codes#membership-discounts) that auto-applies at checkout.
+  </Step>
+  <Step title="Publish">
+    Make the membership available on your booking page for customers to sign up.
+  </Step>
+</Steps>
+
+### Membership discounts
+
+When you link a [discount code](/booking-and-sales/discount-codes#membership-discounts) to a membership, it is automatically applied whenever the member checks out. Membership discounts are always auto-applied and stackable, so members can combine their membership benefit with other promotional codes.
+
+You can configure how long the associated Stripe coupon lasts:
+
+- **Forever** — the discount applies for the entire membership duration
+- **Time-limited** — the discount applies for a specified number of months
+
+### Billing
+
+Memberships are billed through Stripe. When a customer signs up:
+
+1. A Stripe subscription is created with the configured billing interval.
+2. Payments are collected automatically on each billing cycle.
+3. If a payment fails, Stripe's retry logic attempts to collect again.
+
+## Activity passes
+
+Activity passes are prepaid bundles that give customers a set number of sessions to use over time. They are ideal for regular attendees who want a better per-session price.
+
+### Create an activity pass
+
+<Steps>
+  <Step title="Open activity passes">
+    Navigate to your activity passes section and select **Create Pass**.
+  </Step>
+  <Step title="Configure the pass">
+    Set the pass name, number of sessions included, and the price. Optionally set an expiry period.
+  </Step>
+  <Step title="Link to activities">
+    Choose which activities the pass can be redeemed against.
+  </Step>
+</Steps>
+
+### Redeeming a pass
+
+When a customer with an active pass books an eligible activity, they can apply the pass at checkout instead of paying the full price. Each booking deducts one session from the pass balance.
+
+## Accounting
+
+If you use [Xero accounting sync](/integrations/accounting-sync), assign accounting categories to your membership plans and activity passes. This ensures revenue is categorized correctly on Xero invoices.
+
+## Discounts
+
+Both memberships and activity passes are eligible for [discount codes](/booking-and-sales/discount-codes). When creating a discount, enable **Memberships** or **Activity passes** under product eligibility to allow the discount to apply.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Discount codes" icon="tag" href="/booking-and-sales/discount-codes">
+    Create discounts for memberships and passes.
+  </Card>
+  <Card title="Payments" icon="credit-card" href="/payments/stripe">
+    How Stripe handles membership billing.
+  </Card>
+</Columns>

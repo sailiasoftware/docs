@@ -1,0 +1,55 @@
+---
+title: Waitlists
+description: Let customers join a waitlist when an activity session is fully booked.
+---
+
+When an activity session reaches capacity, waitlists give customers a way to register their interest and get notified if a spot opens up. This helps you capture demand you would otherwise lose and fill cancellations automatically.
+
+## How waitlists work
+
+1. A customer tries to book a session that is fully booked.
+2. They are offered the option to join the waitlist for that session.
+3. When a spot becomes available — due to a cancellation or capacity increase — Sailia sends a notification email to the next customer on the waitlist.
+4. The customer receives a link to complete their booking before the spot is released to others.
+
+<Note>
+  Waitlist notifications are tracked as `waitlist-notified` events in [meter usage tracking](/api-reference/meter-tracking#built-in-meters), so you can monitor notification volume.
+</Note>
+
+## Enable waitlists
+
+Waitlists are configured at the activity level. When editing an activity, enable the waitlist option to allow customers to register interest for fully booked sessions.
+
+## Managing the waitlist
+
+From the bookings dashboard, you can:
+
+- View the waitlist for any session, ordered by sign-up time
+- See whether a waitlisted customer has been notified
+- Manually remove a customer from the waitlist
+- Monitor how many customers are waiting for each session
+
+## Notifications
+
+When a spot opens up, Sailia automatically sends an email to the next customer on the list. The email includes:
+
+- The activity name and session date/time
+- A booking link to claim the spot
+- A deadline to complete the booking
+
+If the customer does not book within the deadline, the spot is offered to the next person on the waitlist.
+
+<Info>
+  If you have [workflows](/integrations/workflows) configured, you can customize the content and timing of waitlist notification emails.
+</Info>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/booking-and-sales/activities">
+    Set up activities and enable waitlists.
+  </Card>
+  <Card title="Online bookings" icon="globe" href="/booking-and-sales/online-bookings">
+    Learn how the booking flow works for customers.
+  </Card>
+</Columns>

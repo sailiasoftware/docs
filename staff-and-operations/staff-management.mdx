@@ -1,0 +1,70 @@
+---
+title: Staff management
+description: Add staff members, assign them to activities, and manage pay rates and permissions.
+---
+
+Sailia's staff management lets you create staff profiles, assign team members to activities, set pay rates, and control what each person can access. Staff see their upcoming shifts on their schedule, and you get structured data for payroll.
+
+## Add a staff member
+
+<Steps>
+  <Step title="Open the staff section">
+    Navigate to your staff dashboard and select **Create Staff Member**.
+  </Step>
+  <Step title="Enter their details">
+    Fill in the staff member's name, email, and date of birth.
+  </Step>
+  <Step title="Set a pay rate">
+    Define their default hourly or daily pay rate. This rate is used for [auto timesheet](/staff-and-operations/auto-timesheets) calculations unless overridden by a booking-specific rate.
+  </Step>
+  <Step title="Enable auto timesheets (optional)">
+    Toggle on **Auto Daily Timesheet** to have Sailia [generate timesheet entries](/staff-and-operations/auto-timesheets) automatically from their scheduled bookings.
+  </Step>
+  <Step title="Save">
+    Save the staff profile. The staff member can now be assigned to activities.
+  </Step>
+</Steps>
+
+## Assign staff to activities
+
+Once a staff member exists, assign them to specific [activities](/booking-and-sales/activities). Assigned staff:
+
+- Appear on the activity schedule
+- Are included in timesheet calculations for that activity
+- Receive schedule notifications (if enabled)
+
+You can assign multiple staff to a single activity session and assign the same staff member to multiple activities.
+
+## Pay rates
+
+Each staff member has a default pay rate that applies across all their assigned bookings. You can also set **rate amendments** on individual bookings to override the default rate.
+
+| Rate type | When it applies |
+| --- | --- |
+| **Default rate** | Used when no booking-specific rate exists |
+| **Rate amendment** | Overrides the default for a specific booking — useful for overtime, special events, or different activity types |
+
+Rate amendments are resolved per booking, so a single day's [auto timesheet](/staff-and-operations/auto-timesheets) can include entries at different rates if the staff member works on bookings with different rate amendments.
+
+## Permissions
+
+Control what each staff member can access in Sailia:
+
+- **POS access** — whether they can use the [point of sale](/booking-and-sales/point-of-sale)
+- **Dashboard access** — whether they can view bookings and customer data
+- **Admin access** — whether they can manage settings, products, and other staff
+
+<Tip>
+  Start with minimal permissions and add access as needed. You can update permissions at any time from the staff member's profile.
+</Tip>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Auto timesheets" icon="clock" href="/staff-and-operations/auto-timesheets">
+    Automatically generate timesheets from scheduled bookings.
+  </Card>
+  <Card title="Activities" icon="calendar" href="/booking-and-sales/activities">
+    Create activities and assign staff to them.
+  </Card>
+</Columns>
