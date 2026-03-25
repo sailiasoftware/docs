@@ -1,0 +1,73 @@
+---
+title: Automated workflows
+description: Set up automated email workflows triggered by booking events.
+---
+
+Workflows let you automate email communications based on events in Sailia. Instead of manually sending reminders, follow-ups, or thank-you messages, you configure triggers and let Sailia handle the rest.
+
+## How workflows work
+
+A workflow consists of:
+
+1. **A trigger** — the event that starts the workflow (for example, a booking confirmation or an activity date approaching)
+2. **A delay (optional)** — how long to wait after the trigger before sending
+3. **An email** — the message sent to the customer
+
+When the trigger fires, Sailia queues the email and sends it at the configured time.
+
+<Note>
+  Workflow emails are tracked as `workflow-email-sent` events in [meter usage tracking](/api-reference/meter-tracking#built-in-meters), so you can monitor how many automated emails are being sent.
+</Note>
+
+## Common workflow examples
+
+| Trigger | Use case |
+| --- | --- |
+| **Booking confirmed** | Send a welcome email with what to bring and where to meet |
+| **Activity starts soon** | Send a reminder 24 or 48 hours before the activity |
+| **Activity completed** | Send a thank-you email with a link to rebook or leave a review |
+| **Waiver incomplete** | Remind the customer to complete their [waiver](/booking-and-sales/waivers) before the activity |
+
+## Create a workflow
+
+<Steps>
+  <Step title="Open the workflows section">
+    Navigate to your workflows dashboard and select **Create Workflow**.
+  </Step>
+  <Step title="Choose a trigger">
+    Select the event that starts the workflow.
+  </Step>
+  <Step title="Set the timing">
+    Choose when the email should be sent — immediately after the trigger, or after a delay (for example, 24 hours before the activity).
+  </Step>
+  <Step title="Write the email">
+    Compose the email content. You can use merge fields to personalize the message with the customer's name, activity details, and booking information.
+  </Step>
+  <Step title="Activate">
+    Enable the workflow. It runs automatically for all future bookings that match the trigger.
+  </Step>
+</Steps>
+
+## Managing workflows
+
+From the workflows dashboard, you can:
+
+- **Enable or disable** a workflow without deleting it
+- **Edit** the email content or timing
+- **View send history** to see which customers received the email
+- **Monitor volume** through the `workflow-email-sent` [built-in meter](/api-reference/meter-tracking#built-in-meters)
+
+<Warning>
+  Disabling a workflow stops future emails from being sent but does not cancel emails already queued. If an email is scheduled to send in 24 hours and you disable the workflow now, that email may still be delivered.
+</Warning>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Waivers" icon="file-signature" href="/booking-and-sales/waivers">
+    Set up waivers and automate reminders for incomplete submissions.
+  </Card>
+  <Card title="Meter tracking" icon="chart-bar" href="/api-reference/meter-tracking">
+    Monitor workflow email volume through built-in meters.
+  </Card>
+</Columns>

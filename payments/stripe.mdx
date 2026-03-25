@@ -1,0 +1,74 @@
+---
+title: Payments and Stripe
+description: Process payments, manage refunds, and handle payouts with Stripe.
+---
+
+Sailia uses [Stripe](https://stripe.com) as its payment processor. All online and card-based POS transactions flow through your connected Stripe account, giving you a single place to manage charges, refunds, and payouts.
+
+## Connect Stripe
+
+Before you can accept payments, connect your Stripe account in your Sailia settings.
+
+<Steps>
+  <Step title="Open payment settings">
+    Navigate to your account settings and select the payments section.
+  </Step>
+  <Step title="Connect to Stripe">
+    Click **Connect to Stripe**. You are redirected to Stripe to authorize the connection. If you do not have a Stripe account, you can create one during this process.
+  </Step>
+  <Step title="Verify your account">
+    Complete Stripe's onboarding to verify your identity and bank details. Once verified, you can start accepting payments.
+  </Step>
+</Steps>
+
+<Warning>
+  Connecting Stripe is required before you can go live. Online bookings and card-based POS sales cannot be processed without an active Stripe connection.
+</Warning>
+
+## Payment methods
+
+| Method | Where it works | How it's processed |
+| --- | --- | --- |
+| **Card (online)** | Online booking page | Processed through Stripe checkout |
+| **Card (POS)** | Point of sale | Processed through Stripe terminal or manual card entry |
+| **Cash** | Point of sale only | Recorded in Sailia, not processed through Stripe |
+
+## Payouts
+
+Stripe sends payouts to your connected bank account on a regular schedule (typically daily or weekly, depending on your Stripe settings). Each payout includes the net amount after Stripe processing fees.
+
+In Sailia, you can view payout details in the finances section, including:
+
+- The gross amount collected
+- Stripe processing fees
+- The net payout amount
+- A breakdown of individual transactions included in the payout
+
+If you have [Xero accounting sync](/integrations/accounting-sync) enabled, each payout is automatically sent to Xero as a categorized invoice.
+
+## Refunds
+
+You can process refunds from the booking details in your dashboard:
+
+1. Open the booking you want to refund.
+2. Select **Refund** and choose the amount — full or partial.
+3. The refund is processed through Stripe and returned to the customer's original payment method.
+
+<Note>
+  Refunds typically take 5–10 business days to appear on the customer's statement, depending on their bank.
+</Note>
+
+## Fees
+
+Stripe charges a processing fee on each transaction. The fee is deducted from the payout before it reaches your bank account. If you use the [accounting sync](/integrations/accounting-sync), fees are mapped to a dedicated Xero account code for accurate bookkeeping.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Accounting sync" icon="arrows-rotate" href="/integrations/accounting-sync">
+    Sync payouts and fees to Xero automatically.
+  </Card>
+  <Card title="Point of sale" icon="cash-register" href="/booking-and-sales/point-of-sale">
+    Process in-person card and cash payments.
+  </Card>
+</Columns>

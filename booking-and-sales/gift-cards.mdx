@@ -1,0 +1,48 @@
+---
+title: Gift cards
+description: Sell and redeem gift cards for bookings and shop purchases.
+---
+
+Gift cards let customers purchase a stored-value card that can be redeemed against future bookings and shop purchases. They work both online and through the [point of sale](/booking-and-sales/point-of-sale).
+
+## How gift cards work
+
+1. A customer purchases a gift card for a specified value.
+2. They receive a unique gift card code by email.
+3. The recipient enters the code at checkout to apply the balance toward their purchase.
+4. If the order total is less than the card balance, the remaining value stays on the card for future use.
+
+## Selling gift cards
+
+Gift cards can be sold through your online booking page or the POS. When a customer purchases a gift card:
+
+- They choose the card value
+- Payment is processed through [Stripe](/payments/stripe)
+- A unique code is generated and sent to the buyer (or the recipient, if it is a gift)
+
+## Redeeming gift cards
+
+Customers enter their gift card code at checkout. The card balance is applied to the order total:
+
+- If the gift card covers the full amount, no additional payment is needed.
+- If the card balance is less than the order total, the customer pays the remaining amount by card or cash.
+- If the card balance exceeds the order total, the leftover stays on the card.
+
+<Note>
+  Gift cards can be combined with [discount codes](/booking-and-sales/discount-codes). The discount is applied first, and the gift card covers the remaining balance.
+</Note>
+
+## Accounting
+
+If you use [Xero accounting sync](/integrations/accounting-sync), gift card redemptions are mapped to a dedicated Xero account code. This is configured separately from your standard product categories — see the gift card mapping in your [accounting sync settings](/integrations/accounting-sync#map-categories-to-xero).
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Online bookings" icon="globe" href="/booking-and-sales/online-bookings">
+    How customers complete purchases with gift cards.
+  </Card>
+  <Card title="Accounting sync" icon="arrows-rotate" href="/integrations/accounting-sync">
+    How gift card redemptions are categorized in Xero.
+  </Card>
+</Columns>

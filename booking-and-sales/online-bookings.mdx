@@ -1,0 +1,82 @@
+---
+title: Online bookings
+description: Accept and manage customer bookings through your online booking page.
+---
+
+Your Sailia booking page is where customers browse activities, select sessions, and complete their purchase online. Every booking flows into a shared order system that tracks payment status, attendee details, and any add-ons.
+
+## How online booking works
+
+<Steps>
+  <Step title="Customer browses activities">
+    Customers visit your booking page and see all published activities with available dates, times, and prices.
+  </Step>
+  <Step title="Customer selects a session">
+    They choose a specific date and time slot. Sailia shows real-time availability so customers only see sessions with open spots.
+  </Step>
+  <Step title="Customer adds details">
+    They enter attendee information, select any [add-ons](/booking-and-sales/activities#add-ons), and complete any required [waivers](/booking-and-sales/waivers).
+  </Step>
+  <Step title="Customer completes payment">
+    Payment is processed through [Stripe](/payments/stripe). Once payment succeeds, the booking is confirmed and the customer receives a confirmation email.
+  </Step>
+</Steps>
+
+## Booking page
+
+Your booking page is automatically generated from your published activities. It includes:
+
+- **Activity listings** with descriptions, images, and pricing
+- **Calendar view** showing available dates and times
+- **Real-time availability** that updates as bookings are made
+- **Mobile-friendly layout** that works on any device
+
+<Tip>
+  Share your booking page link on your website, social media, and email campaigns to drive online reservations.
+</Tip>
+
+## Managing bookings
+
+All bookings — whether made online or through the [POS](/booking-and-sales/point-of-sale) — appear in your bookings dashboard. From here you can:
+
+- View booking details, attendee information, and payment status
+- Add or remove attendees from a session
+- Process refunds for cancelled bookings
+- Resend confirmation emails
+- Check attendee waiver completion status
+
+## Basket and checkout
+
+When a customer adds items to their basket, Sailia tracks the basket contents in real time. A single basket can contain:
+
+- Multiple activity bookings across different dates
+- [Shop products](/booking-and-sales/shop-products)
+- [Activity passes](/booking-and-sales/memberships-and-passes)
+- [Memberships](/booking-and-sales/memberships-and-passes)
+- Add-ons
+
+Customers can apply [discount codes](/booking-and-sales/discount-codes) at checkout. If a discount is set to [auto-apply](/booking-and-sales/discount-codes#create-a-discount-code), it is added automatically without entering a code.
+
+<Note>
+  [Gift cards](/booking-and-sales/gift-cards) can also be redeemed at checkout to cover part or all of the order total.
+</Note>
+
+## Confirmation and notifications
+
+After a successful booking:
+
+1. The customer receives a confirmation email with booking details.
+2. The booking appears in your dashboard with a **confirmed** status.
+3. Assigned staff see the booking on their schedule.
+4. If [workflows](/integrations/workflows) are configured, any automated follow-up emails are queued.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Point of sale" icon="cash-register" href="/booking-and-sales/point-of-sale">
+    Process walk-in bookings and sales in person.
+  </Card>
+  <Card title="Discount codes" icon="tag" href="/booking-and-sales/discount-codes">
+    Create promotions and special offers for your bookings.
+  </Card>
+</Columns>

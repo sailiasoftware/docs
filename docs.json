@@ -24,21 +24,37 @@
           {
             "group": "Booking and sales",
             "pages": [
+              "booking-and-sales/activities",
+              "booking-and-sales/online-bookings",
+              "booking-and-sales/point-of-sale",
+              "booking-and-sales/shop-products",
+              "booking-and-sales/memberships-and-passes",
+              "booking-and-sales/gift-cards",
               "booking-and-sales/discount-codes",
               "booking-and-sales/custom-pricing",
+              "booking-and-sales/waitlists",
+              "booking-and-sales/waivers",
               "booking-and-sales/file-uploads"
+            ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/stripe"
             ]
           },
           {
             "group": "Staff and operations",
             "pages": [
+              "staff-and-operations/staff-management",
               "staff-and-operations/auto-timesheets"
             ]
           },
           {
             "group": "Integrations",
             "pages": [
-              "integrations/accounting-sync"
+              "integrations/accounting-sync",
+              "integrations/workflows"
             ]
           }
         ]

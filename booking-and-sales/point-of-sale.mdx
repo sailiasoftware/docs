@@ -1,0 +1,65 @@
+---
+title: Point of sale
+description: Sell products, process walk-in bookings, and manage in-person transactions.
+---
+
+The Sailia point of sale (POS) lets you handle in-person transactions — from walk-in activity bookings to shop product sales. It runs in your browser and gives staff a fast way to add items, apply discounts, and take payment on the spot.
+
+## What you can do in the POS
+
+| Action | Description |
+| --- | --- |
+| **Book activities** | Create walk-in bookings for courses, hires, and events |
+| **Sell shop products** | Add physical or digital products to a basket |
+| **Apply discount codes** | Enter promotional codes or let auto-apply discounts take effect |
+| **Set custom prices** | Override the default price on products with [custom pricing](/booking-and-sales/custom-pricing) enabled |
+| **Redeem gift cards** | Accept [gift card](/booking-and-sales/gift-cards) payments |
+| **Process payments** | Take card payments through Stripe or record cash payments |
+
+## Processing a sale
+
+<Steps>
+  <Step title="Add items to the basket">
+    Tap activities or shop products to add them to the current basket. For items with [custom pricing](/booking-and-sales/custom-pricing), a keypad appears to enter the price.
+  </Step>
+  <Step title="Apply discounts (optional)">
+    Enter a discount code or let auto-apply discounts take effect. You can also apply [membership discounts](/booking-and-sales/discount-codes#membership-discounts) if the customer is a member.
+  </Step>
+  <Step title="Collect attendee details">
+    For activity bookings, enter the attendee name and any required information. Link the booking to an existing customer account if available.
+  </Step>
+  <Step title="Take payment">
+    Choose a payment method — card (via Stripe) or cash. For card payments, process the transaction through your connected card reader or by entering card details manually.
+  </Step>
+</Steps>
+
+## Cash payments
+
+Cash payments are recorded separately from card payments. When you record a cash sale:
+
+- The order is marked as paid with a **cash** payment method
+- The payout appears in your finances under cash payouts
+- If [accounting sync](/integrations/accounting-sync) is enabled, cash payouts are sent to the **Sailia Cash Clearing Account** in Xero
+
+## POS and inventory
+
+The POS shares real-time data with your online booking page. When you sell an activity session through the POS, available spots decrease immediately for online customers too. This prevents double-booking across sales channels.
+
+<Warning>
+  Capacity limits apply to POS sales the same way they do to online bookings. You cannot add a customer to a fully booked session through the POS.
+</Warning>
+
+## Permissions
+
+Any staff member with POS access can process sales. To configure which staff can access the POS, manage their permissions in the [staff settings](/staff-and-operations/staff-management).
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Custom pricing" icon="calculator" href="/booking-and-sales/custom-pricing">
+    Override product prices at the point of sale.
+  </Card>
+  <Card title="Shop products" icon="bag-shopping" href="/booking-and-sales/shop-products">
+    Set up products to sell through the POS and online.
+  </Card>
+</Columns>
