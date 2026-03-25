@@ -1,33 +1,45 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: API introduction
+description: Get started with the Sailia REST API.
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
-
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+The Sailia API gives you programmatic access to bookings, baskets, products, usage meters, and more. All endpoints are served over HTTPS and return JSON responses.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require a Bearer token in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  https://api.sailia.com/api/v2/usage/meters
+```
+
+Contact the Sailia team to obtain an API token for your account.
+
+## Base URL
+
+```
+https://api.sailia.com/api/v2
+```
+
+## Error format
+
+All error responses follow the [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) problem detail format:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "type": "https://sailia.dev/problems/validation",
+  "title": "Unprocessable Entity",
+  "status": 422,
+  "detail": "Meter is required",
+  "instance": "/api/v2/usage/meters"
+}
 ```
+
+## Available resources
+
+<Columns cols={2}>
+  <Card title="Meter usage tracking" icon="chart-bar" href="/api-reference/meter-tracking">
+    Record consumption events and query aggregated usage summaries.
+  </Card>
+</Columns>
