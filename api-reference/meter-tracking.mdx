@@ -1,6 +1,6 @@
 ---
-title: "Meter usage tracking"
-description: "Record and query metered usage events to monitor consumption across your account"
+title: Meter usage tracking
+description: Record and query metered usage events to monitor consumption across your account.
 ---
 
 Meter usage tracking lets you record consumption events against named meters and retrieve aggregated summaries over a date range. Use it to monitor resource usage, track billable activity, or build internal dashboards around any metric you define.
@@ -16,13 +16,13 @@ All timestamps are handled as Unix seconds. If you omit the timestamp when recor
 
 ## Record a usage entry
 
-To record usage, send a POST request to the meter usage endpoint with the following body:
+Send a POST request to the meter usage endpoint with the following body:
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| **Meter** | string | Yes | The name of the meter (e.g., `api-calls`, `sms-sent`, `storage-gb`) |
+| **Meter** | string | Yes | The name of the meter (e.g. `api-calls`, `sms-sent`, `storage-gb`) |
 | **Usage** | number | Yes | The usage amount — must be greater than 0 |
-| **ExtraInfo** | string | No | Optional metadata as a string (e.g., a JSON-encoded payload with additional context) |
+| **ExtraInfo** | string | No | Optional metadata as a string (e.g. a JSON-encoded payload with additional context) |
 | **OccurredAt** | integer | No | A Unix timestamp (seconds) for when the event occurred. Defaults to the current time if omitted |
 
 ```json
@@ -56,7 +56,7 @@ Validation errors return a `422` response with details about which fields failed
 
 ## Get a usage summary
 
-To retrieve aggregated usage, send a GET request to the meter usage endpoint with `from` and `to` query parameters in `YYYY-MM-DD` format:
+Send a GET request to the meter usage endpoint with `from` and `to` query parameters in `YYYY-MM-DD` format:
 
 ```
 GET /api/v2/usage/meters?from=2026-03-01&to=2026-03-31
@@ -122,8 +122,6 @@ Sailia automatically records usage entries for certain platform events. These me
 | `workflow-email-sent` | An automated workflow sends an email on your behalf | None |
 
 ### Example summary with built-in meters
-
-When you query usage for a date range, built-in meters are included in the response:
 
 ```json
 {

@@ -1,0 +1,178 @@
+---
+title: Discount codes
+description: Create and manage discount codes with usage limits, product restrictions, and tiered pricing.
+---
+
+Discount codes let you offer fixed-amount or percentage-based discounts on bookings, shop products, activity passes, memberships, and add-ons. You control how many times a code can be used, which products it applies to, and whether it stacks with other discounts.
+
+## Discount types
+
+| Type | Description |
+| --- | --- |
+| **Fixed** | A flat monetary amount off the price (e.g. £5 off) |
+| **Percentage** | A percentage off the price (e.g. 20% off) |
+
+Both types also support **tiered discounts**, where the discount amount changes based on the number of items booked. For example, you could offer £5 off for 3 or more bookings and £10 off for 5 or more. A discount code uses either a single flat amount or a tiered structure — not both.
+
+## Create a discount code
+
+When creating a discount code, you configure the following:
+
+| Setting | Description |
+| --- | --- |
+| **Code** | The text customers enter at checkout (e.g. `SUMMER20`). Not required for auto-applied discounts. |
+| **Type** | Fixed amount or percentage |
+| **Amount** | The discount value — a currency amount for fixed discounts, or a percentage for percentage discounts |
+| **Description** | An optional label shown to customers |
+| **Auto-apply** | When enabled, the discount is applied automatically without entering a code |
+| **Stackable** | When enabled, this discount can be combined with other discounts in the same basket |
+
+### Product eligibility
+
+Control which product types the discount applies to:
+
+- **Activities** — courses, hires, and other bookable activities
+- **Shop products** — items sold through your shop
+- **Add-ons** — optional extras added to bookings
+- **Activity passes** — prepaid pass bundles
+- **Memberships** — recurring membership plans
+
+You can further restrict a discount to specific items within each product type. For example, you could create a code that only applies to certain activities or specific shop products.
+
+## Usage limits
+
+Usage limits control how many times a discount code can be redeemed. Each item in a basket that receives the discount counts as one usage.
+
+<Warning>
+  Usage is counted **per item**, not per basket. A customer who applies a discount code to a basket with 3 activity passes uses **3** of the available limit — not 1.
+</Warning>
+
+### Limit types
+
+You can combine multiple limits on a single discount code:
+
+| Limit | Description |
+| --- | --- |
+| **Usage** | A global cap on total redemptions across all customers |
+| **Max usages per family** | The maximum number of times a single family or customer account can use the code |
+| **Purchase date** | The code can only be used on purchases made within a start and end date |
+| **Surge** | The code is only valid within a certain number of days before an activity starts |
+| **Early bird** | The code is only valid when booked at least a certain number of days before the activity starts |
+| **Activity date range** | The code only applies to activities that take place within a specified date range |
+| **Min clients** | A minimum number of clients must be registered on an activity |
+| **Same item quantity** | The basket must contain a minimum quantity of the same item |
+| **Total items quantity** | The basket must contain a minimum total number of items |
+| **Previous purchase** | The customer must have previously purchased the same activity |
+| **Activity combination** | All specified activities must be present in the basket |
+
+### Surge and early bird
+
+These limits both control when a discount can be used relative to an activity's start date, but in opposite directions:
+
+- **Surge** — valid only within a specified number of days *before* the activity starts. Use for last-minute deals to fill remaining spots.
+- **Early bird** — valid only when the booking is made *at least* a specified number of days before the activity starts. Use to reward advance bookings.
+
+For example, an early bird limit of 30 days means customers must book at least 30 days ahead. A surge limit of 7 days means the discount only applies in the final 7 days.
+
+<Note>
+  Both limits only apply to activity-based products (courses and hires). For non-activity products like shop items or memberships, the limit is ignored and the discount applies normally.
+</Note>
+
+### Activity date range
+
+Restrict a discount so it only applies to activities scheduled within a specific date window. Unlike the **purchase date** limit — which controls *when* the code can be used — the activity date range checks the actual date the activity takes place.
+
+You can configure the range in four modes:
+
+| Mode | Behavior |
+| --- | --- |
+| **On** | The activity must take place on a specific date |
+| **Before** | The activity must take place before a given date |
+| **After** | The activity must take place after a given date |
+| **Between** | The activity must take place within a start and end date |
+
+<Note>
+  The activity date range limit only applies to activity-based products. For non-activity products, the limit is ignored.
+</Note>
+
+### Activity combination
+
+Restrict a discount so it only applies when a customer's basket contains all of a specified set of activities. Use this for bundle promotions.
+
+For example, a 10% discount that requires both "Kayaking" and "Paddleboarding" in the same basket. If either is missing, the discount does not apply.
+
+To configure:
+
+1. Open the discount code and navigate to the activity redemption limits
+2. Add an **Activity combination** limit
+3. Select all the activities that must be present in the basket
+
+<Note>
+  The activity combination limit only applies to activity-based products and is not available for auto-apply discount codes.
+</Note>
+
+### How usage counting works
+
+When a customer checks out, each basket item that uses the discount increments the usage count by the item's quantity:
+
+- 1 swimming lesson using the discount = **1 usage**
+- 3 activity passes using the discount = **3 usages**
+- 2 different items each using the discount = **2 usages**
+
+This per-item counting applies to both the global usage limit and the per-family usage limit.
+
+<Info>
+  Usage counts are validated in real time as items are added to the basket, so customers see an error immediately if a code has reached its limit.
+</Info>
+
+### Partially applied discounts
+
+When a usage limit is close to being exhausted, the discount applies to as many items as the remaining limit allows rather than failing entirely.
+
+For example, if a code has a global limit of 10 and 8 are used, a customer adding 5 items receives the discount on **2 of the 5** — the remaining available usages.
+
+This works with both discount types:
+
+- **Fixed** — the per-item amount is applied only to the qualifying items.
+- **Percentage** — the percentage is prorated based on the number of qualifying items.
+
+Partial application recalculates automatically when item quantities change.
+
+<Note>
+  Partial application only affects usage-based limits (global and per-family). All other limit types are all-or-nothing: the discount either applies to every qualifying item or none.
+</Note>
+
+## Membership discounts
+
+Discount codes can be linked to a specific membership as a benefit. Membership-linked discounts are always auto-applied and stackable — members receive the discount automatically at checkout.
+
+For membership discounts, you can configure how long the associated Stripe coupon lasts:
+
+- **Forever** — the discount applies for the entire membership duration
+- **Time-limited** — the discount applies for a specified number of months
+
+## Stacking behavior
+
+When **stackable** is enabled, a discount code can be combined with other discounts in the same basket. When disabled, only one non-stackable discount can be applied at a time.
+
+Membership-linked discounts are always stackable, so members can combine their membership benefit with a promotional code (if that code is also stackable).
+
+## Filtering discounts
+
+The discounts table includes filter tabs to narrow the list by application type:
+
+| Tab | Shows |
+| --- | --- |
+| **All** | Every active discount code |
+| **Apply with code** | Discounts redeemed by entering a code at checkout |
+| **Auto-apply** | Discounts applied automatically without a code |
+
+Each tab displays a count of matching discounts.
+
+## Deactivating a discount code
+
+You can deactivate a discount code at any time. Deactivating a code:
+
+- Prevents it from being applied to new baskets
+- Cleans up any associated Stripe coupon (for membership discounts)
+- Does not affect baskets where the code was already applied

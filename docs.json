@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Sailia",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -17,63 +17,28 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started/overview",
+              "getting-started/setup-checklist"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Booking and sales",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "booking-and-sales/discount-codes",
+              "booking-and-sales/custom-pricing",
+              "booking-and-sales/file-uploads"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Staff and operations",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Features",
-            "pages": [
-              "features/file-uploads",
-              "features/custom-pricing"
-            ]
-          },
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/discount-codes"
-            ]
-          },
-          {
-            "group": "Usage",
-            "pages": [
-              "usage/meter-tracking"
-            ]
-          },
-          {
-            "group": "Staffing",
-            "pages": [
-              "staffing/auto-timesheets"
+              "staff-and-operations/auto-timesheets"
             ]
           },
           {
             "group": "Integrations",
             "pages": [
               "integrations/accounting-sync"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
             ]
           }
         ]
@@ -82,36 +47,22 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Overview",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Usage",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/meter-tracking"
             ]
           }
         ]
       }
     ],
     "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
+      "anchors": []
     }
   },
   "logo": {
@@ -122,32 +73,11 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@sailia.com"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "socials": {}
   }
 }

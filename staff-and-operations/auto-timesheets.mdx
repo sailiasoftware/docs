@@ -1,38 +1,44 @@
 ---
-title: "Auto daily timesheets"
-description: "Automatically generate timesheet entries from scheduled bookings for staff members"
+title: Auto daily timesheets
+description: Automatically generate timesheet entries from scheduled bookings for staff members.
 ---
 
 Auto daily timesheets remove the need for staff to manually log their hours. When enabled on a staff member, Sailia automatically creates timesheet entries each day based on the bookings they are assigned to — including courses, hires, and events.
 
 ## How it works
 
-Each day, Sailia checks for staff members with auto daily timesheets enabled and generates timesheet entries from their scheduled bookings for that day. The system:
+Each day, Sailia checks for staff members with auto daily timesheets enabled and generates timesheet entries from their scheduled bookings. The system:
 
-1. Looks up all bookings the staff member is assigned to for the current day
-2. Calculates the time range for each booking, including any setup and pack-down time
-3. Applies the correct pay rate — either a booking-specific rate amendment or the staff member's default rate for that date
-4. Merges overlapping time periods so there are no duplicate entries
-5. Adds the resulting timesheet items automatically
+1. Looks up all bookings the staff member is assigned to for the current day.
+2. Calculates the time range for each booking, including any setup and pack-down time.
+3. Applies the correct pay rate — either a booking-specific rate amendment or the staff member's default rate for that date.
+4. Merges overlapping time periods so there are no duplicate entries.
+5. Adds the resulting timesheet items automatically.
 
 <Note>
   If a booking has a specific rate amendment set for the staff member, that rate takes priority over their default pay rate.
 </Note>
 
-## Enable auto daily timesheets for a staff member
+## Enable auto daily timesheets
 
-You can enable auto daily timesheets when creating a new staff member.
-
-1. Go to the staff creation form
-2. Fill in the staff member's details (name, email, date of birth, etc.)
-3. Toggle **Auto Daily Timesheet** on
-4. Complete the staff member creation
-
-The setting is stored on the staff member's profile and applies going forward. Timesheet entries are generated daily for any day the staff member has scheduled bookings.
+<Steps>
+  <Step title="Open the staff creation form">
+    Go to the staff section and start creating a new staff member.
+  </Step>
+  <Step title="Fill in their details">
+    Enter the staff member's name, email, date of birth, and other required fields.
+  </Step>
+  <Step title="Toggle auto daily timesheets on">
+    Enable **Auto Daily Timesheet** in the staff profile.
+  </Step>
+  <Step title="Save">
+    Complete the staff member creation. Timesheet entries are generated daily from this point forward for any day the staff member has scheduled bookings.
+  </Step>
+</Steps>
 
 ## What gets included
 
-Auto-generated timesheet entries are based on the staff member's assigned bookings. The following are included:
+Auto-generated timesheet entries are based on the staff member's assigned bookings:
 
 | Booking type | Included |
 | --- | --- |
@@ -57,7 +63,7 @@ The auto-fill uses the same logic as the daily process — it pulls all assigned
 
 The system determines pay rates for auto-generated entries in this order:
 
-1. **Booking-specific rate amendment** — if a custom rate has been set for the staff member on a particular booking, that rate is used
-2. **Default daily rate** — if no amendment exists, the staff member's standard pay rate for that date applies
+1. **Booking-specific rate amendment** — if a custom rate has been set for the staff member on a particular booking, that rate is used.
+2. **Default daily rate** — if no amendment exists, the staff member's standard pay rate for that date applies.
 
 Pay rates are resolved per booking, so a single day's timesheet can include entries at different rates if the staff member is assigned to bookings with different rate amendments.

@@ -1,6 +1,6 @@
 ---
-title: "Accounting sync"
-description: "Automatically sync your Sailia payouts to Xero as categorized invoices"
+title: Xero accounting sync
+description: Automatically sync your Sailia payouts to Xero as categorized invoices.
 ---
 
 Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) and automatically creates invoices for each payout. Every invoice is categorized by VAT rate and account code, marked as paid, and includes a detailed CSV breakdown for reconciliation.
@@ -10,8 +10,6 @@ Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) 
 </Note>
 
 ## Prerequisites
-
-Before you can enable accounting sync, you need:
 
 - An active Xero organization
 - A Stripe-connected Sailia account with payouts enabled
@@ -42,15 +40,15 @@ Before you can enable accounting sync, you need:
   <Step title="Map categories to Xero">
     Map each accounting category to:
 
-    - A **Xero tax type** (e.g., `OUTPUT2` for 20% VAT)
-    - A **Xero account code** (e.g., a revenue account)
+    - A **Xero tax type** (e.g. `OUTPUT2` for 20% VAT)
+    - A **Xero account code** (e.g. a revenue account)
 
     You also need to configure two special mappings:
 
-    | Mapping type | Purpose |
+    | Mapping | Purpose |
     | --- | --- |
     | **Gift card** | The Xero account code for gift card redemptions |
-    | **Fee** | The Xero account code for processing fees (e.g., Stripe fees) |
+    | **Fee** | The Xero account code for processing fees (e.g. Stripe fees) |
 
     The setup status indicator shows whether all required mappings are complete.
   </Step>

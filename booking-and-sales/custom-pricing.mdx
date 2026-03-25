@@ -1,0 +1,85 @@
+---
+title: Custom pricing
+description: Allow POS operators to set custom prices on shop products at the point of sale.
+---
+
+Custom pricing lets you override the default price of a shop product when selling through the POS. This is useful for products where the price varies — items sold by weight, negotiated prices, or situational discounts that don't fit a standard discount code.
+
+## How it works
+
+When custom pricing is enabled on a shop product, POS operators see a price entry keypad before the item is added to the basket. The operator enters the price manually, and that price is used for the transaction instead of the product's default price.
+
+If custom pricing is not enabled, the product is added at its default price as usual.
+
+<Note>
+  Custom pricing only applies to shop products sold through the POS. It does not affect online checkout or other product types.
+</Note>
+
+## Enable custom pricing on a product
+
+You can enable custom pricing from the product details page or when editing a variant.
+
+### On the product
+
+<Steps>
+  <Step title="Open the product">
+    Open the shop product in the product dashboard.
+  </Step>
+  <Step title="Edit the default price">
+    Click **Default Price** in the product info list.
+  </Step>
+  <Step title="Toggle custom pricing">
+    Toggle **Allow Custom Pricing** on and click **Save**.
+  </Step>
+</Steps>
+
+The product info list shows the default price with a "(with custom pricing)" label when enabled.
+
+### On a variant
+
+<Steps>
+  <Step title="Select the variant">
+    Open the shop product and select the variant you want to edit.
+  </Step>
+  <Step title="Enable custom pricing">
+    Toggle **Allow Custom Pricing** on in the variant editor.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply the change.
+  </Step>
+</Steps>
+
+Each variant can have custom pricing enabled or disabled independently. In the POS variant selector, variants with custom pricing show "Custom Price" instead of a fixed price.
+
+## Using custom pricing in the POS
+
+When you tap a product or variant with custom pricing enabled in the POS:
+
+1. A keypad appears prompting you to enter the price.
+2. Type the price using the keypad or keyboard.
+3. Click **Add to Basket** to add the item at the entered price.
+
+The custom price must be greater than zero. If you enter zero or leave it blank, you see an error and the item is not added.
+
+<Warning>
+  Items with different custom prices are treated as separate line items in the basket, even if they are the same product. Adding the same product at two different custom prices creates two basket entries.
+</Warning>
+
+## Custom pricing and the basket API
+
+When adding a shop product to a basket programmatically, pass a `CustomPrice` field (in pence) alongside the standard `ShopProductID` and `Quantity` fields. The product must have custom pricing enabled — otherwise the request is rejected with an error.
+
+```json
+{
+  "ProductType": "SHOP_PRODUCT",
+  "ShopProductID": 123,
+  "Quantity": 1,
+  "CustomPrice": 1500
+}
+```
+
+In this example, the product is added at a custom price of £15.00 (1500 pence). The `CustomPrice` value must be greater than zero.
+
+## Permissions
+
+Custom pricing uses the same permissions as shop product management. Any user with access to edit shop products can enable or disable custom pricing. POS operators can set custom prices on enabled products when processing sales.
