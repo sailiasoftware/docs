@@ -57,6 +57,12 @@
             ]
           },
           {
+            "group": "Staffing",
+            "pages": [
+              "staffing/auto-timesheets"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               "integrations/accounting-sync"
