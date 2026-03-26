@@ -51,6 +51,7 @@
             "pages": [
               "customers/overview",
               "customers/notifications",
+              "customers/newsletter-forms",
               "booking-and-sales/waivers",
               "booking-and-sales/file-uploads"
             ]
