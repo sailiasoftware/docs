@@ -34,6 +34,7 @@
             "group": "Point of sale",
             "pages": [
               "booking-and-sales/point-of-sale",
+              "booking-and-sales/card-readers",
               "booking-and-sales/shop-products",
               "booking-and-sales/custom-pricing"
             ]
