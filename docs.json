@@ -50,9 +50,9 @@
             "group": "Customers",
             "pages": [
               "customers/overview",
+              "booking-and-sales/waivers",
               "customers/notifications",
               "customers/newsletter-forms",
-              "booking-and-sales/waivers",
               "booking-and-sales/file-uploads"
             ]
           },
@@ -73,7 +73,8 @@
             "group": "Integrations",
             "pages": [
               "integrations/accounting-sync",
-              "integrations/workflows"
+              "integrations/workflows",
+              "integrations/adventuro"
             ]
           }
         ]
