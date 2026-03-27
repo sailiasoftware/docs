@@ -1,0 +1,83 @@
+---
+title: Card readers
+description: Connect a Stripe card reader to accept in-person card payments at the point of sale.
+---
+
+Sailia integrates with [Stripe Terminal](https://stripe.com/terminal) to accept in-person card payments through physical card readers. Once connected, staff can process tap, chip, and swipe payments directly from the [point of sale](/booking-and-sales/point-of-sale).
+
+## Prerequisites
+
+Before setting up a card reader, make sure you have:
+
+- A connected [Stripe account](/payments/stripe)
+- At least one [location](/staff-and-operations/staff-management) configured in Sailia
+- A compatible Stripe Terminal card reader with its registration code
+
+## Register a card reader
+
+<Steps>
+  <Step title="Go to your location settings">
+    Open the location where you want to use the card reader.
+  </Step>
+  <Step title="Enter the reader details">
+    Provide a **name** for the reader (for example, "Front desk reader") and the **registration code** displayed on the reader device.
+  </Step>
+  <Step title="Save the reader">
+    Sailia registers the reader with Stripe and links it to your location. The reader appears in your terminal list and is ready to accept payments.
+  </Step>
+</Steps>
+
+<Note>
+  Each card reader is registered to a specific location. If you have multiple locations, register a reader at each one.
+</Note>
+
+## Remove a card reader
+
+You can remove a card reader from your location settings at any time. This deregisters the reader from Stripe and removes it from your terminal list.
+
+## Process a card payment
+
+Once a card reader is registered, you can use it to take payments at the [point of sale](/booking-and-sales/point-of-sale):
+
+<Steps>
+  <Step title="Build a basket">
+    Add items to the basket in the POS — activities, shop products, memberships, or any other product.
+  </Step>
+  <Step title="Select card payment">
+    Choose **Card** as the payment method. The POS sends the payment to your connected card reader.
+  </Step>
+  <Step title="Customer taps or inserts their card">
+    The card reader prompts the customer to present their card. The payment is processed through Stripe in real time.
+  </Step>
+  <Step title="Payment completes">
+    Once the card is authorized, the basket is marked as paid. A confirmation appears in the POS.
+  </Step>
+</Steps>
+
+## Cancel a card reader action
+
+If you need to cancel a payment in progress — for example, if the customer wants to change their order — you can clear the card reader from the POS. This cancels the pending transaction and returns the reader to its idle state.
+
+## Send a payment link by email
+
+If the card reader is unavailable or the customer wants to pay later, you can send a payment link by email directly from the POS. The customer receives a link to complete the payment online through Stripe checkout.
+
+## Troubleshooting
+
+| Issue | What to do |
+| --- | --- |
+| **Reader offline** | Check that the reader is powered on and connected to the internet. Stripe Terminal readers require a network connection to process payments. |
+| **Reader busy** | The reader is processing another transaction. Wait for it to finish or cancel the current action. |
+| **Invalid registration code** | Double-check the code displayed on the reader. Registration codes expire after a short period — restart the reader to generate a new one. |
+| **Payment already completed** | The payment was processed successfully before the POS received confirmation. Check your Stripe dashboard to verify the transaction. |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Point of sale" icon="cash-register" href="/booking-and-sales/point-of-sale">
+    Process in-person sales and manage till shifts.
+  </Card>
+  <Card title="Payments and Stripe" icon="stripe" href="/payments/stripe">
+    Connect Stripe and manage payouts.
+  </Card>
+</Columns>

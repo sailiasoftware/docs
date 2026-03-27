@@ -14,7 +14,17 @@ The Sailia point of sale (POS) lets you handle in-person transactions — from w
 | **Apply discount codes** | Enter promotional codes or let auto-apply discounts take effect |
 | **Set custom prices** | Override the default price on products with [custom pricing](/booking-and-sales/custom-pricing) enabled |
 | **Redeem gift cards** | Accept [gift card](/booking-and-sales/gift-cards) payments |
-| **Process payments** | Take card payments through Stripe or record cash payments |
+| **Process payments** | Take card payments through a [card reader](/booking-and-sales/card-readers), record cash, or send a payment link by email |
+
+## POS terminals
+
+A POS terminal is a virtual workstation that your staff use to process sales. Each terminal can be assigned to a specific location and linked to a physical card reader.
+
+- The first terminal is created automatically — additional terminals require the **Manage POS** permission.
+- You can activate or deactivate terminals without deleting them.
+- Each terminal has its own grid layout, so you can customise the product tiles shown to staff at different locations.
+
+To connect a physical Stripe card reader to your terminal, see the [card readers](/booking-and-sales/card-readers) guide.
 
 ## Processing a sale
 
@@ -29,9 +39,59 @@ The Sailia point of sale (POS) lets you handle in-person transactions — from w
     For activity bookings, enter the attendee name and any required information. Link the booking to an existing customer account if available.
   </Step>
   <Step title="Take payment">
-    Choose a payment method — card (via Stripe) or cash. For card payments, process the transaction through your connected card reader or by entering card details manually.
+    Choose a payment method — card, cash, invoice, or other. See [payment methods](#payment-methods) below.
   </Step>
 </Steps>
+
+## Payment methods
+
+The POS supports four payment methods. The method you choose determines how the transaction is recorded and settled.
+
+| Method | How it works |
+| --- | --- |
+| **Card** | Charges the customer through a connected Stripe [card reader](/booking-and-sales/card-readers). The payment is processed in real time and appears in your Stripe dashboard. |
+| **Cash** | Records the sale as a cash payment. Requires an open [till shift](#till-shifts). |
+| **Invoice** | Generates an invoice for the customer. The basket stays pending until the invoice is paid. You can set a due date (defaults to 30 days) and add a payment reference. |
+| **Other** | Records the payment as received through an external method. The basket is completed immediately. Use this for bank transfers or any method not listed above. |
+
+You can also email a payment link to the customer directly from the POS. The customer receives a link to complete the payment online.
+
+## Till shifts
+
+A till shift tracks cash transactions for a POS terminal during a period of time — typically a single day or staff shift. Opening a shift is required before you can accept cash payments.
+
+### Open a shift
+
+<Steps>
+  <Step title="Select a terminal">
+    Choose the POS terminal you are working on.
+  </Step>
+  <Step title="Enter the opening cash amount">
+    Count the cash in the drawer and enter the amount. This becomes your starting balance.
+  </Step>
+  <Step title="Add a note (optional)">
+    Record any details about the shift — for example, the staff member opening the till.
+  </Step>
+</Steps>
+
+Only one shift can be open per terminal at a time. If a shift is already open, you must close it before starting a new one.
+
+### Close a shift
+
+When you close a shift, count the cash in the drawer and enter the amount. Sailia calculates the expected cash total based on the opening amount plus all cash received and refunded during the shift.
+
+If the closing amount does not match the expected amount, the difference is flagged as a variance — useful for identifying discrepancies.
+
+### Shift statistics
+
+While a shift is open, you can view:
+
+- **Cash received** — total cash taken during the shift
+- **Cash refunded** — total cash refunds issued
+- **Expected cash** — opening amount plus net cash transactions
+- **Transaction count** — number of transactions in the shift
+
+After closing, you can view a full list of balance transactions for the shift, including the transaction type, amount, fees, and net total.
 
 ## Cash payments
 
@@ -53,6 +113,19 @@ The POS shares real-time data with your online booking page. When you sell an ac
 
 The POS uses a tile grid to give staff quick access to products, activities, memberships, activity passes, gift cards, and discount codes. You can organise tiles into folders and customise how each tile appears.
 
+### Tile types
+
+| Type | Description |
+| --- | --- |
+| **Shop product** | Links to a specific shop product |
+| **Activity** | Links to an activity or session |
+| **Membership** | Links to a membership |
+| **Activity pass** | Links to an activity pass |
+| **Gift card** | Adds a gift card to the basket |
+| **Discount code** | Applies a specific discount code |
+| **Folder** | Groups related tiles together |
+| **Category** | Shortcut to a product category (Activities, Shop items, Memberships, Activity passes, or Gift cards) |
+
 ### Live product names
 
 Tile names update automatically when you rename the underlying product, activity, membership, or activity pass. You don't need to edit POS tiles after renaming an item elsewhere in Sailia.
@@ -69,17 +142,34 @@ You can set a custom title on any tile to override the default product name. Cus
 
 Group related tiles into folders to keep the grid organised. When you delete a folder, all tiles inside it are removed at the same time.
 
+### Duplicate a layout
+
+If you manage multiple POS terminals, you can copy the grid layout from one terminal to another. This replaces all tiles on the target terminal with a copy of the source terminal's layout, including folder structure.
+
+Duplicating a layout requires the **Manage POS** permission.
+
 ## Permissions
 
 Any staff member with POS access can process sales. To configure which staff can access the POS, manage their permissions in the [staff settings](/staff-and-operations/staff-management).
 
+The **Manage POS** permission is required to:
+
+- Create additional POS terminals
+- Duplicate grid layouts between terminals
+
 ## Related guides
 
 <Columns cols={2}>
+  <Card title="Card readers" icon="credit-card" href="/booking-and-sales/card-readers">
+    Set up a Stripe card reader for in-person payments.
+  </Card>
   <Card title="Custom pricing" icon="calculator" href="/booking-and-sales/custom-pricing">
     Override product prices at the point of sale.
   </Card>
   <Card title="Shop products" icon="bag-shopping" href="/booking-and-sales/shop-products">
     Set up products to sell through the POS and online.
+  </Card>
+  <Card title="Payments and Stripe" icon="stripe" href="/payments/stripe">
+    Connect Stripe and manage payouts.
   </Card>
 </Columns>
