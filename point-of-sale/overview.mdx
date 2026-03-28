@@ -12,9 +12,9 @@ The Sailia point of sale (POS) lets you handle in-person transactions — from w
 | **Book activities** | Create walk-in bookings for courses, hires, and events |
 | **Sell shop products** | Add physical or digital products to a basket |
 | **Apply discount codes** | Enter promotional codes or let auto-apply discounts take effect |
-| **Set custom prices** | Override the default price on products with [custom pricing](/booking-and-sales/custom-pricing) enabled |
-| **Redeem gift cards** | Accept [gift card](/booking-and-sales/gift-cards) payments |
-| **Process payments** | Take card payments through a [card reader](/booking-and-sales/card-readers), record cash, or send a payment link by email |
+| **Set custom prices** | Override the default price on products with [custom pricing](/point-of-sale/custom-pricing) enabled |
+| **Redeem gift cards** | Accept [gift card](/pricing/gift-cards) payments |
+| **Process payments** | Take card payments through a [card reader](/point-of-sale/card-readers), record cash, or send a payment link by email |
 
 ## POS terminals
 
@@ -24,16 +24,16 @@ A POS terminal is a virtual workstation that your staff use to process sales. Ea
 - You can activate or deactivate terminals without deleting them.
 - Each terminal has its own grid layout, so you can customise the product tiles shown to staff at different locations.
 
-To connect a physical Stripe card reader to your terminal, see the [card readers](/booking-and-sales/card-readers) guide.
+To connect a physical Stripe card reader to your terminal, see the [card readers](/point-of-sale/card-readers) guide.
 
 ## Processing a sale
 
 <Steps>
   <Step title="Add items to the basket">
-    Tap activities or shop products to add them to the current basket. For items with [custom pricing](/booking-and-sales/custom-pricing), a keypad appears to enter the price.
+    Tap activities or shop products to add them to the current basket. For items with [custom pricing](/point-of-sale/custom-pricing), a keypad appears to enter the price.
   </Step>
   <Step title="Apply discounts (optional)">
-    Enter a discount code or let auto-apply discounts take effect. You can also apply [membership discounts](/booking-and-sales/discount-codes#membership-discounts) if the customer is a member.
+    Enter a discount code or let auto-apply discounts take effect. You can also apply [membership discounts](/pricing/discount-codes#membership-discounts) if the customer is a member.
   </Step>
   <Step title="Collect attendee details">
     For activity bookings, enter the attendee name and any required information. Link the booking to an existing customer account if available.
@@ -49,7 +49,7 @@ The POS supports four payment methods. The method you choose determines how the 
 
 | Method | How it works |
 | --- | --- |
-| **Card** | Charges the customer through a connected Stripe [card reader](/booking-and-sales/card-readers). The payment is processed in real time and appears in your Stripe dashboard. |
+| **Card** | Charges the customer through a connected Stripe [card reader](/point-of-sale/card-readers). The payment is processed in real time and appears in your Stripe dashboard. |
 | **Cash** | Records the sale as a cash payment. Requires an open [till shift](#till-shifts). |
 | **Invoice** | Generates an invoice for the customer. The basket stays pending until the invoice is paid. You can set a due date (defaults to 30 days) and add a payment reference. |
 | **Other** | Records the payment as received through an external method. The basket is completed immediately. Use this for bank transfers or any method not listed above. |
@@ -150,7 +150,7 @@ Duplicating a layout requires the **Manage POS** permission.
 
 ## Permissions
 
-Any staff member with POS access can process sales. To configure which staff can access the POS, manage their permissions in the [staff settings](/staff-and-operations/staff-management).
+Any staff member with POS access can process sales. To configure which staff can access the POS, manage their permissions in the [staff settings](/staff/management).
 
 The **Manage POS** permission is required to:
 
@@ -160,13 +160,13 @@ The **Manage POS** permission is required to:
 ## Related guides
 
 <Columns cols={2}>
-  <Card title="Card readers" icon="credit-card" href="/booking-and-sales/card-readers">
+  <Card title="Card readers" icon="credit-card" href="/point-of-sale/card-readers">
     Set up a Stripe card reader for in-person payments.
   </Card>
-  <Card title="Custom pricing" icon="calculator" href="/booking-and-sales/custom-pricing">
+  <Card title="Custom pricing" icon="calculator" href="/point-of-sale/custom-pricing">
     Override product prices at the point of sale.
   </Card>
-  <Card title="Shop products" icon="bag-shopping" href="/booking-and-sales/shop-products">
+  <Card title="Shop products" icon="bag-shopping" href="/point-of-sale/shop-products">
     Set up products to sell through the POS and online.
   </Card>
   <Card title="Payments and Stripe" icon="stripe" href="/payments/stripe">
