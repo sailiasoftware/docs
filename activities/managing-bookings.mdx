@@ -3,7 +3,7 @@ title: Managing bookings
 description: View, edit, and manage customer bookings across all sales channels.
 ---
 
-All bookings — whether made online, through the [point of sale](/booking-and-sales/point-of-sale), via the [Adventuro](/integrations/adventuro) marketplace, or the API — flow into a single bookings dashboard. From here you can track every reservation, update attendee details, process cancellations, and monitor payment status.
+All bookings — whether made online, through the [point of sale](/point-of-sale/overview), via the [Adventuro](/integrations/adventuro) marketplace, or the API — flow into a single bookings dashboard. From here you can track every reservation, update attendee details, process cancellations, and monitor payment status.
 
 ## Bookings dashboard
 
@@ -27,8 +27,8 @@ Open any booking to see the full details:
 | **Attendees** | Names and details of all participants |
 | **Payment** | Payment method, amount, and status |
 | **Add-ons** | Any optional extras included in the booking |
-| **Waivers** | Completion status of any required [waivers](/booking-and-sales/waivers) |
-| **Discount** | Any [discount codes](/booking-and-sales/discount-codes) or [membership discounts](/booking-and-sales/memberships-and-passes) applied |
+| **Waivers** | Completion status of any required [waivers](/customers/waivers) |
+| **Discount** | Any [discount codes](/pricing/discount-codes) or [membership discounts](/pricing/memberships-and-passes) applied |
 
 ## Edit a booking
 
@@ -52,7 +52,7 @@ To cancel a booking:
 3. Choose whether to process a [refund](/payments/stripe#refunds) — full, partial, or none.
 4. Confirm the cancellation.
 
-Cancelled bookings free up the session capacity immediately. If a [waitlist](/booking-and-sales/waitlists) exists for the session, the next customer is notified automatically.
+Cancelled bookings free up the session capacity immediately. If a [waitlist](/activities/waitlists) exists for the session, the next customer is notified automatically.
 
 ## Resend confirmation emails
 
@@ -64,15 +64,15 @@ Each booking is tagged with its source so you can understand where your reservat
 
 | Source | Description |
 | --- | --- |
-| **Online** | Booked through your [online booking page](/booking-and-sales/online-bookings) |
-| **POS** | Created through the [point of sale](/booking-and-sales/point-of-sale) |
+| **Online** | Booked through your [online booking page](/activities/online-bookings) |
+| **POS** | Created through the [point of sale](/point-of-sale/overview) |
 | **Adventuro** | Booked through the [Adventuro](/integrations/adventuro) marketplace |
 | **API** | Created programmatically through the [Sailia API](/api-reference/introduction) |
 
 ## Related guides
 
 <Columns cols={2}>
-  <Card title="Online bookings" icon="globe" href="/booking-and-sales/online-bookings">
+  <Card title="Online bookings" icon="globe" href="/activities/online-bookings">
     How customers book through your online booking page.
   </Card>
   <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">

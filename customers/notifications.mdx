@@ -13,9 +13,9 @@ These emails are sent by Sailia without any setup required:
 | --- | --- |
 | **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address |
 | **Refund notification** | When a [refund](/payments/stripe#refunds) is processed for a booking |
-| **Gift card delivery** | When a customer purchases a [gift card](/booking-and-sales/gift-cards) — sent to the buyer or recipient |
-| **Waitlist notification** | When a spot opens up on a [waitlisted](/booking-and-sales/waitlists) session |
-| **Membership renewal** | When a [membership](/booking-and-sales/memberships-and-passes) payment is processed or fails |
+| **Gift card delivery** | When a customer purchases a [gift card](/pricing/gift-cards) — sent to the buyer or recipient |
+| **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session |
+| **Membership renewal** | When a [membership](/pricing/memberships-and-passes) payment is processed or fails |
 
 ## Custom workflow emails
 
@@ -23,7 +23,7 @@ For emails beyond the built-in set, use [automated workflows](/integrations/work
 
 - **Pre-activity reminders** — send a reminder 24 or 48 hours before the session
 - **Post-activity follow-ups** — send a thank-you email with a link to rebook
-- **Waiver reminders** — remind customers to complete their [waiver](/booking-and-sales/waivers) before the activity
+- **Waiver reminders** — remind customers to complete their [waiver](/customers/waivers) before the activity
 - **Promotional messages** — send targeted emails based on booking patterns
 
 Workflow emails support merge fields to personalize content with the customer's name, activity details, and booking information.
@@ -35,13 +35,13 @@ Sailia tracks automated emails through [meter usage tracking](/api-reference/met
 | Meter | What it tracks |
 | --- | --- |
 | `workflow-email-sent` | Emails sent by [workflows](/integrations/workflows) |
-| `waitlist-notified` | [Waitlist](/booking-and-sales/waitlists) notification emails |
+| `waitlist-notified` | [Waitlist](/activities/waitlists) notification emails |
 
 Use the meter usage API to monitor email volume and ensure your workflows are performing as expected.
 
 ## Resending emails
 
-You can resend booking confirmation emails from the [booking details](/booking-and-sales/managing-bookings) at any time. This is useful when:
+You can resend booking confirmation emails from the [booking details](/activities/managing-bookings) at any time. This is useful when:
 
 - A customer did not receive the original email
 - The customer needs the details forwarded to another address
@@ -57,7 +57,7 @@ You can resend booking confirmation emails from the [booking details](/booking-a
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
     Set up custom email workflows triggered by booking events.
   </Card>
-  <Card title="Managing bookings" icon="calendar-check" href="/booking-and-sales/managing-bookings">
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
     View and manage bookings, including resending confirmations.
   </Card>
 </Columns>
