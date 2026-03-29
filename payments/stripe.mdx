@@ -1,6 +1,7 @@
 ---
 title: Payments and Stripe
 description: Process payments, manage refunds, and handle payouts with Stripe.
+keywords: ['payments', 'Stripe', 'refunds', 'payouts', 'card payments', 'payment processing', 'fees']
 ---
 
 Sailia uses [Stripe](https://stripe.com) as its payment processor. All online and card-based POS transactions flow through your connected Stripe account, giving you a single place to manage charges, refunds, and payouts.
@@ -61,6 +62,26 @@ You can process refunds from the booking details in your dashboard:
 ## Fees
 
 Stripe charges a processing fee on each transaction. The fee is deducted from the payout before it reaches your bank account. If you use the [accounting sync](/integrations/accounting-sync), fees are mapped to a dedicated Xero account code for accurate bookkeeping.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Payment failed at checkout">
+    Ask the customer to check their card details and try again. Common causes include insufficient funds, expired cards, or bank-side fraud blocks. If the issue persists, the customer should contact their bank.
+  </Accordion>
+
+  <Accordion title="Refund not appearing on customer's statement">
+    Refunds typically take 5-10 business days to appear. Check the Stripe dashboard to confirm the refund was processed. If it shows as successful in Stripe, advise the customer to wait or contact their bank.
+  </Accordion>
+
+  <Accordion title="Payout not received">
+    Verify your bank account details in Stripe. Payouts follow Stripe's schedule (typically daily or weekly). Check the Stripe dashboard for any holds or failed payout notifications.
+  </Accordion>
+
+  <Accordion title="Stripe account not connected">
+    Navigate to your payment settings and click **Connect to Stripe**. If you previously disconnected, you may need to re-authorize. Ensure your Stripe account has completed identity verification.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 

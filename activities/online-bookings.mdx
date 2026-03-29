@@ -1,6 +1,7 @@
 ---
 title: Online bookings
 description: Accept and manage customer bookings through your online booking page.
+keywords: ['online bookings', 'booking page', 'checkout', 'basket', 'reservations', 'availability']
 ---
 
 Your Sailia booking page is where customers browse activities, select sessions, and complete their purchase online. Every booking flows into a shared order system that tracks payment status, attendee details, and any add-ons.
@@ -69,6 +70,26 @@ After a successful booking:
 2. The booking appears in your dashboard with a **confirmed** status.
 3. Assigned staff see the booking on their schedule.
 4. If [workflows](/integrations/workflows) are configured, any automated follow-up emails are queued.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer cannot see available sessions">
+    Check that the activity is published and has future sessions with remaining capacity. Unpublished activities and sessions with zero availability do not appear on the booking page.
+  </Accordion>
+
+  <Accordion title="Booking page not loading">
+    Verify your booking page link is correct. If you recently made changes to your account, allow a few minutes for updates to propagate. Try clearing the browser cache or opening the link in an incognito window.
+  </Accordion>
+
+  <Accordion title="Discount code not working at checkout">
+    Confirm the code is active, has not exceeded its usage limit, and applies to the products in the basket. Check the [discount code settings](/pricing/discount-codes) for date restrictions, product eligibility, and other limits.
+  </Accordion>
+
+  <Accordion title="Customer did not receive a confirmation email">
+    Verify the email address on the booking is correct. The customer should check their spam folder. You can resend the confirmation from the [booking details](/activities/managing-bookings).
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
