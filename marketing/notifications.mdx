@@ -1,6 +1,7 @@
 ---
 title: Notifications and emails
 description: Understand the emails Sailia sends to your customers and how to customize them.
+keywords: ['email', 'notifications', 'booking confirmation', 'refund email', 'waitlist notification', 'membership renewal']
 ---
 
 Sailia sends automated emails to keep customers informed about their bookings. These range from booking confirmations to waitlist notifications and workflow-triggered messages.
@@ -50,6 +51,22 @@ You can resend booking confirmation emails from the [booking details](/activitie
 <Note>
   Resending a confirmation sends the same email template with the current booking details. If the booking has been modified since the original confirmation, the resent email reflects the latest information.
 </Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer did not receive a booking confirmation">
+    Check that the customer's email address is correct in the booking details. You can resend the confirmation from the booking dashboard. Also ask the customer to check their spam or junk folder.
+  </Accordion>
+
+  <Accordion title="Workflow emails are not being sent">
+    Verify that the workflow is enabled in your workflows dashboard. Check the `workflow-email-sent` [meter](/api-reference/meter-tracking#built-in-meters) to confirm whether emails are being queued. If the workflow was recently disabled and re-enabled, only future triggers are affected.
+  </Accordion>
+
+  <Accordion title="Waitlist notification was sent but customer did not book">
+    Waitlist notifications include a deadline to complete the booking. If the customer misses the deadline, the spot is offered to the next person on the waitlist automatically.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
