@@ -1,0 +1,71 @@
+---
+title: Donations
+description: Accept charity donations at checkout with optional Gift Aid support.
+---
+
+You can add a donation prompt to your checkout flow, giving customers the option to contribute to a charity of your choice when completing a booking. If you operate in the UK, you can also enable Gift Aid to increase the value of each donation by 25%.
+
+## Enable donations
+
+<Steps>
+  <Step title="Open charity settings">
+    Go to your account settings and select the charity section.
+  </Step>
+  <Step title="Turn on donations">
+    Toggle donations on and enter the name and description of the charity. You can also upload an image that appears alongside the donation prompt at checkout.
+  </Step>
+  <Step title="Enable Gift Aid (optional)">
+    If your charity is eligible for Gift Aid, toggle the Gift Aid option. When enabled, customers see a Gift Aid form during checkout where they can provide their details for HMRC.
+  </Step>
+</Steps>
+
+## How it works
+
+When donations are enabled, a donation box appears during checkout. Customers can:
+
+- Choose from suggested donation amounts or enter a custom amount
+- Skip the donation entirely — it is always optional
+
+The donation is added to the basket alongside any bookings, shop products, or other items. Payment for the full basket (including the donation) is processed through [Stripe](/payments/stripe) in a single transaction.
+
+## Gift Aid
+
+Gift Aid is a UK tax scheme that lets charities claim an extra 25% on donations from UK taxpayers at no additional cost to the donor.
+
+When you enable Gift Aid in your charity settings, the donation box expands to include a short form where donors provide:
+
+| Field | Required for Gift Aid |
+| --- | --- |
+| Title (e.g. Mr, Mrs, Ms, Dr) | No |
+| First name | Yes |
+| Last name | Yes |
+| Home address | Yes |
+| City | Yes |
+| Postcode | Yes |
+| Country | Yes |
+
+The donor must also accept the Gift Aid declaration confirming they are a UK taxpayer.
+
+<Note>
+  Gift Aid details are stored with the donation record. You can use this information when submitting Gift Aid claims to HMRC.
+</Note>
+
+## Viewing donations
+
+Donations appear as line items in the basket and are included in your standard financial reports. Each donation record includes:
+
+- The donation amount
+- The charity name
+- Whether Gift Aid was claimed
+- The donor's details (if Gift Aid was enabled)
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    How payments are processed, including donations.
+  </Card>
+  <Card title="Online bookings" icon="globe" href="/activities/online-bookings">
+    The checkout flow where donations appear.
+  </Card>
+</Columns>

@@ -67,7 +67,8 @@
           {
             "group": "Payments",
             "pages": [
-              "payments/stripe"
+              "payments/stripe",
+              "payments/donations"
             ]
           },
           {
