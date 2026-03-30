@@ -59,6 +59,50 @@ Donations appear as line items in the basket and are included in your standard f
 - Whether Gift Aid was claimed
 - The donor's details (if Gift Aid was enabled)
 
+## Exporting donations
+
+You can export donation data as a CSV file from the financial dashboard. The export includes only successful donations and contains all the details you need for reporting or Gift Aid claims.
+
+<Steps>
+  <Step title="Open the export dialog">
+    Go to the financial dashboard and click the export button.
+  </Step>
+  <Step title="Set a date range">
+    Choose a start and end date to filter donations by when they were purchased. You can also use the quick-select options for common ranges like today, last seven days, or month to date.
+  </Step>
+  <Step title="Export donations">
+    Click **Export donations** to download the CSV file.
+  </Step>
+</Steps>
+
+The exported CSV includes the following columns:
+
+| Column | Description |
+| --- | --- |
+| `basket_uuid` | Unique identifier for the basket containing the donation |
+| `basket_success_timestamp` | Date and time the payment was completed |
+| `payment_option` | Payment method used (e.g. card, terminal) |
+| `account_name` | Name of the customer who donated |
+| `account_email` | Customer email address |
+| `account_phone` | Customer phone number |
+| `charity_name` | Name of the charity receiving the donation |
+| `donation_amount` | Amount donated |
+| `donation_refunded_amount` | Amount refunded, if any |
+| `is_gift_aid` | Whether Gift Aid was enabled (`yes` or `no`) |
+| `gift_aid_declaration_accepted` | Whether the donor accepted the Gift Aid declaration |
+| `donor_title` | Donor's title (e.g. Mr, Mrs) |
+| `donor_first_name` | Donor's first name |
+| `donor_last_name` | Donor's last name |
+| `donor_address_line1` | First line of the donor's address |
+| `donor_address_line2` | Second line of the donor's address |
+| `donor_city` | Donor's city |
+| `donor_postcode` | Donor's postcode |
+| `donor_country` | Donor's country |
+
+<Tip>
+  The Gift Aid fields (`donor_title` through `donor_country`) are populated only when the donor opted into Gift Aid. Use this export to prepare your Gift Aid claims for HMRC.
+</Tip>
+
 ## Related guides
 
 <Columns cols={2}>
