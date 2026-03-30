@@ -59,6 +59,46 @@ Donations appear as line items in the basket and are included in your standard f
 - Whether Gift Aid was claimed
 - The donor's details (if Gift Aid was enabled)
 
+## Exporting donations
+
+You can export a dedicated report of all successful donations for a given date range. The donation export is separate from the general basket and product exports, and includes the full Gift Aid details you need for HMRC submissions.
+
+To export donations, go to your **Finances** page and select the **Donations** export type. Choose a start and end date, then download the report.
+
+### Exported fields
+
+Each row in the export represents a single donation line item and includes the following columns:
+
+| Column | Description |
+| --- | --- |
+| `basket_uuid` | Unique identifier for the basket containing the donation |
+| `basket_success_timestamp` | Date and time the payment was completed |
+| `payment_option` | Payment method used (e.g. card, terminal) |
+| `account_name` | Name of the customer who made the donation |
+| `account_email` | Customer email address |
+| `account_phone` | Customer phone number |
+| `charity_name` | Name of the charity receiving the donation |
+| `donation_amount` | Donation amount in your currency |
+| `donation_refunded_amount` | Amount refunded, if any |
+| `is_gift_aid` | Whether Gift Aid was claimed (`yes` or `no`) |
+| `gift_aid_declaration_accepted` | Whether the donor accepted the Gift Aid declaration |
+| `donor_title` | Donor's title (e.g. Mr, Mrs, Dr) |
+| `donor_first_name` | Donor's first name |
+| `donor_last_name` | Donor's last name |
+| `donor_address_line1` | First line of the donor's home address |
+| `donor_address_line2` | Second line of the donor's home address |
+| `donor_city` | Donor's city |
+| `donor_postcode` | Donor's postcode |
+| `donor_country` | Donor's country |
+
+<Note>
+  The donation export only includes successful baskets. Pending, expired, or failed transactions are excluded.
+</Note>
+
+### Using the export for Gift Aid claims
+
+The donation export contains all the fields required by HMRC for Gift Aid claims. Filter the export by `is_gift_aid = yes` to extract only Gift Aid-eligible donations, then use the donor name, address, and declaration fields to prepare your submission.
+
 ## Related guides
 
 <Columns cols={2}>
