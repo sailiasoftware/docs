@@ -43,6 +43,48 @@ Memberships are billed through Stripe. When a customer signs up:
 2. Payments are collected automatically on each billing cycle.
 3. If a payment fails, Stripe's retry logic attempts to collect again.
 
+### Membership add-ons
+
+Add-ons let you attach optional extras to a membership plan. Customers can subscribe to add-ons when they sign up, or you can add them to an existing membership later. Each add-on can be one-time or recurring, and you can set a maximum quantity per member.
+
+#### Create and link an add-on
+
+<Steps>
+  <Step title="Open a membership plan">
+    Navigate to the membership plan you want to add extras to.
+  </Step>
+  <Step title="Add an add-on">
+    Select **Link Add-on**. You can create a new add-on or link an existing one. Enter the add-on name, an optional description (up to 150 characters), and choose whether billing is **recurring** (charged each billing cycle) or **one-time**.
+  </Step>
+  <Step title="Set pricing and limits">
+    Set the price for the add-on. Optionally set a **max quantity** to cap how many units a member can subscribe to.
+  </Step>
+</Steps>
+
+Add-ons are billed through Stripe alongside the membership subscription. Recurring add-ons follow the same billing interval as the membership plan.
+
+#### Add an add-on to an existing member
+
+You can attach add-ons to an active membership at any time. When you add an add-on to an existing member, Stripe prorates the charge for the current billing cycle by default.
+
+### Migrating memberships
+
+If you are switching to Sailia from another membership system, you can bulk-import your existing members. The migration process creates families, users, and membership instances from your import data.
+
+During migration, you can also assign add-ons to each imported membership instance. This means members keep their existing add-on subscriptions when they move to Sailia — there is no need to manually re-add them after import.
+
+Each row in your import data can include:
+
+- **Plan ID** — the Sailia membership plan to assign the member to
+- **Billing cycle dates** — the current billing period start and end
+- **Member number** — an optional custom member number to preserve from your old system
+- **Add-ons** — a list of add-on selections, each with a membership add-on ID and quantity
+- **Note** — an optional note attached to the membership instance
+
+<Note>
+  Add-ons included during migration must already be linked to the target membership plan in Sailia. Create your membership plans and link the relevant add-ons before running the import.
+</Note>
+
 ## Activity passes
 
 Activity passes are prepaid bundles that give customers a set number of sessions to use over time. They are ideal for regular attendees who want a better per-session price.
