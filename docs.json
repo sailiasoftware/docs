@@ -52,16 +52,23 @@
             "pages": [
               "customers/overview",
               "customers/waivers",
-              "customers/notifications",
-              "customers/newsletter-forms",
               "customers/file-uploads"
+            ]
+          },
+          {
+            "group": "Marketing",
+            "pages": [
+              "marketing/email-campaigns",
+              "marketing/notifications",
+              "marketing/newsletter-forms"
             ]
           },
           {
             "group": "Staff and operations",
             "pages": [
               "staff/management",
-              "staff/auto-timesheets"
+              "staff/auto-timesheets",
+              "settings/qualifications"
             ]
           },
           {
@@ -69,6 +76,15 @@
             "pages": [
               "payments/stripe",
               "payments/donations"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/business-settings",
+              "settings/locations",
+              "settings/kit-management",
+              "settings/refund-policies"
             ]
           },
           {
@@ -175,6 +191,14 @@
     {
       "source": "/staff-and-operations/auto-timesheets",
       "destination": "/staff/auto-timesheets"
+    },
+    {
+      "source": "/customers/notifications",
+      "destination": "/marketing/notifications"
+    },
+    {
+      "source": "/customers/newsletter-forms",
+      "destination": "/marketing/newsletter-forms"
     }
   ],
   "footer": {

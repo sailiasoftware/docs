@@ -1,0 +1,74 @@
+---
+title: Kit management
+description: Track equipment and kit inventory across your locations.
+keywords: ['kit', 'equipment', 'inventory', 'auto-capacity', 'resources', 'kit locker']
+---
+
+Kit management lets you track equipment and resources across your [locations](/settings/locations). You can define kit items, assign them to activity types, and monitor quantities at each site. Sailia uses kit quantities to help manage activity capacity — if you enable auto-capacity, available kit directly determines how many customers can book.
+
+## How kit management works
+
+1. You create kit items (e.g. "Wetsuit", "Kayak", "Surfboard") and assign them to activity types.
+2. You set quantities for each kit item at each location.
+3. When customers book activities, Sailia tracks which kit is allocated.
+4. If auto-capacity is enabled, activity capacity adjusts based on available kit.
+
+## Create a kit item
+
+<Steps>
+  <Step title="Open the kit dashboard">
+    Navigate to your kit management section from the main dashboard.
+  </Step>
+  <Step title="Add new kit">
+    Click **Add Kit** and enter the kit name (e.g. "Wetsuit", "Paddleboard").
+  </Step>
+  <Step title="Assign to activity types">
+    Select which activity types use this kit. This links the kit to those activities for capacity calculations.
+  </Step>
+  <Step title="Set quantities per location">
+    For each [location](/settings/locations), set the number of this kit item available. Open the location's kit locker to adjust quantities.
+  </Step>
+</Steps>
+
+## Kit locker
+
+The kit locker is a per-location view of all kit items and their quantities. You access it from the location card on the kit dashboard.
+
+From the kit locker, you can:
+
+- View all kit items at that location with current quantities
+- Increase or decrease quantities
+- See which activity types each kit item is linked to
+
+### Quantity conflict detection
+
+When you change a kit quantity, Sailia checks for potential conflicts with existing bookings. If reducing the quantity would cause overbooking (more customers booked than kit available), you receive a warning before the change is applied.
+
+<Warning>
+  Reducing kit quantities can impact activities with auto-capacity enabled. Always review the conflict warning before confirming a quantity change.
+</Warning>
+
+## Auto-capacity
+
+When auto-capacity is enabled on an activity, the maximum number of participants is determined by the available kit at the activity's location. If an activity requires a wetsuit and a surfboard, the capacity is the minimum of the two kit quantities.
+
+This means:
+
+- Adding more kit increases capacity automatically
+- Removing kit reduces capacity and may trigger overbooking warnings
+- Kit quantities are checked in real time during booking
+
+<Note>
+  Auto-capacity only applies to activities that are linked to kit items. Activities without kit assignments use the manually set capacity.
+</Note>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Locations" icon="location-dot" href="/settings/locations">
+    Set up the locations where your kit is stored.
+  </Card>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Create activities and link them to kit items for auto-capacity.
+  </Card>
+</Columns>

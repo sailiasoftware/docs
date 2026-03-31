@@ -1,6 +1,7 @@
 ---
 title: Notifications and emails
 description: Understand the emails Sailia sends to your customers and how to customize them.
+keywords: ['notifications', 'emails', 'confirmation email', 'automated emails', 'booking confirmation', 'email delivery']
 ---
 
 Sailia sends automated emails to keep customers informed about their bookings. These range from booking confirmations to waitlist notifications and workflow-triggered messages.
@@ -51,9 +52,26 @@ You can resend booking confirmation emails from the [booking details](/activitie
   Resending a confirmation sends the same email template with the current booking details. If the booking has been modified since the original confirmation, the resent email reflects the latest information.
 </Note>
 
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer says they didn't receive a confirmation email">
+    Ask the customer to check their spam or junk folder. If the email is not there, verify their email address in the booking details and resend the confirmation. Some email providers delay delivery — wait a few minutes before resending.
+  </Accordion>
+  <Accordion title="Workflow emails are not being sent">
+    Check that the workflow is enabled in the [workflows dashboard](/integrations/workflows). If it was recently disabled and re-enabled, emails already queued before the disable may not be resent. Also verify the trigger conditions match the booking type.
+  </Accordion>
+  <Accordion title="Customer received a duplicate email">
+    This can happen if a confirmation was manually resent while a workflow email was also queued for the same event. Review your workflow triggers to avoid overlapping with built-in automatic emails.
+  </Accordion>
+</AccordionGroup>
+
 ## Related guides
 
 <Columns cols={2}>
+  <Card title="Email campaigns" icon="envelope" href="/marketing/email-campaigns">
+    Send targeted email campaigns and newsletters.
+  </Card>
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
     Set up custom email workflows triggered by booking events.
   </Card>
