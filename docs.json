@@ -52,9 +52,14 @@
             "pages": [
               "customers/overview",
               "customers/waivers",
-              "customers/notifications",
-              "customers/newsletter-forms",
               "customers/file-uploads"
+            ]
+          },
+          {
+            "group": "Marketing and communications",
+            "pages": [
+              "marketing/notifications",
+              "marketing/newsletter-forms"
             ]
           },
           {
@@ -175,6 +180,14 @@
     {
       "source": "/staff-and-operations/auto-timesheets",
       "destination": "/staff/auto-timesheets"
+    },
+    {
+      "source": "/customers/notifications",
+      "destination": "/marketing/notifications"
+    },
+    {
+      "source": "/customers/newsletter-forms",
+      "destination": "/marketing/newsletter-forms"
     }
   ],
   "footer": {
