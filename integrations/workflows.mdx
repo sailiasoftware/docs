@@ -1,9 +1,9 @@
 ---
 title: Automated workflows
-description: Set up automated email workflows triggered by booking events.
+description: Set up automated email and SMS workflows triggered by booking, membership, and payment events.
 ---
 
-Workflows let you automate email communications based on events in Sailia. Instead of manually sending reminders, follow-ups, or thank-you messages, you configure triggers and let Sailia handle the rest.
+Workflows let you automate email and SMS communications based on events in Sailia. Instead of manually sending reminders, follow-ups, or thank-you messages, you configure triggers and let Sailia handle the rest.
 
 ## How workflows work
 
@@ -11,22 +11,103 @@ A workflow consists of:
 
 1. **A trigger** — the event that starts the workflow (for example, a booking confirmation or an activity date approaching)
 2. **A delay (optional)** — how long to wait after the trigger before sending
-3. **An email** — the message sent to the customer
+3. **A message** — the email or SMS sent to the customer or staff member
 
-When the trigger fires, Sailia queues the email and sends it at the configured time.
+When the trigger fires, Sailia queues the message and sends it at the configured time.
 
 <Note>
   Workflow emails are tracked as `workflow-email-sent` events in [meter usage tracking](/api-reference/meter-tracking#built-in-meters), so you can monitor how many automated emails are being sent.
 </Note>
+
+## Available triggers
+
+Sailia provides triggers across several categories. You can attach one or more workflow communications to any trigger.
+
+### Booking triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Booking confirmed** | A customer completes payment for a booking |
+| **Basket created** | A new basket is created and awaiting payment |
+| **Basket expired** | A pending basket passes its expiry time without payment |
+| **Invoice pending** | An invoice is raised and awaiting payment |
+| **Invoice overdue** | An invoice passes its due date without payment |
+
+### Course and session triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Course starting** | A set time before (or after) the first session of a course |
+| **Course ending** | A set time before (or after) the last session of a course |
+| **Course start waiver reminder** | Before a course starts, only for customers with incomplete [waivers](/customers/waivers) |
+| **Session starting (instructor)** | Before an individual session begins — notifies the assigned instructor with register link and location |
+
+### Group booking triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **New group booking** | A group booking is paid — reminds the organiser to complete participant details |
+| **Group booking reminder** | Before the first session of a group booking, if participant details are still incomplete |
+
+### Membership triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Membership requested** | A customer submits a new [membership](/pricing/memberships-and-passes) request |
+| **Membership started** | A membership becomes active |
+| **Membership renewal** | A set time before a membership's billing cycle renews |
+| **Membership rejected** | A membership request is rejected |
+| **Membership cancelled** | A membership is cancelled |
+| **Membership payment info required** | A membership requires updated payment details |
+
+### Instalment triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Instalment due** | An instalment payment becomes due |
+| **Instalment paid** | An instalment payment is successfully collected |
+| **Instalment plan started** | A new instalment plan is created |
+| **Instalment plan completed** | All instalments in a plan are fully paid |
+| **Instalment plan abandoned** | A plan is terminated due to missed payments |
+
+### Account triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **New client account** | A new customer account is created |
+| **New staff account** | A new staff member account is created |
+
+### Waiver and waitlist triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Waiver pending** | A customer has outstanding [waivers](/customers/waivers) to complete |
+| **Waitlist spot available** | A spot opens on a [waitlisted](/activities/waitlists) session |
+
+### Staff triggers
+
+| Trigger | When it fires |
+| --- | --- |
+| **Instructor assigned** | An instructor is assigned to a booking or session |
+| **Availability request submitted** | A staff member submits a time-off request |
+| **Availability request responded** | An admin approves or rejects an availability request |
+| **Timesheet invoice submitted** | A staff member submits a timesheet invoice |
+| **Timesheet invoice approved** | An admin approves a timesheet invoice |
+| **Timesheet invoice rejected** | An admin rejects a timesheet invoice |
+| **Timesheet invoice paid** | A timesheet invoice is marked as paid |
+| **Timesheet invoice voided** | A timesheet invoice is voided |
 
 ## Common workflow examples
 
 | Trigger | Use case |
 | --- | --- |
 | **Booking confirmed** | Send a welcome email with what to bring and where to meet |
-| **Activity starts soon** | Send a reminder 24 or 48 hours before the activity |
-| **Activity completed** | Send a thank-you email with a link to rebook or leave a review |
-| **Waiver incomplete** | Remind the customer to complete their [waiver](/customers/waivers) before the activity |
+| **Course starting** | Send a reminder 24 or 48 hours before the first session |
+| **Course ending** | Send a thank-you email with a link to rebook or leave a review |
+| **Course start waiver reminder** | Remind customers to complete their [waiver](/customers/waivers) before the course |
+| **New group booking** | Prompt the group organiser to fill in participant details |
+| **Instalment due** | Remind customers about upcoming instalment payments |
+| **Membership renewal** | Notify members before their membership renews |
 
 ## Create a workflow
 
@@ -35,31 +116,66 @@ When the trigger fires, Sailia queues the email and sends it at the configured t
     Navigate to your workflows dashboard and select **Create Workflow**.
   </Step>
   <Step title="Choose a trigger">
-    Select the event that starts the workflow.
+    Select the event that starts the workflow. See [available triggers](#available-triggers) for the full list.
   </Step>
   <Step title="Set the timing">
-    Choose when the email should be sent — immediately after the trigger, or after a delay (for example, 24 hours before the activity).
+    Choose when the message should be sent — immediately after the trigger, or after a delay (for example, 24 hours before the activity).
   </Step>
-  <Step title="Write the email">
-    Compose the email content. You can use merge fields to personalize the message with the customer's name, activity details, and booking information.
+  <Step title="Write the message">
+    Compose the email or SMS content. Use merge fields to personalize the message with the customer's name, activity details, and booking information.
   </Step>
   <Step title="Activate">
-    Enable the workflow. It runs automatically for all future bookings that match the trigger.
+    Enable the workflow. It runs automatically for all future events that match the trigger.
   </Step>
 </Steps>
+
+## Merge fields
+
+Workflow messages support merge fields to personalize content. Available fields depend on the trigger, but common fields include:
+
+| Merge field | Description |
+| --- | --- |
+| Customer name | The customer's full name |
+| Customer email | The customer's email address |
+| Transaction details | A summary of items in the booking |
+| Total paid | The total amount charged |
+| Checkout link | A link for the customer to complete payment (for pending baskets) |
+| Waiver link | A link for the customer to complete outstanding waivers |
+| Receipt breakdown | An itemised breakdown of the booking |
+
+<Tip>
+  The exact merge fields available are shown in the workflow editor when you select a trigger.
+</Tip>
+
+## Email and SMS
+
+Workflows support both email and SMS as delivery channels. When creating a workflow, choose the channel that best fits the use case:
+
+- **Email** — best for detailed messages with booking breakdowns, links, and attachments
+- **SMS** — best for short, time-sensitive reminders like session start times
+
+<Note>
+  Booking confirmation workflows automatically attach a PDF receipt when sent by email.
+</Note>
 
 ## Managing workflows
 
 From the workflows dashboard, you can:
 
 - **Enable or disable** a workflow without deleting it
-- **Edit** the email content or timing
-- **View send history** to see which customers received the email
+- **Edit** the message content or timing
+- **View send history** to see which customers received the message
 - **Monitor volume** through the `workflow-email-sent` [built-in meter](/api-reference/meter-tracking#built-in-meters)
 
 <Warning>
-  Disabling a workflow stops future emails from being sent but does not cancel emails already queued. If an email is scheduled to send in 24 hours and you disable the workflow now, that email may still be delivered.
+  Disabling a workflow stops future messages from being sent but does not cancel messages already queued. If a message is scheduled to send in 24 hours and you disable the workflow now, that message may still be delivered.
 </Warning>
+
+## Session groups
+
+You can scope a workflow to specific session groups. This lets you send different messages for different activities — for example, a kayaking-specific welcome email for kayaking bookings and a climbing-specific one for climbing bookings.
+
+When creating a workflow, select one or more session groups to limit which bookings trigger the communication.
 
 ## Related guides
 

@@ -1,9 +1,9 @@
 ---
 title: Notifications and emails
-description: Understand the emails Sailia sends to your customers and how to customize them.
+description: Understand the emails and SMS messages Sailia sends to your customers and how to customize them.
 ---
 
-Sailia sends automated emails to keep customers informed about their bookings. These range from booking confirmations to waitlist notifications and workflow-triggered messages.
+Sailia sends automated emails and SMS messages to keep customers and staff informed. These range from booking confirmations to membership updates and workflow-triggered messages.
 
 ## Automatic emails
 
@@ -11,22 +11,27 @@ These emails are sent by Sailia without any setup required:
 
 | Email | When it's sent |
 | --- | --- |
-| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address |
+| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address. Includes a PDF receipt attachment. |
 | **Refund notification** | When a [refund](/payments/stripe#refunds) is processed for a booking |
 | **Gift card delivery** | When a customer purchases a [gift card](/pricing/gift-cards) — sent to the buyer or recipient |
-| **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session |
+| **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session — includes a direct booking link |
 | **Membership renewal** | When a [membership](/pricing/memberships-and-passes) payment is processed or fails |
+| **Waiver request** | When a customer has outstanding [waivers](/customers/waivers) to complete — includes an authenticated link to fill them in |
 
-## Custom workflow emails
+## Custom workflows
 
-For emails beyond the built-in set, use [automated workflows](/integrations/workflows). Workflows let you send custom emails triggered by booking events, such as:
+For messages beyond the built-in set, use [automated workflows](/integrations/workflows). Workflows let you send custom emails or SMS messages triggered by events across bookings, memberships, instalments, and more.
+
+Common examples include:
 
 - **Pre-activity reminders** — send a reminder 24 or 48 hours before the session
 - **Post-activity follow-ups** — send a thank-you email with a link to rebook
 - **Waiver reminders** — remind customers to complete their [waiver](/customers/waivers) before the activity
-- **Promotional messages** — send targeted emails based on booking patterns
+- **Group booking prompts** — prompt organisers to fill in participant details
+- **Instalment reminders** — notify customers when a payment is due
+- **Membership lifecycle** — send welcome emails, renewal notices, or cancellation confirmations
 
-Workflow emails support merge fields to personalize content with the customer's name, activity details, and booking information.
+Workflows support merge fields to personalize content with the customer's name, activity details, and booking information. See the [full list of available triggers](/integrations/workflows#available-triggers) for all events you can use.
 
 ## Monitoring email volume
 
@@ -55,7 +60,7 @@ You can resend booking confirmation emails from the [booking details](/activitie
 
 <Columns cols={2}>
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
-    Set up custom email workflows triggered by booking events.
+    Set up custom email and SMS workflows with 30+ available triggers.
   </Card>
   <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
     View and manage bookings, including resending confirmations.
