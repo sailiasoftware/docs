@@ -1,0 +1,80 @@
+---
+title: Notifications and emails
+description: Understand the emails Sailia sends to your customers and how to customize them.
+---
+
+Sailia sends automated emails to keep customers informed about their bookings. These range from booking confirmations to waitlist notifications and workflow-triggered messages.
+
+## Automatic emails
+
+These emails are sent by Sailia without any setup required:
+
+| Email | When it's sent |
+| --- | --- |
+| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address |
+| **Refund notification** | When a [refund](/payments/stripe#refunds) is processed for a booking |
+| **Gift card delivery** | When a customer purchases a [gift card](/pricing/gift-cards) — sent to the buyer or recipient |
+| **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session |
+| **Membership renewal** | When a [membership](/pricing/memberships-and-passes) payment is processed or fails |
+
+## Custom workflow emails
+
+For emails beyond the built-in set, use [automated workflows](/integrations/workflows). Workflows let you send custom emails triggered by booking events, such as:
+
+- **Pre-activity reminders** — send a reminder 24 or 48 hours before the session
+- **Post-activity follow-ups** — send a thank-you email with a link to rebook
+- **Waiver reminders** — remind customers to complete their [waiver](/customers/waivers) before the activity
+- **Promotional messages** — send targeted emails based on booking patterns
+
+Workflow emails support merge fields to personalize content with the customer's name, activity details, and booking information.
+
+## Monitoring email volume
+
+Sailia tracks automated emails through [meter usage tracking](/api-reference/meter-tracking#built-in-meters):
+
+| Meter | What it tracks |
+| --- | --- |
+| `workflow-email-sent` | Emails sent by [workflows](/integrations/workflows) |
+| `waitlist-notified` | [Waitlist](/activities/waitlists) notification emails |
+
+Use the meter usage API to monitor email volume and ensure your workflows are performing as expected.
+
+## Resending emails
+
+You can resend booking confirmation emails from the [booking details](/activities/managing-bookings) at any time. This is useful when:
+
+- A customer did not receive the original email
+- The customer needs the details forwarded to another address
+- You made changes to the booking and want to send an updated confirmation
+
+<Note>
+  Resending a confirmation sends the same email template with the current booking details. If the booking has been modified since the original confirmation, the resent email reflects the latest information.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer says they didn't receive a confirmation email">
+    Ask the customer to check their spam or junk folder. If the email is not there, verify their email address in the booking details and resend the confirmation. Some email providers delay delivery — wait a few minutes before resending.
+  </Accordion>
+  <Accordion title="Workflow emails are not being sent">
+    Check that the workflow is enabled in the [workflows dashboard](/integrations/workflows). If it was recently disabled and re-enabled, emails already queued before the disable may not be resent. Also verify the trigger conditions match the booking type.
+  </Accordion>
+  <Accordion title="Customer received a duplicate email">
+    This can happen if a confirmation was manually resent while a workflow email was also queued for the same event. Review your workflow triggers to avoid overlapping with built-in automatic emails.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Email campaigns" icon="envelope" href="/marketing/email-campaigns">
+    Send targeted email campaigns and newsletters.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up custom email workflows triggered by booking events.
+  </Card>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    View and manage bookings, including resending confirmations.
+  </Card>
+</Columns>
