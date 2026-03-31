@@ -1,0 +1,45 @@
+---
+title: Business settings
+description: Configure your company details, contact information, and tracking settings.
+keywords: ['business settings', 'company details', 'Google Tag Manager', 'GTM', 'contact info', 'payout account']
+---
+
+Business settings control the core details about your company that appear across Sailia — on your booking page, in customer emails, and on invoices. Keep these up to date so customers and integrations have the correct information.
+
+## Configure your business details
+
+Navigate to **Settings** > **Business Settings** to view and edit the following:
+
+| Setting | Description |
+| --- | --- |
+| **Company name** | Your business name, displayed on the booking page and in emails |
+| **Contact email** | The public email address customers can use to reach you |
+| **Contact phone** | Your business phone number |
+| **Website URL** | Your company website, linked from the booking page |
+| **Business address** | Your primary business address |
+| **GTM Container ID** | Your Google Tag Manager container ID for tracking and analytics |
+
+To update any field, click on the setting card, enter the new value, and save.
+
+## Google Tag Manager
+
+If you use Google Tag Manager for analytics, conversion tracking, or marketing pixels, enter your GTM Container ID (e.g. `GTM-XXXXXXX`) in the business settings. Sailia injects the GTM snippet into your booking page automatically, so your tags fire on all customer-facing pages.
+
+<Note>
+  Changes to your GTM Container ID take effect immediately on your booking page. Test your tags after updating to ensure they fire correctly.
+</Note>
+
+## Payout account
+
+Your payout account settings determine where Stripe sends your earnings. This is configured during [Stripe setup](/payments/stripe) and can be reviewed from the business settings page.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    Connect Stripe and manage payout settings.
+  </Card>
+  <Card title="Locations" icon="location-dot" href="/settings/locations">
+    Set up individual location addresses and details.
+  </Card>
+</Columns>

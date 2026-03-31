@@ -1,0 +1,59 @@
+---
+title: Refund policies
+description: Create and manage refund policies for your activities and bookings.
+keywords: ['refund', 'cancellation', 'refund policy', 'cancellation terms', 'returns']
+---
+
+Refund policies define the terms under which customers can receive a refund when they cancel a booking. You can create multiple policies and assign them to different activities, giving you flexibility to set different cancellation terms for different products.
+
+## Create a refund policy
+
+<Steps>
+  <Step title="Open settings">
+    Navigate to **Settings** and select the **Policies** tab.
+  </Step>
+  <Step title="Add a policy">
+    Click **Add Refund Policy** and enter a name for the policy (e.g. "Standard 48-hour cancellation", "Non-refundable").
+  </Step>
+  <Step title="Define the terms">
+    Set the cancellation window and refund percentage. For example, a full refund if cancelled more than 48 hours before the activity, or a 50% refund within 24 hours.
+  </Step>
+  <Step title="Save">
+    Save the policy. You can now assign it to activities.
+  </Step>
+</Steps>
+
+## Assign policies to activities
+
+When creating or editing an [activity](/activities/activities), select a refund policy to apply. The policy terms are shown to customers during the booking process so they understand the cancellation terms before purchasing.
+
+## How refunds work
+
+When a customer requests a cancellation:
+
+1. Sailia checks the assigned refund policy for the activity.
+2. Based on how far in advance the cancellation is made, the policy determines the refund amount (full, partial, or none).
+3. If a refund is due, it is processed through [Stripe](/payments/stripe) and returned to the customer's original payment method.
+
+<Note>
+  Refunds typically take 5–10 business days to appear on the customer's statement, depending on their bank.
+</Note>
+
+## Edit or delete a policy
+
+You can edit a policy's name and terms at any time. Existing bookings that were made under the old terms are not affected — the policy in effect at the time of booking applies.
+
+<Warning>
+  Deleting a refund policy removes it from all activities it was assigned to. Those activities will have no refund policy until you assign a new one.
+</Warning>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Create activities and assign refund policies.
+  </Card>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    Process refunds through Stripe.
+  </Card>
+</Columns>
