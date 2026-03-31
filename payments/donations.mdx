@@ -1,6 +1,7 @@
 ---
 title: Donations
 description: Accept charity donations at checkout with optional Gift Aid support.
+keywords: ['donations', 'charity', 'Gift Aid', 'HMRC', 'checkout', 'export']
 ---
 
 You can add a donation prompt to your checkout flow, giving customers the option to contribute to a charity of your choice when completing a booking. If you operate in the UK, you can also enable Gift Aid to increase the value of each donation by 25%.
@@ -61,21 +62,13 @@ Donations appear as line items in the basket and are included in your standard f
 
 ## Exporting donations
 
-You can export donation data as a CSV file from the financial dashboard. The export includes only successful donations and contains all the details you need for reporting or Gift Aid claims.
+You can export a dedicated report of all successful donations for a given date range. The donation export is separate from the general basket and product exports, and includes the full Gift Aid details you need for HMRC submissions.
 
-<Steps>
-  <Step title="Open the export dialog">
-    Go to the financial dashboard and click the export button.
-  </Step>
-  <Step title="Set a date range">
-    Choose a start and end date to filter donations by when they were purchased. You can also use the quick-select options for common ranges like today, last seven days, or month to date.
-  </Step>
-  <Step title="Export donations">
-    Click **Export donations** to download the CSV file.
-  </Step>
-</Steps>
+To export donations, go to your **Finances** page and select the **Donations** export type. Choose a start and end date, then download the report.
 
-The exported CSV includes the following columns:
+### Exported fields
+
+Each row in the export represents a single donation line item and includes the following columns:
 
 | Column | Description |
 | --- | --- |
@@ -99,9 +92,13 @@ The exported CSV includes the following columns:
 | `donor_postcode` | Donor's postcode |
 | `donor_country` | Donor's country |
 
-<Tip>
-  The Gift Aid fields (`donor_title` through `donor_country`) are populated only when the donor opted into Gift Aid. Use this export to prepare your Gift Aid claims for HMRC.
-</Tip>
+<Note>
+  The donation export only includes successful baskets. Pending, expired, or failed transactions are excluded.
+</Note>
+
+### Using the export for Gift Aid claims
+
+The donation export contains all the fields required by HMRC for Gift Aid claims. Filter the export by `is_gift_aid = yes` to extract only Gift Aid-eligible donations, then use the donor name, address, and declaration fields to prepare your submission.
 
 ## Related guides
 
