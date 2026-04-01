@@ -59,6 +59,12 @@ Memberships are billed through Stripe. When a customer signs up:
 2. Payments are collected automatically on each billing cycle.
 3. If a payment fails, Stripe's retry logic attempts to collect again.
 
+### Adding members from the same family
+
+Multiple members of the same family can hold the same membership, as long as each person is only added once. When you purchase a membership for specific family members, Sailia checks whether any of the selected users are already on that membership. If one or more of them are, the purchase is blocked with an error.
+
+This means you can buy the same membership for different family members in separate transactions. For example, if a parent purchases a membership for one child, they can later purchase the same membership for a sibling — but they cannot re-purchase it for a child who is already a member.
+
 ### Membership add-ons
 
 Add-ons let you attach optional extras to a membership plan. Customers can subscribe to add-ons when they sign up, or you can add them to an existing membership later. Each add-on can be one-time or recurring, and you can set a maximum quantity per member.
