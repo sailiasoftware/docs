@@ -31,30 +31,37 @@
             ]
           },
           {
-            "group": "Point of sale",
+            "group": "Customers and marketing",
             "pages": [
-              "point-of-sale/overview",
-              "point-of-sale/card-readers",
-              "point-of-sale/shop-products",
-              "point-of-sale/custom-pricing"
+              "customers/overview",
+              "customers/waivers",
+              "customers/file-uploads",
+              "customers/notifications",
+              "customers/newsletter-forms"
             ]
           },
           {
             "group": "Pricing and promotions",
             "pages": [
+              "pricing/memberships-and-passes",
               "pricing/discount-codes",
-              "pricing/gift-cards",
-              "pricing/memberships-and-passes"
+              "pricing/gift-cards"
             ]
           },
           {
-            "group": "Customers",
+            "group": "Point of sale",
             "pages": [
-              "customers/overview",
-              "customers/waivers",
-              "customers/notifications",
-              "customers/newsletter-forms",
-              "customers/file-uploads"
+              "point-of-sale/overview",
+              "point-of-sale/shop-products",
+              "point-of-sale/card-readers",
+              "point-of-sale/custom-pricing"
+            ]
+          },
+          {
+            "group": "Payments and finance",
+            "pages": [
+              "payments/stripe",
+              "payments/donations"
             ]
           },
           {
@@ -65,17 +72,10 @@
             ]
           },
           {
-            "group": "Payments",
-            "pages": [
-              "payments/stripe",
-              "payments/donations"
-            ]
-          },
-          {
             "group": "Integrations",
             "pages": [
-              "integrations/accounting-sync",
               "integrations/workflows",
+              "integrations/accounting-sync",
               "integrations/adventuro"
             ]
           }
