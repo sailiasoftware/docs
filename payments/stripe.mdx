@@ -58,12 +58,47 @@ If you have [Xero accounting sync](/integrations/accounting-sync) enabled, each 
 You can process refunds from the booking details in your dashboard:
 
 1. Open the booking you want to refund.
-2. Select **Refund** and choose the amount — full or partial.
-3. The refund is processed through Stripe and returned to the customer's original payment method.
+2. Select **Refund** and choose the items and amounts — full or partial.
+3. Choose a refund method (see below).
+4. The refund is processed and the customer receives an email confirmation.
+
+### Refund methods
+
+| Method | How it works |
+| --- | --- |
+| **Original payment method** | The refund is returned to the customer's card or original payment method via Stripe. This is the default. |
+| **Store credit** | Instead of a card refund, Sailia creates a [gift card](/pricing/gift-cards) for the refund amount and sends the code to the customer. The customer can redeem this credit on a future purchase. |
+| **Cash** | For orders originally paid with cash, the refund is recorded against the active [till shift](/point-of-sale/overview#till-shifts) on the selected POS terminal. |
+
+To issue a refund as store credit, enable the **Issue as credit** option when processing the refund. A new gift card is generated automatically — you do not need to create one manually.
 
 <Note>
-  Refunds typically take 5–10 business days to appear on the customer's statement, depending on their bank.
+  Card refunds typically take 5–10 business days to appear on the customer's statement, depending on their bank. Store credit is available immediately.
 </Note>
+
+## Phone and mail-order payments
+
+If a customer cannot complete an online payment themselves, an operator can process a card payment on their behalf using mail order / telephone order (MOTO) payments. This is useful for phone bookings, accessibility needs, or any situation where the customer provides card details to a staff member.
+
+### How MOTO payments work
+
+1. Create a basket for the customer in the [point of sale](/point-of-sale/overview) or through the booking system.
+2. Select the MOTO payment option and enter the customer's card details.
+3. The payment is processed immediately through Stripe. Because it is flagged as a MOTO transaction, 3D Secure authentication is not required.
+
+<Warning>
+  MOTO payments require the **Operator Booking** permission. Only staff members with this permission can process payments on behalf of customers.
+</Warning>
+
+### When to use MOTO payments
+
+- A customer calls to book and wants to pay over the phone
+- A customer has difficulty completing the online checkout
+- You need to process a payment on behalf of a customer who is not present
+
+### Shipping address
+
+When processing a MOTO payment, you can optionally capture a shipping address. This is attached to the Stripe payment intent and is useful for orders that require delivery.
 
 ## Fees
 

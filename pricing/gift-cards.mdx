@@ -20,6 +20,10 @@ Gift cards can be sold through your online booking page or the POS. When a custo
 - Payment is processed through [Stripe](/payments/stripe)
 - A unique code is generated and sent to the buyer (or the recipient, if it is a gift)
 
+## Gift cards from refunds
+
+When you [issue a refund as store credit](/payments/stripe#refund-methods), Sailia automatically creates a gift card for the refund amount and emails the code to the customer. These gift cards work the same way as purchased ones — the customer can redeem them at checkout on any future order.
+
 ## Redeeming gift cards
 
 Customers enter their gift card code at checkout. The card balance is applied to the order total:
