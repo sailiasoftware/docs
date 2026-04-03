@@ -78,6 +78,10 @@ Customers can apply [discount codes](/pricing/discount-codes) at checkout. If a 
   [Gift cards](/pricing/gift-cards) can also be redeemed at checkout to cover part or all of the order total.
 </Note>
 
+## Booking tracking
+
+Sailia automatically fires `booking_start` and `booking_completed` events during the booking flow. If you have an analytics provider connected — such as Google Tag Manager or PostHog — you can use these events to build conversion funnels and measure booking performance. See [booking tracking events](/integrations/booking-tracking) for the full event reference.
+
 ## Confirmation and notifications
 
 After a successful booking:
