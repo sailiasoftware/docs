@@ -1,0 +1,104 @@
+---
+title: Booking tracking events
+description: Track booking funnel activity with automatic events sent to your analytics providers.
+---
+
+Sailia automatically fires tracking events at key points in the booking flow. If you have an analytics provider connected — such as Google Tag Manager or PostHog — these events are forwarded automatically, giving you visibility into how customers move through your booking funnel.
+
+## How it works
+
+When a customer interacts with your booking page, Sailia sends events to every analytics provider you have configured. Each event includes contextual properties like the session name, ticket counts, and estimated value. You can use these events to build conversion funnels, retargeting audiences, and revenue attribution reports in your analytics tool.
+
+<Note>
+  Tracking events are only sent when at least one analytics provider is configured. See [setting up a provider](#supported-providers) below.
+</Note>
+
+## Booking funnel events
+
+The following events fire automatically during the booking flow. No additional configuration is needed once a provider is connected.
+
+| Event | When it fires | Key properties |
+| --- | --- | --- |
+| `booking_start` | Customer begins the booking process by interacting with the first step | `session_id`, `session_name`, `session_type`, `step_name` |
+| `booking_completed` | Customer finishes the booking and the order is ready for payment | `session_id`, `session_name`, `session_type`, `tickets_selected`, `selected_products`, `conversion_value`, `currency` |
+
+### Event properties
+
+Every event includes a standard set of properties alongside event-specific ones:
+
+| Property | Description |
+| --- | --- |
+| `session_id` | The unique identifier of the activity session |
+| `session_name` | The display name of the activity session |
+| `session_type` | The type of session (e.g. course, hire, event) |
+| `tickets_selected` | Number of ticket types the customer selected |
+| `selected_products` | Number of products or sessions in the booking |
+| `conversion_value` | Estimated total value of the booking in the smallest currency unit |
+| `currency` | The currency code (e.g. `GBP`) |
+| `step_name` | The booking step that triggered the event |
+
+<Info>
+  The `conversion_value` is an estimate based on selected tickets and quantities. The final charged amount may differ after discounts, gift cards, or membership benefits are applied at checkout.
+</Info>
+
+## Additional tracking events
+
+Beyond the core funnel events above, Sailia also tracks granular interactions during the booking flow:
+
+| Event | Description |
+| --- | --- |
+| `booking_wizard_opened` | The booking wizard was opened for a session |
+| `booking_wizard_step_*` | Customer viewed a specific step (e.g. `booking_wizard_step_select_date`) |
+| `session_view` | Customer viewed the details of a session |
+| `add_to_basket` | Customer added items to their basket |
+| `pay_now_click` | Customer clicked the pay button |
+
+These events help you identify where customers drop off and which sessions generate the most interest.
+
+## Supported providers
+
+Sailia supports the following analytics providers. Events are sent to all active providers simultaneously.
+
+<AccordionGroup>
+  <Accordion title="Google Tag Manager">
+    Connect your GTM container to receive all tracking events in the `dataLayer`. Each event is pushed with its full set of properties, so you can create triggers and tags in GTM without any custom code.
+
+    Events appear in the `dataLayer` in this format:
+
+    ```json
+    {
+      "event": "booking_completed",
+      "session_id": "abc123",
+      "session_name": "Kayaking for Beginners",
+      "session_type": "course",
+      "tickets_selected": 2,
+      "selected_products": 1,
+      "conversion_value": 5000,
+      "currency": "GBP"
+    }
+    ```
+
+    If you provide your website URL alongside the GTM container, Sailia automatically configures cross-domain tracking between your website and your Sailia booking page.
+  </Accordion>
+  <Accordion title="PostHog">
+    Connect your PostHog project to capture booking events as PostHog events. Sailia automatically identifies logged-in customers, so you can build funnels and cohorts based on booking behaviour.
+  </Accordion>
+</AccordionGroup>
+
+## Use cases
+
+- **Conversion funnels** — track the drop-off between `booking_start` and `booking_completed` to identify friction in your booking flow
+- **Revenue attribution** — use `conversion_value` with your ad platform to measure return on ad spend
+- **Retargeting** — build audiences of customers who started but did not complete a booking
+- **Session performance** — compare `session_view` and `booking_completed` rates across different activities
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Online bookings" icon="globe" href="/activities/online-bookings">
+    How the booking flow works for customers.
+  </Card>
+  <Card title="Meter usage tracking" icon="chart-line" href="/api-reference/meter-tracking">
+    Track server-side usage events with the meter API.
+  </Card>
+</Columns>
