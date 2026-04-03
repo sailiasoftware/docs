@@ -1,0 +1,58 @@
+---
+title: Group bookings
+description: Manage bookings with multiple participants and group organizers.
+---
+
+Group bookings let a single customer book on behalf of multiple participants — for example, a parent booking for their children or an event organizer reserving places for a team. The booking organizer handles payment and can add participant details before or after checkout.
+
+## How group bookings work
+
+1. The organizer selects an activity session and specifies the number of participants.
+2. They complete payment for all places in a single transaction.
+3. After payment, the organizer is prompted to fill in individual participant details (names, contact information, and any custom fields).
+4. Each participant's details are stored against the booking and visible in your [bookings dashboard](/activities/managing-bookings).
+
+<Note>
+  Capacity is reserved at the time of booking. If an organizer books 10 places, those 10 spots are immediately deducted from the session's available capacity.
+</Note>
+
+## Collecting participant details
+
+After a group booking is paid, the organizer can fill in participant details at any time before the activity starts. You can use [automated workflows](/integrations/workflows) to prompt them:
+
+| Trigger | Use case |
+| --- | --- |
+| **New group booking** | Send an immediate reminder to complete participant details |
+| **Group booking reminder** | Send a follow-up before the session if details are still missing |
+
+The organizer receives a link where they can enter each participant's name and any required information.
+
+## Waivers for group bookings
+
+If the activity requires a [waiver](/customers/waivers), each participant needs to complete it individually. The organizer can share the waiver link with participants, or you can set up a [waiver reminder workflow](/integrations/workflows#waiver-and-waitlist-triggers) to notify participants directly.
+
+You can check waiver completion status for each participant from the [booking details](/activities/managing-bookings#booking-details).
+
+## Add-ons for groups
+
+[Add-ons](/activities/activities#add-ons) configured as **per-person** are multiplied by the number of participants. Add-ons configured as **per-booking** are charged once regardless of group size.
+
+## Managing group bookings
+
+From the [bookings dashboard](/activities/managing-bookings), you can:
+
+- View all participants and their details
+- Add or remove participants (subject to capacity)
+- Check waiver status for each participant
+- Process partial refunds if participants cancel
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    View and manage bookings across all channels.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up reminders for group organizers.
+  </Card>
+</Columns>

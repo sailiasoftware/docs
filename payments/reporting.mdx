@@ -1,0 +1,76 @@
+---
+title: Financial reporting
+description: View payment data, export transaction records, and monitor your business performance.
+---
+
+Sailia provides a financial dashboard where you can view payment activity, monitor payouts, and export data for reporting or tax purposes.
+
+## Financial dashboard
+
+The financial dashboard gives you a centralized view of all payment activity across your account. From here you can:
+
+- View gross revenue, Stripe fees, and net payouts
+- Browse individual transactions with payment method, status, and customer details
+- Filter by date range, payment method, or transaction type
+- Track [instalment plan](/payments/instalments) progress
+- Monitor [gift card](/pricing/gift-cards) balances and redemptions
+
+<Note>
+  Access to the financial dashboard requires the **Financial Dashboard** [permission](/staff/management#permissions). Staff without this permission cannot view payout data or export reports.
+</Note>
+
+## Payouts
+
+Stripe sends payouts to your connected bank account on a regular schedule. Each payout in Sailia shows:
+
+| Field | Description |
+| --- | --- |
+| **Gross amount** | Total revenue collected before fees |
+| **Stripe fees** | Processing fees deducted by Stripe |
+| **Net payout** | The amount deposited to your bank account |
+| **Transaction breakdown** | Individual charges and refunds included in the payout |
+
+If you use [Xero accounting sync](/integrations/accounting-sync), each payout is automatically sent to Xero as a categorized invoice with full VAT breakdowns.
+
+## Cash payouts
+
+Cash payments taken through the [point of sale](/point-of-sale/overview) are tracked separately from card payments. Cash payouts appear in a dedicated section of the financial dashboard with:
+
+- Transaction amounts from each [till shift](/point-of-sale/overview#till-shifts)
+- Cash refunds issued
+- Net cash totals
+
+If accounting sync is enabled, cash payouts are sent to the **Sailia Cash Clearing Account** in Xero.
+
+## Exporting data
+
+You can export transaction data as CSV files from the financial dashboard. Exports are available for:
+
+### Donation exports
+
+Export donation records for charity reporting or Gift Aid claims. The CSV includes donation amounts, charity details, Gift Aid status, and donor information. See [donation exports](/payments/donations#exporting-donations) for full details on available columns.
+
+### Payout exports
+
+Each payout includes a downloadable CSV breakdown showing individual transactions, amounts, fees, and product categories. This is the same CSV that gets attached to Xero invoices when [accounting sync](/integrations/accounting-sync) is enabled.
+
+## Monitoring automated emails
+
+Track the volume of automated communications through [meter usage tracking](/api-reference/meter-tracking#built-in-meters):
+
+| Meter | What it tracks |
+| --- | --- |
+| `workflow-email-sent` | Emails sent by [automated workflows](/integrations/workflows) |
+| `waitlist-notified` | [Waitlist](/activities/waitlists) notification emails |
+| `order-completed` | Completed purchases across all channels |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    Connect Stripe and manage payment processing.
+  </Card>
+  <Card title="Xero accounting sync" icon="arrows-rotate" href="/integrations/accounting-sync">
+    Automatically sync payouts to Xero.
+  </Card>
+</Columns>

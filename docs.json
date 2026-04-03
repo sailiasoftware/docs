@@ -18,7 +18,9 @@
             "pages": [
               "index",
               "getting-started/overview",
-              "getting-started/setup-checklist"
+              "getting-started/setup-checklist",
+              "getting-started/booking-page",
+              "getting-started/locations"
             ]
           },
           {
@@ -27,6 +29,7 @@
               "activities/activities",
               "activities/online-bookings",
               "activities/managing-bookings",
+              "activities/group-bookings",
               "activities/waitlists"
             ]
           },
@@ -34,6 +37,7 @@
             "group": "Customers and marketing",
             "pages": [
               "customers/overview",
+              "customers/family-accounts",
               "customers/waivers",
               "customers/file-uploads",
               "customers/notifications",
@@ -61,7 +65,9 @@
             "group": "Payments and finance",
             "pages": [
               "payments/stripe",
-              "payments/donations"
+              "payments/instalments",
+              "payments/donations",
+              "payments/reporting"
             ]
           },
           {

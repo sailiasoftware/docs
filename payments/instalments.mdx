@@ -1,0 +1,86 @@
+---
+title: Instalment plans
+description: Let customers split payments into scheduled instalments for higher-value bookings.
+---
+
+Instalment plans let you break the cost of a booking into multiple scheduled payments, making higher-value activities more accessible. Customers pay an initial amount at checkout and the remaining balance is collected automatically over time through [Stripe](/payments/stripe).
+
+## How instalment plans work
+
+1. You configure an instalment plan on an activity or product, defining the number of payments and the schedule.
+2. At checkout, customers see the instalment option alongside the full-price payment.
+3. The customer pays the first instalment to confirm their booking.
+4. Sailia automatically collects subsequent payments on the scheduled dates through Stripe.
+5. If all payments are collected, the plan is marked as complete.
+
+<Note>
+  The booking is confirmed after the first instalment is paid. The customer has full access to their reservation while the remaining instalments are outstanding.
+</Note>
+
+## Setting up instalment plans
+
+To offer instalment payments on an activity:
+
+<Steps>
+  <Step title="Open the activity settings">
+    Navigate to the activity you want to offer instalments for and open its pricing configuration.
+  </Step>
+  <Step title="Enable instalment payments">
+    Toggle on the instalment option and define the payment schedule — the number of instalments, the interval between payments, and the amount for each instalment.
+  </Step>
+  <Step title="Save and publish">
+    Save your changes. Customers booking the activity now see the instalment option at checkout.
+  </Step>
+</Steps>
+
+## Managing instalment plans
+
+From your financial dashboard, you can track all active instalment plans. Each plan shows:
+
+| Field | Description |
+| --- | --- |
+| **Customer** | The customer's name and account |
+| **Activity** | The booked activity and session date |
+| **Total amount** | The full price of the booking |
+| **Paid so far** | The total amount collected across completed instalments |
+| **Next payment** | The date and amount of the next scheduled instalment |
+| **Status** | Active, completed, or abandoned |
+
+## Payment collection
+
+Instalment payments are processed automatically through [Stripe](/payments/stripe) on the scheduled dates. If a payment fails:
+
+- Stripe retries the charge according to its retry schedule.
+- The customer is notified about the failed payment.
+- If retries are exhausted, the instalment plan may be marked as abandoned.
+
+<Warning>
+  An abandoned instalment plan means outstanding payments were not collected. Review abandoned plans regularly and follow up with customers to resolve payment issues.
+</Warning>
+
+## Automating instalment communications
+
+Use [automated workflows](/integrations/workflows) to keep customers informed throughout the instalment lifecycle. Available triggers include:
+
+| Trigger | When it fires |
+| --- | --- |
+| **Instalment due** | An instalment payment is about to be collected |
+| **Instalment paid** | An instalment payment has been successfully processed |
+| **Instalment plan started** | A new instalment plan is created |
+| **Instalment plan completed** | All instalments are fully paid |
+| **Instalment plan abandoned** | The plan is terminated due to missed payments |
+
+<Tip>
+  Set up an "instalment due" workflow to send a reminder a few days before each payment. This reduces failed payments and improves the customer experience.
+</Tip>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    How Sailia processes payments and handles failed charges.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up email reminders for upcoming instalment payments.
+  </Card>
+</Columns>
