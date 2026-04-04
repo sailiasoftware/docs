@@ -1,0 +1,76 @@
+---
+title: Staff availability and time off
+description: Manage staff availability, handle time-off requests, and track schedule coverage.
+---
+
+Sailia lets staff members submit availability and time-off requests so you can plan schedules around your team's capacity. Admins can approve or reject requests, and [automated workflows](/integrations/workflows) keep everyone informed throughout the process.
+
+## How availability requests work
+
+1. A staff member submits a time-off or availability request through Sailia.
+2. An admin reviews the request and approves or rejects it.
+3. Both the staff member and relevant admins receive notifications about the decision.
+4. Approved time off is reflected in schedule planning.
+
+## Submitting a request
+
+Staff members can submit availability requests directly from their Sailia account. Each request includes:
+
+| Field | Description |
+| --- | --- |
+| **Date range** | The start and end dates of the requested time off |
+| **Reason** | An optional note explaining the request |
+
+<Tip>
+  Encourage staff to submit time-off requests well in advance so you have time to adjust schedules and reassign activities.
+</Tip>
+
+## Reviewing requests
+
+Admins with the **Manage Staff** [permission](/staff/management#permissions) can view and respond to availability requests:
+
+<Steps>
+  <Step title="Open the staff section">
+    Navigate to the staff dashboard to see pending requests.
+  </Step>
+  <Step title="Review the request">
+    Check the requested dates and any notes from the staff member. Review the schedule to understand the impact.
+  </Step>
+  <Step title="Approve or reject">
+    Approve the request to confirm the time off, or reject it with an optional reason.
+  </Step>
+</Steps>
+
+## Automated notifications
+
+Use [automated workflows](/integrations/workflows) to send notifications at each stage of the availability request process:
+
+| Trigger | When it fires |
+| --- | --- |
+| **Availability request submitted** | A staff member submits a new time-off request |
+| **Availability request responded** | An admin approves or rejects a request |
+
+Set up these workflows to ensure staff are notified promptly when their request is reviewed, and admins are alerted when new requests come in.
+
+## Impact on scheduling
+
+When a staff member has approved time off:
+
+- They should not be assigned to [activities](/activities/activities) during that period
+- Their [auto timesheets](/staff/auto-timesheets) reflect only the days they are actually working
+- You can use the [schedule filters](/activities/managing-bookings#schedule-filters) to check staff coverage and identify gaps
+
+<Note>
+  Approving a time-off request does not automatically remove the staff member from existing activity assignments. Review and reassign any affected bookings manually after approving a request.
+</Note>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Staff management" icon="user-gear" href="/staff/management">
+    Add staff, set pay rates, and manage permissions.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up notifications for availability requests.
+  </Card>
+</Columns>
