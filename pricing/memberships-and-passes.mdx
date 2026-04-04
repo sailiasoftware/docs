@@ -16,10 +16,16 @@ Memberships are recurring subscription plans that give customers access to benef
     Navigate to your memberships section and select **Create Membership**.
   </Step>
   <Step title="Set the plan details">
-    Enter the membership name, description, and recurring price. Choose a billing interval (monthly, quarterly, or yearly).
+    Enter the membership name, description, and recurring price. Choose a billing interval — you can bill by days, weeks, months, or years (for example, every 7 days, every 2 weeks, monthly, quarterly, or yearly). You can also set the price to zero for free memberships.
+  </Step>
+  <Step title="Configure plan options">
+    Optionally set a **setup cost** (a one-time fee charged when the customer first signs up), a **max users** limit to cap how many family members can be on the plan, and whether **approval is required** before new signups are activated.
   </Step>
   <Step title="Add benefits">
-    Define what members receive. This typically includes a [membership discount](/pricing/discount-codes#membership-discounts) that auto-applies at checkout.
+    Define what members receive. You can add [membership discounts](/pricing/discount-codes#membership-discounts), text benefits (freeform descriptions displayed to members), members-only activities, and members-only activity passes.
+  </Step>
+  <Step title="Attach waivers">
+    Optionally require a waiver to be completed at signup. You can set a family-level waiver (completed once per family) and a per-user waiver (completed by each member added to the plan).
   </Step>
   <Step title="Publish">
     Make the membership available on your booking page for customers to sign up.
@@ -42,6 +48,26 @@ This is useful when you want to offer a plan exclusively through in-person sales
   Hiding a plan does not affect existing members. Customers who are already subscribed continue their membership as normal.
 </Note>
 
+### Approval-required plans
+
+When you enable **Approval required** on a plan, new signups are not activated immediately. Instead, the customer provides their payment details and the membership moves to a **Requested** status. An admin must then approve or decline the request.
+
+- If approved, the Stripe subscription is created and billing begins.
+- If declined, the membership instance is cancelled and no charge is made.
+
+This is useful for plans with limited availability or plans where you need to verify eligibility before granting access.
+
+### Membership benefits
+
+Each membership can offer four types of benefits:
+
+| Benefit type | Description |
+| --- | --- |
+| **Discount** | A linked [discount code](/pricing/discount-codes#membership-discounts) that auto-applies at checkout for members. |
+| **Text** | A freeform description displayed to members (for example, "Priority booking access" or "Free parking"). |
+| **Members-only activities** | Specific activities or tickets that are restricted to members of this membership. |
+| **Members-only activity passes** | Specific [activity passes](#activity-passes) that only members of this membership can purchase. |
+
 ### Membership discounts
 
 When you link a [discount code](/pricing/discount-codes#membership-discounts) to a membership, it is automatically applied whenever the member checks out. Membership discounts are always auto-applied and stackable, so members can combine their membership benefit with other promotional codes.
@@ -56,14 +82,65 @@ You can configure how long the associated Stripe coupon lasts:
 Memberships are billed through Stripe. When a customer signs up:
 
 1. A Stripe subscription is created with the configured billing interval.
-2. Payments are collected automatically on each billing cycle.
-3. If a payment fails, Stripe's retry logic attempts to collect again.
+2. If a setup cost is configured, it is charged as a one-time fee on the first invoice.
+3. Payments are collected automatically on each billing cycle.
+4. If a payment fails, Stripe's retry logic attempts to collect again.
+
+### Member status
+
+Each membership instance moves through a status lifecycle as the subscription progresses:
+
+| Status | Meaning |
+| --- | --- |
+| **Pending** | The member has been created but has not yet provided payment details. |
+| **Requested** | Payment details collected, waiting for admin approval (only for approval-required plans). |
+| **Active** | The subscription is running and payments are in good standing. |
+| **Past due** | A payment has failed. Stripe will retry collection automatically. |
+| **Paused** | Billing has been paused by an admin. |
+| **Cancelled** | The membership has been terminated. |
 
 ### Adding members from the same family
 
 Multiple members of the same family can hold the same membership, as long as each person is only added once. When you purchase a membership for specific family members, Sailia checks whether any of the selected users are already on that membership. If one or more of them are, the purchase is blocked with an error.
 
 This means you can buy the same membership for different family members in separate transactions. For example, if a parent purchases a membership for one child, they can later purchase the same membership for a sibling — but they cannot re-purchase it for a child who is already a member.
+
+If a plan has a **max users** limit, the total number of family members on a single membership instance cannot exceed that cap.
+
+### Managing users on an existing membership
+
+You can add or remove family members from an active membership instance at any time. When adding a user, Sailia checks that the user is not already on the membership and that the max users limit (if set) is not exceeded. When removing a user, at least one member must remain on the instance.
+
+### Changing plans
+
+Members can be moved from one plan to another within the same membership. When you swap a member's plan:
+
+- The Stripe subscription is updated with proration, so the member is credited for the unused portion of the old plan and charged for the new plan.
+- Any recurring add-ons are carried over to the new plan where available. If the new plan has different pricing or quantity limits for an add-on, the subscription is adjusted accordingly.
+- One-time add-ons that were already purchased are preserved.
+
+### Pausing and resuming billing
+
+You can pause payment collection on an active membership. When paused, Stripe stops collecting payments and any upcoming invoices are held as drafts.
+
+Optionally set a **resume date** to automatically restart billing on a specific date. If no resume date is set, billing remains paused until you manually resume it.
+
+<Note>
+  Pausing billing does not cancel the membership. The member retains their status and benefits during the pause.
+</Note>
+
+### Cancelling a membership
+
+There are two ways to cancel a membership:
+
+- **At period end** — the membership remains active until the end of the current billing cycle, then cancels automatically. The member continues to receive benefits until the cancellation takes effect.
+- **Immediately** — the membership is cancelled right away and benefits are removed.
+
+If a cancellation is set to take effect at the end of the billing period, you can reverse it by selecting **Do not cancel**. This restores the membership to its active state and billing continues as normal.
+
+### Refunding membership invoices
+
+You can issue full or partial refunds on individual membership invoices. When processing a refund, VAT is pro-rated automatically based on the refund amount. The refund is processed through Stripe and the balance is updated on the membership instance.
 
 ### Membership add-ons
 
@@ -87,11 +164,25 @@ Add-ons are billed through Stripe alongside the membership subscription. Recurri
 
 #### Add an add-on to an existing member
 
-You can attach add-ons to an active membership at any time. When you add an add-on to an existing member, Stripe prorates the charge for the current billing cycle by default.
+You can attach add-ons to an active membership at any time. When you add a recurring add-on to an existing member, Stripe prorates the charge for the current billing cycle. One-time add-ons are invoiced immediately.
+
+#### Remove an add-on
+
+Recurring add-ons can be removed from an active membership. One-time add-ons cannot be removed because they have already been charged.
+
+### Membership notes
+
+Staff can add notes to individual membership instances to track important context — for example, special arrangements, customer requests, or migration details. Notes can be created, edited, and deleted from the membership instance detail view.
+
+### Audit history
+
+Every membership instance maintains a detailed audit trail of all changes. You can view the history to see when the membership was created, when plans were changed, when billing was paused or resumed, when payments succeeded or failed, and when cancellations or reversals occurred.
 
 ### Migrating memberships
 
 If you are switching to Sailia from another membership system, you can bulk-import your existing members. The migration process creates families, users, and membership instances from your import data.
+
+Imported members start in a migration state where they are active on their current billing cycle but do not yet have Stripe payment details. When a migrated member provides their payment information, a Stripe subscription is scheduled to begin at the end of their current billing cycle, ensuring a seamless transition with no overlap or gap in billing.
 
 During migration, you can also assign add-ons to each imported membership instance. This means members keep their existing add-on subscriptions when they move to Sailia — there is no need to manually re-add them after import.
 
@@ -102,6 +193,7 @@ Each row in your import data can include:
 - **Member number** — an optional custom member number to preserve from your old system
 - **Add-ons** — a list of add-on selections, each with a membership add-on ID and quantity
 - **Note** — an optional note attached to the membership instance
+- **Discount code** — an optional discount code to apply to the membership
 
 <Note>
   Add-ons included during migration must already be linked to the target membership plan in Sailia. Create your membership plans and link the relevant add-ons before running the import.
