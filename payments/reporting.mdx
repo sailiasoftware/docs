@@ -44,11 +44,41 @@ If accounting sync is enabled, cash payouts are sent to the **Sailia Cash Cleari
 
 ## Exporting data
 
-You can export transaction data as CSV files from the financial dashboard. Exports are available for:
+You can export transaction data as CSV files from the financial dashboard. Click **Export Data** to open a dropdown where you choose the type of export:
 
-### Donation exports
+| Export type | What it includes |
+| --- | --- |
+| **Baskets** | One row per basket with totals, payment method, status, and customer details |
+| **Basket items** | One row per line item across all baskets, with product and pricing details |
+| **Donations** | Donation records for charity reporting or Gift Aid claims (see [donation exports](/payments/donations#exporting-donations)) |
+| **Course purchases by end date** | Course bookings filtered by when the course ends rather than when the customer purchased |
+| **Planned activities** | Upcoming scheduled sessions within the selected date range |
 
-Export donation records for charity reporting or Gift Aid claims. The CSV includes donation amounts, charity details, Gift Aid status, and donor information. See [donation exports](/payments/donations#exporting-donations) for full details on available columns.
+After selecting an export type, a dialog appears where you set a date range and optional filters before downloading the CSV.
+
+### Export filters
+
+Depending on the export type, you can narrow down which records are included.
+
+#### Paid baskets only
+
+Toggle **Include paid baskets only** to exclude baskets that are still pending, failed, or expired. This is available for baskets, basket items, and course-by-end-date exports. Donation exports always include only successful baskets.
+
+#### Payment options
+
+Filter by the payment method used to complete the basket. The available groups are:
+
+| Group | Includes |
+| --- | --- |
+| **Card** | Card payments, pay-later arrangements, and invoiced payments |
+| **Cash** | Cash payments taken through the [point of sale](/point-of-sale/overview) |
+| **Other** | Any other payment method |
+
+All payment options are selected by default. Deselect a group to exclude those records from the export. At least one group must remain selected.
+
+<Note>
+  Payment option filters are not available for the **Planned activities** export type since planned sessions are not tied to a specific payment method.
+</Note>
 
 ### Payout exports
 
