@@ -19,8 +19,10 @@
               "index",
               "getting-started/overview",
               "getting-started/setup-checklist",
+              "getting-started/account-settings",
               "getting-started/booking-page",
-              "getting-started/locations"
+              "getting-started/locations",
+              "getting-started/faq"
             ]
           },
           {
@@ -29,14 +31,16 @@
               "activities/activities",
               "activities/online-bookings",
               "activities/managing-bookings",
+              "activities/cancellations-and-refunds",
               "activities/group-bookings",
               "activities/waitlists"
             ]
           },
           {
-            "group": "Customers and marketing",
+            "group": "Customers",
             "pages": [
               "customers/overview",
+              "customers/customer-accounts",
               "customers/family-accounts",
               "customers/waivers",
               "customers/file-uploads",
@@ -74,7 +78,9 @@
             "group": "Staff and operations",
             "pages": [
               "staff/management",
-              "staff/auto-timesheets"
+              "staff/auto-timesheets",
+              "staff/availability",
+              "staff/timesheet-invoices"
             ]
           },
           {

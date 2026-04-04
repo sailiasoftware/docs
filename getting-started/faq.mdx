@@ -1,0 +1,156 @@
+---
+title: Frequently asked questions
+description: Answers to common questions about setting up and using Sailia.
+---
+
+## Getting started
+
+<AccordionGroup>
+  <Accordion title="How do I get started with Sailia?">
+    Follow the [quick setup checklist](/getting-started/setup-checklist) to configure your account step by step. The only hard requirement before accepting payments is [connecting Stripe](/payments/stripe#connect-stripe).
+  </Accordion>
+
+  <Accordion title="Do I need to build a website to use Sailia?">
+    No. Sailia automatically generates a [booking page](/getting-started/booking-page) from your published activities and products. Customers can browse, book, and pay through this page without you needing to build or host a separate website.
+  </Accordion>
+
+  <Accordion title="Can I use Sailia with multiple locations?">
+    Yes. [Locations](/getting-started/locations) let you organize activities, POS terminals, card readers, and timesheets by site. You can filter the schedule by location and assign staff to specific venues.
+  </Accordion>
+
+  <Accordion title="What types of activities can I create?">
+    Sailia supports three activity types: **courses** (scheduled sessions like surf lessons), **hires** (equipment rentals like kayak hire), and **events** (one-off or recurring events). All three share the same booking and payment flow. See [Activities](/activities/activities) for details.
+  </Accordion>
+</AccordionGroup>
+
+## Bookings and scheduling
+
+<AccordionGroup>
+  <Accordion title="How do customers book activities?">
+    Customers visit your [booking page](/getting-started/booking-page), select a session, choose tickets and participants, and complete payment through [Stripe](/payments/stripe). The [booking wizard](/activities/online-bookings#booking-wizard) guides them through each step.
+  </Accordion>
+
+  <Accordion title="Can customers book for multiple people?">
+    Yes. [Group bookings](/activities/group-bookings) let a single customer book on behalf of multiple participants. The organizer handles payment and can add individual participant details before or after checkout.
+  </Accordion>
+
+  <Accordion title="What happens when a session is fully booked?">
+    If you have [waitlists](/activities/waitlists) enabled, customers can register their interest. When a spot opens up (due to a cancellation or capacity increase), the next customer on the waitlist is notified automatically with a link to complete their booking.
+  </Accordion>
+
+  <Accordion title="Can I process bookings in person?">
+    Yes. The [point of sale](/point-of-sale/overview) lets you create walk-in bookings, sell shop products, and process payments with a [card reader](/point-of-sale/card-readers) or cash. POS bookings share real-time capacity with online bookings.
+  </Accordion>
+
+  <Accordion title="How do I cancel a booking and issue a refund?">
+    Open the booking from your [bookings dashboard](/activities/managing-bookings), select **Cancel**, and choose a refund method — original payment method, [store credit](/pricing/gift-cards), or cash. See [Cancellations and refunds](/activities/cancellations-and-refunds) for the full process.
+  </Accordion>
+</AccordionGroup>
+
+## Payments
+
+<AccordionGroup>
+  <Accordion title="What payment methods does Sailia support?">
+    Sailia supports card payments (online and POS), [Stripe Link](/payments/stripe#stripe-link) for faster checkout, cash payments (POS only), invoice payments, and [gift card](/pricing/gift-cards) redemption. All card payments are processed through [Stripe](/payments/stripe).
+  </Accordion>
+
+  <Accordion title="Can customers pay in instalments?">
+    Yes. You can configure [instalment plans](/payments/instalments) on activities so customers can split payments over time. The first instalment confirms the booking, and subsequent payments are collected automatically through Stripe.
+  </Accordion>
+
+  <Accordion title="How do refunds work?">
+    You can refund to the original payment method (card refund via Stripe), issue [store credit](/pricing/gift-cards) as a gift card, or process a cash refund. Card refunds take 5-10 business days. Store credit is available immediately. See [Cancellations and refunds](/activities/cancellations-and-refunds).
+  </Accordion>
+
+  <Accordion title="How do I view my payouts?">
+    Stripe sends payouts to your bank account on a regular schedule. View payout details in the [financial dashboard](/payments/reporting), including gross amounts, fees, and net payouts. If you use [Xero](/integrations/accounting-sync), payouts are synced automatically.
+  </Accordion>
+</AccordionGroup>
+
+## Customers
+
+<AccordionGroup>
+  <Accordion title="How are customer accounts created?">
+    Sailia automatically creates customer records when someone books an activity or makes a purchase. Customers can also create an account on your booking page to manage their bookings, memberships, and waivers. See [Customer management](/customers/overview).
+  </Accordion>
+
+  <Accordion title="Can families share an account?">
+    Yes. [Family accounts](/customers/family-accounts) let customers group family members under a single account. Each member has their own booking history, waiver status, and can hold individual [memberships](/pricing/memberships-and-passes) and [activity passes](/pricing/memberships-and-passes#activity-passes).
+  </Accordion>
+
+  <Accordion title="How do waivers work?">
+    You create [waiver](/customers/waivers) templates with text blocks, checkboxes, signature fields, and file uploads. Link them to activities, and customers are prompted to complete them during checkout. You can track completion from the bookings dashboard.
+  </Accordion>
+</AccordionGroup>
+
+## Pricing and promotions
+
+<AccordionGroup>
+  <Accordion title="What's the difference between a membership and an activity pass?">
+    [Memberships](/pricing/memberships-and-passes) are recurring subscriptions billed through Stripe with ongoing benefits like auto-applied discounts. [Activity passes](/pricing/memberships-and-passes#activity-passes) are one-time purchases that give customers a set number of sessions to redeem.
+  </Accordion>
+
+  <Accordion title="Can I offer discounts?">
+    Yes. [Discount codes](/pricing/discount-codes) support fixed amounts, percentages, and tiered pricing. You can set usage limits, date restrictions, early-bird and surge pricing, product restrictions, and more. Discounts can be entered manually or auto-applied.
+  </Accordion>
+
+  <Accordion title="How do gift cards work?">
+    Customers purchase a [gift card](/pricing/gift-cards) for a specified value and receive a unique code by email. The recipient enters the code at checkout to apply the balance. Gift cards are also created automatically when you issue a refund as store credit.
+  </Accordion>
+</AccordionGroup>
+
+## Staff and operations
+
+<AccordionGroup>
+  <Accordion title="How do I manage staff permissions?">
+    Assign staff to [permission groups](/staff/management#permissions) that control access to the schedule, financial dashboard, POS, communications, and staff management. Start with minimal permissions and add access as needed.
+  </Accordion>
+
+  <Accordion title="How do timesheets work?">
+    When [auto daily timesheets](/staff/auto-timesheets) are enabled, Sailia generates timesheet entries automatically from scheduled bookings — including setup and pack-down time. Pay rates are resolved per booking, with rate amendments overriding the default.
+  </Accordion>
+
+  <Accordion title="Can staff request time off?">
+    Yes. Staff can submit availability requests through Sailia. Admins approve or reject them, and [workflow triggers](/integrations/workflows#staff-triggers) can automate notifications for both submission and response events. See [Staff availability](/staff/availability).
+  </Accordion>
+</AccordionGroup>
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion title="Can I connect Sailia to my accounting software?">
+    Yes. The [Xero accounting sync](/integrations/accounting-sync) automatically creates invoices in Xero for each payout, categorized by VAT rate and account code. Each invoice includes a detailed CSV breakdown.
+  </Accordion>
+
+  <Accordion title="Can I track bookings in Google Analytics?">
+    Yes. Sailia fires tracking events during the booking flow. Connect [Google Tag Manager or PostHog](/integrations/booking-tracking) to capture `booking_start` and `booking_completed` events for conversion funnels.
+  </Accordion>
+
+  <Accordion title="What are automated workflows?">
+    [Workflows](/integrations/workflows) let you send automated emails and SMS messages triggered by events like booking confirmations, course reminders, waiver requests, and membership updates. Over 30 triggers are available across all areas of the platform.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="A customer didn't receive their confirmation email">
+    Ask the customer to check their spam folder. You can resend the confirmation from the [booking details](/activities/managing-bookings) at any time. If the issue persists, verify the customer's email address is correct.
+  </Accordion>
+
+  <Accordion title="My card reader is not working">
+    Check that the reader is powered on and connected to the internet. If it shows as offline, restart the device. If the registration code is invalid, restart the reader to generate a new code. See [Card reader troubleshooting](/point-of-sale/card-readers#troubleshooting).
+  </Accordion>
+
+  <Accordion title="Payouts are not appearing in Xero">
+    Confirm that [Sync to Xero](/integrations/accounting-sync) is toggled on, the payout was created after you enabled syncing, the payout status is paid, and your Xero connection is active. See [Xero troubleshooting](/integrations/accounting-sync#troubleshooting).
+  </Accordion>
+
+  <Accordion title="A discount code isn't working">
+    Check the code's [usage limits](/pricing/discount-codes#usage-limits), product eligibility, and date restrictions. Verify the customer's basket meets all conditions (minimum items, activity combination, etc.). Usage is counted per item, not per basket.
+  </Accordion>
+
+  <Accordion title="Capacity shows sold out but I cancelled bookings">
+    Cancellations free up capacity immediately. If spots still show as sold out, check whether other bookings were made between the cancellation and your check. Also verify you are looking at the correct session date and time.
+  </Accordion>
+</AccordionGroup>

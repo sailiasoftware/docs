@@ -1,0 +1,76 @@
+---
+title: Timesheet invoices
+description: How staff submit and manage timesheet invoices for payment processing.
+---
+
+Timesheet invoices let staff members submit their logged hours for review and payment. Once submitted, admins can approve, reject, or void invoices — and [automated workflows](/integrations/workflows) keep both parties informed throughout the process.
+
+## How timesheet invoices work
+
+1. A staff member reviews their [timesheet entries](/staff/auto-timesheets) for accuracy.
+2. They submit a timesheet invoice covering a specific period.
+3. An admin reviews the invoice and approves or rejects it.
+4. Once approved, the invoice can be marked as paid.
+
+## Submitting an invoice
+
+Staff members submit timesheet invoices from their account. The invoice is based on their logged timesheet entries — either auto-generated from [scheduled bookings](/staff/auto-timesheets) or manually entered.
+
+<Note>
+  Review your timesheet entries before submitting an invoice. Once submitted, entries included in the invoice cannot be edited until the invoice is resolved.
+</Note>
+
+## Reviewing invoices
+
+Admins with the **Manage Staff** [permission](/staff/management#permissions) can review submitted invoices:
+
+<Steps>
+  <Step title="Open the invoice">
+    Navigate to the staff section and find the submitted invoice.
+  </Step>
+  <Step title="Review the details">
+    Check the hours, pay rates, and total amount. Compare against scheduled bookings if needed.
+  </Step>
+  <Step title="Approve, reject, or void">
+    - **Approve** — confirms the invoice for payment
+    - **Reject** — sends it back to the staff member with optional feedback
+    - **Void** — cancels the invoice entirely
+  </Step>
+</Steps>
+
+## Invoice lifecycle
+
+| Status | Description |
+| --- | --- |
+| **Submitted** | The staff member has submitted the invoice for review |
+| **Approved** | An admin has confirmed the invoice is correct |
+| **Rejected** | The invoice has been sent back for corrections |
+| **Paid** | The invoice has been marked as paid |
+| **Voided** | The invoice has been cancelled |
+
+## Automated notifications
+
+Use [automated workflows](/integrations/workflows) to send notifications at each stage:
+
+| Trigger | When it fires |
+| --- | --- |
+| **Timesheet invoice submitted** | A staff member submits an invoice |
+| **Timesheet invoice approved** | An admin approves an invoice |
+| **Timesheet invoice rejected** | An admin rejects an invoice |
+| **Timesheet invoice paid** | An invoice is marked as paid |
+| **Timesheet invoice voided** | An invoice is voided |
+
+<Tip>
+  Set up workflow notifications for invoice submissions so admins are alerted promptly and can approve invoices before payroll deadlines.
+</Tip>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Auto daily timesheets" icon="clock" href="/staff/auto-timesheets">
+    Automatically generate timesheet entries from bookings.
+  </Card>
+  <Card title="Staff management" icon="user-gear" href="/staff/management">
+    Manage staff profiles, pay rates, and permissions.
+  </Card>
+</Columns>

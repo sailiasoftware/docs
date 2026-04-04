@@ -1,0 +1,118 @@
+---
+title: Cancellations and refunds
+description: Cancel bookings, process refunds, and manage store credit for your customers.
+---
+
+When a customer needs to cancel a booking, Sailia gives you flexible options for handling the cancellation and issuing refunds. You can refund to the original payment method, issue store credit as a gift card, or record a cash refund.
+
+## Cancel a booking
+
+To cancel a booking:
+
+<Steps>
+  <Step title="Open the booking">
+    Find the booking in your [bookings dashboard](/activities/managing-bookings) using the search or date filters.
+  </Step>
+  <Step title="Select cancel">
+    Click **Cancel** on the booking details page.
+  </Step>
+  <Step title="Choose a refund option">
+    Decide whether to issue a full refund, partial refund, or no refund. See [refund methods](#refund-methods) below.
+  </Step>
+  <Step title="Confirm the cancellation">
+    Confirm the cancellation. The booking status changes to **cancelled** and the session capacity is freed up immediately.
+  </Step>
+</Steps>
+
+<Note>
+  Cancelled bookings free up capacity instantly. If a [waitlist](/activities/waitlists) exists for the session, the next customer is notified automatically.
+</Note>
+
+## Refund methods
+
+When processing a refund, choose from three methods:
+
+| Method | How it works | Best for |
+| --- | --- | --- |
+| **Original payment method** | Refunds the amount to the customer's card via [Stripe](/payments/stripe). Takes 5-10 business days to appear on the customer's statement. | Standard cancellations where the customer wants their money back |
+| **Store credit** | Creates a [gift card](/pricing/gift-cards) for the refund amount and emails the code to the customer. Available immediately for future purchases. | Retaining revenue while giving the customer flexibility to rebook |
+| **Cash** | Records the refund against the active [till shift](/point-of-sale/overview#till-shifts) on the selected POS terminal. | Orders originally paid with cash at the point of sale |
+
+### Issue a refund as store credit
+
+To issue store credit instead of a card refund:
+
+1. Open the booking and select **Refund**.
+2. Enable the **Issue as credit** option.
+3. Confirm the refund amount.
+4. Sailia automatically creates a gift card for that amount and sends the code to the customer's email.
+
+The customer can redeem this credit on any future purchase — including activity bookings, shop products, and memberships.
+
+<Tip>
+  Store credit is a good option when customers want to reschedule rather than cancel outright. They receive instant credit without waiting for a bank refund.
+</Tip>
+
+## Partial refunds
+
+You do not have to refund the full booking amount. When processing a refund:
+
+- Select specific items or attendees to refund
+- Enter a custom refund amount for partial refunds
+- The remaining balance stays on the original booking
+
+Partial refunds are useful when:
+
+- One participant in a [group booking](/activities/group-bookings) cancels but others attend
+- A customer downgrades to fewer sessions
+- You want to apply a cancellation fee
+
+## Cancellation and waitlists
+
+When you cancel a booking for a session that has a [waitlist](/activities/waitlists):
+
+1. The cancelled spots are added back to the session's available capacity.
+2. Sailia automatically notifies the next customer on the waitlist via email.
+3. The waitlisted customer receives a booking link with a deadline to claim the spot.
+4. If they do not book in time, the spot is offered to the next person on the list.
+
+## Cancelling instalment bookings
+
+For bookings paid through an [instalment plan](/payments/instalments):
+
+- You can refund the amount already collected.
+- Outstanding future instalments are cancelled automatically.
+- The instalment plan status changes to reflect the cancellation.
+
+<Warning>
+  Review instalment plans carefully before cancelling. Once cancelled, the remaining scheduled payments are stopped and cannot be restarted.
+</Warning>
+
+## Customer-initiated cancellations
+
+Customers cannot cancel bookings directly through the booking page. All cancellations must be processed by your team through the bookings dashboard or point of sale. This ensures you have control over refund amounts and methods.
+
+<Tip>
+  Use [automated workflows](/integrations/workflows) to set up a cancellation confirmation email that includes your cancellation policy and any next steps.
+</Tip>
+
+## Tracking refunds
+
+All refunds appear in your [financial dashboard](/payments/reporting):
+
+- Card refunds are deducted from your next Stripe payout
+- Cash refunds appear in your till shift records
+- Store credit (gift card) refunds are tracked under gift card balances
+
+If you use [Xero accounting sync](/integrations/accounting-sync), refunds are included in the payout invoice sent to Xero with the correct categorization.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    Find and manage bookings across all channels.
+  </Card>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    How Stripe handles refunds and payouts.
+  </Card>
+</Columns>
