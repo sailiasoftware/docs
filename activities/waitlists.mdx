@@ -1,6 +1,7 @@
 ---
 title: Waitlists
 description: Let customers join a waitlist when an activity session is fully booked.
+keywords: ['waitlist', 'waiting list', 'sold out', 'capacity', 'notifications']
 ---
 
 When an activity session reaches capacity, waitlists give customers a way to register their interest and get notified if a spot opens up. This helps you capture demand you would otherwise lose and fill cancellations automatically.
@@ -18,7 +19,23 @@ When an activity session reaches capacity, waitlists give customers a way to reg
 
 ## Enable waitlists
 
-Waitlists are configured at the activity level. When editing an activity, enable the waitlist option to allow customers to register interest for fully booked sessions.
+Waitlists are configured at the activity level:
+
+<Steps>
+  <Step title="Open the activity">
+    Navigate to the activity you want to enable waitlists for.
+  </Step>
+  <Step title="Enable the waitlist option">
+    In the activity settings, toggle the **Waitlist** option on. This allows customers to register interest when the session reaches capacity.
+  </Step>
+  <Step title="Save the activity">
+    Save your changes. Customers now see a **Join waitlist** option on fully booked sessions instead of a sold-out message.
+  </Step>
+</Steps>
+
+<Tip>
+  You can enable waitlists on individual activities — not every activity needs one. Enable them on high-demand activities where cancellations are common.
+</Tip>
 
 ## Managing the waitlist
 
@@ -42,6 +59,18 @@ If the customer does not book within the deadline, the spot is offered to the ne
 <Info>
   If you have [workflows](/integrations/workflows) configured, you can customize the content and timing of waitlist notification emails.
 </Info>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer did not receive a waitlist notification">
+    Verify the customer's email address on their profile. Waitlist notifications are sent automatically when a spot opens — check whether the session has had any cancellations. You can also set up a [workflow](/integrations/workflows) to customize notification timing and content.
+  </Accordion>
+
+  <Accordion title="Spot opened but waitlist customer was not notified">
+    Notifications are sent to the next person on the list in sign-up order. If the spot was filled by a direct booking (not through the waitlist), the waitlist may not have been triggered. Review the booking source in the bookings dashboard.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 

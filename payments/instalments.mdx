@@ -1,6 +1,7 @@
 ---
 title: Instalment plans
 description: Let customers split payments into scheduled instalments for higher-value bookings.
+keywords: ['instalments', 'payment plans', 'split payments', 'scheduled payments', 'deposits']
 ---
 
 Instalment plans let you break the cost of a booking into multiple scheduled payments, making higher-value activities more accessible. Customers pay an initial amount at checkout and the remaining balance is collected automatically over time through [Stripe](/payments/stripe).
@@ -73,6 +74,22 @@ Use [automated workflows](/integrations/workflows) to keep customers informed th
 <Tip>
   Set up an "instalment due" workflow to send a reminder a few days before each payment. This reduces failed payments and improves the customer experience.
 </Tip>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="A customer's instalment payment failed">
+    Stripe automatically retries failed payments on its default schedule. If retries are exhausted, the plan is marked as abandoned. Check the customer's payment method in Stripe and contact them to update their card details if needed.
+  </Accordion>
+
+  <Accordion title="A customer wants to pay off their remaining balance early">
+    Currently, instalment plans follow the configured schedule. To close a plan early, you can manually process the remaining amount through the [point of sale](/point-of-sale/overview) and update the plan status in the dashboard.
+  </Accordion>
+
+  <Accordion title="Instalment plan shows as abandoned">
+    An abandoned plan means all retry attempts for a scheduled payment have failed. Review the plan in your financial dashboard, contact the customer to resolve the payment issue, and consider rebooking them if needed.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
