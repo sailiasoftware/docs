@@ -1,6 +1,7 @@
 ---
 title: Memberships and activity passes
 description: Offer recurring memberships and prepaid activity pass bundles to your customers.
+keywords: ['memberships', 'activity passes', 'recurring billing', 'prepaid passes', 'subscription']
 ---
 
 Memberships and activity passes give customers flexible ways to pay for your activities beyond one-off bookings. Memberships provide ongoing access with recurring billing, while activity passes let customers prepay for a bundle of sessions.
@@ -155,6 +156,22 @@ If you use [Xero accounting sync](/integrations/accounting-sync), assign account
 ## Discounts
 
 Both memberships and activity passes are eligible for [discount codes](/pricing/discount-codes). When creating a discount, enable **Memberships** or **Activity passes** under product eligibility to allow the discount to apply.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="A member's renewal payment failed">
+    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. Contact the customer to update their payment method.
+  </Accordion>
+
+  <Accordion title="Cannot purchase a membership for a family member">
+    Sailia prevents duplicate memberships for the same person on the same plan. Check whether the family member already has an active membership. If they do, the purchase is blocked intentionally.
+  </Accordion>
+
+  <Accordion title="Activity pass not applying at checkout">
+    Verify that the pass is not expired, has remaining redemptions, and the booked activity is included in the pass's eligible activities. If the pass has **Single user only** enabled, confirm the correct family member is included in the booking.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 

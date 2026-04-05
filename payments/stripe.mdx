@@ -1,6 +1,7 @@
 ---
 title: Payments and Stripe
 description: Process payments, manage refunds, and handle payouts with Stripe.
+keywords: ['Stripe', 'payments', 'payouts', 'refunds', 'online payments', 'MOTO']
 ---
 
 Sailia uses [Stripe](https://stripe.com) as its payment processor. All online and card-based POS transactions flow through your connected Stripe account, giving you a single place to manage charges, refunds, and payouts.
@@ -103,6 +104,22 @@ When processing a MOTO payment, you can optionally capture a shipping address. T
 ## Fees
 
 Stripe charges a processing fee on each transaction. The fee is deducted from the payout before it reaches your bank account. If you use the [accounting sync](/integrations/accounting-sync), fees are mapped to a dedicated Xero account code for accurate bookkeeping.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Cannot connect Stripe">
+    Ensure you are logged in as an admin and that your Stripe account is fully verified. If the connection fails during authorization, try again or check Stripe's [status page](https://status.stripe.com) for outages.
+  </Accordion>
+
+  <Accordion title="Payout not received">
+    Payouts follow the schedule configured in your Stripe dashboard (typically 2-7 business days for new accounts). Check your Stripe payout schedule and verify that your bank account details are correct.
+  </Accordion>
+
+  <Accordion title="Customer reports they were charged but booking not confirmed">
+    This can happen if the payment succeeds but the confirmation step encounters an issue. Check the booking in your dashboard — it may be marked as paid. If not, verify the charge in your Stripe dashboard and manually confirm the booking if needed.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 

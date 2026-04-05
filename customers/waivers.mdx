@@ -1,6 +1,7 @@
 ---
 title: Waivers
 description: Collect signed waivers and supporting documents from customers before activities.
+keywords: ['waivers', 'liability waiver', 'digital signature', 'consent form', 'documents']
 ---
 
 Waivers let you collect acknowledgements, consent forms, and supporting documents from customers before they attend an activity. You can require waivers at the time of booking or allow customers to complete them later.
@@ -55,6 +56,22 @@ Waivers support file upload fields for collecting documents like medical certifi
 <Note>
   Waiver file uploads have a 10 MB size limit per file. See [file uploads](/customers/file-uploads) for the full list of supported file types.
 </Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer cannot upload a file to the waiver">
+    Verify that the customer is signed in — file uploads require an authenticated session. Also check that the file type and size are within the [supported limits](/customers/file-uploads#file-size-limits).
+  </Accordion>
+
+  <Accordion title="Waiver not appearing during checkout">
+    Confirm the waiver is linked to the correct activity. Open the waiver and check that the activity assignment is in place. Waivers are only shown for activities they are explicitly linked to.
+  </Accordion>
+
+  <Accordion title="Customer completed the waiver but it shows as incomplete">
+    All required fields (checkboxes, signatures, file uploads) must be filled in. Ask the customer to check for any missed fields and resubmit.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
