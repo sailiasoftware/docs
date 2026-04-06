@@ -1,0 +1,108 @@
+---
+title: Permissions reference
+description: A complete guide to staff permissions and what each permission level controls.
+keywords: ['permissions', 'staff permissions', 'roles', 'access control', 'admin', 'operator']
+---
+
+Sailia uses a permission-based system to control what each staff member can see and do. Permissions are assigned per user in the [staff management](/staff/management) settings.
+
+## Available permissions
+
+| Permission | What it controls |
+| --- | --- |
+| **What's On** | View the schedule and booking details for assigned activities |
+| **Financial Dashboard** | Access payouts, revenue reports, transaction exports, and manage [discount codes](/pricing/discount-codes), [instalment plans](/payments/instalments), and receipts |
+| **POS** | Access the [point of sale](/point-of-sale/overview) to process sales, manage till shifts, and handle walk-in bookings |
+| **Communications** | Access [automated workflows](/integrations/workflows), audience management, and send marketing communications |
+| **Manage Staff** | Add and edit staff profiles, set pay rates, and assign permissions to other team members |
+| **Manage POS** | Create and configure POS terminals, duplicate grid layouts between terminals |
+| **Operator Booking** | Process bookings and payments on behalf of customers, including [MOTO payments](/payments/stripe#phone-and-mail-order-payments) |
+| **View Other Users** | View customer profiles, booking history, and the [Notes tab](/customers/overview#notes) on customer accounts |
+
+## Permission details
+
+### What's On
+
+Staff with this permission can see the daily and weekly schedule for activities they are assigned to. They can view booking details, attendee lists, and session information but cannot make financial changes.
+
+**Best for:** Instructors, guides, and session leaders who need to see who is coming to their sessions.
+
+### Financial Dashboard
+
+This permission gives access to the financial side of Sailia — payouts, revenue reports, and transaction exports. It also grants the ability to create and manage [discount codes](/pricing/discount-codes).
+
+**Best for:** Business owners, accountants, and finance managers.
+
+<Warning>
+  The Financial Dashboard permission grants access to sensitive financial data including revenue, payouts, and individual transaction details. Only assign this to trusted team members.
+</Warning>
+
+### POS
+
+Staff with POS access can process in-person sales, apply discount codes, redeem gift cards, and manage till shifts. They can take card and cash payments but cannot create new POS terminals (that requires **Manage POS**).
+
+**Best for:** Front desk staff, receptionists, and anyone handling walk-in sales.
+
+### Communications
+
+This permission covers marketing and customer communication tools — automated workflows, audience management, and the newsletter forms. Staff can create and edit workflows, view the subscriber list, and send campaigns.
+
+**Best for:** Marketing managers and customer service leads.
+
+### Manage Staff
+
+Allows adding new staff members, editing profiles, setting pay rates, and assigning permissions. This is an administrative permission that should be restricted to managers.
+
+**Best for:** Business owners and HR managers.
+
+### Operator Booking
+
+Enables staff to process bookings on behalf of customers, including taking card details over the phone with [MOTO payments](/payments/stripe#phone-and-mail-order-payments). MOTO transactions skip 3D Secure authentication since the customer is not present.
+
+**Best for:** Phone booking operators and customer service staff.
+
+### View Other Users
+
+Grants access to customer profiles beyond what is visible in the schedule. Staff can see booking history, membership status, waiver completion, and internal notes on the customer's **Notes** tab.
+
+**Best for:** Customer support staff and managers who need full visibility into customer records.
+
+## Assigning permissions
+
+<Steps>
+  <Step title="Open staff management">
+    Navigate to **Settings** > **Staff** and select the staff member.
+  </Step>
+  <Step title="Edit permissions">
+    Toggle each permission on or off based on the staff member's role.
+  </Step>
+  <Step title="Save">
+    Save the changes. The updated permissions take effect immediately.
+  </Step>
+</Steps>
+
+<Note>
+  Admin users (the account owner) have all permissions by default and cannot have individual permissions removed.
+</Note>
+
+## Common permission combinations
+
+| Role | Recommended permissions |
+| --- | --- |
+| **Business owner** | All permissions |
+| **Manager** | What's On, Financial Dashboard, POS, Communications, Manage Staff, View Other Users |
+| **Instructor / guide** | What's On |
+| **Front desk staff** | What's On, POS, Operator Booking, View Other Users |
+| **Accountant** | Financial Dashboard |
+| **Marketing lead** | Communications, View Other Users |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Staff management" icon="users-gear" href="/staff/management">
+    Add staff members and assign them to activities.
+  </Card>
+  <Card title="Point of sale" icon="cash-register" href="/point-of-sale/overview">
+    Staff POS access and terminal management.
+  </Card>
+</Columns>

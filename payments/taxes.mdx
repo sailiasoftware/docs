@@ -1,0 +1,92 @@
+---
+title: Taxes and VAT
+description: Configure tax rates and VAT settings for your bookings, products, and invoices.
+keywords: ['taxes', 'VAT', 'tax rates', 'accounting', 'tax compliance', 'Xero']
+---
+
+Sailia supports tax and VAT configuration through accounting categories. When you connect a bookkeeping tool like [Xero](/integrations/accounting-sync), each product category is mapped to a tax rate, ensuring your invoices and financial reports reflect the correct tax amounts.
+
+## How taxes work in Sailia
+
+Tax rates are not applied directly to individual products. Instead, you assign products to **accounting categories**, and each category has an associated VAT rate and Xero account code. This keeps your tax configuration centralized and consistent.
+
+| Concept | Description |
+| --- | --- |
+| **Accounting category** | A label you create (e.g. "Activity income", "Equipment hire", "Food and drink") |
+| **VAT rate** | The tax percentage assigned to the category (e.g. 20%, 5%, 0%) |
+| **Xero tax type** | The Xero tax rate name that the category maps to |
+| **Xero account code** | The Xero account where revenue is posted |
+
+## Set up accounting categories
+
+<Steps>
+  <Step title="Open accounting settings">
+    Navigate to **Settings** > **Integrations** > **Xero** and open the accounting categories section.
+  </Step>
+  <Step title="Create a category">
+    Add a new accounting category with a name, VAT rate, Xero tax type, and Xero account code.
+  </Step>
+  <Step title="Assign products to categories">
+    For each activity, shop product, membership, or activity pass, select the appropriate accounting category in its settings.
+  </Step>
+</Steps>
+
+## Products that support accounting categories
+
+| Product type | Where to assign |
+| --- | --- |
+| **Activities** | Activity settings page |
+| **Shop products** | Product details page |
+| **Memberships** | Membership plan settings |
+| **Activity passes** | Pass settings page |
+| **Gift cards** | Mapped separately in Xero settings — see [gift card mapping](/integrations/accounting-sync#map-categories-to-xero) |
+
+## VAT on invoices
+
+When [Xero accounting sync](/integrations/accounting-sync) is enabled, each Stripe payout generates a Xero invoice that includes:
+
+- Line items grouped by accounting category
+- The correct VAT rate on each line
+- Stripe fees mapped to a dedicated account code
+- A CSV attachment with the full transaction breakdown
+
+<Note>
+  If a product does not have an accounting category assigned, its revenue still appears in Xero but without specific tax categorization. Assign categories to all products for accurate tax reporting.
+</Note>
+
+## Gift Aid for donations
+
+If you accept [donations](/payments/donations) and your organization is a UK-registered charity, you can enable **Gift Aid** to reclaim an additional 25% from HMRC on qualifying donations. Gift Aid eligibility is tracked per donation and included in your [donation exports](/payments/donations#exporting-donation-data).
+
+## Exporting tax data
+
+You can export transaction data for tax reporting from the [financial dashboard](/payments/reporting):
+
+- **Payout exports** include fee breakdowns and net amounts
+- **Basket exports** include individual line items with product categories
+- **Donation exports** include Gift Aid status for each donation
+
+These exports are available as CSV files that you can provide to your accountant or import into bookkeeping software.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Products showing incorrect VAT rate in Xero">
+    Check the accounting category assigned to the product. Open the category settings and verify the VAT rate and Xero tax type are correct. Changes apply to future payouts — existing invoices in Xero are not retroactively updated.
+  </Accordion>
+
+  <Accordion title="Missing tax breakdown on Xero invoices">
+    Ensure all products have an accounting category assigned. Products without a category are grouped as uncategorized revenue. Assign categories and the next payout sync will include the correct breakdown.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Xero accounting sync" icon="arrows-rotate" href="/integrations/accounting-sync">
+    Connect Xero and map accounting categories.
+  </Card>
+  <Card title="Financial reporting" icon="chart-bar" href="/payments/reporting">
+    Export transaction data for tax and compliance.
+  </Card>
+</Columns>
