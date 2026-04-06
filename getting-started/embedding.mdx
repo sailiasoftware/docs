@@ -1,0 +1,90 @@
+---
+title: Embedding your booking page
+description: Add your Sailia booking page to your existing website using iframes, links, or widgets.
+keywords: ['embed', 'iframe', 'widget', 'website', 'integration', 'booking link']
+---
+
+You can integrate your Sailia booking page directly into your existing website so customers never have to leave your site to make a reservation. There are several ways to do this depending on your website platform and how much control you want over the experience.
+
+## Linking to your booking page
+
+The simplest approach is to add a link or button on your website that opens your Sailia booking page in a new tab.
+
+<Steps>
+  <Step title="Copy your booking page URL">
+    Find your booking page URL in **Settings** > **Booking page**. It follows the format `https://bookings.sailia.com/your-business`.
+  </Step>
+  <Step title="Add the link to your website">
+    Paste the URL into a button or link on your website. For example, a "Book Now" button in your site header.
+  </Step>
+</Steps>
+
+<Tip>
+  Add your booking link to your social media profiles, email signatures, and Google Business listing to maximize visibility.
+</Tip>
+
+## Embedding with an iframe
+
+For a more seamless experience, embed your booking page directly within your website using an iframe. Customers can browse activities and complete bookings without leaving your site.
+
+```html
+<iframe
+  src="https://bookings.sailia.com/your-business"
+  width="100%"
+  height="800"
+  frameborder="0"
+  style="border: none;"
+  title="Book activities with our business"
+></iframe>
+```
+
+### Tips for iframe embedding
+
+- **Set the height generously** — the booking flow has multiple steps, so a taller iframe prevents unnecessary scrolling.
+- **Make it responsive** — use `width="100%"` so the iframe adapts to different screen sizes.
+- **Test on mobile** — the booking page is mobile-friendly, but verify it works well within your site's layout.
+
+<Note>
+  Some website builders (like Wix or Squarespace) have built-in HTML embed blocks that make adding an iframe straightforward. Check your platform's documentation for instructions on adding custom HTML.
+</Note>
+
+## Sharing your booking page
+
+Beyond your website, share your booking page link across multiple channels to drive bookings:
+
+| Channel | How to share |
+| --- | --- |
+| **Social media** | Add the link to your Instagram bio, Facebook page, or other profiles |
+| **Email campaigns** | Include a "Book Now" button in your marketing emails |
+| **Google Business** | Add the booking URL to your Google Business profile |
+| **QR codes** | Generate a QR code from your booking URL for printed materials, posters, or flyers |
+| **Email signature** | Add a booking link to your team's email signatures |
+
+## Booking tracking on embedded pages
+
+If you embed your booking page in an iframe, [booking tracking events](/integrations/booking-tracking) still fire within the iframe context. However, cross-origin tracking requires additional configuration in your analytics provider (such as Google Tag Manager) to capture events across domains.
+
+<Tip>
+  For the most reliable analytics tracking, consider linking to your booking page directly rather than embedding it. This avoids cross-origin complexities with tracking scripts.
+</Tip>
+
+## Customizing the appearance
+
+Your booking page inherits your branding settings from **Settings** > **Booking page**, including:
+
+- Your business logo and colors
+- Activity images and descriptions
+- Custom booking page URL path
+
+See [account settings](/getting-started/account-settings) for the full list of customization options.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Your booking page" icon="globe" href="/getting-started/booking-page">
+    Learn what customers see on your booking page.
+  </Card>
+  <Card title="Booking tracking" icon="chart-line" href="/integrations/booking-tracking">
+    Track conversions from your embedded booking page.
+  </Card>
+</Columns>

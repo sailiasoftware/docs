@@ -1,0 +1,85 @@
+---
+title: Seasonal scheduling
+description: Manage seasonal availability, holiday schedules, and recurring activity patterns.
+keywords: ['seasonal', 'scheduling', 'holidays', 'seasonal activities', 'schedule changes', 'recurring']
+---
+
+Many activity providers run different schedules depending on the time of year — more sessions in summer, reduced availability in winter, and closures over holidays. Sailia gives you the tools to manage these changes without recreating activities from scratch.
+
+## Managing seasonal changes
+
+### Adjusting session schedules
+
+When your schedule changes between seasons, update the recurring session times on your existing activities rather than creating new ones:
+
+<Steps>
+  <Step title="Open the activity">
+    Navigate to the activity you want to update.
+  </Step>
+  <Step title="Edit the schedule">
+    Modify the session times, days, or frequency to reflect the new season. Add new time slots or remove ones that no longer apply.
+  </Step>
+  <Step title="Save changes">
+    Save the updated schedule. Future sessions reflect the new times while past bookings remain unchanged.
+  </Step>
+</Steps>
+
+<Tip>
+  Update your schedule well in advance of the season change so returning customers can book early. Pair schedule updates with a marketing email via [automated workflows](/integrations/workflows) to announce the new timetable.
+</Tip>
+
+### Holiday closures
+
+For planned closures (bank holidays, Christmas, maintenance days), remove or cancel the specific sessions rather than deactivating the entire activity:
+
+1. Open the activity's schedule view in your [bookings dashboard](/activities/managing-bookings).
+2. Find the session on the closure date.
+3. Cancel the session. If customers have already booked, process [cancellations and refunds](/activities/cancellations-and-refunds) as needed.
+
+<Note>
+  Cancelling individual sessions frees up the capacity and notifies any [waitlisted](/activities/waitlists) customers that the session is no longer running.
+</Note>
+
+## Seasonal pricing
+
+Adjust pricing for peak and off-peak periods using [discount codes](/pricing/discount-codes):
+
+| Strategy | How to implement |
+| --- | --- |
+| **Off-peak discounts** | Create an auto-apply discount code with an [activity date range](/pricing/discount-codes#activity-date-range) limit covering your quiet period |
+| **Peak surge pricing** | Use [tiered pricing](/pricing/discount-codes#surge-and-early-bird) or update your base activity prices for the peak season |
+| **Early bird offers** | Create an [early bird discount](/pricing/discount-codes#surge-and-early-bird) so customers who book months ahead get a better rate |
+| **Last-minute deals** | Use a [surge discount](/pricing/discount-codes#surge-and-early-bird) that activates close to the session date to fill remaining spots |
+
+## Seasonal activity passes
+
+If you offer [activity passes](/pricing/memberships-and-passes#activity-passes), consider creating seasonal variants:
+
+- A **summer pass** with an expiry date at the end of the season
+- A **winter pass** with different eligible activities
+- A **term pass** aligned with school terms
+
+Set the expiry on each pass to match the season end date so passes automatically become invalid when the season is over.
+
+## Preparing for a new season
+
+Use this checklist when transitioning between seasons:
+
+- [ ] Update activity schedules with new session times and days
+- [ ] Adjust pricing if you use seasonal rates
+- [ ] Create or update seasonal discount codes
+- [ ] Review [staff assignments](/staff/management) — add seasonal staff or update existing assignments
+- [ ] Update your [booking page](/getting-started/booking-page) description if it references specific dates or times
+- [ ] Send a marketing email announcing the new schedule via [workflows](/integrations/workflows) or a newsletter campaign
+- [ ] Check [waitlists](/activities/waitlists) — notify customers about new availability for popular activities
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Create and manage your bookable activities.
+  </Card>
+  <Card title="Discount codes" icon="tag" href="/pricing/discount-codes">
+    Set up seasonal pricing with early bird and surge discounts.
+  </Card>
+</Columns>

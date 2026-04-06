@@ -1,0 +1,82 @@
+---
+title: Marketing and audience
+description: Manage your audience, grow your subscriber list, and run targeted campaigns.
+keywords: ['marketing', 'audience', 'email campaigns', 'subscribers', 'newsletter', 'marketing emails']
+---
+
+Sailia includes built-in tools for growing your audience and reaching customers with marketing emails. You can collect subscribers through your booking page and embedded newsletter forms, then use workflows and campaigns to stay in touch.
+
+## Audience management
+
+Your audience in Sailia consists of:
+
+- **Customers** who have made a booking or purchase
+- **Newsletter subscribers** who signed up through your embedded form or booking page
+- **Staff members** and team contacts
+
+Navigate to **Marketing** > **Audience** to view, search, and filter your full contact list.
+
+## Growing your audience
+
+### During the booking flow
+
+Customers who book through your [online booking page](/activities/online-bookings) are automatically added to your audience. If they create a [customer account](/customers/customer-accounts), their details are linked and kept up to date.
+
+### Newsletter signup forms
+
+Embed a [newsletter signup form](/customers/newsletter-forms) on your website to capture subscribers who haven't booked yet. The form collects a name and email address and adds the contact to your audience automatically.
+
+### At the point of sale
+
+When staff link a [POS transaction](/point-of-sale/overview) to a customer account, that customer's details are added to your audience if not already present.
+
+## Reaching your audience
+
+### Automated workflows
+
+[Automated workflows](/integrations/workflows) are the primary way to send targeted communications. Set up triggers for events like:
+
+| Trigger | Example message |
+| --- | --- |
+| **New booking** | "Thanks for booking! Here's what to bring." |
+| **Post-activity** | "Thanks for coming! Ready to book again?" |
+| **Membership renewal** | "Your membership renews on [date]." |
+| **Abandoned basket** | "You left items in your basket — complete your booking." |
+| **Waiver reminder** | "Please complete your waiver before [date]." |
+
+Workflows support both email and SMS channels, with merge fields to personalize each message.
+
+### Newsletter campaigns
+
+Use your audience list to send one-off marketing emails about upcoming events, seasonal offers, or business updates. Combine with [discount codes](/pricing/discount-codes) to drive bookings.
+
+## Unsubscribes
+
+All marketing emails include an unsubscribe link. When a contact unsubscribes:
+
+- They stop receiving marketing emails and workflow messages
+- Their booking-related transactional emails (confirmations, refunds) are not affected
+- They remain in your audience list but are flagged as unsubscribed
+
+<Note>
+  Transactional emails like booking confirmations and refund notifications are always sent regardless of subscription status. Only marketing and workflow emails respect the unsubscribe preference.
+</Note>
+
+## Best practices
+
+- **Segment your audience** — target messages based on booking history, membership status, or activity type
+- **Time your messages** — send reminders at useful intervals (24 hours before an activity, 1 week after a visit)
+- **Include clear calls to action** — link directly to your booking page with a pre-selected activity when possible
+- **Monitor performance** — track workflow email volume through [meter usage tracking](/api-reference/meter-tracking#built-in-meters) to ensure deliverability
+- **Respect opt-outs** — never re-add unsubscribed contacts manually
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Newsletter signup forms" icon="envelope" href="/customers/newsletter-forms">
+    Embed a signup form on your website.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up triggered email and SMS campaigns.
+  </Card>
+</Columns>
