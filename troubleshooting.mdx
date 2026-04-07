@@ -1,0 +1,128 @@
+---
+title: Troubleshooting
+description: Solutions to common issues with bookings, payments, card readers, integrations, and more.
+keywords: ['troubleshooting', 'help', 'problems', 'issues', 'errors', 'fix', 'support']
+---
+
+This page covers the most common issues you may encounter when using Sailia. If your issue is not listed here, contact support at **support@sailia.com**.
+
+## Bookings
+
+<AccordionGroup>
+  <Accordion title="A customer did not receive their confirmation email">
+    Ask the customer to check their spam or junk folder. You can resend the confirmation from the [booking details](/activities/managing-bookings) at any time. If the issue persists, verify the customer's email address is correct on their profile.
+  </Accordion>
+
+  <Accordion title="Capacity shows sold out but I cancelled bookings">
+    Cancellations free up capacity immediately. If spots still show as sold out, check whether other bookings were made between the cancellation and your check. Also verify you are looking at the correct session date and time.
+  </Accordion>
+
+  <Accordion title="A booking shows as pending but the customer says they paid">
+    This can happen if the payment succeeds but the confirmation step encounters an issue. Check the booking in your dashboard — it may already be marked as paid. If not, verify the charge in your [Stripe dashboard](https://dashboard.stripe.com) and manually confirm the booking if needed.
+  </Accordion>
+
+  <Accordion title="Customer cannot complete their booking online">
+    Check that the activity is published and has available capacity. Verify that [Stripe is connected](/payments/stripe#connect-stripe) and your account is fully verified. If the customer sees a payment error, ask them to try a different card or browser.
+  </Accordion>
+
+  <Accordion title="Waitlisted customer was not notified when a spot opened">
+    Notifications are sent to the next person on the list in sign-up order. If the spot was filled by a direct booking (not through the waitlist), the waitlist may not have been triggered. Review the booking source in the [bookings dashboard](/activities/managing-bookings).
+  </Accordion>
+</AccordionGroup>
+
+## Payments
+
+<AccordionGroup>
+  <Accordion title="Cannot connect Stripe">
+    Ensure you are logged in as an admin and that your Stripe account is fully verified. If the connection fails during authorization, try again or check Stripe's [status page](https://status.stripe.com) for outages.
+  </Accordion>
+
+  <Accordion title="Payout not received">
+    Payouts follow the schedule configured in your Stripe dashboard (typically 2-7 business days for new accounts). Check your Stripe payout schedule and verify that your bank account details are correct.
+  </Accordion>
+
+  <Accordion title="A customer's instalment payment failed">
+    Stripe automatically retries failed payments on its default schedule. If retries are exhausted, the [instalment plan](/payments/instalments) is marked as abandoned. Check the customer's payment method in Stripe and contact them to update their card details.
+  </Accordion>
+
+  <Accordion title="Refund not appearing on customer's statement">
+    Card refunds typically take 5-10 business days to appear, depending on the customer's bank. If the refund was issued as [store credit](/activities/cancellations-and-refunds#issue-a-refund-as-store-credit), it is available immediately as a gift card — no bank processing is involved.
+  </Accordion>
+</AccordionGroup>
+
+## Point of sale
+
+<AccordionGroup>
+  <Accordion title="Card reader is offline or not responding">
+    Check that the reader is powered on and connected to the internet. Stripe Terminal readers require a network connection to process payments. Try restarting the device. If the issue persists, re-register the reader in your [location settings](/point-of-sale/card-readers#register-a-card-reader).
+  </Accordion>
+
+  <Accordion title="Invalid registration code for card reader">
+    Registration codes expire after a short period. Restart the card reader to generate a new code, then re-enter it in your [location settings](/point-of-sale/card-readers).
+  </Accordion>
+
+  <Accordion title="Cash payment option is unavailable">
+    Cash payments require an open [till shift](/point-of-sale/overview#till-shifts). Open a shift on your POS terminal by entering the opening cash amount before processing cash sales.
+  </Accordion>
+</AccordionGroup>
+
+## Customers and waivers
+
+<AccordionGroup>
+  <Accordion title="Customer cannot upload a file to a waiver">
+    File uploads require an authenticated session. Verify that the customer is signed in to their account. Also check that the file type and size are within the [supported limits](/customers/file-uploads#file-size-limits).
+  </Accordion>
+
+  <Accordion title="Waiver not appearing during checkout">
+    Confirm the waiver is linked to the correct activity. Open the waiver settings and check that the activity assignment is in place. Waivers only appear for activities they are explicitly linked to.
+  </Accordion>
+
+  <Accordion title="Customer completed a waiver but it shows as incomplete">
+    All required fields (checkboxes, signatures, file uploads) must be filled in. Ask the customer to check for any missed fields and resubmit.
+  </Accordion>
+</AccordionGroup>
+
+## Discount codes
+
+<AccordionGroup>
+  <Accordion title="A discount code is not working">
+    Check the code's [usage limits](/pricing/discount-codes#usage-limits), product eligibility, and date restrictions. Verify the customer's basket meets all conditions (minimum items, activity combination, etc.). Usage is counted per item, not per basket.
+  </Accordion>
+
+  <Accordion title="Auto-apply discount is not being applied">
+    Auto-apply discounts only work on **activities** and **memberships**. Verify the discount is enabled, not deactivated, and that the customer's basket contains eligible items. Check for any date or usage restrictions that may be preventing application.
+  </Accordion>
+
+  <Accordion title="Cannot purchase a membership for a family member">
+    Sailia prevents duplicate memberships for the same person on the same plan. Check whether the family member already has an active membership on that plan. If they do, the purchase is blocked intentionally.
+  </Accordion>
+</AccordionGroup>
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion title="Payouts are not appearing in Xero">
+    Confirm that [Sync to Xero](/integrations/accounting-sync) is toggled on, the payout was created after you enabled syncing, the payout status is paid, and your Xero connection is active. See [Xero troubleshooting](/integrations/accounting-sync#troubleshooting).
+  </Accordion>
+
+  <Accordion title="Xero connection expired">
+    Sailia automatically refreshes your Xero OAuth tokens. If the connection expires (for example, after extended downtime), reconnect by selecting **Connect to Xero** again in your accounting settings.
+  </Accordion>
+
+  <Accordion title="Workflow emails are not being sent">
+    Verify the workflow is enabled and the trigger matches the event you expect. Check the send history in the [workflows dashboard](/integrations/workflows) to see whether messages were queued. Monitor email volume through the `workflow-email-sent` [meter](/api-reference/meter-tracking#built-in-meters).
+  </Accordion>
+
+  <Accordion title="Booking tracking events not firing">
+    Ensure your [analytics provider](/integrations/booking-tracking) (Google Tag Manager or PostHog) is properly configured. If your booking page is embedded in an iframe, cross-origin tracking requires additional configuration. Consider linking directly to your booking page for more reliable tracking.
+  </Accordion>
+</AccordionGroup>
+
+## Still need help?
+
+If your issue is not covered here, contact the Sailia support team at **support@sailia.com**. Include the following details to help us resolve your issue faster:
+
+- Your business name and account email
+- A description of the issue and when it started
+- Any error messages you see
+- Screenshots if available
