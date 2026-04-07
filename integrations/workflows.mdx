@@ -186,11 +186,27 @@ From the workflows dashboard, you can:
   Disabling a workflow stops future messages from being sent but does not cancel messages already queued. If a message is scheduled to send in 24 hours and you disable the workflow now, that message may still be delivered.
 </Warning>
 
-## Session groups
+## Groups
 
-You can scope a workflow to specific session groups. This lets you send different messages for different activities — for example, a kayaking-specific welcome email for kayaking bookings and a climbing-specific one for climbing bookings.
+You can scope a workflow to a specific group so that it only fires for a subset of your activities or memberships. This lets you send different messages for different contexts — for example, a kayaking-specific welcome email for kayaking bookings, or a renewal reminder that only applies to your premium membership.
 
-When creating a workflow, select one or more session groups to limit which bookings trigger the communication.
+### Product groups
+
+Product groups apply to booking and session triggers. A product group can contain individual activities, shop products, or a mix of both.
+
+When you create a workflow for a booking or session trigger, you can select a product group to limit which bookings fire the communication. If no group is selected, the workflow applies to all activities.
+
+### Membership groups
+
+Membership groups apply to [membership triggers](#membership-triggers). A membership group can contain individual memberships, specific membership plans, or a mix of both.
+
+When you create a workflow for a membership trigger, you can select a membership group to limit which memberships fire the communication. If no group is selected, the workflow applies to all memberships.
+
+This is useful when you have multiple membership tiers and want to send different communications for each — for example, a welcome email with tier-specific benefits or a renewal reminder that only targets annual plans.
+
+### Managing groups
+
+You can create, rename, and delete groups directly from the workflow editor. To add items to a group, open the group and use the item picker to search for activities, products, memberships, or membership plans depending on the group type.
 
 ## Related guides
 
