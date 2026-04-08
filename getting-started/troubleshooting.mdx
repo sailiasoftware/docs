@@ -1,0 +1,135 @@
+---
+title: Troubleshooting
+description: Solutions to common issues with bookings, payments, staff, and integrations.
+keywords: ['troubleshooting', 'issues', 'problems', 'errors', 'help', 'support']
+---
+
+This page covers the most common issues you may encounter while using Sailia, with step-by-step solutions for each.
+
+## Bookings
+
+<AccordionGroup>
+  <Accordion title="A customer didn't receive their confirmation email">
+    Ask the customer to check their spam or junk folder. You can resend the confirmation from the [booking details](/activities/managing-bookings) page at any time. If the issue persists, verify the customer's email address is correct on their profile.
+  </Accordion>
+
+  <Accordion title="Capacity shows sold out but I cancelled bookings">
+    Cancellations free up capacity immediately. If spots still show as sold out, check whether other bookings were made between the cancellation and your check. Also verify you are looking at the correct session date and time in the [schedule view](/activities/managing-bookings#schedule-filters).
+  </Accordion>
+
+  <Accordion title="A waitlisted customer was not notified when a spot opened">
+    Notifications are sent to the next person on the list in sign-up order. If the spot was filled by a direct booking (not through the waitlist), the waitlist may not have been triggered. Review the booking source in the [bookings dashboard](/activities/managing-bookings#booking-sources).
+  </Accordion>
+
+  <Accordion title="Customer cannot complete their booking online">
+    Check that the activity is published and has available capacity. Verify the session date has not passed and that your [Stripe account](/payments/stripe) is connected. If the customer sees a payment error, ask them to try a different card or browser.
+  </Accordion>
+
+  <Accordion title="Booking wizard is not showing all dates for a course">
+    The booking wizard shows the first few course dates with an option to expand the full schedule. This is by design to keep the page manageable for courses with many sessions. The customer can click to see all dates.
+  </Accordion>
+</AccordionGroup>
+
+## Payments
+
+<AccordionGroup>
+  <Accordion title="Cannot connect Stripe">
+    Make sure you are using a Stripe account that supports the country you are operating in. If the connection fails, try disconnecting and reconnecting from **Settings**. Contact [support](mailto:support@sailia.com) if the issue persists.
+  </Accordion>
+
+  <Accordion title="Payout not received">
+    Stripe payouts typically arrive within 2-7 business days depending on your country and bank. Check the payout schedule and status in your [Stripe Dashboard](https://dashboard.stripe.com). If a payout shows as paid in Stripe but has not arrived, contact your bank.
+  </Accordion>
+
+  <Accordion title="Customer was charged but no booking confirmation appeared">
+    This can happen if the payment succeeded but the booking flow was interrupted (for example, by closing the browser). Check your [bookings dashboard](/activities/managing-bookings) — the booking may have been created. If not, check the charge in your Stripe Dashboard and process a refund if needed.
+  </Accordion>
+
+  <Accordion title="Refund is taking longer than expected">
+    Card refunds via Stripe take 5-10 business days to appear on the customer's statement. [Store credit](/activities/cancellations-and-refunds#issue-a-refund-as-store-credit) refunds are available immediately as an alternative.
+  </Accordion>
+
+  <Accordion title="Instalment payment failed">
+    Sailia automatically retries failed instalment payments. If retries are exhausted, the plan status changes to abandoned. You can set up [workflow triggers](/integrations/workflows) for instalment events to notify customers about failed payments.
+  </Accordion>
+</AccordionGroup>
+
+## Point of sale
+
+<AccordionGroup>
+  <Accordion title="Card reader is not working">
+    Check that the reader is powered on and connected to the internet. If it shows as offline, restart the device. If the registration code is invalid, restart the reader to generate a new code. See the [card reader guide](/point-of-sale/card-readers#troubleshooting) for detailed steps.
+  </Accordion>
+
+  <Accordion title="Card reader shows as busy">
+    Another payment may be in progress. Wait for it to complete or cancel the in-progress payment from the POS. If the reader is stuck, restart it.
+  </Accordion>
+
+  <Accordion title="POS is not showing the correct products">
+    Check your [POS grid layout](/point-of-sale/overview#pos-grid-layout) configuration. Products must be added as tiles to appear in the POS. Also verify the products are assigned to the correct [location](/getting-started/locations).
+  </Accordion>
+</AccordionGroup>
+
+## Customers and waivers
+
+<AccordionGroup>
+  <Accordion title="Customer cannot upload a file to a waiver">
+    File uploads require the customer to be signed in. Verify they have an account and are logged in. Also check that the file type and size are within the [supported limits](/customers/file-uploads#file-size-limits) (10 MB for waiver attachments).
+  </Accordion>
+
+  <Accordion title="Waiver not appearing during checkout">
+    Confirm the waiver is linked to the correct activity. Open the waiver and check that the activity assignment is in place. Waivers only appear for activities they are explicitly linked to.
+  </Accordion>
+
+  <Accordion title="Customer completed the waiver but it shows as incomplete">
+    All required fields (checkboxes, signatures, file uploads) must be filled in. Ask the customer to check for any missed fields and resubmit.
+  </Accordion>
+
+  <Accordion title="Duplicate membership error when purchasing for a family member">
+    Sailia prevents the same membership from being purchased twice for the same family member. Check whether the member already holds that [membership plan](/pricing/memberships-and-passes). If they need to upgrade or switch plans, cancel the existing membership first.
+  </Accordion>
+</AccordionGroup>
+
+## Discount codes
+
+<AccordionGroup>
+  <Accordion title="A discount code isn't working">
+    Check the code's [usage limits](/pricing/discount-codes#usage-limits), product eligibility, and date restrictions. Verify the customer's basket meets all conditions (minimum items, activity combination, etc.). Usage is counted per item, not per basket.
+  </Accordion>
+
+  <Accordion title="Auto-apply discount is not being applied">
+    Auto-apply discounts are added automatically when the basket meets all eligibility conditions. Check that the discount is still active, the usage limits have not been reached, and the products in the basket match the discount's product eligibility settings.
+  </Accordion>
+
+  <Accordion title="Activity pass is not applying at checkout">
+    Verify the pass has remaining sessions, has not expired, and the activity is included in the pass's redemption rules. Passes are single-user only — they can only be used by the specific family member assigned at purchase.
+  </Accordion>
+</AccordionGroup>
+
+## Integrations
+
+<AccordionGroup>
+  <Accordion title="Payouts are not appearing in Xero">
+    Confirm that [Sync to Xero](/integrations/accounting-sync) is toggled on, the payout was created after you enabled syncing, the payout status is paid, and your Xero connection is active. Only payouts created after enabling sync are sent to Xero.
+  </Accordion>
+
+  <Accordion title="Xero invoice has incorrect VAT rate">
+    VAT rates are determined by [accounting categories](/payments/taxes). Check that the correct category is assigned to the product. Update the category's Xero tax type if it is wrong, then resend the payout to Xero.
+  </Accordion>
+
+  <Accordion title="Workflow emails are not being sent">
+    Check that the workflow is active and the trigger conditions are met. Verify the customer has a valid email address. Monitor email volume through [meter tracking](/api-reference/meter-tracking#built-in-meters) to confirm emails are being queued.
+  </Accordion>
+
+  <Accordion title="Adventuro bookings are not appearing">
+    Check that the [Adventuro integration](/integrations/adventuro) is connected with a valid API key. Verify that activities are shared with Adventuro and real-time availability is syncing. Adventuro bookings appear in the dashboard with an Adventuro source tag.
+  </Accordion>
+
+  <Accordion title="Google Tag Manager events are not firing">
+    Ensure your GTM container is correctly installed on the page containing the booking iframe or direct booking page link. For embedded iframes, cross-origin tracking requires additional GTM configuration. See [booking tracking](/integrations/booking-tracking) for setup details.
+  </Accordion>
+</AccordionGroup>
+
+## Still need help?
+
+If you cannot find a solution here, contact the Sailia support team at [support@sailia.com](mailto:support@sailia.com).

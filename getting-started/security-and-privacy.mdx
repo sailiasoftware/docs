@@ -1,0 +1,82 @@
+---
+title: Security and privacy
+description: How Sailia protects your business data and customer information.
+keywords: ['security', 'privacy', 'data protection', 'GDPR', 'customer data', 'payments security']
+---
+
+Sailia is designed to keep your business data and customer information secure. This page explains how data is handled, what security measures are in place, and how to manage customer privacy.
+
+## Payment security
+
+All payment processing is handled by [Stripe](/payments/stripe), a PCI DSS Level 1 certified payment processor. This means:
+
+- **Card details are never stored on Sailia's servers** — Stripe handles all sensitive payment data
+- **Online payments use 3D Secure** authentication when required by the customer's bank
+- **POS card payments** are processed through [Stripe Terminal](/point-of-sale/card-readers) with end-to-end encryption
+- **MOTO payments** (phone/mail orders) skip 3D Secure but are processed securely through Stripe and require the [Operator Booking permission](/staff/permissions)
+
+## Customer data
+
+Sailia stores the following customer information:
+
+| Data type | Purpose | Who can access |
+| --- | --- | --- |
+| **Name and email** | Booking confirmations, [workflow emails](/integrations/workflows), and account management | Staff with appropriate [permissions](/staff/permissions) |
+| **Booking history** | Visible to the customer and your team from the [customer dashboard](/customers/overview) | Staff with View Other Users permission |
+| **Membership and pass status** | Tracks active subscriptions and remaining sessions | Staff and the customer |
+| **Waiver responses** | Stored against individual bookings, including [file uploads](/customers/file-uploads) and digital signatures | Staff with booking access |
+| **Internal notes** | Staff-only notes on [customer profiles](/customers/overview#notes) | Staff with View Other Users permission |
+| **Profile images** | Optional photos uploaded by customers | Visible on the customer profile |
+
+## Staff permissions
+
+Sailia uses a [permission system](/staff/permissions) to control what each team member can access. There are eight permission groups covering different areas of the platform:
+
+- **What's On** — schedule and booking access
+- **Financial Dashboard** — revenue and payout data
+- **POS** — point of sale operations
+- **Communications** — marketing and email access
+- **Manage Staff** — staff profiles and timesheets
+- **Manage POS** — POS configuration and grid layout
+- **Operator Booking** — creating bookings on behalf of customers
+- **View Other Users** — access to customer profiles
+
+<Tip>
+  Follow the principle of least privilege — give staff only the permissions they need for their role. See the [permissions reference](/staff/permissions) for recommended permission sets by role.
+</Tip>
+
+## Data shared with integrations
+
+When you connect external services, Sailia shares specific data:
+
+| Integration | Data shared |
+| --- | --- |
+| **[Stripe](/payments/stripe)** | Payment amounts, customer email for receipts, refund details |
+| **[Xero](/integrations/accounting-sync)** | Payout invoices with line items, VAT rates, and account codes — no customer personal data |
+| **[Adventuro](/integrations/adventuro)** | Activity details, real-time availability, waiver questions, and booking confirmations |
+| **[Google Tag Manager / PostHog](/integrations/booking-tracking)** | Anonymized booking events (session IDs, conversion values) — no personal customer data |
+
+## Email communications
+
+Sailia sends [automated emails](/customers/notifications) for transactional purposes (booking confirmations, refunds, waitlist notifications) and marketing purposes (workflow campaigns, newsletters). Customers can unsubscribe from marketing emails at any time, but transactional emails continue to be delivered.
+
+## File storage
+
+- [Profile images](/customers/file-uploads#profile-images) — PNG, JPG, JPEG, or SVG up to 50 MB
+- [Waiver attachments](/customers/file-uploads#waiver-attachments) — various formats up to 10 MB per file
+- All uploads require an authenticated customer session
+
+## Deleting customer data
+
+To remove a customer's data, contact the Sailia support team at [support@sailia.com](mailto:support@sailia.com). The team can assist with data deletion requests in compliance with applicable data protection regulations.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Permissions reference" icon="lock" href="/staff/permissions">
+    Control what each staff member can access.
+  </Card>
+  <Card title="Customer management" icon="users" href="/customers/overview">
+    Manage customer profiles and data.
+  </Card>
+</Columns>
