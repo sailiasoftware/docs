@@ -23,30 +23,42 @@
               "getting-started/booking-page",
               "getting-started/embedding",
               "getting-started/locations",
+              "getting-started/security-and-privacy",
+              "getting-started/troubleshooting",
               "getting-started/faq"
             ]
           },
           {
-            "group": "Activities and scheduling",
+            "group": "Activities",
             "pages": [
               "activities/activities",
               "activities/online-bookings",
               "activities/managing-bookings",
               "activities/group-bookings",
-              "activities/seasonal-scheduling",
+              "activities/seasonal-scheduling"
+            ]
+          },
+          {
+            "group": "Cancellations and refunds",
+            "pages": [
               "activities/cancellation-policies",
               "activities/cancellations-and-refunds",
               "activities/waitlists"
             ]
           },
           {
-            "group": "Customers and marketing",
+            "group": "Customers",
             "pages": [
               "customers/overview",
               "customers/customer-accounts",
               "customers/family-accounts",
               "customers/waivers",
-              "customers/file-uploads",
+              "customers/file-uploads"
+            ]
+          },
+          {
+            "group": "Marketing and communications",
+            "pages": [
               "customers/notifications",
               "customers/marketing",
               "customers/newsletter-forms"
