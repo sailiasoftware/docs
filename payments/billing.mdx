@@ -1,0 +1,62 @@
+---
+title: Billing and subscriptions
+description: Understand how Sailia billing works and how to manage your subscription.
+keywords: ['billing', 'subscription', 'pricing', 'account', 'plan', 'invoice']
+---
+
+This page covers how Sailia billing works, how to manage your subscription, and how to understand the charges on your account.
+
+## How billing works
+
+Sailia charges are based on your subscription plan and usage. Your subscription is managed through your account settings and billed automatically.
+
+## Manage your subscription
+
+To view or update your subscription:
+
+<Steps>
+  <Step title="Open account settings">
+    Navigate to **Settings** in your Sailia dashboard.
+  </Step>
+  <Step title="View your plan">
+    Your current plan and billing details are displayed in the billing section. You can see your next billing date and the amount due.
+  </Step>
+  <Step title="Update payment method">
+    Click **Update payment method** to change the card used for your Sailia subscription. This is separate from the Stripe account you use to accept customer payments.
+  </Step>
+</Steps>
+
+<Note>
+  Your Sailia subscription payment method is separate from your connected Stripe account. Updating one does not affect the other.
+</Note>
+
+## Usage tracking
+
+Sailia tracks key usage metrics that may affect your billing. You can monitor these through the [meter usage tracking](/api-reference/meter-tracking) API:
+
+| Meter | What it tracks |
+| --- | --- |
+| `workflow-email-sent` | Automated emails sent through [workflows](/integrations/workflows) |
+| `waitlist-notified` | [Waitlist](/activities/waitlists) notification emails |
+| `order-completed` | Completed bookings and purchases |
+
+## Payment processing fees
+
+Stripe charges a processing fee on each customer transaction. These fees are deducted from your payouts before they reach your bank account — they are not billed separately by Sailia.
+
+If you use [Xero accounting sync](/integrations/accounting-sync), Stripe fees are mapped to a dedicated Xero account code for accurate bookkeeping.
+
+## Invoices and receipts
+
+Billing invoices for your Sailia subscription are sent to the account owner's email address. You can access past invoices from your account settings.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    How customer payments and payouts work.
+  </Card>
+  <Card title="Financial reporting" icon="chart-line" href="/payments/reporting">
+    Monitor revenue, payouts, and transaction history.
+  </Card>
+</Columns>

@@ -6,33 +6,19 @@ keywords: ['sailia', 'documentation', 'help center', 'booking software', 'activi
 
 Find guides and references for every part of Sailia — from taking bookings and managing staff to syncing your accounts and building on the API.
 
-## Getting started
-
-<Columns cols={2}>
+<Columns cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/getting-started/quickstart">
+    Accept your first booking in under 15 minutes.
+  </Card>
   <Card title="Platform overview" icon="compass" href="/getting-started/overview">
     Learn what Sailia does and how the key pieces fit together.
   </Card>
-  <Card title="Quick setup checklist" icon="list-check" href="/getting-started/setup-checklist">
-    A step-by-step checklist to get your account ready to take bookings.
-  </Card>
-  <Card title="Account settings" icon="gear" href="/getting-started/account-settings">
-    Configure your business profile, payments, and integrations.
-  </Card>
-  <Card title="Your booking page" icon="browser" href="/getting-started/booking-page">
-    How your public booking page works and what customers see.
-  </Card>
-  <Card title="Embedding your booking page" icon="code" href="/getting-started/embedding">
-    Add your booking page to your website using iframes or links.
-  </Card>
-  <Card title="Locations" icon="location-dot" href="/getting-started/locations">
-    Set up locations when you operate from more than one site.
-  </Card>
-  <Card title="FAQ" icon="circle-question" href="/getting-started/faq">
-    Answers to common questions about setting up and using Sailia.
+  <Card title="Setup checklist" icon="list-check" href="/getting-started/setup-checklist">
+    Step-by-step checklist to get your account ready.
   </Card>
 </Columns>
 
-## Activities and scheduling
+## Activities and bookings
 
 <Columns cols={2}>
   <Card title="Activities" icon="calendar" href="/activities/activities">
@@ -47,21 +33,26 @@ Find guides and references for every part of Sailia — from taking bookings and
   <Card title="Group bookings" icon="users" href="/activities/group-bookings">
     Handle bookings with multiple participants and group organizers.
   </Card>
-  <Card title="Seasonal scheduling" icon="sun" href="/activities/seasonal-scheduling">
-    Manage seasonal availability, holiday closures, and pricing.
-  </Card>
+</Columns>
+
+## Cancellations and scheduling
+
+<Columns cols={2}>
   <Card title="Cancellation policies" icon="shield" href="/activities/cancellation-policies">
     Set up and communicate your cancellation terms.
   </Card>
   <Card title="Cancellations and refunds" icon="rotate-left" href="/activities/cancellations-and-refunds">
     Cancel bookings, process refunds, and issue store credit.
   </Card>
+  <Card title="Seasonal scheduling" icon="sun" href="/activities/seasonal-scheduling">
+    Manage seasonal availability, holiday closures, and pricing.
+  </Card>
   <Card title="Waitlists" icon="user-plus" href="/activities/waitlists">
     Let customers register interest for fully booked sessions.
   </Card>
 </Columns>
 
-## Customers and marketing
+## Customers
 
 <Columns cols={2}>
   <Card title="Customer management" icon="users" href="/customers/overview">
@@ -76,9 +67,11 @@ Find guides and references for every part of Sailia — from taking bookings and
   <Card title="Waivers" icon="file-signature" href="/customers/waivers">
     Collect signed waivers and documents from customers.
   </Card>
-  <Card title="File uploads" icon="upload" href="/customers/file-uploads">
-    Accept profile images and waiver attachments from logged-in users.
-  </Card>
+</Columns>
+
+## Marketing and communications
+
+<Columns cols={2}>
   <Card title="Notifications and emails" icon="envelope" href="/customers/notifications">
     Understand the emails Sailia sends and how to customize them.
   </Card>
@@ -87,6 +80,9 @@ Find guides and references for every part of Sailia — from taking bookings and
   </Card>
   <Card title="Newsletter signup forms" icon="newspaper" href="/customers/newsletter-forms">
     Embed signup forms on your website to grow your subscriber list.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up automated emails and SMS triggered by booking events.
   </Card>
 </Columns>
 
@@ -101,6 +97,9 @@ Find guides and references for every part of Sailia — from taking bookings and
   </Card>
   <Card title="Gift cards" icon="gift" href="/pricing/gift-cards">
     Sell and redeem stored-value gift cards.
+  </Card>
+  <Card title="Add-ons" icon="puzzle-piece" href="/activities/add-ons">
+    Offer optional extras alongside activity bookings.
   </Card>
 </Columns>
 
@@ -126,6 +125,9 @@ Find guides and references for every part of Sailia — from taking bookings and
 <Columns cols={2}>
   <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
     Process payments, manage refunds, and handle payouts with Stripe.
+  </Card>
+  <Card title="Billing and subscriptions" icon="file-invoice-dollar" href="/payments/billing">
+    Manage your Sailia subscription and billing.
   </Card>
   <Card title="Instalment plans" icon="calendar-days" href="/payments/instalments">
     Let customers split payments into scheduled instalments.
@@ -164,9 +166,6 @@ Find guides and references for every part of Sailia — from taking bookings and
 ## Integrations
 
 <Columns cols={2}>
-  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
-    Set up automated emails and SMS triggered by booking events.
-  </Card>
   <Card title="Booking tracking" icon="chart-bar" href="/integrations/booking-tracking">
     Track booking events with Google Tag Manager or PostHog.
   </Card>
@@ -175,6 +174,17 @@ Find guides and references for every part of Sailia — from taking bookings and
   </Card>
   <Card title="Adventuro" icon="mountain" href="/integrations/adventuro">
     List your activities on the Adventuro marketplace.
+  </Card>
+</Columns>
+
+## Help and support
+
+<Columns cols={2}>
+  <Card title="FAQ" icon="circle-question" href="/getting-started/faq">
+    Answers to common questions about setting up and using Sailia.
+  </Card>
+  <Card title="Troubleshooting" icon="wrench" href="/troubleshooting">
+    Solutions to common issues with bookings, payments, and integrations.
   </Card>
 </Columns>
 

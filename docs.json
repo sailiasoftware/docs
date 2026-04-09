@@ -17,39 +17,52 @@
             "group": "Getting started",
             "pages": [
               "index",
+              "getting-started/quickstart",
               "getting-started/overview",
               "getting-started/setup-checklist",
               "getting-started/account-settings",
               "getting-started/booking-page",
               "getting-started/embedding",
-              "getting-started/locations",
-              "getting-started/faq"
+              "getting-started/locations"
             ]
           },
           {
-            "group": "Activities and scheduling",
+            "group": "Activities and bookings",
             "pages": [
               "activities/activities",
+              "activities/add-ons",
               "activities/online-bookings",
               "activities/managing-bookings",
               "activities/group-bookings",
               "activities/seasonal-scheduling",
-              "activities/cancellation-policies",
-              "activities/cancellations-and-refunds",
               "activities/waitlists"
             ]
           },
           {
-            "group": "Customers and marketing",
+            "group": "Cancellations",
+            "pages": [
+              "activities/cancellation-policies",
+              "activities/cancellations-and-refunds"
+            ]
+          },
+          {
+            "group": "Customers",
             "pages": [
               "customers/overview",
               "customers/customer-accounts",
               "customers/family-accounts",
+              "customers/importing-customers",
               "customers/waivers",
-              "customers/file-uploads",
+              "customers/file-uploads"
+            ]
+          },
+          {
+            "group": "Marketing and communications",
+            "pages": [
               "customers/notifications",
               "customers/marketing",
-              "customers/newsletter-forms"
+              "customers/newsletter-forms",
+              "integrations/workflows"
             ]
           },
           {
@@ -73,6 +86,7 @@
             "group": "Payments and finance",
             "pages": [
               "payments/stripe",
+              "payments/billing",
               "payments/instalments",
               "payments/taxes",
               "payments/donations",
@@ -92,10 +106,16 @@
           {
             "group": "Integrations",
             "pages": [
-              "integrations/workflows",
               "integrations/booking-tracking",
               "integrations/accounting-sync",
               "integrations/adventuro"
+            ]
+          },
+          {
+            "group": "Help and support",
+            "pages": [
+              "getting-started/faq",
+              "troubleshooting"
             ]
           }
         ]

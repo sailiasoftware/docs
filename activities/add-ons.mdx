@@ -1,0 +1,84 @@
+---
+title: Add-ons
+description: Offer optional extras that customers can purchase alongside activity bookings.
+keywords: ['add-ons', 'extras', 'upsell', 'optional', 'equipment', 'upgrades']
+---
+
+Add-ons are optional extras that customers can purchase alongside an activity booking. Use them for equipment hire, photography packages, meal upgrades, or any supplementary product tied to an activity.
+
+## How add-ons work
+
+1. You create an add-on and link it to one or more activities.
+2. During checkout, customers see the available add-ons for their selected activity.
+3. They choose which add-ons to include and the quantity.
+4. The add-on cost is included in the order total.
+
+## Create an add-on
+
+<Steps>
+  <Step title="Open add-on settings">
+    Navigate to your activities section and open the add-ons area, or go to a specific activity's settings.
+  </Step>
+  <Step title="Create the add-on">
+    Enter a name, description, and price for the add-on.
+  </Step>
+  <Step title="Choose the pricing model">
+    Select whether the add-on is charged **per person** or **per booking**:
+
+    | Model | How it works |
+    | --- | --- |
+    | **Per person** | The price is multiplied by the number of participants. A £5 per-person add-on for a group of 4 costs £20. |
+    | **Per booking** | A flat charge regardless of group size. A £10 per-booking add-on costs £10 whether one person or ten attend. |
+  </Step>
+  <Step title="Link to activities">
+    Assign the add-on to the activities where it should appear. An add-on can be linked to multiple activities.
+  </Step>
+</Steps>
+
+## Add-ons in the checkout flow
+
+When a customer selects an activity that has add-ons, the add-on options appear during the booking process. Customers can:
+
+- Select which add-ons they want
+- Choose quantities where applicable
+- See the updated total before completing payment
+
+<Tip>
+  Keep add-on names short and descriptive. Customers see them inline during checkout, so clarity helps them make quick decisions.
+</Tip>
+
+## Add-ons for group bookings
+
+For [group bookings](/activities/group-bookings), the pricing model matters:
+
+- **Per-person add-ons** are multiplied by the number of participants in the group
+- **Per-booking add-ons** are charged once regardless of group size
+
+This lets you offer things like a group photo (per booking) alongside individual equipment hire (per person).
+
+## Discounts on add-ons
+
+[Discount codes](/pricing/discount-codes) can be configured to apply to add-ons. When creating a discount, enable **Add-ons** under product eligibility. The discount applies to the add-on line items in the basket.
+
+<Note>
+  Auto-apply discounts do not support add-ons. Only manually entered discount codes can apply to add-on products.
+</Note>
+
+## Accounting
+
+If you use [Xero accounting sync](/integrations/accounting-sync), assign an accounting category to each add-on. This determines how add-on revenue is categorized on Xero invoices, including the correct VAT rate and account code.
+
+## Membership add-ons
+
+Add-ons can also be attached to [membership plans](/pricing/memberships-and-passes#membership-add-ons). Membership add-ons work differently from activity add-ons — they are billed as part of the membership subscription rather than as a one-time checkout item.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Create activities and configure add-ons.
+  </Card>
+  <Card title="Group bookings" icon="users" href="/activities/group-bookings">
+    How add-ons work with group bookings.
+  </Card>
+</Columns>

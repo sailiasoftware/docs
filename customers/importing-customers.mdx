@@ -1,0 +1,82 @@
+---
+title: Importing customers
+description: Migrate existing customers and members from another system into Sailia.
+keywords: ['import', 'migration', 'CSV', 'customer data', 'bulk import', 'switch']
+---
+
+If you are switching to Sailia from another booking system, you can import your existing customer data and membership records. This saves you from manually re-entering customer details and ensures members keep their subscriptions during the transition.
+
+## What you can import
+
+| Data type | What is created |
+| --- | --- |
+| **Customers** | Customer profiles with names, email addresses, and contact details |
+| **Family members** | [Family accounts](/customers/family-accounts) with linked members under a primary account holder |
+| **Memberships** | Active [membership](/pricing/memberships-and-passes) instances assigned to the correct plan and billing cycle |
+| **Membership add-ons** | [Add-on subscriptions](/pricing/memberships-and-passes#membership-add-ons) attached to imported memberships |
+
+## Before you import
+
+<Steps>
+  <Step title="Set up your membership plans">
+    Create all [membership plans](/pricing/memberships-and-passes) and link the relevant [add-ons](/pricing/memberships-and-passes#membership-add-ons) before running the import. Imported memberships must reference an existing plan in Sailia.
+  </Step>
+  <Step title="Prepare your import data">
+    Structure your data with the required fields for each record. Each row typically includes:
+
+    - Customer name and email
+    - Family member details (if applicable)
+    - Plan ID for the target membership
+    - Billing cycle start and end dates
+    - Optional member number from your old system
+    - Optional add-on selections with quantities
+    - Optional notes
+  </Step>
+  <Step title="Review for duplicates">
+    Check your data for duplicate email addresses or family members. Sailia uses email addresses to match existing records, so duplicates may cause conflicts.
+  </Step>
+</Steps>
+
+<Warning>
+  Always test your import with a small batch first to verify the data maps correctly before importing your full customer list.
+</Warning>
+
+## Membership migration details
+
+When importing membership records, each row can include:
+
+| Field | Description |
+| --- | --- |
+| **Plan ID** | The Sailia membership plan to assign the member to |
+| **Billing cycle dates** | The current billing period start and end dates |
+| **Member number** | An optional custom member number to preserve from your old system |
+| **Add-ons** | A list of add-on selections, each with a membership add-on ID and quantity |
+| **Note** | An optional note attached to the membership instance |
+
+<Note>
+  Add-ons included during migration must already be linked to the target membership plan. Create your plans and link the relevant add-ons before running the import.
+</Note>
+
+## After importing
+
+Once the import is complete:
+
+- Verify that customer profiles appear correctly in the [customer dashboard](/customers/overview)
+- Check that membership plans and billing cycles are assigned correctly
+- Confirm add-on subscriptions are attached to the right memberships
+- Ask a few customers to log in and verify their account details
+
+<Tip>
+  Use [automated workflows](/integrations/workflows) with the **New client account** trigger to send a welcome email to imported customers, introducing them to the new booking system and explaining how to access their account.
+</Tip>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Customer management" icon="users" href="/customers/overview">
+    View and manage imported customer profiles.
+  </Card>
+  <Card title="Memberships and passes" icon="id-card" href="/pricing/memberships-and-passes">
+    Set up the membership plans your imports will reference.
+  </Card>
+</Columns>
