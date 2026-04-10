@@ -59,6 +59,7 @@ Sailia provides triggers across several categories. You can attach one or more w
 | **Membership renewal** | A set time before a membership's billing cycle renews |
 | **Membership rejected** | A membership request is rejected |
 | **Membership cancelled** | A membership is cancelled |
+| **Membership past due** | A membership payment fails and the subscription becomes past due |
 | **Membership payment info required** | A membership requires updated payment details |
 
 ### Instalment triggers
@@ -109,6 +110,7 @@ Sailia provides triggers across several categories. You can attach one or more w
 | **New group booking** | Prompt the group organiser to fill in participant details |
 | **Instalment due** | Remind customers about upcoming instalment payments |
 | **Membership renewal** | Notify members before their membership renews |
+| **Membership past due** | Alert members when a payment fails and prompt them to update their payment method |
 
 ## Create a workflow
 
@@ -143,6 +145,20 @@ Workflow messages support merge fields to personalize content. Available fields 
 | Checkout link | A link for the customer to complete payment (for pending baskets) |
 | Waiver link | A link for the customer to complete outstanding waivers |
 | Receipt breakdown | An itemised breakdown of the booking |
+
+### Membership merge fields
+
+Membership triggers provide additional merge fields specific to the member's subscription:
+
+| Merge field | Description |
+| --- | --- |
+| Membership name | The name of the membership |
+| Membership plan | The name of the membership plan |
+| Billing cycle start | The start date of the current billing period |
+| Billing cycle end | The end date of the current billing period |
+| Participant names | The names of all users on the membership |
+
+These fields are available across all [membership triggers](#membership-triggers), including the **Membership past due** trigger. Use them to include billing dates and plan details in renewal reminders or past-due payment notifications.
 
 ### Business merge fields
 

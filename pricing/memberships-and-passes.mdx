@@ -76,6 +76,8 @@ When a membership payment fails and the subscription becomes past due, Sailia di
 
 Clicking **Complete Payment** opens the Stripe customer portal, where the customer (or a staff member on their behalf) can update the payment method and settle the outstanding balance.
 
+You can also set up an [automated workflow](/integrations/workflows#membership-triggers) using the **Membership past due** trigger to send an email or SMS when a payment fails. This lets you proactively notify the customer and include a direct link to resolve the issue, without waiting for them to log in and see the banner.
+
 <Note>
   The banner appears automatically whenever at least one of the customer's memberships has a past-due status. It disappears once all outstanding payments are resolved.
 </Note>
@@ -181,7 +183,7 @@ Both memberships and activity passes are eligible for [discount codes](/pricing/
 
 <AccordionGroup>
   <Accordion title="A member's renewal payment failed">
-    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment is past due, a warning banner appears on the customer's **Memberships** profile tab with a **Complete Payment** button that opens the Stripe customer portal. You or the customer can use this to update the payment method and retry the charge.
+    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment is past due, a warning banner appears on the customer's **Memberships** profile tab with a **Complete Payment** button that opens the Stripe customer portal. You or the customer can use this to update the payment method and retry the charge. You can also configure a **Membership past due** [workflow](/integrations/workflows#membership-triggers) to automatically email or text the customer when this happens.
   </Accordion>
 
   <Accordion title="Cannot purchase a membership for a family member">
