@@ -70,6 +70,16 @@ Memberships are billed through Stripe. When a customer signs up:
 
 The **Renewal date** on your subscription settings page indicates when the next billing cycle begins.
 
+### Past-due payments
+
+When a membership payment fails and the subscription becomes past due, Sailia displays a warning banner on the customer's **Memberships** profile tab. The banner reads "Action required — One or more subscriptions are past due" and includes a **Complete Payment** button.
+
+Clicking **Complete Payment** opens the Stripe customer portal, where the customer (or a staff member on their behalf) can update the payment method and settle the outstanding balance.
+
+<Note>
+  The banner appears automatically whenever at least one of the customer's memberships has a past-due status. It disappears once all outstanding payments are resolved.
+</Note>
+
 ### Adding members from the same family
 
 Multiple members of the same family can hold the same membership, as long as each person is only added once. When you purchase a membership for specific family members, Sailia checks whether any of the selected users are already on that membership. If one or more of them are, the purchase is blocked with an error.
@@ -171,7 +181,7 @@ Both memberships and activity passes are eligible for [discount codes](/pricing/
 
 <AccordionGroup>
   <Accordion title="A member's renewal payment failed">
-    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. Contact the customer to update their payment method.
+    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment is past due, a warning banner appears on the customer's **Memberships** profile tab with a **Complete Payment** button that opens the Stripe customer portal. You or the customer can use this to update the payment method and retry the charge.
   </Accordion>
 
   <Accordion title="Cannot purchase a membership for a family member">
