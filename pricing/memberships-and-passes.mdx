@@ -52,6 +52,14 @@ You can configure how long the associated Stripe coupon lasts:
 - **Forever** — the discount applies for the entire membership duration
 - **Time-limited** — the discount applies for a specified number of months
 
+### Viewing membership details
+
+When you open a member's detail page, the header displays the **membership name** and **plan name** — for example, "Gold Membership (Annual)." This makes it easy to identify which product and billing tier each member is on, especially when you offer multiple plans under the same membership.
+
+The detail page also shows the **current billing period** as a date range (e.g., "01/04/2026 – 01/05/2026") alongside the billing interval. If the billing cycle has a start date but no end date yet, only the start is shown.
+
+On a customer's profile, the **Memberships** tab lists all active memberships with the same membership and plan name labels, the current billing period, any attached add-ons, and the member users.
+
 ### Billing
 
 Memberships are billed through Stripe. When a customer signs up:
@@ -59,6 +67,8 @@ Memberships are billed through Stripe. When a customer signs up:
 1. A Stripe subscription is created with the configured billing interval.
 2. Payments are collected automatically on each billing cycle.
 3. If a payment fails, Stripe's retry logic attempts to collect again.
+
+The **Renewal date** on your subscription settings page indicates when the next billing cycle begins.
 
 ### Adding members from the same family
 
