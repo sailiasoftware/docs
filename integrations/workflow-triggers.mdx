@@ -1,0 +1,93 @@
+---
+title: Workflow triggers reference
+description: A complete reference of all available workflow triggers, when they fire, and common use cases.
+keywords: ['workflow triggers', 'automation triggers', 'booking triggers', 'membership triggers', 'event triggers']
+---
+
+This page lists every trigger available in [automated workflows](/integrations/workflows). Each trigger fires when a specific event occurs, and you can attach one or more workflow communications to any trigger.
+
+## Booking triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Booking confirmed** | A customer completes payment for a booking | Send a welcome email with what to bring |
+| **Basket created** | A new basket is created and awaiting payment | Send a payment reminder |
+| **Basket expired** | A pending basket passes its expiry time without payment | Prompt the customer to rebook |
+| **Invoice pending** | An invoice is raised and awaiting payment | Notify the customer of the outstanding invoice |
+| **Invoice overdue** | An invoice passes its due date without payment | Send a follow-up payment reminder |
+
+## Course and session triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Course starting** | A set time before (or after) the first session of a course | Send a reminder 24–48 hours before |
+| **Course ending** | A set time before (or after) the last session of a course | Send a thank-you email with rebook link |
+| **Course start waiver reminder** | Before a course starts, only for customers with incomplete [waivers](/customers/waivers) | Remind customers to complete their waiver |
+| **Session starting (instructor)** | Before an individual session begins | Notify the instructor with register link and location |
+
+## Group booking triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **New group booking** | A group booking is paid | Prompt the organiser to complete participant details |
+| **Group booking reminder** | Before the first session, if participant details are still incomplete | Follow-up reminder for missing details |
+
+## Membership triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Membership requested** | A customer submits a new [membership](/pricing/memberships) request | Send a confirmation that the request is being reviewed |
+| **Membership started** | A membership becomes active | Send a welcome email with membership benefits |
+| **Membership renewal** | A set time before a membership's billing cycle renews | Notify members before their next charge |
+| **Membership rejected** | A membership request is rejected | Inform the customer with next steps |
+| **Membership cancelled** | A membership is cancelled | Send a farewell email or win-back offer |
+| **Membership past due** | A membership payment fails and the subscription becomes past due | Alert the member to update their payment method |
+| **Membership payment info required** | A membership requires updated payment details | Prompt the customer to update their card |
+
+## Instalment triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Instalment due** | An instalment payment becomes due | Remind customers about upcoming payments |
+| **Instalment paid** | An instalment payment is successfully collected | Confirm the payment was received |
+| **Instalment plan started** | A new instalment plan is created | Outline the payment schedule |
+| **Instalment plan completed** | All instalments in a plan are fully paid | Confirm the plan is complete |
+| **Instalment plan abandoned** | A plan is terminated due to missed payments | Notify the customer and explain next steps |
+
+## Account triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **New client account** | A new customer account is created | Send a welcome email with booking page link |
+| **New staff account** | A new staff member account is created | Send onboarding instructions |
+
+## Waiver and waitlist triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Waiver pending** | A customer has outstanding [waivers](/customers/waivers) to complete | Send a reminder with a direct link |
+| **Waitlist spot available** | A spot opens on a [waitlisted](/activities/waitlists) session | Notify the customer to book |
+
+## Staff triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Instructor assigned** | An instructor is assigned to a booking or session | Notify the instructor of their assignment |
+| **Availability request submitted** | A staff member submits a time-off request | Alert admins to review the request |
+| **Availability request responded** | An admin approves or rejects an availability request | Notify the staff member of the decision |
+| **Timesheet invoice submitted** | A staff member submits a timesheet invoice | Alert admins to review the invoice |
+| **Timesheet invoice approved** | An admin approves a timesheet invoice | Notify the staff member |
+| **Timesheet invoice rejected** | An admin rejects a timesheet invoice | Notify the staff member with feedback |
+| **Timesheet invoice paid** | A timesheet invoice is marked as paid | Confirm payment to the staff member |
+| **Timesheet invoice voided** | A timesheet invoice is voided | Notify the staff member |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Learn how to create, configure, and manage workflows.
+  </Card>
+  <Card title="Notifications and emails" icon="envelope" href="/customers/notifications">
+    Understand the automatic emails Sailia sends.
+  </Card>
+</Columns>
