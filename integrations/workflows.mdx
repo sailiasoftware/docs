@@ -22,82 +22,20 @@ When the trigger fires, Sailia queues the message and sends it at the configured
 
 ## Available triggers
 
-Sailia provides triggers across several categories. You can attach one or more workflow communications to any trigger.
+Sailia provides 30+ triggers across bookings, courses, memberships, instalments, accounts, waivers, waitlists, and staff events. You can attach one or more workflow communications to any trigger.
 
-### Booking triggers
+See the [workflow triggers reference](/integrations/workflow-triggers) for the complete list with descriptions and common use cases.
 
-| Trigger | When it fires |
-| --- | --- |
-| **Booking confirmed** | A customer completes payment for a booking |
-| **Basket created** | A new basket is created and awaiting payment |
-| **Basket expired** | A pending basket passes its expiry time without payment |
-| **Invoice pending** | An invoice is raised and awaiting payment |
-| **Invoice overdue** | An invoice passes its due date without payment |
+Key trigger categories include:
 
-### Course and session triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **Course starting** | A set time before (or after) the first session of a course |
-| **Course ending** | A set time before (or after) the last session of a course |
-| **Course start waiver reminder** | Before a course starts, only for customers with incomplete [waivers](/customers/waivers) |
-| **Session starting (instructor)** | Before an individual session begins — notifies the assigned instructor with register link and location |
-
-### Group booking triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **New group booking** | A group booking is paid — reminds the organiser to complete participant details |
-| **Group booking reminder** | Before the first session of a group booking, if participant details are still incomplete |
-
-### Membership triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **Membership requested** | A customer submits a new [membership](/pricing/memberships-and-passes) request |
-| **Membership started** | A membership becomes active |
-| **Membership renewal** | A set time before a membership's billing cycle renews |
-| **Membership rejected** | A membership request is rejected |
-| **Membership cancelled** | A membership is cancelled |
-| **Membership past due** | A membership payment fails and the subscription becomes past due |
-| **Membership payment info required** | A membership requires updated payment details |
-
-### Instalment triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **Instalment due** | An instalment payment becomes due |
-| **Instalment paid** | An instalment payment is successfully collected |
-| **Instalment plan started** | A new instalment plan is created |
-| **Instalment plan completed** | All instalments in a plan are fully paid |
-| **Instalment plan abandoned** | A plan is terminated due to missed payments |
-
-### Account triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **New client account** | A new customer account is created |
-| **New staff account** | A new staff member account is created |
-
-### Waiver and waitlist triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **Waiver pending** | A customer has outstanding [waivers](/customers/waivers) to complete |
-| **Waitlist spot available** | A spot opens on a [waitlisted](/activities/waitlists) session |
-
-### Staff triggers
-
-| Trigger | When it fires |
-| --- | --- |
-| **Instructor assigned** | An instructor is assigned to a booking or session |
-| **Availability request submitted** | A staff member submits a time-off request |
-| **Availability request responded** | An admin approves or rejects an availability request |
-| **Timesheet invoice submitted** | A staff member submits a timesheet invoice |
-| **Timesheet invoice approved** | An admin approves a timesheet invoice |
-| **Timesheet invoice rejected** | An admin rejects a timesheet invoice |
-| **Timesheet invoice paid** | A timesheet invoice is marked as paid |
-| **Timesheet invoice voided** | A timesheet invoice is voided |
+- **Booking** — booking confirmed, basket created/expired, invoice pending/overdue
+- **Course and session** — course starting/ending, waiver reminders, instructor notifications
+- **Group booking** — new group booking, participant detail reminders
+- **Membership** — requested, started, renewal, cancelled, past due, payment info required
+- **Instalment** — due, paid, plan started/completed/abandoned
+- **Account** — new client or staff account
+- **Waiver and waitlist** — pending waivers, waitlist spots available
+- **Staff** — instructor assigned, availability requests, timesheet invoices
 
 ## Common workflow examples
 
@@ -227,8 +165,14 @@ You can create, rename, and delete groups directly from the workflow editor. To 
 ## Related guides
 
 <Columns cols={2}>
+  <Card title="Workflow triggers reference" icon="list" href="/integrations/workflow-triggers">
+    Complete list of all available triggers with descriptions.
+  </Card>
   <Card title="Waivers" icon="file-signature" href="/customers/waivers">
     Set up waivers and automate reminders for incomplete submissions.
+  </Card>
+  <Card title="Notifications and emails" icon="envelope" href="/customers/notifications">
+    Understand the automatic emails Sailia sends.
   </Card>
   <Card title="Meter tracking" icon="chart-bar" href="/api-reference/meter-tracking">
     Monitor workflow email volume through built-in meters.

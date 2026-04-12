@@ -55,7 +55,8 @@
           {
             "group": "Pricing and promotions",
             "pages": [
-              "pricing/memberships-and-passes",
+              "pricing/memberships",
+              "pricing/activity-passes",
               "pricing/discount-codes",
               "pricing/gift-cards"
             ]
@@ -93,6 +94,7 @@
             "group": "Integrations",
             "pages": [
               "integrations/workflows",
+              "integrations/workflow-triggers",
               "integrations/booking-tracking",
               "integrations/accounting-sync",
               "integrations/adventuro"
@@ -177,7 +179,11 @@
     },
     {
       "source": "/booking-and-sales/memberships-and-passes",
-      "destination": "/pricing/memberships-and-passes"
+      "destination": "/pricing/memberships"
+    },
+    {
+      "source": "/pricing/memberships-and-passes",
+      "destination": "/pricing/memberships"
     },
     {
       "source": "/booking-and-sales/waivers",

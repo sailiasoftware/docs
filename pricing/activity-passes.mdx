@@ -1,0 +1,87 @@
+---
+title: Activity passes
+description: Sell prepaid session bundles that customers can redeem against future bookings.
+keywords: ['activity passes', 'prepaid passes', 'session bundles', 'pass redemption', 'passes']
+---
+
+Activity passes are prepaid bundles that give customers a set number of sessions to use over time. They are ideal for regular attendees who want a better per-session price without committing to a [membership](/pricing/memberships).
+
+## Create an activity pass
+
+<Steps>
+  <Step title="Open activity passes">
+    Navigate to your activity passes section and select **Create Pass**.
+  </Step>
+  <Step title="Set basic details">
+    Enter the pass name, description, and upload an optional image.
+  </Step>
+  <Step title="Configure pricing and validity">
+    Set the price, max redemptions, and expiry. Expiry can be a number of months after purchase or a fixed date.
+  </Step>
+  <Step title="Set redemption rules">
+    Choose which activities the pass can be redeemed against. Optionally enable **Single user only** to restrict the pass to one family member (see below).
+  </Step>
+  <Step title="Set purchasing rules">
+    Choose whether the pass is available to anyone or restricted to membership holders. If members-only, select which memberships are eligible.
+  </Step>
+</Steps>
+
+## Single user only
+
+By default, an activity pass can be used by any participant in a booking. When you enable **Single user only**, the pass is locked to a specific family member chosen at the time of purchase.
+
+- During checkout, the buyer selects which family member the pass is assigned to.
+- Only bookings that include that specific user will have the pass discount applied.
+- Confirmation emails display the name of the restricted user so both you and the customer know who the pass belongs to.
+- If the pass is also restricted to certain memberships, only family members who hold a qualifying membership can be selected.
+
+This is useful when you want to ensure a pass is non-transferable — for example, a 10-session pass that should only be used by one child rather than shared across the family.
+
+## Redeeming a pass
+
+When a customer with an active pass books an eligible activity, they can apply the pass at checkout instead of paying the full price. Each booking deducts uses from the pass balance based on the number of participants. For example, a booking with three participants deducts three uses.
+
+Activity pass discounts stack with other discounts, so customers can combine a pass with promotional codes or [membership](/pricing/memberships) benefits.
+
+## Seasonal passes
+
+If your business has seasonal patterns, consider creating passes with expiry dates aligned to your seasons. For example:
+
+- A summer kayaking pass that expires at the end of September
+- A winter climbing pass with a fixed three-month validity
+- An off-peak pass with restricted redemption to weekday sessions
+
+Pair seasonal passes with [discount codes](/pricing/discount-codes) for early-bird pricing to encourage advance purchases.
+
+## Accounting
+
+If you use [Xero accounting sync](/integrations/accounting-sync), assign accounting categories to your activity passes. This ensures revenue is categorized correctly on Xero invoices.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Activity pass not applying at checkout">
+    Verify that the pass is not expired, has remaining redemptions, and the booked activity is included in the pass's eligible activities. If the pass has **Single user only** enabled, confirm the correct family member is included in the booking.
+  </Accordion>
+
+  <Accordion title="Customer cannot purchase a members-only pass">
+    Check that the customer holds an active membership that matches the pass's purchasing rules. If the pass is restricted to specific memberships, only holders of those memberships can buy it.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Memberships" icon="id-card" href="/pricing/memberships">
+    Offer recurring membership plans with automatic billing.
+  </Card>
+  <Card title="Discount codes" icon="tag" href="/pricing/discount-codes">
+    Create discounts that work alongside passes.
+  </Card>
+  <Card title="Online bookings" icon="globe" href="/activities/online-bookings">
+    How customers redeem passes at checkout.
+  </Card>
+  <Card title="Family accounts" icon="people-roof" href="/customers/family-accounts">
+    Manage family members and single-user pass assignments.
+  </Card>
+</Columns>
