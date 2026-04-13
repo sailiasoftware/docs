@@ -1,7 +1,7 @@
 ---
 title: Newsletter signup forms
 description: Embed a newsletter signup form on your website to grow your subscriber list.
-keywords: ['newsletter', 'signup form', 'email list', 'marketing', 'embed form']
+keywords: ['newsletter', 'signup form', 'email list', 'marketing', 'embed form', 'subscribe']
 ---
 
 You can embed a newsletter signup form on your website so visitors can subscribe to your mailing list directly. Sailia generates the embed code for you — copy it and paste it into your site's HTML.
@@ -9,6 +9,8 @@ You can embed a newsletter signup form on your website so visitors can subscribe
 ## How it works
 
 When a visitor fills in your embedded form and submits it, they are automatically added to your audience in Sailia. You can then reach them through [marketing campaigns](/customers/marketing) and [automated workflows](/integrations/workflows).
+
+The form collects the visitor's name and email address. No payment information or account creation is required — the form is purely for newsletter subscriptions.
 
 ## Get the embed code
 
@@ -34,17 +36,67 @@ When a visitor fills in your embedded form and submits it, they are automaticall
   The embed code is a self-contained HTML snippet. It works on any website that allows custom HTML, including WordPress, Squarespace, Wix, and static sites.
 </Note>
 
+## Where to place the form
+
+For best results, place the newsletter form where visitors are most likely to engage:
+
+- **Homepage** — in a sidebar or footer section to capture general interest
+- **Blog or news page** — near content that demonstrates your expertise
+- **Contact page** — visitors already looking to engage with your business
+- **Booking confirmation page** — after a customer has completed a booking (if your website supports this)
+
+<Tip>
+  Avoid placing the form in a pop-up or modal that interrupts the browsing experience. Inline forms embedded directly into the page tend to perform better.
+</Tip>
+
 ## After embedding
 
 Once the form is live on your website:
 
-- **New subscribers** appear in your audience automatically.
-- You can segment and target subscribers using audience filters when sending campaigns.
-- Subscribers can unsubscribe through the link included in your marketing emails.
+- **New subscribers** appear in your audience automatically
+- You can segment and target subscribers using audience filters when sending [campaigns](/customers/marketing)
+- Subscribers can unsubscribe through the link included in your marketing emails
+- Duplicate submissions (same email address) do not create duplicate audience entries
+
+## Platform-specific instructions
+
+<AccordionGroup>
+  <Accordion title="WordPress">
+    Use a **Custom HTML** block in the WordPress block editor. Paste the embed code into the block and publish the page. If you are using a page builder plugin (like Elementor or WPBakery), look for an HTML or code widget.
+  </Accordion>
+
+  <Accordion title="Squarespace">
+    Add a **Code** block to your page. Paste the embed code and save. Squarespace may require a Business plan or higher to embed custom code.
+  </Accordion>
+
+  <Accordion title="Wix">
+    Use the **Embed Code** > **Custom Element** or **HTML iframe** widget. Paste the embed code into the widget settings. Position the widget where you want the form to appear.
+  </Accordion>
+
+  <Accordion title="Static HTML site">
+    Open your HTML file in a text editor. Paste the embed code at the location where you want the form to appear, then upload the updated file to your hosting provider.
+  </Accordion>
+</AccordionGroup>
 
 <Tip>
   If the copy button does not work in your browser, select the code manually from the text area and copy it with your keyboard.
 </Tip>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The form is not appearing on my website">
+    Check that the embed code was pasted into an area that supports custom HTML. Some website builders require a specific block type (like "Custom HTML" or "Code") rather than a regular text block. Also confirm that you saved and published the page after pasting.
+  </Accordion>
+
+  <Accordion title="Subscribers are not appearing in my audience">
+    Verify the form is using the correct embed code from your Sailia account. If you copied code from a different account or an older version, it may not be linked correctly. Regenerate the code and re-embed it.
+  </Accordion>
+
+  <Accordion title="The form looks different from the preview">
+    Your website's CSS styles may override the form's default styling. Check your website's theme for conflicting styles on form elements, buttons, or input fields.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
@@ -54,5 +106,8 @@ Once the form is live on your website:
   </Card>
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
     Set up triggered email sequences for your subscribers.
+  </Card>
+  <Card title="Embedding your booking page" icon="code" href="/getting-started/embedding">
+    Embed your full booking page alongside newsletter forms.
   </Card>
 </Columns>

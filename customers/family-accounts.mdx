@@ -1,7 +1,7 @@
 ---
 title: Family accounts
 description: Manage family members under a single account for shared bookings and memberships.
-keywords: ['family accounts', 'family members', 'shared bookings', 'parent account', 'children']
+keywords: ['family accounts', 'family members', 'shared bookings', 'parent account', 'children', 'dependents']
 ---
 
 Family accounts let customers group related people — such as children, partners, or dependents — under a single account. This simplifies booking for families and enables features like shared memberships and restricted activity passes.
@@ -17,13 +17,32 @@ A customer account can have multiple family members linked to it. Each family me
 
 The primary account holder manages the family — adding members, making bookings, and handling payments on behalf of everyone.
 
+## Adding family members
+
+Customers can add family members from their account on your [booking page](/getting-started/booking-page). For each family member, they enter:
+
+- **Name** — first and last name
+- **Contact details** — email or phone (optional, depending on the member's age)
+- **Relationship** — how the member relates to the account holder
+
+Staff can also add family members from the [customer profile](/customers/overview) in the dashboard.
+
+<Note>
+  There is no limit to the number of family members that can be linked to a single account.
+</Note>
+
 ## Booking for family members
 
-When a family member makes a booking, they can select which family members are attending. Each selected member:
+When a customer with family members makes a booking, they can select which family members are attending. Each selected member:
 
 - Counts toward the session's [capacity](/activities/activities#capacity-and-availability)
 - Has their own waiver completion tracked individually
 - Can have [per-person add-ons](/activities/activities#add-ons) applied
+- Appears as a named participant in the booking details
+
+<Tip>
+  When a customer books for multiple family members in the same session, it works like a [group booking](/activities/group-bookings) — all participants are included in one transaction.
+</Tip>
 
 ## Memberships and passes
 
@@ -38,6 +57,16 @@ Family members can hold their own [memberships](/pricing/memberships) and [activ
   When purchasing a membership for specific family members, Sailia checks whether any of the selected users already hold that membership. If a duplicate is found, the purchase is blocked.
 </Note>
 
+### How membership discounts apply
+
+When a family with active memberships books an activity:
+
+1. Sailia identifies which family members are attending.
+2. For each attending member, it checks whether they hold a membership with a linked [discount](/pricing/discount-codes#membership-discounts).
+3. The discount is applied only to the ticket for the qualifying member — not to other family members.
+
+This means a family where one child has a membership and another does not will see the discount applied to only one ticket.
+
 ## At the point of sale
 
 When processing a [POS transaction](/point-of-sale/overview), staff can link the sale to a customer account to:
@@ -45,12 +74,36 @@ When processing a [POS transaction](/point-of-sale/overview), staff can link the
 - See all family members and select who is attending
 - Auto-apply [membership discounts](/pricing/discount-codes#membership-discounts) for eligible family members
 - Redeem [activity passes](/pricing/activity-passes) assigned to specific members
+- View waiver status for each family member before the activity starts
+
+## Waivers for family members
+
+Each family member must complete [waivers](/customers/waivers) individually. The primary account holder can complete waivers on behalf of minors or dependents. Waiver status is tracked per family member per booking, so you can see at a glance who has completed their forms.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="A customer can't add a family member">
+    Verify the customer has a registered [account](/customers/customer-accounts) (not a guest checkout). Family members can only be added to full customer accounts.
+  </Accordion>
+
+  <Accordion title="A membership discount is not applying for a family member">
+    Check that the specific family member (not just the account holder) holds the qualifying membership. Membership discounts apply per individual, not per account.
+  </Accordion>
+
+  <Accordion title="Cannot purchase the same membership for two family members">
+    Purchases must be made separately for each family member. If the system blocks the purchase, one of the selected members may already hold that membership. Check the **Memberships** tab on the [customer profile](/customers/overview).
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
 <Columns cols={2}>
   <Card title="Customer management" icon="users" href="/customers/overview">
     View and manage customer profiles and accounts.
+  </Card>
+  <Card title="Customer accounts" icon="user-check" href="/customers/customer-accounts">
+    How self-service accounts work.
   </Card>
   <Card title="Memberships" icon="id-card" href="/pricing/memberships">
     Set up recurring membership plans.

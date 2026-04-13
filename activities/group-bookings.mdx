@@ -8,10 +8,20 @@ Group bookings let a single customer book on behalf of multiple participants —
 
 ## How group bookings work
 
-1. The organizer selects an activity session and specifies the number of participants.
-2. They complete payment for all places in a single transaction.
-3. After payment, the organizer is prompted to fill in individual participant details (names, contact information, and any custom fields).
-4. Each participant's details are stored against the booking and visible in your [bookings dashboard](/activities/managing-bookings).
+<Steps>
+  <Step title="Select participants">
+    The organizer selects an activity session and specifies the number of participants.
+  </Step>
+  <Step title="Complete payment">
+    They complete payment for all places in a single transaction.
+  </Step>
+  <Step title="Provide participant details">
+    After payment, the organizer is prompted to fill in individual participant details (names, contact information, and any custom fields).
+  </Step>
+  <Step title="Details stored">
+    Each participant's details are stored against the booking and visible in your [bookings dashboard](/activities/managing-bookings).
+  </Step>
+</Steps>
 
 <Note>
   Capacity is reserved at the time of booking. If an organizer books 10 places, those 10 spots are immediately deducted from the session's available capacity.
@@ -28,24 +38,70 @@ After a group booking is paid, the organizer can fill in participant details at 
 
 The organizer receives a link where they can enter each participant's name and any required information.
 
+<Tip>
+  Set up both triggers together — an immediate reminder and a follow-up a few days before the session. This gives organizers flexibility while ensuring you have the details you need.
+</Tip>
+
 ## Waivers for group bookings
 
 If the activity requires a [waiver](/customers/waivers), each participant needs to complete it individually. The organizer can share the waiver link with participants, or you can set up a [waiver reminder workflow](/integrations/workflows#waiver-and-waitlist-triggers) to notify participants directly.
 
 You can check waiver completion status for each participant from the [booking details](/activities/managing-bookings#booking-details).
 
+<Warning>
+  Waivers are not transferable between bookings. Even if a participant completed a waiver for a previous session, they may need to complete a new one for the current booking depending on your waiver settings.
+</Warning>
+
 ## Add-ons for groups
 
-[Add-ons](/activities/activities#add-ons) configured as **per-person** are multiplied by the number of participants. Add-ons configured as **per-booking** are charged once regardless of group size.
+[Add-ons](/activities/activities#add-ons) behave differently based on their configuration:
+
+| Add-on type | Behavior |
+| --- | --- |
+| **Per-person** | Charged for each participant in the group. A 10-person group with a per-person add-on is charged 10 times. |
+| **Per-booking** | Charged once regardless of group size. Useful for equipment that the whole group shares. |
+
+## Pricing for groups
+
+Group bookings are priced per participant using the activity's standard ticket prices. If you want to offer discounted rates for larger groups, you can:
+
+- Create a [discount code](/pricing/discount-codes) with a minimum participant requirement
+- Use [tiered pricing](/pricing/discount-codes#tiered-discounts) to automatically reduce the per-person cost at higher quantities
+- Offer a group-specific [activity pass](/pricing/activity-passes) for regular group organizers
 
 ## Managing group bookings
 
 From the [bookings dashboard](/activities/managing-bookings), you can:
 
 - View all participants and their details
-- Add or remove participants (subject to capacity)
+- Add or remove participants (subject to available capacity)
 - Check waiver status for each participant
-- Process partial refunds if participants cancel
+- Edit participant information after the booking is created
+- Process partial refunds if individual participants cancel
+
+### Reducing group size
+
+If a participant drops out, you can remove them from the group booking. This frees up their capacity for other customers. You can then process a partial [refund](/activities/cancellations-and-refunds) for the removed participant — either to the original payment method, as [store credit](/pricing/gift-cards), or as cash.
+
+### Increasing group size
+
+If the organizer wants to add more participants after the initial booking, you can add them directly from the booking details, provided the session has available capacity. The organizer is charged for the additional participants.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The organizer hasn't provided participant details">
+    Check whether [workflow reminders](#collecting-participant-details) are configured. You can also manually send the participant details link from the booking details page.
+  </Accordion>
+
+  <Accordion title="A participant can't access the waiver link">
+    Verify that the waiver link was sent to the correct email address. The organizer can reshare the link, or you can resend the waiver notification from the booking details.
+  </Accordion>
+
+  <Accordion title="Group capacity doesn't match the session">
+    All group places count toward the session's total capacity. If the session shows as full, check whether the group booking was counted correctly. Each participant in a group uses one capacity slot.
+  </Accordion>
+</AccordionGroup>
 
 ## Related guides
 
@@ -55,5 +111,11 @@ From the [bookings dashboard](/activities/managing-bookings), you can:
   </Card>
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
     Set up reminders for group organizers.
+  </Card>
+  <Card title="Cancellations and refunds" icon="rotate-left" href="/activities/cancellations-and-refunds">
+    Process partial refunds for group changes.
+  </Card>
+  <Card title="Discount codes" icon="tag" href="/pricing/discount-codes">
+    Create group discounts with minimum participant rules.
   </Card>
 </Columns>

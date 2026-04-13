@@ -18,12 +18,12 @@
             "pages": [
               "index",
               "getting-started/overview",
+              "getting-started/key-concepts",
               "getting-started/setup-checklist",
               "getting-started/account-settings",
               "getting-started/booking-page",
               "getting-started/embedding",
-              "getting-started/locations",
-              "getting-started/faq"
+              "getting-started/locations"
             ]
           },
           {
@@ -40,14 +40,19 @@
             ]
           },
           {
-            "group": "Customers and marketing",
+            "group": "Customers",
             "pages": [
               "customers/overview",
               "customers/customer-accounts",
               "customers/family-accounts",
               "customers/waivers",
               "customers/file-uploads",
-              "customers/notifications",
+              "customers/notifications"
+            ]
+          },
+          {
+            "group": "Marketing",
+            "pages": [
               "customers/marketing",
               "customers/newsletter-forms"
             ]
@@ -98,6 +103,14 @@
               "integrations/booking-tracking",
               "integrations/accounting-sync",
               "integrations/adventuro"
+            ]
+          },
+          {
+            "group": "Help and reference",
+            "pages": [
+              "getting-started/faq",
+              "getting-started/troubleshooting",
+              "getting-started/data-privacy"
             ]
           }
         ]
