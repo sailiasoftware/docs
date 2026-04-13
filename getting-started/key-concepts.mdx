@@ -1,0 +1,101 @@
+---
+title: Key concepts
+description: Definitions of the core terms and concepts used throughout Sailia.
+keywords: ['glossary', 'key concepts', 'terminology', 'definitions', 'terms']
+---
+
+This page defines the key terms you will encounter when using Sailia. Refer back here if you come across an unfamiliar concept in the documentation.
+
+## Activity types
+
+| Term | Definition |
+| --- | --- |
+| **Course** | A scheduled, recurring activity with set times — for example, a weekly surf lesson. Courses have [sessions](/getting-started/key-concepts#session) that customers book into. |
+| **Hire** | An equipment rental with a start and end time — for example, kayak hire for two hours. Hires track individual items and their availability. |
+| **Event** | A one-off or recurring occasion — for example, a beach cleanup or a birthday party. Events work similarly to courses but are typically non-repeating. |
+
+All three activity types share the same booking, payment, and scheduling system. See [Activities](/activities/activities) for setup instructions.
+
+## Booking terms
+
+| Term | Definition |
+| --- | --- |
+| **Session** | A specific date and time slot for an activity. Customers book a session, not an activity directly. |
+| **Capacity** | The maximum number of participants allowed in a session. Capacity is shared across all [sales channels](#sales-channels). |
+| **Group booking** | A single transaction where one person (the organizer) books on behalf of [multiple participants](/activities/group-bookings). |
+| **Waitlist** | A queue for a fully booked session. When a spot opens, the next person on the [waitlist](/activities/waitlists) is notified. |
+| **Add-on** | An optional extra that can be attached to a booking — either **per-person** (charged per participant) or **per-booking** (charged once). |
+| **Basket** | The collection of items a customer has selected before completing payment at checkout. |
+
+## Sales channels
+
+Bookings can come from multiple sources:
+
+| Channel | Description |
+| --- | --- |
+| **Online** | Customers book through your [booking page](/getting-started/booking-page). |
+| **Point of sale (POS)** | Staff process walk-in bookings and sales through the [POS terminal](/point-of-sale/overview). |
+| **Adventuro** | Bookings from the [Adventuro marketplace](/integrations/adventuro) (if connected). |
+
+All channels share real-time capacity, so a session cannot be overbooked.
+
+## Customer terms
+
+| Term | Definition |
+| --- | --- |
+| **Customer account** | A login that lets customers manage bookings, memberships, and waivers on your [booking page](/customers/customer-accounts). |
+| **Guest checkout** | Completing a booking without creating an account. The customer provides only the information needed for the transaction. |
+| **Family account** | A customer account with linked [family members](/customers/family-accounts) — each member has their own profile, booking history, and waiver status. |
+| **Audience** | Your list of email subscribers, used for [marketing campaigns](/customers/marketing). |
+| **Waiver** | A digital form with text blocks, checkboxes, signature fields, and file uploads that customers complete before an activity. See [Waivers](/customers/waivers). |
+
+## Pricing terms
+
+| Term | Definition |
+| --- | --- |
+| **Membership** | A recurring subscription plan billed through Stripe. Members receive benefits like auto-applied [discounts](/pricing/discount-codes#membership-discounts). See [Memberships](/pricing/memberships). |
+| **Activity pass** | A prepaid bundle of sessions. Customers purchase a pass and redeem it against eligible activities. See [Activity passes](/pricing/activity-passes). |
+| **Discount code** | A code that reduces the price of a booking or product. Supports fixed, percentage, and [tiered pricing](/pricing/discount-codes). |
+| **Gift card** | A stored-value code that customers redeem at checkout. Also created when you issue a [refund as store credit](/activities/cancellations-and-refunds). See [Gift cards](/pricing/gift-cards). |
+| **Instalment plan** | A payment schedule that splits a booking's cost into multiple payments over time. See [Instalment plans](/payments/instalments). |
+
+## Payment terms
+
+| Term | Definition |
+| --- | --- |
+| **Stripe** | The payment processor that handles all card payments in Sailia. See [Payments and Stripe](/payments/stripe). |
+| **Payout** | A transfer from Stripe to your bank account, containing the net amount from processed payments minus fees. |
+| **MOTO payment** | A mail-order / telephone-order payment where staff enter a customer's card details manually through the POS. |
+| **Store credit** | A [gift card](/pricing/gift-cards) balance issued as a refund alternative. Available immediately for the customer to use. |
+| **Gift Aid** | A UK tax scheme allowing charities to claim extra on [donations](/payments/donations). Customers declare their eligibility at checkout. |
+
+## Staff and operations terms
+
+| Term | Definition |
+| --- | --- |
+| **Permission group** | A set of access controls assigned to staff. See [Permissions reference](/staff/permissions). |
+| **Auto timesheet** | A timesheet entry automatically generated from a scheduled booking, including setup and pack-down time. See [Auto daily timesheets](/staff/auto-timesheets). |
+| **Timesheet invoice** | A payment request submitted by staff based on their timesheet entries. See [Timesheet invoices](/staff/timesheet-invoices). |
+| **Till shift** | A POS session that tracks cash payments and provides shift-level reporting. See [Point of sale](/point-of-sale/overview). |
+| **Location** | A physical site where you run activities. Used to organize schedules, POS terminals, and card readers. See [Locations](/getting-started/locations). |
+
+## Integration terms
+
+| Term | Definition |
+| --- | --- |
+| **Workflow** | An automated action (email or SMS) triggered by a specific event. See [Automated workflows](/integrations/workflows). |
+| **Trigger** | The event that starts a workflow — for example, "new booking" or "membership past due." See [Workflow triggers](/integrations/workflow-triggers). |
+| **Merge field** | A placeholder in a workflow message that is replaced with real data at send time — for example, `{{customer.first_name}}`. |
+| **Accounting category** | A label that maps products to tax rates and Xero account codes. See [Taxes and VAT](/payments/taxes). |
+| **Booking tracking** | Events fired during the booking flow for analytics tools like [GTM or PostHog](/integrations/booking-tracking). |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Platform overview" icon="compass" href="/getting-started/overview">
+    See how all the pieces of Sailia fit together.
+  </Card>
+  <Card title="Quick setup checklist" icon="list-check" href="/getting-started/setup-checklist">
+    Get your account configured step by step.
+  </Card>
+</Columns>

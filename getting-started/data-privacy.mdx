@@ -1,0 +1,126 @@
+---
+title: Data privacy and security
+description: How Sailia handles customer data, payment security, and privacy compliance.
+keywords: ['data privacy', 'security', 'GDPR', 'data protection', 'customer data', 'PCI compliance']
+---
+
+Sailia is designed to help you manage customer data responsibly. This page explains what data is collected, how it is stored, and the tools available to help you meet your privacy obligations.
+
+## What data Sailia collects
+
+Sailia stores customer information needed to process bookings, manage accounts, and communicate with your customers.
+
+| Data type | Purpose | Where stored |
+| --- | --- | --- |
+| **Name and email** | Booking confirmations, [workflow emails](/integrations/workflows), account login | Sailia |
+| **Booking history** | Visible to customers and staff on the [customer profile](/customers/overview) | Sailia |
+| **Payment details** | Card numbers and payment credentials | [Stripe](/payments/stripe) (not stored in Sailia) |
+| **Membership and pass status** | Tracks active subscriptions and remaining sessions | Sailia |
+| **Waiver responses** | Signatures, checkboxes, text, and [file uploads](/customers/file-uploads) | Sailia |
+| **Profile images** | Optional photos uploaded by customers | Sailia |
+| **Staff notes** | Internal notes on [customer profiles](/customers/overview#notes) — not visible to customers | Sailia |
+| **Tracking events** | [Booking tracking](/integrations/booking-tracking) data sent to GTM or PostHog | Third-party analytics provider |
+
+## Payment security
+
+All card payments are processed through [Stripe](/payments/stripe), which is PCI DSS Level 1 certified — the highest level of payment security certification. Sailia never stores, processes, or has access to full card numbers. When customers enter payment details:
+
+1. Card data is sent directly to Stripe's servers.
+2. Stripe returns a secure token that Sailia uses for the transaction.
+3. Recurring payments for [memberships](/pricing/memberships) and [instalment plans](/payments/instalments) use Stripe's tokenized billing.
+
+<Note>
+  Because Sailia never handles raw card data, your PCI compliance scope is minimized. You do not need to complete a full PCI Self-Assessment Questionnaire for using Sailia.
+</Note>
+
+## Customer accounts and consent
+
+When customers create an [account](/customers/customer-accounts) on your booking page, they provide their information voluntarily. Customers can:
+
+- **View their data** — booking history, memberships, passes, and waivers are visible in their account
+- **Update their details** — customers can edit their name, email, and contact information
+- **Manage marketing preferences** — subscribers can unsubscribe from [marketing emails](/customers/marketing) through the link included in every campaign
+
+### Guest checkout
+
+Customers who book as guests (without creating an account) provide only the information required to complete the booking. Their details are stored against the booking record but they do not have a login to manage their data.
+
+## Waivers and document storage
+
+[Waivers](/customers/waivers) can collect sensitive information including signatures, health declarations, and uploaded documents. This data is:
+
+- Stored securely against the individual booking
+- Accessible only to staff with appropriate [permissions](/staff/permissions)
+- Linked to the specific participant who completed the waiver
+
+<Warning>
+  If your waivers collect health or medical information, check your local regulations for any additional data handling requirements that may apply.
+</Warning>
+
+## Staff access controls
+
+Sailia's [permission system](/staff/permissions) lets you control which staff members can access sensitive data:
+
+| Permission | What it controls |
+| --- | --- |
+| **View other user profiles** | Access to customer profiles, booking history, and notes |
+| **Financial dashboard** | Access to payment data, payouts, and financial reports |
+| **Staff management** | Access to other staff members' profiles and timesheets |
+| **Communications** | Access to send emails and manage marketing campaigns |
+
+<Tip>
+  Follow the principle of least privilege — give staff only the permissions they need for their role. See [permissions reference](/staff/permissions) for detailed recommendations.
+</Tip>
+
+## Data in integrations
+
+When you connect third-party integrations, data may be shared with external services:
+
+| Integration | Data shared |
+| --- | --- |
+| [Stripe](/payments/stripe) | Payment amounts, customer email, product details |
+| [Xero](/integrations/accounting-sync) | Payout amounts, invoice line items, VAT categories |
+| [Google Tag Manager / PostHog](/integrations/booking-tracking) | Booking events, session IDs, product names |
+| [Adventuro](/integrations/adventuro) | Activity details, availability, booking confirmations |
+| [Automated workflows](/integrations/workflows) | Customer name, email, booking details (via merge fields) |
+
+<Note>
+  Review the privacy policies of each third-party service you connect. You are responsible for ensuring these integrations comply with your local data protection regulations.
+</Note>
+
+## Data exports
+
+Sailia provides several [export options](/payments/reporting) for extracting your data:
+
+- **Booking exports** — all booking records with customer details
+- **Financial exports** — payment and payout data
+- **Customer exports** — customer profiles and contact information
+- **Donation exports** — donation records with [Gift Aid](/payments/donations) details
+- **Timesheet exports** — staff timesheet entries
+
+Exports are generated as CSV files that you can download from the dashboard.
+
+## Best practices
+
+- **Review staff permissions regularly** — remove access for staff who no longer need it
+- **Use waivers for consent** — add a consent checkbox to your [waiver templates](/customers/waivers) for activities that require explicit data consent
+- **Monitor marketing subscribers** — respect unsubscribe requests and keep your [audience list](/customers/marketing) clean
+- **Secure your account** — use a strong password for your Sailia admin account
+- **Audit integrations periodically** — disconnect integrations you no longer use to minimize data sharing
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Permissions reference" icon="lock" href="/staff/permissions">
+    Control what each staff member can access.
+  </Card>
+  <Card title="Waivers" icon="file-signature" href="/customers/waivers">
+    Collect consent and signed documents.
+  </Card>
+  <Card title="Payments and Stripe" icon="credit-card" href="/payments/stripe">
+    How payment data is handled securely.
+  </Card>
+  <Card title="Customer accounts" icon="user-check" href="/customers/customer-accounts">
+    How customers manage their own data.
+  </Card>
+</Columns>

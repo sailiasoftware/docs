@@ -14,6 +14,7 @@ If you run activities at multiple venues — for example, a beach site and a lak
 - **Assign POS terminals** to the correct venue so staff use the right card reader
 - **Register card readers** at the location where they are physically installed
 - **Track timesheets** with location data on each entry
+- **Organize your booking page** so customers see activities grouped by venue
 
 <Note>
   If you operate from a single site, you still have one default location. You do not need to set up additional locations unless you expand.
@@ -37,16 +38,39 @@ If you run activities at multiple venues — for example, a beach site and a lak
 
 Once you have locations configured, you can assign them to:
 
-| Item | Where to assign |
-| --- | --- |
-| **Activities** | In the activity settings — determines which location the session appears under in the schedule |
-| **POS terminals** | In the POS terminal configuration — links the terminal to a physical venue |
-| **Card readers** | When [registering a reader](/point-of-sale/card-readers#register-a-card-reader) — each reader belongs to one location |
-| **Staff timesheets** | Automatically recorded based on the booking's location |
+| Item | Where to assign | Effect |
+| --- | --- | --- |
+| **Activities** | In the activity settings | Determines which location the session appears under in the schedule |
+| **POS terminals** | In the POS terminal configuration | Links the terminal to a physical venue for [grid layout](/point-of-sale/overview#grid-layout) and card reader pairing |
+| **Card readers** | When [registering a reader](/point-of-sale/card-readers#register-a-card-reader) | Each reader belongs to one location and processes payments for that site |
+| **Staff timesheets** | Automatically recorded | Based on the booking's assigned location |
 
 ## Filtering by location
 
-The [schedule view](/activities/managing-bookings#schedule-filters) includes a location filter. When you have multiple locations configured, use it to narrow the schedule to sessions at a specific site.
+The [schedule view](/activities/managing-bookings#schedule-filters) includes a location filter. When you have multiple locations configured, use it to narrow the schedule to sessions at a specific site. This is especially useful for staff who only work at one location — they can filter the schedule to see only their relevant sessions.
+
+## Location-specific POS setup
+
+Each location can have its own POS configuration:
+
+- **Grid layout** — customize the [POS grid](/point-of-sale/overview#grid-layout) to show products and activities relevant to each venue
+- **Card readers** — register separate [card readers](/point-of-sale/card-readers) for each location
+- **Till shifts** — manage [till shifts](/point-of-sale/overview#till-shifts) independently per location
+
+<Tip>
+  When setting up a new location, start by assigning activities and configuring the POS grid before going live. This ensures staff have everything they need from day one.
+</Tip>
+
+## Editing and removing locations
+
+You can rename a location or update its details at any time from the location settings. If you need to remove a location:
+
+1. Reassign any activities, POS terminals, and card readers to a different location.
+2. Delete the location from the settings page.
+
+<Warning>
+  Removing a location does not delete the bookings or timesheets associated with it. Historical data is preserved, but the location filter will no longer include the removed site.
+</Warning>
 
 ## Related guides
 
@@ -56,5 +80,11 @@ The [schedule view](/activities/managing-bookings#schedule-filters) includes a l
   </Card>
   <Card title="Card readers" icon="credit-card" href="/point-of-sale/card-readers">
     Register card readers at specific locations.
+  </Card>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    Filter the schedule by location.
+  </Card>
+  <Card title="Account settings" icon="gear" href="/getting-started/account-settings">
+    Configure your business settings.
   </Card>
 </Columns>
