@@ -1,19 +1,19 @@
 ---
-title: OTA core endpoints
-description: Integrate with Sailia as an online travel agency using the Core OTA API.
+title: OTA endpoints
+description: Integrate with Sailia as an online travel agency using the OTA API.
 keywords: ['OTA', 'online travel agency', 'availability', 'bookings', 'API']
 ---
 
-The Core OTA API provides a standardized set of endpoints for online travel agency (OTA) partners to list activities, check availability, and create bookings in Sailia. Use these endpoints to build integrations that sell a Sailia operator's activities on your own platform.
+The OTA API provides a standardized set of endpoints for online travel agency (OTA) partners to list activities, check availability, and create bookings in Sailia. Use these endpoints to build integrations that sell a Sailia operator's activities on your own platform.
 
 All endpoints require an API key with OTA permissions. See [authentication](/api-reference/introduction#authentication) for details on passing your key.
 
 ## Base path
 
-All Core OTA endpoints are under:
+All OTA endpoints are under:
 
 ```
-/api/v2/ota/core
+/api/v2/ota/adventuro
 ```
 
 ## List products
@@ -21,7 +21,7 @@ All Core OTA endpoints are under:
 Retrieve all activities that are available in the operator's shopfront.
 
 ```
-GET /api/v2/ota/core/products
+GET /api/v2/ota/adventuro/products
 ```
 
 ### Query parameters
@@ -34,7 +34,7 @@ GET /api/v2/ota/core/products
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://api.sailia.com/api/v2/ota/core/products?name=Sailing"
+  "https://api.sailia.com/api/v2/ota/adventuro/products?name=Sailing"
 ```
 
 ### Response
@@ -46,7 +46,7 @@ Returns a `200` response with a list of products.
 Look up a specific product by its ID or name.
 
 ```
-GET /api/v2/ota/core/resolve-product
+GET /api/v2/ota/adventuro/resolve-product
 ```
 
 ### Query parameters
@@ -62,7 +62,7 @@ Provide either `ID` or `Name`, not both.
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://api.sailia.com/api/v2/ota/core/resolve-product?Name=Adventure%20Tour"
+  "https://api.sailia.com/api/v2/ota/adventuro/resolve-product?Name=Adventure%20Tour"
 ```
 
 ### Responses
@@ -78,7 +78,7 @@ curl -H "Authorization: Bearer YOUR_API_TOKEN" \
 Retrieve dates with available capacity for a specific activity within a date range.
 
 ```
-GET /api/v2/ota/core/availability/{ActivityID}/dates
+GET /api/v2/ota/adventuro/availability/{ActivityID}/dates
 ```
 
 ### Path parameters
@@ -98,7 +98,7 @@ GET /api/v2/ota/core/availability/{ActivityID}/dates
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://api.sailia.com/api/v2/ota/core/availability/s_abc123xyz456/dates?StartDate=2026-06-01&EndDate=2026-06-30"
+  "https://api.sailia.com/api/v2/ota/adventuro/availability/s_abc123xyz456/dates?StartDate=2026-06-01&EndDate=2026-06-30"
 ```
 
 ### Responses
@@ -114,7 +114,7 @@ curl -H "Authorization: Bearer YOUR_API_TOKEN" \
 Retrieve timeslots with availability for a specific activity on a given date.
 
 ```
-GET /api/v2/ota/core/availability/{ActivityID}/timeslots
+GET /api/v2/ota/adventuro/availability/{ActivityID}/timeslots
 ```
 
 ### Path parameters
@@ -133,7 +133,23 @@ GET /api/v2/ota/core/availability/{ActivityID}/timeslots
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://api.sailia.com/api/v2/ota/core/availability/s_abc123xyz456/timeslots?Date=2026-06-15"
+  "https://api.sailia.com/api/v2/ota/adventuro/availability/s_abc123xyz456/timeslots?Date=2026-06-15"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **200** | List of available timeslots |
+| **400** | Invalid `ActivityID` |
+| **422** | Missing `Date` parameter |
+
+## Get waiver questions
+
+Retrieve the waiver questions associated with an activity. Use this to display required forms to customers before they complete a booking. Questions can be marked as required — your integration should validate that all required fields (including file uploads) are completed before submitting the booking.
+
+```
+GET /api/v2/ota/adventuro/questions/{ActivityID}
 ```
 
 ### Responses
@@ -162,7 +178,7 @@ GET /api/v2/ota/core/questions/{ActivityID}
 
 ```bash
 curl -H "Authorization: Bearer YOUR_API_TOKEN" \
-  "https://api.sailia.com/api/v2/ota/core/questions/s_abc123xyz456"
+  "https://api.sailia.com/api/v2/ota/adventuro/questions/s_abc123xyz456"
 ```
 
 ### Responses
@@ -177,7 +193,7 @@ curl -H "Authorization: Bearer YOUR_API_TOKEN" \
 Submit a new booking for an activity.
 
 ```
-POST /api/v2/ota/core/booking
+POST /api/v2/ota/adventuro/booking
 ```
 
 Send a JSON request body with the booking details including the activity, date, timeslot, number of participants, and customer information.
@@ -200,7 +216,7 @@ curl -X POST \
       "Phone": "+447700900000"
     }
   }' \
-  "https://api.sailia.com/api/v2/ota/core/booking"
+  "https://api.sailia.com/api/v2/ota/adventuro/booking"
 ```
 
 ### Responses
