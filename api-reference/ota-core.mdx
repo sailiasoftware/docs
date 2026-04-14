@@ -1,0 +1,257 @@
+---
+title: OTA core endpoints
+description: Integrate with Sailia as an online travel agency using the Core OTA API.
+keywords: ['OTA', 'online travel agency', 'availability', 'bookings', 'API']
+---
+
+The Core OTA API provides a standardized set of endpoints for online travel agency (OTA) partners to list activities, check availability, and create bookings in Sailia. Use these endpoints to build integrations that sell a Sailia operator's activities on your own platform.
+
+All endpoints require an API key with OTA permissions. See [authentication](/api-reference/introduction#authentication) for details on passing your key.
+
+## Base path
+
+All Core OTA endpoints are under:
+
+```
+/api/v2/ota/core
+```
+
+## List products
+
+Retrieve all activities that are available in the operator's shopfront.
+
+```
+GET /api/v2/ota/core/products
+```
+
+### Query parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| **name** | string | No | Filter products by name (partial match) |
+
+### Example request
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  "https://api.sailia.com/api/v2/ota/core/products?name=Sailing"
+```
+
+### Response
+
+Returns a `200` response with a list of products.
+
+## Resolve a product
+
+Look up a specific product by its ID or name.
+
+```
+GET /api/v2/ota/core/resolve-product
+```
+
+### Query parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| **ID** | integer | No | The numeric product ID |
+| **Name** | string | No | The product name to look up |
+
+Provide either `ID` or `Name`, not both.
+
+### Example request
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  "https://api.sailia.com/api/v2/ota/core/resolve-product?Name=Adventure%20Tour"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **200** | Product details returned |
+| **400** | Invalid request — provide either `ID` or `Name` |
+| **404** | Product not found |
+
+## Get available dates
+
+Retrieve dates with available capacity for a specific activity within a date range.
+
+```
+GET /api/v2/ota/core/availability/{ActivityID}/dates
+```
+
+### Path parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| **ActivityID** | string | The UUID of the activity (e.g. `s_abc123xyz456`) |
+
+### Query parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| **StartDate** | string | Yes | Start of the date range in `YYYY-MM-DD` format |
+| **EndDate** | string | Yes | End of the date range in `YYYY-MM-DD` format |
+
+### Example request
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  "https://api.sailia.com/api/v2/ota/core/availability/s_abc123xyz456/dates?StartDate=2026-06-01&EndDate=2026-06-30"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **200** | List of available dates |
+| **400** | Invalid `ActivityID` |
+| **422** | Missing `StartDate` or `EndDate` |
+
+## Get available timeslots
+
+Retrieve timeslots with availability for a specific activity on a given date.
+
+```
+GET /api/v2/ota/core/availability/{ActivityID}/timeslots
+```
+
+### Path parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| **ActivityID** | string | The UUID of the activity (e.g. `s_abc123xyz456`) |
+
+### Query parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| **Date** | string | Yes | The date to check in `YYYY-MM-DD` format |
+
+### Example request
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  "https://api.sailia.com/api/v2/ota/core/availability/s_abc123xyz456/timeslots?Date=2026-06-15"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **200** | List of available timeslots |
+| **400** | Invalid `ActivityID` |
+| **422** | Missing `Date` parameter |
+
+## Get waiver questions
+
+Retrieve the waiver questions associated with an activity. Use this to display required forms to customers before they complete a booking.
+
+```
+GET /api/v2/ota/core/questions/{ActivityID}
+```
+
+### Path parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| **ActivityID** | string | The UUID of the activity (e.g. `s_abc123xyz456`) |
+
+### Example request
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+  "https://api.sailia.com/api/v2/ota/core/questions/s_abc123xyz456"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **200** | List of waiver questions |
+| **400** | Invalid `ActivityID` |
+
+## Create a booking
+
+Submit a new booking for an activity.
+
+```
+POST /api/v2/ota/core/booking
+```
+
+Send a JSON request body with the booking details including the activity, date, timeslot, number of participants, and customer information.
+
+### Example request
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ActivityID": "s_abc123xyz456",
+    "Date": "2026-06-15",
+    "Time": "10:00",
+    "Participants": 4,
+    "Customer": {
+      "FirstName": "Jane",
+      "LastName": "Smith",
+      "Email": "jane.smith@example.com",
+      "Phone": "+447700900000"
+    }
+  }' \
+  "https://api.sailia.com/api/v2/ota/core/booking"
+```
+
+### Responses
+
+| Status | Description |
+| --- | --- |
+| **201** | Booking created — returns a booking reference |
+| **409** | Insufficient capacity for the requested timeslot |
+| **500** | Internal server error |
+
+<Note>
+  Bookings created through the OTA API are recorded with the OTA partner's payment reference. The operator sees these bookings in their [bookings dashboard](/activities/managing-bookings) alongside online and POS bookings.
+</Note>
+
+## Typical integration flow
+
+A standard OTA integration follows these steps:
+
+<Steps>
+  <Step title="Discover products">
+    Call [list products](#list-products) to retrieve the operator's activities. Cache results and refresh periodically.
+  </Step>
+  <Step title="Check availability">
+    When a customer selects an activity, call [get available dates](#get-available-dates) to show bookable dates, then [get available timeslots](#get-available-timeslots) for the chosen date.
+  </Step>
+  <Step title="Collect waiver responses">
+    Call [get waiver questions](#get-waiver-questions) and display the required fields to the customer before checkout.
+  </Step>
+  <Step title="Create the booking">
+    Submit the reservation with [create a booking](#create-a-booking). Handle a `409` response by prompting the customer to choose a different timeslot.
+  </Step>
+</Steps>
+
+## Error handling
+
+All error responses follow the [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) problem detail format. See [error format](/api-reference/introduction#error-format) for details.
+
+| Status | Cause |
+| --- | --- |
+| **400** | Invalid path parameter — check the `ActivityID` format |
+| **404** | Product not found |
+| **409** | Insufficient capacity for the requested booking |
+| **422** | Missing or invalid query parameters |
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="API introduction" icon="key" href="/api-reference/introduction">
+    Authentication, base URL, and error format.
+  </Card>
+  <Card title="Adventuro integration" icon="mountain" href="/integrations/adventuro">
+    Pre-built OTA integration with Adventuro marketplace.
+  </Card>
+</Columns>
