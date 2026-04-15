@@ -1,0 +1,280 @@
+---
+title: Troubleshooting
+description: Solutions to common issues with bookings, payments, card readers, accounts, memberships, integrations, and discount codes.
+keywords: ['troubleshooting', 'common issues', 'fix', 'error', 'not working', 'help', 'problems', 'card reader', 'payment failed', 'refund', 'discount code']
+---
+
+This page covers the most common issues you may run into while using Sailia, organized by category. Each section includes practical steps to diagnose and resolve the problem.
+
+## Booking issues
+
+<AccordionGroup>
+  <Accordion title="Customer didn't receive confirmation email">
+    Ask the customer to check their spam or junk folder first. If the email is not there:
+
+    1. Open the booking in your [bookings dashboard](/activities/managing-bookings) and verify the customer's email address is correct.
+    2. Resend the confirmation from the booking details page.
+    3. If you use [automated workflows](/integrations/workflows) for booking confirmations, check that the workflow is active and the trigger is configured correctly.
+
+    <Note>
+      Sailia sends confirmation emails immediately after a booking is completed. If the customer entered an incorrect email at checkout, you can update it on the booking and resend.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Session shows sold out after cancellation">
+    Cancellations free up capacity immediately. If a session still appears sold out after you cancel a booking:
+
+    1. Confirm the cancellation completed successfully — the booking status should show **Cancelled** in your [bookings dashboard](/activities/managing-bookings).
+    2. Check whether another customer booked the freed spot between the cancellation and when you checked.
+    3. Verify you are looking at the correct session date and time.
+    4. If a [waitlist](/activities/waitlists) is enabled, the next customer on the list may have already been notified and completed their booking.
+  </Accordion>
+
+  <Accordion title="Customer can't complete checkout">
+    If a customer reports that they cannot finish the checkout process:
+
+    1. Ask them to try a different browser or clear their browser cache.
+    2. Check that your [Stripe account](/payments/stripe) is connected and verified — online payments cannot be processed without an active Stripe connection.
+    3. If the session requires a [waiver](/customers/waivers), confirm the waiver is loading correctly and has not been deleted.
+    4. Verify the session still has available capacity and has not passed its booking cutoff time.
+
+    <Warning>
+      If Stripe is disconnected or your account is under review, all online card payments will fail. Check your Stripe dashboard for any action required.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Booking not appearing in dashboard">
+    If a customer says they completed a booking but it does not appear in your [bookings dashboard](/activities/managing-bookings):
+
+    1. Check your dashboard filters — you may have a date range, activity, or status filter applied that is hiding the booking.
+    2. Search by the customer's name or email.
+    3. Ask the customer to check their email for a confirmation. If they did not receive one, the payment may not have completed successfully.
+    4. Check your [financial dashboard](/payments/reporting) for a matching transaction. If the payment appears there but no booking exists, contact support.
+  </Accordion>
+</AccordionGroup>
+
+## Payment issues
+
+<AccordionGroup>
+  <Accordion title="Card payment declined">
+    When a customer's card payment is declined, the issue is almost always on the card issuer's side. Ask the customer to:
+
+    1. Verify the card details (number, expiry, CVC) are entered correctly.
+    2. Check that the card has sufficient funds and has not expired.
+    3. Contact their bank — some banks block online payments by default or flag unfamiliar merchants.
+    4. Try a different card or payment method such as [Stripe Link](/payments/stripe#stripe-link).
+
+    If multiple customers report declines at the same time, check your [Stripe dashboard](https://dashboard.stripe.com) for any account-level issues or restrictions.
+  </Accordion>
+
+  <Accordion title="Refund not showing in customer's account">
+    Card refunds processed through Stripe typically take **5-10 business days** to appear in the customer's bank account. If the customer has waited longer than 10 business days:
+
+    1. Open the booking in your [bookings dashboard](/activities/managing-bookings) and confirm the refund was processed — the payment status should show **Refunded**.
+    2. Check your [Stripe dashboard](https://dashboard.stripe.com) for the refund status. Stripe shows whether the refund has been sent to the customer's bank.
+    3. If Stripe shows the refund as completed, advise the customer to contact their bank.
+
+    <Tip>
+      [Store credit](/pricing/gift-cards) refunds are available immediately and do not depend on bank processing times. Consider offering store credit for faster resolution. See [Cancellations and refunds](/activities/cancellations-and-refunds) for refund options.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Instalment payment failed">
+    When an automatic [instalment](/payments/instalments) payment fails, Stripe retries the charge according to its retry schedule. If the payment continues to fail:
+
+    1. Check the instalment plan status in the booking details to see which payment failed and the failure reason.
+    2. Ask the customer to update their payment method in Stripe or contact their bank.
+    3. You can manually retry the payment from the booking details or cancel the remaining instalments if needed.
+
+    See [Instalment plans](/payments/instalments) for details on how automatic collection works.
+  </Accordion>
+
+  <Accordion title="Payout timing questions">
+    Stripe sends payouts to your bank account on a regular schedule (typically daily or weekly, depending on your Stripe settings). If a payout has not arrived:
+
+    1. Check your [financial dashboard](/payments/reporting) to see the payout status and expected arrival date.
+    2. Verify your bank details are correct in your [Stripe dashboard](https://dashboard.stripe.com).
+    3. New Stripe accounts may have a longer initial payout delay (up to 7-14 days) while Stripe verifies your account.
+
+    <Note>
+      Sailia does not control payout timing — this is managed entirely by Stripe. Adjust your payout schedule in your Stripe dashboard under **Settings > Payouts**.
+    </Note>
+  </Accordion>
+</AccordionGroup>
+
+## Card reader issues
+
+<AccordionGroup>
+  <Accordion title="Reader not connecting">
+    If your card reader is not connecting or shows as offline:
+
+    1. Confirm the reader is powered on and connected to the internet (Wi-Fi or ethernet, depending on the model).
+    2. Restart the card reader by powering it off and back on.
+    3. Check that the reader is registered to the correct [location](/getting-started/locations) in Sailia.
+    4. Verify your [Stripe account](/payments/stripe) is connected and in good standing.
+
+    If the reader still does not connect after restarting, try re-registering it. See [Card readers](/point-of-sale/card-readers) for the full setup process.
+  </Accordion>
+
+  <Accordion title="Registration code invalid">
+    The registration code displayed on a card reader expires after a short time. If the code is rejected:
+
+    1. Restart the card reader to generate a new registration code.
+    2. Enter the new code promptly in your [location settings](/getting-started/locations).
+    3. Make sure you are registering the reader to the correct location.
+
+    See [Register a card reader](/point-of-sale/card-readers#register-a-card-reader) for step-by-step instructions.
+  </Accordion>
+
+  <Accordion title="Payment stuck processing">
+    If a card reader payment appears stuck or is taking longer than expected:
+
+    1. Do not cancel the transaction immediately — give it up to 30 seconds to complete.
+    2. Check your internet connection. Card reader payments require a stable connection to communicate with Stripe.
+    3. If the payment does not complete, cancel the transaction on the POS and try again.
+    4. Check your [Stripe dashboard](https://dashboard.stripe.com) to see if the charge was actually processed. If it was, do not retry — the customer has already been charged.
+
+    <Warning>
+      Always check Stripe before retrying a payment to avoid double-charging the customer.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+## Account and login issues
+
+<AccordionGroup>
+  <Accordion title="Customer forgot password">
+    Customers can reset their password from the login page on your [booking page](/getting-started/booking-page):
+
+    1. Direct the customer to your booking page and have them click **Log in**.
+    2. They should select the **Forgot password** option and enter their email address.
+    3. A password reset link is sent to their email. Ask them to check their spam folder if it does not arrive.
+
+    See [Customer accounts](/customers/customer-accounts) for more on how account access works.
+  </Accordion>
+
+  <Accordion title="Customer can't access their account">
+    If a customer can log in but cannot see their bookings or memberships:
+
+    1. Verify they are logging in with the same email address they used when booking. Accounts are tied to email addresses.
+    2. Check your [customer dashboard](/customers/overview) to see if duplicate records exist for that customer. If so, the bookings may be on a different customer record.
+    3. If the customer booked as a guest (without creating an account), their bookings will not appear under an account. They can still create an account with the same email to link future bookings.
+  </Accordion>
+
+  <Accordion title="Family member not appearing">
+    If a customer has added a family member but they do not appear at checkout or in their account:
+
+    1. Ask the customer to log out and back in to refresh their account data.
+    2. Check the [family account](/customers/family-accounts) in your customer dashboard to verify the family member was saved successfully.
+    3. Confirm the family member has the required details filled in (name and any mandatory fields).
+
+    See [Family accounts](/customers/family-accounts) for how family member management works.
+  </Accordion>
+</AccordionGroup>
+
+## Membership and pass issues
+
+<AccordionGroup>
+  <Accordion title="Renewal payment failed">
+    Membership renewals are billed automatically through [Stripe](/payments/stripe). If a renewal payment fails:
+
+    1. Check the membership status in your [customer dashboard](/customers/overview) — it will show the payment as failed or overdue.
+    2. Stripe automatically retries failed payments. The customer will receive an email from Stripe about the failed charge.
+    3. Ask the customer to update their payment method if the card on file has expired or been replaced.
+    4. If the payment continues to fail after retries, the membership may be cancelled depending on your Stripe billing settings.
+
+    See [Memberships](/pricing/memberships) for details on billing cycles and renewal handling.
+  </Accordion>
+
+  <Accordion title="Activity pass not applying at checkout">
+    If a customer has an [activity pass](/pricing/activity-passes) but it is not being applied during checkout:
+
+    1. Verify the pass has remaining redemptions — it may be fully used.
+    2. Check that the pass has not expired (passes can have a fixed expiry date or expire a set number of months after purchase).
+    3. Confirm the activity the customer is booking is included in the pass's redemption rules. Passes are restricted to specific activities.
+    4. If the pass is set to **Single user only**, it can only be redeemed by the specific family member it was assigned to.
+
+    See [Activity passes](/pricing/activity-passes) for redemption rules and restrictions.
+  </Accordion>
+
+  <Accordion title="Cannot purchase membership for family member">
+    Each family member can hold their own [membership](/pricing/memberships) independently. If a customer is unable to purchase a membership for a family member:
+
+    1. Check that the family member has been added to the customer's [family account](/customers/family-accounts).
+    2. Verify the membership plan is published and visible on your booking page (hidden plans can only be sold through the [point of sale](/point-of-sale/overview)).
+    3. If the plan is restricted to certain eligibility criteria, confirm the family member meets them.
+  </Accordion>
+</AccordionGroup>
+
+## Integration issues
+
+<AccordionGroup>
+  <Accordion title="Payouts not appearing in Xero">
+    If payouts are not syncing to Xero:
+
+    1. Confirm that **Sync to Xero** is toggled on in your [accounting sync settings](/integrations/accounting-sync).
+    2. Only payouts created **after** you enabled syncing are sent automatically. Historical payouts are not back-synced, but you can send individual past payouts manually.
+    3. Check that the payout status is **Paid** — pending payouts are not synced.
+    4. Verify your Xero connection is still active. If the connection has expired, you will need to reconnect.
+
+    See [Xero accounting sync](/integrations/accounting-sync) for setup and troubleshooting details.
+  </Accordion>
+
+  <Accordion title="Xero sync disconnected">
+    Xero connections can expire if the authorization token is not refreshed. If your sync has stopped:
+
+    1. Go to your accounting sync settings and check the connection status.
+    2. If it shows as disconnected, click **Reconnect to Xero** and re-authorize the connection.
+    3. After reconnecting, payouts created while the connection was down will not be automatically synced. Send them manually from the [financial dashboard](/payments/reporting).
+
+    See [Xero accounting sync](/integrations/accounting-sync) for reconnection steps.
+  </Accordion>
+
+  <Accordion title="Workflow emails not sending">
+    If [automated workflow](/integrations/workflows) emails are not being delivered:
+
+    1. Open the workflow and confirm the trigger is active (not paused or disabled).
+    2. Check that the trigger conditions match the event you expect — for example, a "booking confirmed" trigger only fires on confirmed bookings, not pending ones.
+    3. Verify the email template has a valid subject line and body content.
+    4. If the workflow has a delay configured, the email may not have been sent yet.
+    5. Check the [workflow triggers reference](/integrations/workflow-triggers) to confirm you are using the correct trigger for your use case.
+  </Accordion>
+
+  <Accordion title="Tracking events not firing">
+    If [booking tracking events](/integrations/booking-tracking) are not appearing in your analytics tool:
+
+    1. Confirm you have at least one analytics provider configured (Google Tag Manager or PostHog).
+    2. Verify the tracking code or container ID is entered correctly in your settings.
+    3. Test by completing a booking on your [booking page](/getting-started/booking-page) and checking your analytics tool for `booking_start` and `booking_completed` events.
+    4. Check for browser ad-blockers or privacy extensions that may be blocking the tracking scripts.
+
+    See [Booking tracking events](/integrations/booking-tracking) for the full list of events and setup instructions.
+  </Accordion>
+</AccordionGroup>
+
+## Discount code issues
+
+<AccordionGroup>
+  <Accordion title="Code not working at checkout">
+    If a [discount code](/pricing/discount-codes) is not applying at checkout:
+
+    1. Check the code's [usage limits](/pricing/discount-codes#usage-limits) — it may have reached its maximum number of uses.
+    2. Verify the code is within its valid date range (start and end dates).
+    3. Confirm the customer's basket meets all eligibility conditions — product restrictions, minimum items, and activity combinations.
+    4. Check whether the code is restricted to specific products, memberships, or activity passes that are not in the basket.
+    5. Remember that usage is counted **per item**, not per basket. A code with a limit of 10 uses is consumed once per eligible item in the order.
+
+    <Tip>
+      Use the discount code settings page to review all restrictions at a glance. See [Discount codes](/pricing/discount-codes) for the full list of configurable conditions.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Code shows expired or invalid">
+    If a customer sees an "expired" or "invalid" message when entering a discount code:
+
+    1. Open the code in your [discount codes](/pricing/discount-codes) settings and check its status — it may have been deactivated.
+    2. Verify the code's date restrictions. If an end date has passed, the code will no longer work.
+    3. Check for typos — codes are case-sensitive.
+    4. If the code is an auto-applied discount, it will not work when entered manually. Auto-applied discounts are applied automatically when the basket meets the conditions.
+  </Accordion>
+</AccordionGroup>
