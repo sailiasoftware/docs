@@ -47,6 +47,24 @@ Shop products can be sold through two channels:
 
 Both channels share the same product catalog and pricing configuration.
 
+## Stock management
+
+When you enable stock tracking for a product or variant, Sailia monitors available inventory and prevents overselling.
+
+### Pending basket quantities
+
+When a customer adds a stock-tracked product to their basket, the quantity is held until the basket expires or the order is completed. These held quantities are shown as **pending basket warnings** when you adjust stock levels.
+
+<Info>
+  Pending basket quantities only appear for items with stock tracking enabled. Baskets that have expired are not counted.
+</Info>
+
+If you set a stock level below the number of items currently held in pending baskets, Sailia displays a warning so you can make an informed decision. This helps avoid overselling when active baskets are waiting to be completed.
+
+### Automatic stock restoration on refund
+
+When you [refund](/activities/cancellations-and-refunds) a shop product that has stock tracking enabled, the refunded quantity is automatically returned to inventory. No manual stock adjustment is needed — Sailia adds the items back with a "Returned" note referencing the original order.
+
 ## Discounts on shop products
 
 [Discount codes](/pricing/discount-codes) can be configured to apply to shop products. When creating a discount, enable **Shop products** under product eligibility and optionally restrict to specific items.
