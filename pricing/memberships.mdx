@@ -68,9 +68,9 @@ The **Renewal date** on your subscription settings page indicates when the next 
 
 ## Past-due payments
 
-When a membership payment fails and the subscription becomes past due, Sailia displays a warning banner on the customer's **Memberships** profile tab. The banner reads "Action required — One or more subscriptions are past due" and includes a **Complete Payment** button.
+When a membership payment fails — including the initial payment for a newly requested membership — Sailia marks the subscription as past due and displays a warning banner on the customer's **Memberships** profile tab. The banner reads "Action required — One or more subscription payments have failed" and includes a **Complete Payment** button.
 
-Clicking **Complete Payment** opens the Stripe customer portal, where the customer (or a staff member on their behalf) can update the payment method and settle the outstanding balance.
+On the admin side, the member detail page shows an "Action required" warning with a **Complete Payment** button. You can use this button directly, or direct the client to their profile to complete the payment through the Stripe customer portal.
 
 You can also set up an [automated workflow](/integrations/workflows) using the **Membership past due** trigger to send an email or SMS when a payment fails. This lets you proactively notify the customer and include a direct link to resolve the issue, without waiting for them to log in and see the banner.
 
@@ -133,8 +133,8 @@ If you use [Xero accounting sync](/integrations/accounting-sync), assign account
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="A member's renewal payment failed">
-    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment is past due, a warning banner appears on the customer's **Memberships** profile tab with a **Complete Payment** button that opens the Stripe customer portal. You or the customer can use this to update the payment method and retry the charge. You can also configure a **Membership past due** [workflow](/integrations/workflows) to automatically email or text the customer when this happens.
+  <Accordion title="A member's payment failed">
+    Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment fails — whether it is an initial signup payment or a recurring renewal — the membership is marked as past due and a warning banner appears on both the admin member detail page and the customer's **Memberships** profile tab. Use the **Complete Payment** button on either page to resolve the issue through the Stripe customer portal. You can also configure a **Membership past due** [workflow](/integrations/workflows) to automatically email or text the customer when this happens.
   </Accordion>
 
   <Accordion title="Cannot purchase a membership for a family member">
