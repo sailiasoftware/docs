@@ -64,13 +64,23 @@ All marketing emails include an unsubscribe link. When a contact unsubscribes:
   Transactional emails like booking confirmations and refund notifications are always sent regardless of subscription status. Only marketing and workflow emails respect the unsubscribe preference.
 </Note>
 
+### Resubscribing contacts
+
+If a previously unsubscribed contact is added to your audience again, they are automatically resubscribed. This can happen when:
+
+- The contact is **re-imported** through a CSV upload
+- The contact signs up again through a **newsletter form** on your website
+- The contact makes a new **booking** through your online booking page
+
+When a contact resubscribes, their unsubscribe history is cleared and they receive a fresh subscription date. They will begin receiving marketing emails and workflow messages again as normal.
+
 ## Best practices
 
 - **Segment your audience** — target messages based on booking history, membership status, or activity type
 - **Time your messages** — send reminders at useful intervals (24 hours before an activity, 1 week after a visit)
 - **Include clear calls to action** — link directly to your booking page with a pre-selected activity when possible
 - **Monitor performance** — track workflow email volume through [meter usage tracking](/api-reference/meter-tracking#built-in-meters) to ensure deliverability
-- **Respect opt-outs** — never re-add unsubscribed contacts manually
+- **Respect opt-outs** — unsubscribed contacts can resubscribe on their own through signup forms or bookings, but avoid bulk re-importing contacts who chose to opt out
 
 ## Related guides
 
