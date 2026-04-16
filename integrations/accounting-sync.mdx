@@ -41,8 +41,14 @@ Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) 
   <Step title="Map categories to Xero">
     Map each accounting category to:
 
-    - A **Xero tax type** (e.g. `OUTPUT2` for 20% VAT)
-    - A **Xero account code** (e.g. a revenue account)
+    - A **Xero tax type** (e.g. `OUTPUT2` for 20% VAT) — required
+    - A **Xero account code** (e.g. a revenue account) — required
+    - A **Xero item code** — optional, links the line item to a Xero inventory or service item
+    - A **Xero tracking category and option** — optional, tags each line item with a tracking dimension for departmental or project-based reporting in Xero
+
+    <Note>
+      When setting a tracking category, you must select both the tracking category **and** the tracking option. You cannot set one without the other.
+    </Note>
 
     You also need to configure two special mappings:
 
@@ -50,6 +56,8 @@ Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) 
     | --- | --- |
     | **Gift card** | The Xero account code for gift card redemptions |
     | **Fee** | The Xero account code for processing fees (e.g. Stripe fees) |
+
+    The special mappings also support optional item codes and tracking categories.
 
     The setup status indicator shows whether all required mappings are complete.
   </Step>
@@ -74,9 +82,12 @@ Sailia's accounting sync connects your account to [Xero](https://www.xero.com/) 
 Once enabled, a scheduled process handles automatic syncing:
 
 1. **Finds new payouts** — picks up all paid payouts created after you enabled syncing that have not yet been sent to Xero.
-2. **Creates an invoice in Xero** — each payout becomes a single authorized invoice with line items grouped by VAT rate and account code.
-3. **Marks the invoice as paid** — a payment is recorded against the appropriate clearing account (Stripe or cash).
-4. **Attaches a CSV breakdown** — a detailed product-level breakdown is attached to each invoice for auditing.
+2. **Creates an invoice for charges** — sales, gift card redemptions, and fees become a single authorized invoice with line items grouped by accounting category.
+3. **Creates a credit note for refunds** — refunds in the same payout are posted as a separate credit note so charges and refunds can be independently reconciled.
+4. **Marks both as paid** — a payment is recorded against the appropriate clearing account (Stripe or cash) for each document.
+5. **Attaches a CSV breakdown** — a detailed product-level breakdown is attached to each invoice for auditing.
+
+If you configured item codes or tracking categories on your mappings, each invoice and credit note line item carries the corresponding Xero item code and tracking dimension.
 
 <Info>
   If a payout has a negative net total (refunds exceed charges), Sailia creates an accounts payable bill in Xero instead of a receivable invoice.
