@@ -37,7 +37,8 @@
               "activities/seasonal-scheduling",
               "activities/waitlists",
               "activities/cancellation-policies",
-              "activities/cancellations-and-refunds"
+              "activities/cancellations-and-refunds",
+              "activities/kit-management"
             ]
           },
           {
@@ -50,7 +51,8 @@
               "customers/file-uploads",
               "customers/notifications",
               "customers/marketing",
-              "customers/newsletter-forms"
+              "customers/newsletter-forms",
+              "customers/progression-tracking"
             ]
           },
           {
@@ -88,7 +90,8 @@
               "staff/permissions",
               "staff/auto-timesheets",
               "staff/availability",
-              "staff/timesheet-invoices"
+              "staff/timesheet-invoices",
+              "staff/qualifications"
             ]
           },
           {
