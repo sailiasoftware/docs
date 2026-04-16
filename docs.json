@@ -19,6 +19,7 @@
               "index",
               "getting-started/overview",
               "getting-started/setup-checklist",
+              "getting-started/common-tasks",
               "getting-started/account-settings",
               "getting-started/booking-page",
               "getting-started/embedding",
@@ -40,15 +41,6 @@
             ]
           },
           {
-            "group": "Pricing and promotions",
-            "pages": [
-              "pricing/memberships",
-              "pricing/activity-passes",
-              "pricing/discount-codes",
-              "pricing/gift-cards"
-            ]
-          },
-          {
             "group": "Customers",
             "pages": [
               "customers/overview",
@@ -59,6 +51,15 @@
               "customers/notifications",
               "customers/marketing",
               "customers/newsletter-forms"
+            ]
+          },
+          {
+            "group": "Pricing and promotions",
+            "pages": [
+              "pricing/memberships",
+              "pricing/activity-passes",
+              "pricing/discount-codes",
+              "pricing/gift-cards"
             ]
           },
           {
@@ -101,10 +102,11 @@
             ]
           },
           {
-            "group": "Help",
+            "group": "Help and support",
             "pages": [
-              "getting-started/faq",
-              "getting-started/troubleshooting"
+              "help/faq",
+              "help/troubleshooting",
+              "help/contact"
             ]
           }
         ]
@@ -213,6 +215,14 @@
     {
       "source": "/staff-and-operations/auto-timesheets",
       "destination": "/staff/auto-timesheets"
+    },
+    {
+      "source": "/getting-started/faq",
+      "destination": "/help/faq"
+    },
+    {
+      "source": "/getting-started/troubleshooting",
+      "destination": "/help/troubleshooting"
     }
   ],
   "footer": {
