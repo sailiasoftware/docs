@@ -16,6 +16,8 @@ Tax rates are not applied directly to individual products. Instead, you assign p
 | **VAT rate** | The tax percentage assigned to the category (e.g. 20%, 5%, 0%) |
 | **Xero tax type** | The Xero tax rate name that the category maps to |
 | **Xero account code** | The Xero account where revenue is posted |
+| **Xero item code** | An optional Xero inventory or service item linked to the line item |
+| **Xero tracking category** | An optional tracking dimension for departmental or project-based reporting |
 
 ## Set up accounting categories
 
@@ -24,7 +26,7 @@ Tax rates are not applied directly to individual products. Instead, you assign p
     Navigate to **Settings** > **Integrations** > **Xero** and open the accounting categories section.
   </Step>
   <Step title="Create a category">
-    Add a new accounting category with a name, VAT rate, Xero tax type, and Xero account code.
+    Add a new accounting category with a name, VAT rate, Xero tax type, and Xero account code. You can optionally assign a Xero item code and a tracking category for more detailed reporting.
   </Step>
   <Step title="Assign products to categories">
     For each activity, shop product, membership, or activity pass, select the appropriate accounting category in its settings.
@@ -43,11 +45,12 @@ Tax rates are not applied directly to individual products. Instead, you assign p
 
 ## VAT on invoices
 
-When [Xero accounting sync](/integrations/accounting-sync) is enabled, each Stripe payout generates a Xero invoice that includes:
+When [Xero accounting sync](/integrations/accounting-sync) is enabled, each Stripe payout generates a Xero invoice (and a separate credit note for any refunds) that includes:
 
 - Line items grouped by accounting category
 - The correct VAT rate on each line
 - Stripe fees mapped to a dedicated account code
+- Optional item codes and tracking categories on each line item
 - A CSV attachment with the full transaction breakdown
 
 <Note>
