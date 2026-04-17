@@ -68,6 +68,30 @@ This page lists every trigger available in [automated workflows](/integrations/w
 | **Waiver pending** | A customer has outstanding [waivers](/customers/waivers) to complete | Send a reminder with a direct link |
 | **Waitlist spot available** | A spot opens on a [waitlisted](/activities/waitlists) session | Notify the customer to book |
 
+## Qualification triggers
+
+| Trigger | When it fires | Common use case |
+| --- | --- | --- |
+| **Qualification expiry** | A set time before (or after) a staff member's qualification expires | Remind staff to renew certifications before they lapse |
+
+### Qualification merge fields
+
+The qualification expiry trigger provides these merge fields for personalizing your messages:
+
+| Merge field | Description |
+| --- | --- |
+| Staff name | The name of the staff member whose qualification is expiring |
+| Staff email | The staff member's email address |
+| Staff phone | The staff member's phone number |
+| Qualification name | The name of the qualification |
+| Qualification expiry date | The expiry date of the qualification |
+| Qualification certificate number | The certificate number, if one is recorded |
+| Open in Sailia link | A direct link to the staff dashboard |
+
+<Tip>
+  You can send qualification expiry notifications to the staff member, an admin, or both. Use the **Staff email** and **Admin email** recipient variables to control who receives the message.
+</Tip>
+
 ## Staff triggers
 
 | Trigger | When it fires | Common use case |
