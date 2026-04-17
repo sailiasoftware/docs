@@ -1,53 +1,58 @@
 ---
 title: Platform overview
-description: Understand the key parts of Sailia and how they work together.
+description: Understand how Sailia works — from activities to payments — and how the key pieces fit together.
 keywords: ['platform overview', 'getting started', 'sailia features', 'booking platform', 'activity provider']
 ---
 
-Sailia is a booking and operations platform for activity providers. It handles everything from online bookings and point-of-sale transactions to staff scheduling, payments, and accounting.
+Sailia is a booking and operations platform for activity providers. This page explains the mental model behind the platform — how data flows through the system and how the main areas connect.
 
-Here is a quick tour of the main areas you will work with.
+## How Sailia works
 
-## Activities and scheduling
+Everything in Sailia starts with an **activity** — a course, hire, or event. From there, the data flows through the system:
 
-[Activities](/activities/activities) are the core of Sailia — courses, hires, and events that customers can book. Each activity has its own schedule, pricing, capacity, and staffing. Customers book through your [online booking page](/getting-started/booking-page) or in person at the [point of sale](/point-of-sale/overview). Every booking flows into a shared order system where you can [manage reservations](/activities/managing-bookings), track payment status, and update attendee details.
+1. You create [activities](/activities/activities) with schedules, pricing, capacity, and staff assignments.
+2. Customers book through your [online booking page](/getting-started/booking-page) or your team processes walk-ins through the [point of sale](/point-of-sale/overview).
+3. [Payments](/payments/stripe) are collected via Stripe (card, cash, or instalment plan) and appear in your [financial dashboard](/payments/reporting).
+4. Stripe sends payouts to your bank account, and if connected, [Xero](/integrations/accounting-sync) receives categorized invoices automatically.
 
-You can also offer [memberships](/pricing/memberships) for recurring access and prepaid [activity passes](/pricing/activity-passes), sell [gift cards](/pricing/gift-cards), manage [waitlists](/activities/waitlists) for fully booked sessions, and handle [group bookings](/activities/group-bookings) with multiple participants.
+Both sales channels — online and POS — share the same real-time capacity, customer records, and payment system. A booking made online immediately reduces available spots at the POS and vice versa.
 
-## Customers
+## Core concepts
 
-[Manage your customers](/customers/overview) from a central dashboard — view booking history, check membership status, and track waiver completion. Customers can set up [family accounts](/customers/family-accounts) to book for multiple family members. Sailia sends [automated notifications](/customers/notifications) for booking confirmations, waitlist updates, and membership renewals. Collect signed [waivers](/customers/waivers) and supporting documents before activities, with support for digital signatures, checkboxes, and [file uploads](/customers/file-uploads). Grow your audience with [newsletter signup forms](/customers/newsletter-forms) embedded on your website.
+| Concept | What it represents |
+| --- | --- |
+| **[Activities](/activities/activities)** | The things customers book — courses, hires, and events with their own schedules, pricing, and capacity |
+| **[Bookings](/activities/managing-bookings)** | A customer's reservation for an activity session, tracked across all channels |
+| **[Customers](/customers/overview)** | People who book with you — each has a profile with booking history, memberships, waivers, and family members |
+| **[Pricing tools](/pricing/memberships)** | Memberships, activity passes, discount codes, and gift cards that adjust what customers pay |
+| **[Payments](/payments/stripe)** | Money flowing in through Stripe (online and POS), tracked with refunds and payouts |
+| **[Staff](/staff/management)** | Your team — assigned to activities, with pay rates, permissions, and auto-generated timesheets |
 
-## Pricing and promotions
+## Online vs in-person sales
 
-Sailia gives you flexible pricing tools. Offer [memberships](/pricing/memberships) with recurring billing and auto-applied discounts, or sell prepaid [activity passes](/pricing/activity-passes) for bundled sessions. Create [discount codes](/pricing/discount-codes) with fine-grained controls — usage caps, date windows, early-bird and surge pricing, product restrictions, and tiered amounts. Sell [gift cards](/pricing/gift-cards) that customers can redeem at checkout.
+Sailia gives you two ways to sell, and they stay in sync:
 
-## Point of sale
+- **Online booking page** — your auto-generated public site where customers browse, book, and pay by card. See [your booking page](/getting-started/booking-page) and [embedding](/getting-started/embedding).
+- **Point of sale** — your in-person checkout for walk-ins, card reader payments, and cash sales. See [POS overview](/point-of-sale/overview).
 
-The built-in [POS](/point-of-sale/overview) lets you sell [shop products](/point-of-sale/shop-products), process walk-in bookings, and apply discount codes on the spot. Connect a [card reader](/point-of-sale/card-readers) for in-person payments, or set [custom prices](/point-of-sale/custom-pricing) on individual items when the standard price does not apply. Organize your business across multiple [locations](/getting-started/locations) with separate POS terminals and card readers at each site.
+Inventory, customer data, and payment records are shared across both channels. A membership discount applied online works the same way at the POS.
 
-## Payments and finance
+## Automating your back office
 
-Sailia processes [payments through Stripe](/payments/stripe) — handling online checkouts, POS card payments, refunds, and payouts. Offer [instalment plans](/payments/instalments) for higher-value bookings so customers can split payments over time. Accept [charity donations](/payments/donations) at checkout with optional Gift Aid support. Track everything from the [financial dashboard](/payments/reporting).
+Sailia connects to external tools so you spend less time on manual admin:
 
-## Staff and operations
-
-[Manage your team](/staff/management) by assigning staff to bookings, setting pay rates, and controlling permissions. Let Sailia [generate timesheets automatically](/staff/auto-timesheets) from scheduled work. Staff see their upcoming shifts and you get accurate payroll data without manual entry.
-
-## Integrations
-
-Connect Sailia to external tools to automate your back office and expand your reach:
-
-- **Workflows** — set up [automated emails and SMS](/integrations/workflows) triggered by booking events
-- **Xero** — [sync payouts](/integrations/accounting-sync) as categorized invoices with full VAT breakdowns
-- **Adventuro** — list your activities on the [Adventuro](/integrations/adventuro) marketplace and receive bookings automatically
-
-## API and developer tools
-
-Build on Sailia with the REST API. Record [metered usage events](/api-reference/meter-tracking) and integrate with external systems.
+- **[Workflows](/integrations/workflows)** send automated emails and SMS on 30+ triggers (booking confirmed, waiver incomplete, membership renewed, staff time-off, and more).
+- **[Xero sync](/integrations/accounting-sync)** pushes each Stripe payout as a categorized invoice with VAT breakdowns.
+- **[Booking tracking](/integrations/booking-tracking)** fires events to Google Tag Manager or PostHog for conversion analytics.
+- **[Adventuro](/integrations/adventuro)** lists your activities on an OTA marketplace and pulls bookings back into Sailia.
 
 ## Next steps
 
-<Card title="Quick setup checklist" icon="list-check" href="/getting-started/setup-checklist">
-  Walk through the essential steps to get your account ready.
-</Card>
+<Columns cols={2}>
+  <Card title="Quick setup checklist" icon="list-check" href="/getting-started/setup-checklist">
+    Walk through the essential steps to get your account ready.
+  </Card>
+  <Card title="Common tasks" icon="list" href="/help/common-tasks">
+    Quick reference for everyday tasks like bookings, refunds, and staff management.
+  </Card>
+</Columns>

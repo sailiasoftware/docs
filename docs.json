@@ -19,12 +19,10 @@
               "index",
               "getting-started/overview",
               "getting-started/setup-checklist",
-              "getting-started/common-tasks",
               "getting-started/account-settings",
               "getting-started/booking-page",
               "getting-started/embedding",
-              "getting-started/locations",
-              "getting-started/customer-guide"
+              "getting-started/locations"
             ]
           },
           {
@@ -104,6 +102,8 @@
           {
             "group": "Help and support",
             "pages": [
+              "help/common-tasks",
+              "help/customer-guide",
               "help/faq",
               "help/troubleshooting",
               "help/contact"
@@ -223,6 +223,14 @@
     {
       "source": "/getting-started/troubleshooting",
       "destination": "/help/troubleshooting"
+    },
+    {
+      "source": "/getting-started/common-tasks",
+      "destination": "/help/common-tasks"
+    },
+    {
+      "source": "/getting-started/customer-guide",
+      "destination": "/help/customer-guide"
     }
   ],
   "footer": {
