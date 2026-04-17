@@ -36,13 +36,33 @@ To connect a physical Stripe card reader to your terminal, see the [card readers
   <Step title="Apply discounts (optional)">
     Enter a discount code or let auto-apply discounts take effect. You can also apply [membership discounts](/pricing/discount-codes#membership-discounts) if the customer is a member.
   </Step>
-  <Step title="Collect attendee details">
-    For activity bookings, enter the attendee name and any required information. Link the booking to an existing customer account if available.
+  <Step title="Select a customer">
+    For items that require a customer account — such as activities, memberships, and activity passes — the POS prompts you to select a customer before adding the item. Enter the customer's email to search for an existing account. If no match is found, you can create a new account directly from the prompt. For shop products and other items that don't require an account, you can continue as a walk-in.
   </Step>
   <Step title="Take payment">
     Choose a payment method — card, cash, invoice, or other. See [payment methods](#payment-methods) below.
   </Step>
 </Steps>
+
+## Customer selection
+
+When you add an item that requires a customer account, the POS opens a customer selection prompt. This uses an email-first flow to quickly find or create the right account.
+
+### Find an existing customer
+
+Type the customer's email address into the search field. Matching accounts appear as you type, showing the email and name. Select an account to link it to the current order.
+
+### Create a new account
+
+If no account matches the email, select the option to create a new one. The email you entered is carried over automatically. Fill in the remaining fields — phone number, full name, and optionally a date of birth — then save. The new account is linked to the order immediately.
+
+### Walk-in sales
+
+For items that don't require a customer account — such as shop products — a **Continue as walk-in** option appears at the bottom of the prompt. Walk-in sales are not linked to any customer account.
+
+<Note>
+  Activities, memberships, and activity passes always require a customer account. The walk-in option is only available for items like shop products and one-off payments.
+</Note>
 
 ## Payment methods
 
