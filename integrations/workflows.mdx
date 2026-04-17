@@ -22,7 +22,7 @@ When the trigger fires, Sailia queues the message and sends it at the configured
 
 ## Available triggers
 
-Sailia provides 30+ triggers across bookings, courses, memberships, instalments, accounts, waivers, waitlists, and staff events. You can attach one or more workflow communications to any trigger.
+Sailia provides 30+ triggers across bookings, courses, memberships, instalments, accounts, waivers, waitlists, qualifications, and staff events. You can attach one or more workflow communications to any trigger.
 
 See the [workflow triggers reference](/integrations/workflow-triggers) for the complete list with descriptions and common use cases.
 
@@ -35,6 +35,7 @@ Key trigger categories include:
 - **Instalment** — due, paid, plan started/completed/abandoned
 - **Account** — new client or staff account
 - **Waiver and waitlist** — pending waivers, waitlist spots available
+- **Qualification** — qualification expiry reminders for staff
 - **Staff** — instructor assigned, availability requests, timesheet invoices
 
 ## Common workflow examples
@@ -49,6 +50,7 @@ Key trigger categories include:
 | **Instalment due** | Remind customers about upcoming instalment payments |
 | **Membership renewal** | Notify members before their membership renews |
 | **Membership past due** | Alert members when a payment fails and prompt them to update their payment method |
+| **Qualification expiry** | Remind staff to renew qualifications before they lapse |
 
 ## Create a workflow
 
@@ -97,6 +99,21 @@ Membership triggers provide additional merge fields specific to the member's sub
 | Participant names | The names of all users on the membership |
 
 These fields are available across all [membership triggers](#membership-triggers), including the **Membership past due** trigger. Use them to include billing dates and plan details in renewal reminders or past-due payment notifications.
+
+### Qualification merge fields
+
+Qualification triggers provide merge fields specific to the staff member and their qualification:
+
+| Merge field | Description |
+| --- | --- |
+| Staff name | The staff member's name |
+| Staff email | The staff member's email address |
+| Staff phone | The staff member's phone number |
+| Qualification name | The name of the qualification |
+| Qualification expiry date | The qualification's expiry date |
+| Qualification certificate number | The certificate number, if recorded |
+
+These fields are available on the [qualification expiry trigger](/integrations/workflow-triggers#qualification-triggers). Use them to include specific qualification details in renewal reminders sent to staff or admins.
 
 ### Business merge fields
 
