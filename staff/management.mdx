@@ -63,6 +63,33 @@ Control what each staff member can access in Sailia by assigning them to permiss
   Start with minimal permissions and add access as needed. You can update permissions at any time from the staff member's profile.
 </Tip>
 
+## Export staff qualifications
+
+You can export a CSV matrix of all staff qualifications from the staff dashboard. The export shows every active staff member as a column and every qualification as a row, so you can see at a glance who holds which qualifications and whether any have expired.
+
+<Steps>
+  <Step title="Open the staff dashboard">
+    Navigate to your staff dashboard where your staff members are listed.
+  </Step>
+  <Step title="Click Export staff qualifications">
+    Select **Export staff qualifications** at the top of the page. A CSV file downloads automatically.
+  </Step>
+</Steps>
+
+Each cell in the exported file contains one of:
+
+| Value | Meaning |
+| --- | --- |
+| **Yes** | The staff member holds a valid qualification |
+| **Expired** | The qualification has passed its expiry date |
+| *(empty)* | The qualification is not assigned to that staff member |
+
+The file is named `staff-qualifications-YYYY-MM-DD.csv` using the current date.
+
+<Tip>
+  Use this export for compliance audits, training planning, or to quickly identify staff with expiring qualifications.
+</Tip>
+
 ## Related guides
 
 <Columns cols={2}>
