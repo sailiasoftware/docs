@@ -1,0 +1,68 @@
+---
+title: Data and privacy
+description: Understand how Sailia handles customer data, privacy, and compliance with data protection regulations.
+keywords: ['data privacy', 'GDPR', 'data protection', 'customer data', 'privacy', 'security']
+---
+
+Sailia processes personal data on behalf of your business. This page explains what data is collected, how it is stored, and how to handle common data-related requests from your customers.
+
+## What data Sailia stores
+
+Sailia stores the following types of customer data:
+
+| Data type | Examples |
+| --- | --- |
+| **Personal details** | Name, email address, phone number |
+| **Booking records** | Activity bookings, purchase history, payment amounts |
+| **Account data** | Login credentials, profile images, family member relationships |
+| **Waiver responses** | Signed waivers, uploaded documents, consent records |
+| **Marketing preferences** | Newsletter subscription status, unsubscribe records |
+| **Payment data** | Processed securely through [Stripe](/payments/stripe) — Sailia does not store card numbers |
+
+## Your responsibilities
+
+As the business operator, you are the data controller for customer data processed through Sailia. This means you are responsible for:
+
+- Having a lawful basis for collecting and processing personal data
+- Publishing a privacy policy that explains what data you collect and why
+- Responding to data subject requests (access, correction, deletion)
+- Ensuring your use of [marketing communications](/customers/marketing) complies with applicable regulations
+
+<Note>
+  Sailia acts as a data processor on your behalf. Your privacy policy should reference how customer data is used for bookings, payments, and communications.
+</Note>
+
+## Handling data requests
+
+### Access requests
+
+If a customer asks to see their data, you can view their full profile from the [customer dashboard](/customers/overview). The profile includes their personal details, booking history, membership status, waiver responses, and notes.
+
+### Correction requests
+
+Update a customer's details directly from their profile in the [customer dashboard](/customers/overview). You can edit their name, email, phone number, and other profile fields.
+
+### Deletion requests
+
+If a customer requests that their data be deleted, contact Sailia support at **support@sailia.com** to process the request.
+
+## Payment data security
+
+All payment data is processed through [Stripe](/payments/stripe), which is PCI DSS Level 1 compliant. Sailia does not store credit card numbers, CVV codes, or other sensitive payment credentials. Payment references and transaction IDs are stored for reconciliation and refund processing.
+
+## Marketing consent
+
+When customers subscribe to your [newsletter](/customers/newsletter-forms) or opt in to marketing during the booking flow, their consent preference is recorded. Customers can unsubscribe at any time, and their preference is preserved even if they are re-imported via [CSV](/customers/importing-customers).
+
+See [marketing and audience](/customers/marketing) for details on managing consent and unsubscribes.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Customer management" icon="users" href="/customers/overview">
+    View and manage customer profiles and data.
+  </Card>
+  <Card title="Contact support" icon="headset" href="/help/contact">
+    Reach out for help with data requests.
+  </Card>
+</Columns>

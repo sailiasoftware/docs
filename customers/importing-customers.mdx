@@ -1,0 +1,55 @@
+---
+title: Importing customers
+description: Import customer and contact data into Sailia using CSV files.
+keywords: ['import', 'CSV', 'customer import', 'contacts', 'migration', 'bulk import']
+---
+
+You can import customer and contact data into Sailia using CSV files. This is useful when migrating from another system, adding a batch of contacts to your [marketing audience](/customers/marketing), or bulk-importing membership records.
+
+## Import contacts
+
+<Steps>
+  <Step title="Prepare your CSV file">
+    Create a CSV file with your customer data. Include columns for name and email address at a minimum.
+  </Step>
+  <Step title="Open the import tool">
+    Navigate to the section where you want to import data (for example, the audience section for marketing contacts or the membership section for bulk member imports).
+  </Step>
+  <Step title="Upload the file">
+    Select your CSV file and upload it. Sailia maps the columns to the relevant fields.
+  </Step>
+  <Step title="Review and confirm">
+    Review the import preview to verify the data looks correct before confirming.
+  </Step>
+</Steps>
+
+## What you can import
+
+| Data type | Where to import | Notes |
+| --- | --- | --- |
+| **Marketing contacts** | Audience section | Adds contacts to your newsletter and campaign audience |
+| **Membership records** | Memberships section | Bulk-import members with plan ID, billing dates, member numbers, add-ons, and notes |
+
+## Important notes
+
+<Warning>
+  Importing contacts through a CSV upload does not resubscribe contacts who have previously unsubscribed from your marketing communications. Their unsubscribe preference is preserved.
+</Warning>
+
+- **Duplicate handling** — if a contact with the same email address already exists, the import updates their record rather than creating a duplicate
+- **Email validation** — rows with invalid email addresses are skipped during import
+- **Encoding** — save your CSV file with UTF-8 encoding to avoid issues with special characters
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Marketing and audience" icon="bullhorn" href="/customers/marketing">
+    Manage your audience and grow your subscriber list.
+  </Card>
+  <Card title="Memberships" icon="id-card" href="/pricing/memberships">
+    Set up membership plans and manage members.
+  </Card>
+  <Card title="Customer management" icon="users" href="/customers/overview">
+    View and manage customer profiles.
+  </Card>
+</Columns>

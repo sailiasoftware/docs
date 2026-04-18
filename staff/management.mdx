@@ -58,22 +58,28 @@ Control what each staff member can access in Sailia by assigning them to permiss
 | **POS** | Process sales through the [point of sale](/point-of-sale/overview) |
 | **Communications** | Send emails and manage [notification workflows](/integrations/workflows) |
 | **Manage Staff** | View and edit other staff profiles, pay rates, and timesheets |
+| **Manage POS** | Configure POS terminals, grid layouts, and tile settings |
+| **Operator Booking** | Create bookings on behalf of customers, including [MOTO payments](/payments/stripe#phone-and-mail-order-payments) |
+| **View Other Users** | View other staff members' profiles and customer accounts |
+
+See the [permissions reference](/staff/permissions) for a detailed breakdown of what each permission controls.
 
 <Tip>
   Start with minimal permissions and add access as needed. You can update permissions at any time from the staff member's profile.
 </Tip>
 
-## Qualification expiry notifications
+## Qualifications
 
-You can set up automated [workflow](/integrations/workflows) communications to notify staff or admins when a qualification is about to expire. This helps you stay on top of renewals without manually checking expiry dates.
+You can record qualifications, certifications, and their expiry dates on each staff profile. This helps you track compliance and set up automated reminders before qualifications lapse.
 
-The **Qualification expiry** trigger fires based on a staff member's qualification expiry date. You can configure the timing to send a reminder days or weeks before the expiry, or a follow-up after the qualification has lapsed.
-
-See the [qualification triggers reference](/integrations/workflow-triggers#qualification-triggers) for the full list of available merge fields.
+See [staff qualifications](/staff/qualifications) for details on adding qualifications and configuring expiry notifications.
 
 ## Related guides
 
 <Columns cols={2}>
+  <Card title="Staff qualifications" icon="certificate" href="/staff/qualifications">
+    Track certifications and expiry dates.
+  </Card>
   <Card title="Permissions reference" icon="lock" href="/staff/permissions">
     A complete guide to what each permission level controls.
   </Card>
@@ -82,8 +88,5 @@ See the [qualification triggers reference](/integrations/workflow-triggers#quali
   </Card>
   <Card title="Staff availability" icon="calendar-xmark" href="/staff/availability">
     Manage time-off requests and schedule coverage.
-  </Card>
-  <Card title="Activities" icon="calendar" href="/activities/activities">
-    Create activities and assign staff to them.
   </Card>
 </Columns>
