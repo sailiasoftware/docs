@@ -1,0 +1,79 @@
+---
+title: Staff qualifications
+description: Track staff certifications, qualifications, and expiry dates to stay compliant and ensure coverage.
+keywords: ['qualifications', 'certifications', 'staff qualifications', 'expiry', 'compliance', 'certificates']
+---
+
+Sailia lets you record qualifications and certifications against staff profiles. You can track expiry dates and set up automated reminders so that qualifications are renewed before they lapse.
+
+## How qualifications work
+
+Each staff member's profile can hold one or more qualifications. A qualification record includes:
+
+| Field | Description |
+| --- | --- |
+| **Qualification name** | The name of the qualification or certification (for example, first aid, lifeguard, or instructor certification) |
+| **Certificate number** | An optional reference number for the certificate |
+| **Expiry date** | The date the qualification expires. Used to trigger automated reminders |
+
+## Add a qualification
+
+<Steps>
+  <Step title="Open the staff profile">
+    Navigate to the staff dashboard and select the staff member.
+  </Step>
+  <Step title="Go to qualifications">
+    Select the **Qualifications** section on their profile.
+  </Step>
+  <Step title="Add a qualification">
+    Click **Add Qualification** and enter the qualification name, certificate number (optional), and expiry date.
+  </Step>
+  <Step title="Save">
+    Click **Save** to record the qualification.
+  </Step>
+</Steps>
+
+## Expiry reminders
+
+Set up automated [workflow](/integrations/workflows) communications to notify staff or admins when a qualification is about to expire. The **Qualification expiry** trigger fires based on the qualification's expiry date.
+
+You can configure the timing to send a reminder:
+
+- Days or weeks **before** the expiry date, giving staff time to renew
+- After the qualification has **lapsed**, as a follow-up prompt
+
+### Qualification merge fields
+
+The qualification expiry trigger provides these merge fields for personalizing your messages:
+
+| Merge field | Description |
+| --- | --- |
+| Staff name | The name of the staff member |
+| Staff email | The staff member's email address |
+| Staff phone | The staff member's phone number |
+| Qualification name | The name of the qualification |
+| Qualification expiry date | The expiry date |
+| Qualification certificate number | The certificate number, if recorded |
+| Open in Sailia link | A direct link to the staff dashboard |
+
+<Tip>
+  Send qualification expiry notifications to both the staff member and an admin so that renewals are tracked from both sides.
+</Tip>
+
+## Export qualifications
+
+You can export staff qualifications as a CSV file for compliance reporting or external record-keeping. The export includes qualification names, certificate numbers, expiry dates, and the associated staff member details.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Staff management" icon="user-gear" href="/staff/management">
+    Add and manage staff profiles.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up expiry reminder workflows.
+  </Card>
+  <Card title="Workflow triggers" icon="list" href="/integrations/workflow-triggers#qualification-triggers">
+    Full reference for the qualification expiry trigger.
+  </Card>
+</Columns>
