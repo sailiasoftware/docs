@@ -39,6 +39,25 @@
             ]
           },
           {
+            "group": "Pricing and promotions",
+            "pages": [
+              "pricing/memberships",
+              "pricing/activity-passes",
+              "pricing/discount-codes",
+              "pricing/gift-cards"
+            ]
+          },
+          {
+            "group": "Payments and billing",
+            "pages": [
+              "payments/stripe",
+              "payments/instalments",
+              "payments/taxes",
+              "payments/donations",
+              "payments/reporting"
+            ]
+          },
+          {
             "group": "Customers",
             "pages": [
               "customers/overview",
@@ -52,31 +71,12 @@
             ]
           },
           {
-            "group": "Pricing and promotions",
-            "pages": [
-              "pricing/memberships",
-              "pricing/activity-passes",
-              "pricing/discount-codes",
-              "pricing/gift-cards"
-            ]
-          },
-          {
             "group": "Point of sale",
             "pages": [
               "point-of-sale/overview",
               "point-of-sale/shop-products",
               "point-of-sale/card-readers",
               "point-of-sale/custom-pricing"
-            ]
-          },
-          {
-            "group": "Payments and billing",
-            "pages": [
-              "payments/stripe",
-              "payments/instalments",
-              "payments/taxes",
-              "payments/donations",
-              "payments/reporting"
             ]
           },
           {
@@ -102,10 +102,10 @@
           {
             "group": "Help and support",
             "pages": [
-              "help/common-tasks",
-              "help/customer-guide",
               "help/faq",
+              "help/common-tasks",
               "help/troubleshooting",
+              "help/customer-guide",
               "help/contact"
             ]
           }

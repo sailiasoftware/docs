@@ -152,22 +152,6 @@ Retrieve the waiver questions associated with an activity. Use this to display r
 GET /api/v2/ota/adventuro/questions/{ActivityID}
 ```
 
-### Responses
-
-| Status | Description |
-| --- | --- |
-| **200** | List of available timeslots |
-| **400** | Invalid `ActivityID` |
-| **422** | Missing `Date` parameter |
-
-## Get waiver questions
-
-Retrieve the waiver questions associated with an activity. Use this to display required forms to customers before they complete a booking.
-
-```
-GET /api/v2/ota/core/questions/{ActivityID}
-```
-
 ### Path parameters
 
 | Parameter | Type | Description |
@@ -185,7 +169,7 @@ curl -H "Authorization: Bearer YOUR_API_TOKEN" \
 
 | Status | Description |
 | --- | --- |
-| **200** | List of waiver questions |
+| **200** | List of waiver questions with field types, labels, and required flags |
 | **400** | Invalid `ActivityID` |
 
 ## Create a booking
