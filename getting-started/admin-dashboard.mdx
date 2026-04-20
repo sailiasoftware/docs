@@ -1,0 +1,92 @@
+---
+title: Admin dashboard
+description: Track site traffic, monitor visitor metrics, and follow your guided setup checklist from the admin home page.
+keywords: ['dashboard', 'analytics', 'traffic', 'visitors', 'onboarding', 'setup progress', 'admin home']
+---
+
+The admin dashboard is the first page you see when you log in to Sailia. It gives you an at-a-glance view of your site's traffic performance and tracks your progress through the initial setup process.
+
+## Site traffic analytics
+
+The top section of the dashboard shows real-time visitor metrics for your booking page. Use it to understand how customers are finding and using your site.
+
+<Note>
+  The traffic analytics section requires the **Financial Dashboard** [permission](/staff/permissions). Staff without this permission will not see this section.
+</Note>
+
+### Summary metrics
+
+Five metric boxes display key traffic indicators for the selected time range:
+
+| Metric | What it measures |
+| --- | --- |
+| **Unique visitors** | Distinct browsers that visited your site |
+| **Total visits** | Total browsing sessions, including repeat visits |
+| **Product views** | Number of times customers viewed an activity or product page |
+| **Views per visit** | Average number of product pages viewed in a single session |
+| **Average duration** | Mean time a visitor spent on your site per session |
+
+### Traffic chart
+
+Below the metrics, an interactive chart plots **unique visitors over time**. Hover over data points to see visitor and page view counts for each time interval.
+
+Use the time range selector to switch between:
+
+- **Last 24 hours** — hourly breakdown
+- **Last 7 days** — daily breakdown
+- **Last 30 days** — daily breakdown
+
+### Top products and referrers
+
+Two ranked lists appear below the chart:
+
+- **Top products** — the most-viewed activities and products on your booking page, ranked by unique visitors.
+- **Top referrers** — the websites and sources driving traffic to your booking page, ranked by unique visitors.
+
+Both lists show the top five entries by default. Use the search field to filter by name when you have a large number of products or referral sources.
+
+## Setup progress
+
+The bottom section of the dashboard includes a **setup checklist** that tracks your progress through the key steps to get your account live. This section is visible to staff with the **Settings Dashboard** [permission](/staff/permissions).
+
+A progress bar shows your overall completion percentage. The checklist covers areas such as:
+
+- Connecting your [Stripe account](/payments/stripe) for payment processing
+- Signing your Sailia contract
+- Customizing your [branding](/getting-started/account-settings) (logo and favicon)
+- Creating [locations](/getting-started/locations), [activities](/activities/activities), and a [booking grid](/getting-started/booking-page)
+- Adding [staff](/staff/management) and configuring [permissions](/staff/permissions)
+- Setting up [automated workflows](/integrations/workflows), [gift cards](/pricing/gift-cards), and [discount codes](/pricing/discount-codes)
+
+Expand any checklist item to see a description, a short tutorial video (where available), and direct links to the relevant settings page.
+
+### Stripe setup
+
+If your Stripe account is not yet active, a warning card appears with a button to complete your Stripe Connect onboarding. Clicking it opens a Stripe-hosted setup page in a new tab.
+
+### Contract signing
+
+If your Sailia contract has not been signed, a warning card appears with a button to view and sign it. This opens an embedded signing form pre-filled with your account details. Once you complete the form, the checklist updates automatically.
+
+### After setup is complete
+
+Once all onboarding steps are done, the checklist panel switches to **Next steps** — a set of recommendations for growing your business, such as creating events, assigning staff to bookings, and adding session notes.
+
+## Help and feedback
+
+A **Help & Feedback** panel is always visible on the dashboard with quick links to:
+
+- **Feature requests and bug reports** — submit ideas or report issues
+- **Chat to support** — open a live chat with the Sailia support team
+- **Help centre** — browse the full support documentation
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Quick setup checklist" icon="list-check" href="/getting-started/setup-checklist">
+    A step-by-step guide to configuring your account.
+  </Card>
+  <Card title="Financial reporting" icon="chart-line" href="/payments/reporting">
+    View payment data, exports, and payout breakdowns.
+  </Card>
+</Columns>
