@@ -1,0 +1,120 @@
+---
+title: Data management
+description: Export your data, manage records, and understand how information flows through Sailia.
+keywords: ['data management', 'export', 'import', 'reports', 'CSV', 'data export', 'records']
+---
+
+Sailia provides several tools for exporting your business data. This page covers what data you can access, how to export it, and how to manage your records.
+
+## Exporting data
+
+### Financial exports
+
+The [financial dashboard](/payments/reporting) is your primary tool for exporting payment and transaction data. You can export:
+
+| Export type | What it includes |
+| --- | --- |
+| **Payout exports** | CSV breakdown of each Stripe payout, including gross amounts, fees, and net payouts |
+| **Transaction records** | Individual payment records with customer details, amounts, and payment methods |
+| **Donation exports** | CSV with donor details, amounts, Gift Aid status, and declaration fields. See [Donations](/payments/donations#exporting-donations) |
+
+To export financial data:
+
+<Steps>
+  <Step title="Open the financial dashboard">
+    Navigate to the [financial dashboard](/payments/reporting) in your Sailia account.
+  </Step>
+  <Step title="Apply filters">
+    Filter by date range, payment status, or payment method to narrow your results.
+  </Step>
+  <Step title="Export">
+    Select the export option and choose your preferred format. CSV exports can be opened in Excel, Google Sheets, or imported into accounting software.
+  </Step>
+</Steps>
+
+### Booking data
+
+You can view and filter booking data from the [bookings dashboard](/activities/managing-bookings). Use schedule filters to find bookings by:
+
+- Date range
+- Activity type
+- Booking status (confirmed, cancelled, pending)
+- Staff assignment
+- Location
+- Customer name or email
+
+### Customer data
+
+Customer profiles in the [customer dashboard](/customers/overview) contain:
+
+- Contact details (name, email, phone)
+- Booking history
+- Membership and pass status
+- Waiver completion records
+- Family member details
+- Notes added by staff
+
+### Accounting data
+
+If you use the [Xero accounting sync](/integrations/accounting-sync), each payout is automatically sent to Xero as a categorized invoice with a detailed CSV attachment. This includes:
+
+- Line items broken down by accounting category
+- VAT rates and amounts
+- Account codes and item codes
+- Tracking categories
+
+You can also send historical payouts to Xero manually from the financial dashboard.
+
+## Importing data
+
+### Migrating memberships
+
+If you are moving to Sailia from another platform, you can bulk import existing memberships. The import process supports:
+
+- Customer details and membership plans
+- Add-ons linked to imported memberships
+- Billing continuity through Stripe
+
+See [Migrating memberships](/pricing/memberships#migrating-memberships) for the full import process.
+
+### Customer records
+
+Customer records are created automatically when someone makes a booking or purchase. You can also create customer records manually:
+
+- Through the [customer dashboard](/customers/overview) — add individual customers with their contact details
+- Through the [POS](/point-of-sale/overview) — create a new customer during checkout
+
+<Note>
+  Sailia does not currently support bulk CSV import of customer records. If you need to migrate a large customer list, contact [Sailia support](mailto:support@sailia.com) for assistance.
+</Note>
+
+## Data retention
+
+Sailia retains your data for as long as your account is active. Key points:
+
+- **Booking records** are kept indefinitely for your reference and reporting
+- **Cancelled bookings** remain visible in your dashboard with a "Cancelled" status
+- **Waiver files** are stored for as long as the customer record exists
+- **Financial records** are retained for compliance and audit purposes
+- **Workflow history** tracks sent communications for monitoring and debugging
+
+## Monitoring usage
+
+Sailia tracks automated email and SMS volume through usage meters visible in the [financial dashboard](/payments/reporting). These meters show:
+
+- Total emails sent in the current billing period
+- Breakdown by communication type (transactional, workflow, marketing)
+- Alerts when approaching usage limits
+
+See [Meter usage tracking](/api-reference/meter-tracking) for the technical API behind usage metering.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Financial reporting" icon="chart-line" href="/payments/reporting">
+    View payment data and export transaction records.
+  </Card>
+  <Card title="Xero accounting sync" icon="arrows-rotate" href="/integrations/accounting-sync">
+    Automatically sync payouts to Xero.
+  </Card>
+</Columns>

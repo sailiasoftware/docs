@@ -22,7 +22,9 @@
               "getting-started/account-settings",
               "getting-started/booking-page",
               "getting-started/embedding",
-              "getting-started/locations"
+              "getting-started/locations",
+              "getting-started/billing",
+              "getting-started/system-requirements"
             ]
           },
           {
@@ -100,12 +102,20 @@
             ]
           },
           {
+            "group": "Account management",
+            "pages": [
+              "getting-started/security",
+              "getting-started/data-management"
+            ]
+          },
+          {
             "group": "Help and support",
             "pages": [
               "help/common-tasks",
               "help/customer-guide",
               "help/faq",
               "help/troubleshooting",
+              "getting-started/glossary",
               "help/contact"
             ]
           }
