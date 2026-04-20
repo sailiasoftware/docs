@@ -18,6 +18,7 @@
             "pages": [
               "index",
               "getting-started/overview",
+              "getting-started/admin-dashboard",
               "getting-started/setup-checklist",
               "getting-started/account-settings",
               "getting-started/booking-page",
