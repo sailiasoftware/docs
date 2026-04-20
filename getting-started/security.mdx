@@ -1,0 +1,122 @@
+---
+title: Security and privacy
+description: How Sailia protects your data, handles customer information, and keeps payments secure.
+keywords: ['security', 'privacy', 'data protection', 'GDPR', 'PCI', 'encryption', 'Stripe', 'customer data']
+---
+
+Sailia is built with security and privacy at every layer — from payment processing to customer data handling. This page explains how your data is protected and what controls you have.
+
+## Payment security
+
+All card payments are processed through [Stripe](/payments/stripe), which is PCI DSS Level 1 certified — the highest level of payment security certification. Sailia never stores, processes, or has access to full card numbers.
+
+| Layer | How it works |
+| --- | --- |
+| **Card data** | Entered directly into Stripe's secure payment fields. Sailia never sees or stores card numbers. |
+| **Online payments** | Encrypted via HTTPS/TLS between the customer's browser and Stripe. |
+| **Card reader payments** | Encrypted end-to-end between the [card reader](/point-of-sale/card-readers) and Stripe. |
+| **Refunds** | Processed through Stripe's API. Sailia sends a refund request; Stripe handles the fund transfer. |
+
+<Note>
+  Because Sailia does not handle card data directly, your PCI compliance scope is significantly reduced. Stripe manages all card storage and processing.
+</Note>
+
+## Data encryption
+
+- All data transmitted between your browser and Sailia is encrypted using HTTPS/TLS.
+- Data at rest is encrypted in Sailia's infrastructure.
+- API communications between Sailia and third-party services (Stripe, Xero, Adventuro) use encrypted connections.
+
+## Customer data
+
+Sailia stores customer data that you and your customers provide during the booking process. This includes:
+
+- **Contact information** — name, email address, phone number
+- **Booking history** — reservations, purchases, cancellations, and refunds
+- **Waiver responses** — completed [waivers](/customers/waivers) including signatures and uploaded files
+- **Membership and pass data** — active plans, billing status, and redemption history
+- **Family member details** — names and details of [family account](/customers/family-accounts) members
+
+### Customer data controls
+
+You have several options for managing customer data:
+
+| Action | How to do it |
+| --- | --- |
+| **View customer data** | Open the customer profile in your [customer dashboard](/customers/overview) |
+| **Update customer details** | Edit the customer's profile directly or ask them to update via their account |
+| **Export customer data** | Use the [financial dashboard](/payments/reporting) to export transaction and booking records |
+| **Delete customer data** | Contact [Sailia support](mailto:support@sailia.com) to request deletion of a customer record |
+
+<Warning>
+  Deleting a customer record is permanent and removes all associated booking history, waiver responses, and membership data. This action cannot be undone.
+</Warning>
+
+## Staff access controls
+
+Sailia uses [permission groups](/staff/permissions) to control what staff members can see and do. This lets you follow the principle of least privilege — give each team member only the access they need.
+
+Key permission areas:
+
+- **Schedule access** — view and manage bookings
+- **Financial dashboard** — view payment data and exports
+- **POS access** — process in-person sales
+- **Communications** — manage workflows and marketing
+- **Staff management** — add and manage team members
+
+See the [Permissions reference](/staff/permissions) for the full list of permissions and recommended role configurations.
+
+## Third-party integrations
+
+When you connect Sailia to external services, data is shared only as needed for the integration to function:
+
+| Integration | Data shared |
+| --- | --- |
+| **[Stripe](/payments/stripe)** | Payment details, customer email for receipts, refund requests |
+| **[Xero](/integrations/accounting-sync)** | Payout amounts, VAT breakdowns, invoice line items (no customer personal data) |
+| **[Adventuro](/integrations/adventuro)** | Activity details, availability, and booking confirmations |
+| **[Google Tag Manager / PostHog](/integrations/booking-tracking)** | Anonymous booking funnel events (no personal data by default) |
+
+<Tip>
+  Review your integration settings periodically to ensure you are only sharing the data you intend to. Disconnect integrations you no longer use.
+</Tip>
+
+## Email and communication
+
+Sailia sends emails on your behalf for booking confirmations, refunds, waitlist notifications, and [automated workflows](/integrations/workflows). These emails are sent through Sailia's email infrastructure.
+
+- Emails include your business name and branding
+- Customers can unsubscribe from marketing communications
+- Transactional emails (booking confirmations, refunds) cannot be unsubscribed from as they relate to active transactions
+
+## Your responsibilities
+
+As the business using Sailia, you are responsible for:
+
+- **Communicating your privacy policy** to customers, including how their data is used for bookings and marketing
+- **Managing consent** for marketing communications through your [newsletter forms](/customers/newsletter-forms) and booking flow
+- **Responding to data requests** from customers who want to access, correct, or delete their personal information
+- **Configuring appropriate staff permissions** to limit access to sensitive data
+
+<Note>
+  If you operate in a jurisdiction covered by data protection regulations (such as GDPR in the EU or UK), ensure your use of Sailia complies with your legal obligations. Contact [Sailia support](mailto:support@sailia.com) if you need assistance with a data subject request.
+</Note>
+
+## Reporting security concerns
+
+If you discover a security vulnerability or suspect unauthorized access to your account:
+
+1. Change your password immediately.
+2. Review your [staff permissions](/staff/permissions) for any unauthorized changes.
+3. Contact [Sailia support](mailto:support@sailia.com) with details of the concern.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Permissions reference" icon="lock" href="/staff/permissions">
+    Full list of staff permissions and role configurations.
+  </Card>
+  <Card title="Customer management" icon="users" href="/customers/overview">
+    View and manage customer data and profiles.
+  </Card>
+</Columns>

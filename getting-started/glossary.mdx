@@ -1,0 +1,105 @@
+---
+title: Glossary
+description: Definitions of key terms used throughout Sailia documentation.
+keywords: ['glossary', 'terms', 'definitions', 'terminology', 'key concepts']
+---
+
+A quick reference for the terminology used across Sailia. Terms are grouped by area to make it easier to find what you need.
+
+## Activities and scheduling
+
+| Term | Definition |
+| --- | --- |
+| **Activity** | A bookable item — either a [course](/activities/activities), [hire](/activities/activities), or [event](/activities/activities). Each has its own schedule, pricing, and capacity. |
+| **Course** | A scheduled activity with defined sessions, such as a surf lesson or yoga class. |
+| **Hire** | An equipment rental with a time slot, such as kayak hire or bike rental. |
+| **Event** | A one-off or recurring occasion, such as an open day or guided tour. |
+| **Session** | A single time slot within an activity that customers can book. |
+| **Capacity** | The maximum number of attendees allowed for a session. Shared in real time between online and POS bookings. |
+| **Waitlist** | A queue customers can join when a session is fully booked. They are notified automatically when a spot opens. See [Waitlists](/activities/waitlists). |
+| **Add-on** | An optional extra customers can add to a booking, such as equipment rental or a meal. |
+| **Booking cutoff** | The deadline before a session starts after which customers can no longer book online. |
+
+## Bookings
+
+| Term | Definition |
+| --- | --- |
+| **Booking** | A customer's confirmed reservation for an activity session, tracked with payment status and attendee details. |
+| **Group booking** | A booking where one customer (the organizer) books on behalf of multiple participants. See [Group bookings](/activities/group-bookings). |
+| **Walk-in** | A booking created at the [point of sale](/point-of-sale/overview) for a customer who arrives without a prior reservation. |
+| **Booking wizard** | The guided checkout flow on the [booking page](/getting-started/booking-page) that walks customers through session selection, attendee details, and payment. |
+| **Basket** | The collection of items (activities, products, gift cards) a customer has selected before completing checkout. |
+
+## Customers
+
+| Term | Definition |
+| --- | --- |
+| **Customer** | A person who books activities or purchases products. Sailia creates a record automatically on first purchase. See [Customer management](/customers/overview). |
+| **Customer account** | A self-service account customers create on your booking page to manage bookings, memberships, and family members. See [Customer accounts](/customers/customer-accounts). |
+| **Family account** | A feature that lets customers group family members under one login. Each member has their own booking history, waivers, and memberships. See [Family accounts](/customers/family-accounts). |
+| **Guest checkout** | Completing a purchase without creating an account. Guests receive confirmation by email but cannot manage bookings online. |
+| **Waiver** | A document customers complete before attending an activity, typically including acknowledgements, signature fields, and file uploads. See [Waivers](/customers/waivers). |
+
+## Pricing and promotions
+
+| Term | Definition |
+| --- | --- |
+| **Membership** | A recurring subscription with automatic billing through Stripe. Members receive benefits like discounts on activities. See [Memberships](/pricing/memberships). |
+| **Activity pass** | A prepaid bundle of sessions that customers redeem against future bookings. See [Activity passes](/pricing/activity-passes). |
+| **Discount code** | A code customers enter at checkout for a fixed, percentage, or tiered discount. See [Discount codes](/pricing/discount-codes). |
+| **Gift card** | A stored-value card customers purchase and redeem at checkout. Also created when you issue a refund as store credit. See [Gift cards](/pricing/gift-cards). |
+| **Store credit** | A gift card issued as a refund alternative. The balance is available immediately for future purchases. |
+| **Surge pricing** | A discount code feature that increases prices during high-demand periods. Configured under [Discount codes](/pricing/discount-codes). |
+| **Early-bird pricing** | A discount code feature that offers lower prices for bookings made well in advance. |
+
+## Payments
+
+| Term | Definition |
+| --- | --- |
+| **Stripe** | The payment processor Sailia uses for all card transactions, payouts, and refunds. See [Payments and Stripe](/payments/stripe). |
+| **Payout** | A transfer from Stripe to your bank account, typically on a daily or weekly schedule. |
+| **Instalment plan** | A payment option that splits a booking's total into scheduled payments collected automatically by Stripe. See [Instalment plans](/payments/instalments). |
+| **MOTO payment** | A mail order/telephone order card payment processed without the cardholder present. See [MOTO payments](/payments/stripe#moto-payments). |
+| **Stripe Link** | A Stripe-powered express checkout that auto-fills saved payment details for faster checkout. |
+| **Accounting category** | A label applied to products and activities that maps to a VAT rate, Xero account code, and item code. See [Taxes and VAT](/payments/taxes). |
+
+## Point of sale
+
+| Term | Definition |
+| --- | --- |
+| **POS** | The point of sale — Sailia's in-person checkout for walk-in bookings, product sales, and card reader payments. See [Point of sale](/point-of-sale/overview). |
+| **POS terminal** | A configured checkout interface assigned to a location. Multiple terminals can operate at the same site. |
+| **Till shift** | A session during which a POS terminal is open for transactions. Opening a shift enables cash payments and tracks the cash float. |
+| **Card reader** | A Stripe Terminal device connected to the POS for in-person card payments. See [Card readers](/point-of-sale/card-readers). |
+| **Shop product** | A physical or digital item sold through the online shop or POS. See [Shop products](/point-of-sale/shop-products). |
+| **Custom pricing** | A POS feature that lets operators override the listed price of a product at checkout. See [Custom pricing](/point-of-sale/custom-pricing). |
+
+## Staff
+
+| Term | Definition |
+| --- | --- |
+| **Staff member** | A person on your team with a Sailia profile, assigned to activities, and optionally configured for timesheets and pay rates. See [Staff management](/staff/management). |
+| **Permission group** | A set of access controls (schedule, finances, POS, communications, staff management) assigned to staff. See [Permissions reference](/staff/permissions). |
+| **Auto daily timesheet** | A feature that automatically generates timesheet entries from scheduled bookings, including setup and pack-down time. See [Auto daily timesheets](/staff/auto-timesheets). |
+| **Timesheet invoice** | An invoice submitted by staff based on their timesheet entries, reviewed and approved by an admin. See [Timesheet invoices](/staff/timesheet-invoices). |
+| **Pay rate amendment** | A per-booking override to a staff member's default pay rate. |
+
+## Integrations
+
+| Term | Definition |
+| --- | --- |
+| **Workflow** | An automated action (email or SMS) triggered by a specific event in Sailia. Over 30 triggers are available. See [Automated workflows](/integrations/workflows). |
+| **Workflow trigger** | The event that starts a workflow, such as "booking confirmed" or "membership renewed". See [Workflow triggers reference](/integrations/workflow-triggers). |
+| **Merge field** | A placeholder in a workflow email template that is replaced with dynamic data at send time (such as the customer's name or booking date). |
+| **Xero sync** | An integration that pushes each Stripe payout to Xero as a categorized invoice. See [Xero accounting sync](/integrations/accounting-sync). |
+| **Adventuro** | An online travel agency marketplace where you can list your activities and receive bookings. See [Adventuro integration](/integrations/adventuro). |
+| **Booking tracking** | Analytics events fired during the booking flow, captured by Google Tag Manager or PostHog. See [Booking tracking events](/integrations/booking-tracking). |
+
+## General
+
+| Term | Definition |
+| --- | --- |
+| **Booking page** | Your auto-generated public website where customers browse, book, and pay. See [Your booking page](/getting-started/booking-page). |
+| **Location** | A physical site you operate from. Used to organize activities, POS terminals, card readers, and timesheets. See [Locations](/getting-started/locations). |
+| **Dashboard** | The admin interface where you manage all aspects of your Sailia account. |
+| **Financial dashboard** | The section of the dashboard showing payment data, payouts, exports, and email usage meters. See [Financial reporting](/payments/reporting). |
