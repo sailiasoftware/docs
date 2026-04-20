@@ -46,16 +46,26 @@ Sailia tracks automated emails through [meter usage tracking](/api-reference/met
 
 Use the meter usage API to monitor email volume and ensure your workflows are performing as expected.
 
-## Resending emails
+## Resending confirmation emails
 
-You can resend booking confirmation emails from the [booking details](/activities/managing-bookings) at any time. This is useful when:
+You can resend a booking confirmation email to any email address from the order receipt. This works for all completed orders, including those linked to customer accounts and guest checkouts.
+
+To resend a confirmation:
+
+1. Open the order receipt from the [bookings dashboard](/activities/managing-bookings).
+2. Scroll to the **Emails sent to this account** section.
+3. Click **Send confirmation email**.
+4. Enter the recipient's email address.
+5. Click **Send**.
+
+This is useful when:
 
 - A customer did not receive the original email
-- The customer needs the details forwarded to another address
+- You need to forward the booking details to a different email address
 - You made changes to the booking and want to send an updated confirmation
 
 <Note>
-  Resending a confirmation sends the same email template with the current booking details. If the booking has been modified since the original confirmation, the resent email reflects the latest information.
+  The resent email uses the same booking confirmation template with the current booking details and PDF receipt. If the booking has been modified since the original confirmation, the email reflects the latest information.
 </Note>
 
 ## Related guides
