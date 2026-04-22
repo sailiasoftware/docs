@@ -39,7 +39,13 @@ This is useful when you want to ensure a pass is non-transferable — for exampl
 
 ## Redeeming a pass
 
-When a customer with an active pass books an eligible activity, they can apply the pass at checkout instead of paying the full price. Each booking deducts uses from the pass balance based on the number of participants. For example, a booking with three participants deducts three uses.
+When a customer with an active pass adds an eligible activity to their basket, the pass is **automatically applied** — the customer does not need to enter a code or manually select the pass. Each booking deducts uses from the pass balance based on the number of participants. For example, a booking with three participants deducts three uses.
+
+Auto-apply works across all active passes the customer holds. If a customer has multiple passes that cover different activities, each pass is applied to its matching items in the same basket.
+
+<Note>
+  Passes are applied when items are added to the basket, not at the final checkout step. Customers see the discount reflected in their basket total immediately.
+</Note>
 
 Activity pass discounts stack with other discounts, so customers can combine a pass with promotional codes or [membership](/pricing/memberships) benefits.
 
@@ -93,8 +99,8 @@ If you use [Xero accounting sync](/integrations/accounting-sync), assign account
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Activity pass not applying at checkout">
-    Verify that the pass is not expired, has remaining redemptions, and the booked activity is included in the pass's eligible activities. If the pass has **Single user only** enabled, confirm the correct family member is included in the booking.
+  <Accordion title="Activity pass not applying automatically">
+    Verify that the pass is not expired, has remaining redemptions, and the booked activity is included in the pass's eligible activities. If the pass has **Single user only** enabled, confirm the correct family member is included in the booking. Also check that the customer is logged in — passes can only be matched to a customer's account when they are signed in.
   </Accordion>
 
   <Accordion title="Customer cannot purchase a members-only pass">
