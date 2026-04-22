@@ -1,7 +1,7 @@
 ---
 title: Family accounts
 description: Manage family members under a single account for shared bookings and memberships.
-keywords: ['family accounts', 'family members', 'shared bookings', 'parent account', 'children']
+keywords: ['family accounts', 'family members', 'shared bookings', 'parent account', 'children', 'dependents']
 ---
 
 Family accounts let customers group related people — such as children, partners, or dependents — under a single account. This simplifies booking for families and enables features like shared memberships and restricted activity passes.
@@ -17,13 +17,52 @@ A customer account can have multiple family members linked to it. Each family me
 
 The primary account holder manages the family — adding members, making bookings, and handling payments on behalf of everyone.
 
+## Adding family members
+
+Family members can be added from the customer's profile in your dashboard or by the customer themselves through their account on your booking page.
+
+### From the admin dashboard
+
+<Steps>
+  <Step title="Open the customer's profile">
+    Navigate to **Customers** and search for the account holder.
+  </Step>
+  <Step title="Go to the family section">
+    Open the family members section of their profile.
+  </Step>
+  <Step title="Add a family member">
+    Enter the family member's name and any required details. The new member is linked to the account holder immediately.
+  </Step>
+</Steps>
+
+### From the customer's account
+
+Customers with a [customer account](/customers/customer-accounts) can add family members themselves through their account settings on your booking page. This is useful for families who want to manage their own details without contacting you.
+
+## Removing family members
+
+To remove a family member, open the account holder's profile in your dashboard and delete the member from the family section. Removing a family member:
+
+- Does not delete their booking history — past bookings are preserved
+- Removes their access to the account holder's memberships and passes
+- Cancels any active membership assigned specifically to that member
+
+<Warning>
+  Removing a family member is permanent. If the member needs to be re-added, you will need to create a new family member entry.
+</Warning>
+
 ## Booking for family members
 
-When a family member makes a booking, they can select which family members are attending. Each selected member:
+When a customer makes a booking, they can select which family members are attending. Each selected member:
 
 - Counts toward the session's [capacity](/activities/activities#capacity-and-availability)
 - Has their own waiver completion tracked individually
 - Can have [per-person add-ons](/activities/activities#add-ons) applied
+- Appears as a named participant on the booking record
+
+<Note>
+  If a family member has an outstanding [waiver](/customers/waivers), the booking flow prompts the account holder to complete it on their behalf.
+</Note>
 
 ## Memberships and passes
 
@@ -46,11 +85,20 @@ When processing a [POS transaction](/point-of-sale/overview), staff can link the
 - Auto-apply [membership discounts](/pricing/discount-codes#membership-discounts) for eligible family members
 - Redeem [activity passes](/pricing/activity-passes) assigned to specific members
 
+## Tips for managing family accounts
+
+- **Encourage account creation** — families who create accounts can manage their own members, reducing admin work for your team
+- **Check waivers per person** — each family member needs their own completed waiver, even if they are part of the same booking
+- **Review memberships regularly** — when family members leave or age out of activities, update their memberships accordingly
+
 ## Related guides
 
 <Columns cols={2}>
   <Card title="Customer management" icon="users" href="/customers/overview">
     View and manage customer profiles and accounts.
+  </Card>
+  <Card title="Customer accounts" icon="user-check" href="/customers/customer-accounts">
+    How customer self-service accounts work.
   </Card>
   <Card title="Memberships" icon="id-card" href="/pricing/memberships">
     Set up recurring membership plans.

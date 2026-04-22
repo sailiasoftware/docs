@@ -22,9 +22,9 @@
               "getting-started/setup-checklist",
               "getting-started/account-settings",
               "getting-started/booking-page",
+              "getting-started/branding",
               "getting-started/embedding",
               "getting-started/locations",
-              "getting-started/billing",
               "getting-started/system-requirements"
             ]
           },
@@ -87,6 +87,7 @@
             "pages": [
               "staff/management",
               "staff/permissions",
+              "staff/qualifications",
               "staff/auto-timesheets",
               "staff/availability",
               "staff/timesheet-invoices"
@@ -105,6 +106,7 @@
           {
             "group": "Account management",
             "pages": [
+              "getting-started/billing",
               "getting-started/security",
               "getting-started/data-management"
             ]

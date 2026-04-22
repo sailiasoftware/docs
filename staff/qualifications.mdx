@@ -1,0 +1,82 @@
+---
+title: Staff qualifications
+description: Track staff qualifications, certifications, and expiry dates to keep your team compliant.
+keywords: ['qualifications', 'certifications', 'staff compliance', 'expiry', 'training']
+---
+
+Sailia lets you track qualifications and certifications for your staff members. You can record qualification details, set expiry dates, and automate reminders so nothing slips through the cracks.
+
+## How qualifications work
+
+Each staff member's profile can hold multiple qualifications. A qualification represents any certification, license, or training record that your business needs to track — such as first aid certificates, instructor qualifications, or DBS checks.
+
+Each qualification record includes:
+
+| Field | Description |
+| --- | --- |
+| **Qualification name** | The name of the certificate or license |
+| **Issue date** | When the qualification was granted |
+| **Expiry date** | When the qualification expires (if applicable) |
+| **Status** | Active or expired, based on the expiry date |
+
+## Adding a qualification
+
+<Steps>
+  <Step title="Open the staff member's profile">
+    Navigate to the staff section and select the team member you want to update.
+  </Step>
+  <Step title="Go to qualifications">
+    Open the qualifications section of their profile.
+  </Step>
+  <Step title="Add a new qualification">
+    Enter the qualification name, issue date, and expiry date. If the qualification does not expire, leave the expiry date blank.
+  </Step>
+  <Step title="Save">
+    Save the qualification. It now appears on the staff member's profile and is tracked for expiry.
+  </Step>
+</Steps>
+
+## Expiry tracking
+
+Sailia automatically tracks qualification expiry dates. When a qualification's expiry date passes, it is marked as expired on the staff member's profile.
+
+To stay ahead of expiring qualifications, set up an automated [workflow](/integrations/workflows) using the **Qualification expiry** trigger. This lets you:
+
+- Send a reminder to the staff member a set number of days before their qualification expires
+- Notify an admin or manager when a team member's qualification is due for renewal
+- Send a follow-up after the qualification has lapsed
+
+See the [qualification triggers reference](/integrations/workflow-triggers#qualification-triggers) for available merge fields.
+
+## Managing qualifications
+
+From a staff member's profile, you can:
+
+- **View all qualifications** — see active and expired qualifications at a glance
+- **Edit a qualification** — update the name, dates, or add notes
+- **Remove a qualification** — delete records that are no longer relevant
+
+<Tip>
+  Review qualifications regularly — especially before busy seasons — to ensure all staff have valid certifications for the activities they are assigned to.
+</Tip>
+
+## Best practices
+
+- **Set up expiry workflows early** — configure [automated reminders](/integrations/workflows) as soon as you add qualifications so you never miss a renewal
+- **Be specific with names** — use consistent naming (e.g., "First Aid Level 3" rather than "First Aid") so qualifications are easy to search and filter
+- **Track all relevant certifications** — include both legally required and business-specific qualifications
+- **Keep records current** — update qualifications promptly when staff complete renewals
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Staff management" icon="user-gear" href="/staff/management">
+    Add staff members and manage their profiles.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Set up expiry reminders and other automated communications.
+  </Card>
+  <Card title="Workflow triggers" icon="list" href="/integrations/workflow-triggers">
+    Complete reference of all workflow triggers including qualification events.
+  </Card>
+</Columns>
