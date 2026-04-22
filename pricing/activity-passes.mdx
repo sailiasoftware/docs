@@ -82,6 +82,8 @@ When you edit an activity pass template and change which activities it can be re
 
 For example, if you add a new session to an activity pass, every customer who holds an active pass of that type can immediately redeem it for the new session.
 
+If you remove **all** activities from a pass template, purchased passes are automatically disabled and cannot be redeemed until you add at least one activity back. This prevents passes from being applied to sessions they were not intended for. Once you add activities again, all purchased passes are re-enabled and updated with the new session list.
+
 ## Seasonal passes
 
 If your business has seasonal patterns, consider creating passes with expiry dates aligned to your seasons. For example:
@@ -101,6 +103,10 @@ If you use [Xero accounting sync](/integrations/accounting-sync), assign account
 <AccordionGroup>
   <Accordion title="Activity pass not applying automatically">
     Verify that the pass is not expired, has remaining redemptions, and the booked activity is included in the pass's eligible activities. If the pass has **Single user only** enabled, confirm the correct family member is included in the booking. Also check that the customer is logged in — passes can only be matched to a customer's account when they are signed in.
+  </Accordion>
+
+  <Accordion title="Activity pass is disabled after editing">
+    If you removed all activities from the pass template, purchased passes are automatically disabled. Add at least one activity back to the template to re-enable them.
   </Accordion>
 
   <Accordion title="Customer cannot purchase a members-only pass">
