@@ -1,0 +1,97 @@
+---
+title: Kit and equipment
+description: Track equipment inventory across locations, link kit to activities, and let Sailia manage capacity based on available gear.
+keywords: ['kit', 'equipment', 'inventory', 'capacity', 'resource management']
+---
+
+Kit management lets you define the equipment your business uses, track quantities per location, and link kit items to activities. When kit is linked to an activity, Sailia can automatically calculate session capacity based on how much gear is available — so you never overbook beyond what your inventory supports.
+
+## How kit works
+
+1. You create kit items and set quantities at each [location](/getting-started/locations).
+2. You link kit items to activities with a **user ratio** (for example, 1 kayak per participant).
+3. When a booking is made, Sailia checks kit availability and adjusts capacity accordingly.
+4. You can override automatic allocation with manual kit assignments on individual bookings.
+
+## Create a kit item
+
+<Steps>
+  <Step title="Open the kit section">
+    Navigate to your kit dashboard and select **Create Kit Item**.
+  </Step>
+  <Step title="Set the details">
+    Enter the kit name, choose an icon, and select which activity types it applies to (courses, hires, or events).
+  </Step>
+  <Step title="Set quantities per location">
+    Define how many units of this kit item are available at each of your locations. For example, you might have 20 kayaks at your main site and 10 at a satellite location.
+  </Step>
+  <Step title="Save">
+    Save the kit item. It is now available to link to activities.
+  </Step>
+</Steps>
+
+## Link kit to an activity
+
+Once a kit item exists, link it to an activity session to enable automatic capacity tracking.
+
+<Steps>
+  <Step title="Open the activity session">
+    Navigate to the activity and open the session you want to configure.
+  </Step>
+  <Step title="Add kit">
+    Select **Add Kit** and choose the kit item you want to link.
+  </Step>
+  <Step title="Set the user ratio">
+    Define how many units of this kit each participant needs. For example, a ratio of 1 means one kayak per person; a ratio of 0.5 means one kayak per two people (tandem).
+  </Step>
+  <Step title="Enable auto-capacity (optional)">
+    Toggle on **Auto-Capacity** to have Sailia calculate the maximum number of participants based on available kit. If you have 20 kayaks and a ratio of 1, the session capacity is automatically set to 20.
+  </Step>
+</Steps>
+
+<Note>
+  When multiple kit items are linked to the same session with auto-capacity enabled, the session capacity is determined by the most restrictive item — the one that runs out first.
+</Note>
+
+## Automatic vs manual allocation
+
+Kit assignment can work in two modes:
+
+| Mode | How it works |
+| --- | --- |
+| **Automatic** | Sailia allocates kit based on the user ratio you defined. Capacity is calculated automatically and updated in real time as bookings come in. |
+| **Manual** | You manually assign specific kit quantities to individual bookings. Use this when you need precise control over which gear goes to which group. |
+
+You can switch between modes on a per-booking basis. When you switch to manual mode, you take over allocation for that booking while automatic mode continues for all other bookings on the same session.
+
+## Temporary quantity adjustments
+
+If your available inventory changes for a specific date — for example, some equipment is out for repair — you can set a **temporary quantity amendment** without changing your overall inventory numbers.
+
+<Steps>
+  <Step title="Open the kit availability view">
+    Navigate to the kit section and select the date you want to adjust.
+  </Step>
+  <Step title="Set a quantity amendment">
+    Enter the adjusted quantity for that date and location. Sailia recalculates capacity for all affected sessions on that date.
+  </Step>
+</Steps>
+
+<Warning>
+  Sailia checks for booking conflicts before applying a quantity reduction. If reducing the kit quantity would cause an existing booking to exceed the available supply, you are alerted to the conflict before confirming.
+</Warning>
+
+## Conflict detection
+
+When you change kit quantities — either permanently or via a temporary amendment — Sailia scans all bookings that use that kit item to detect potential conflicts. A conflict occurs when the total kit required by existing bookings exceeds the new quantity. You are shown any conflicts before the change is applied, so you can resolve them (by adjusting bookings or sourcing additional equipment) before confirming.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Create activities and configure capacity settings.
+  </Card>
+  <Card title="Locations" icon="location-dot" href="/getting-started/locations">
+    Manage the locations where your kit is stored.
+  </Card>
+</Columns>
