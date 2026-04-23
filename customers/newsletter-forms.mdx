@@ -1,7 +1,7 @@
 ---
 title: Newsletter signup forms
 description: Embed a newsletter signup form on your website to grow your subscriber list.
-keywords: ['newsletter', 'signup form', 'email list', 'marketing', 'embed form']
+keywords: ['newsletter', 'signup form', 'email list', 'marketing', 'embed form', 'subscribers', 'GDPR']
 ---
 
 You can embed a newsletter signup form on your website so visitors can subscribe to your mailing list directly. Sailia generates the embed code for you — copy it and paste it into your site's HTML.
@@ -9,6 +9,15 @@ You can embed a newsletter signup form on your website so visitors can subscribe
 ## How it works
 
 When a visitor fills in your embedded form and submits it, they are automatically added to your audience in Sailia. You can then reach them through [marketing campaigns](/customers/marketing) and [automated workflows](/integrations/workflows).
+
+The form collects:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| **Name** | Yes | The subscriber's full name |
+| **Email** | Yes | The subscriber's email address |
+
+Subscribers added through the form are marked as opted-in for marketing communications.
 
 ## Get the embed code
 
@@ -20,7 +29,7 @@ When a visitor fills in your embedded form and submits it, they are automaticall
     Select the newsletter form option to open the embed code dialog. You will see a live preview of the form alongside the embed code.
   </Step>
   <Step title="Customize the button color">
-    Use the **Button Color** picker to match the form's submit button to your website's branding.
+    Use the **Button Color** picker to match the form's submit button to your website's branding. The preview updates in real time as you adjust the color.
   </Step>
   <Step title="Copy the embed code">
     Click **Copy embed code**. The code is copied to your clipboard.
@@ -30,21 +39,56 @@ When a visitor fills in your embedded form and submits it, they are automaticall
   </Step>
 </Steps>
 
+## Customization
+
+The embed code generates a styled form that works on any website. You can customize:
+
+| Option | How to configure |
+| --- | --- |
+| **Button color** | Set in the embed code dialog using the color picker |
+| **Placement** | Paste the embed code in your website's sidebar, footer, header, or as a standalone section |
+
 <Note>
-  The embed code is a self-contained HTML snippet. It works on any website that allows custom HTML, including WordPress, Squarespace, Wix, and static sites.
+  The embed code is a self-contained HTML snippet. It works on any website that allows custom HTML, including WordPress, Squarespace, Wix, and static sites. Advanced users can style the form further by targeting its CSS classes in their website's stylesheet.
 </Note>
+
+## Where to place the form
+
+For maximum signups, consider placing the form in high-visibility areas:
+
+- **Homepage** — above the fold or in the footer
+- **Blog posts** — at the end of relevant content
+- **Activity pages** — alongside descriptions of upcoming events
+- **Pop-ups or slide-ins** — if your website builder supports them, trigger the form after a visitor has been on the page for a set time
+
+<Tip>
+  If the copy button does not work in your browser, select the code manually from the text area and copy it with your keyboard.
+</Tip>
 
 ## After embedding
 
 Once the form is live on your website:
 
-- **New subscribers** appear in your audience automatically.
-- You can segment and target subscribers using audience filters when sending campaigns.
-- Subscribers can unsubscribe through the link included in your marketing emails.
+- **New subscribers** appear in your audience automatically
+- You can segment and target subscribers using audience filters when sending campaigns
+- Subscribers can unsubscribe through the link included in your marketing emails
 
-<Tip>
-  If the copy button does not work in your browser, select the code manually from the text area and copy it with your keyboard.
-</Tip>
+## Privacy and consent
+
+The newsletter form is designed with email marketing best practices in mind:
+
+- **Explicit opt-in** — visitors actively choose to subscribe by filling in the form and clicking the button
+- **Unsubscribe link** — all marketing emails include an unsubscribe link, so subscribers can opt out at any time
+- **No pre-checked boxes** — the form does not subscribe visitors without their explicit action
+- **Data access** — subscribers appear in your [audience list](/customers/marketing) where you can view, export, or delete their records
+
+<Note>
+  You are responsible for ensuring your use of the signup form complies with applicable data protection regulations (such as GDPR or PECR) in your region. If you need to collect additional consent text or disclosures, add them to the page surrounding the embedded form.
+</Note>
+
+## Resubscribing contacts
+
+If a previously unsubscribed contact fills in your newsletter form again, they are automatically resubscribed and begin receiving marketing emails. See [resubscribing contacts](/customers/marketing#resubscribing-contacts) for details.
 
 ## Related guides
 
@@ -54,5 +98,8 @@ Once the form is live on your website:
   </Card>
   <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
     Set up triggered email sequences for your subscribers.
+  </Card>
+  <Card title="Branding" icon="palette" href="/getting-started/branding">
+    Customize your booking page appearance to match your brand.
   </Card>
 </Columns>
