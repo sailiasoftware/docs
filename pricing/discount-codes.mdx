@@ -160,6 +160,18 @@ For membership discounts, you can configure how long the associated Stripe coupo
 - **Forever** — the discount applies for the entire membership duration
 - **Time-limited** — the discount applies for a specified number of months
 
+### Multiple eligible membership discounts
+
+A customer may qualify for more than one membership discount on the same item — for example, when they hold multiple memberships, or when a single membership plan grants multiple discount benefits that all apply to the same product.
+
+When this happens, Sailia automatically applies the **best** discount for the customer rather than the first one found. "Best" means the largest monetary reduction on the item after the discount is calculated:
+
+- For **percentage** discounts, this is the percentage that produces the highest saving on the item's price.
+- For **fixed** discounts, this is the largest fixed amount (capped by the item's price).
+- Percentage and fixed discounts are compared directly by their monetary effect on the item.
+
+Only one membership discount applies to a given item — they do not stack with each other. Non-membership discount codes continue to follow the normal [stacking behavior](#stacking-behavior).
+
 ## Stacking behavior
 
 When **stackable** is enabled, a discount code can be combined with other discounts in the same basket. When disabled, only one non-stackable discount can be applied at a time.
