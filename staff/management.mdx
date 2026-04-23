@@ -71,6 +71,25 @@ The **Qualification expiry** trigger fires based on a staff member's qualificati
 
 See the [qualification triggers reference](/integrations/workflow-triggers#qualification-triggers) for the full list of available merge fields.
 
+## Staff qualifications export
+
+Export a matrix of staff members and their qualifications to quickly audit who holds which certification and when each one expires. Use this when you need to share a qualifications overview with auditors, plan renewals, or check coverage before assigning staff to an activity.
+
+The export includes one row per qualification and one column per active staff member. Each cell shows the status of that qualification for that staff member:
+
+| Cell value | Meaning |
+| --- | --- |
+| A date (for example, `31/12/2026`) | The qualification is current and expires on this date |
+| **Yes** | The staff member holds the qualification, and no expiry date is recorded |
+| **Expired** | The qualification's expiry date has passed |
+| Blank | The staff member does not hold this qualification |
+
+<Tip>
+  When a staff member has more than one record for the same qualification, the export shows the most useful status — a specific expiry date is preferred over **Yes**, and **Yes** is preferred over **Expired** — so you always see the best qualification currently held.
+</Tip>
+
+Only active staff with an assigned permission group are included. Archived staff, archived families, and deleted qualifications are excluded automatically.
+
 ## Related guides
 
 <Columns cols={2}>
