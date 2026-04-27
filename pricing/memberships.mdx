@@ -136,6 +136,8 @@ Add-ons are billed through Stripe alongside the membership subscription. Recurri
 
 You can attach add-ons to an active membership at any time. When you add an add-on to an existing member, Stripe prorates the charge for the current billing cycle by default.
 
+You can also adjust add-ons on imported memberships that have not yet started billing — see [Migrating memberships](#migrating-memberships) for details.
+
 ## Migrating memberships
 
 If you are switching to Sailia from another membership system, you can bulk-import your existing members. The migration process creates families, users, and membership instances from your import data.
@@ -153,6 +155,23 @@ Each row in your import data can include:
 <Note>
   Add-ons included during migration must already be linked to the target membership plan in Sailia. Create your membership plans and link the relevant add-ons before running the import.
 </Note>
+
+### Migration statuses
+
+Each imported membership has a migration status that determines how billing and add-on changes are applied:
+
+- **Pending start** — the membership has been imported but its first Sailia billing cycle has not started yet. The Stripe subscription exists as a scheduled subscription, not an active one.
+- **Migrated** — the membership has fully transitioned to Sailia and is billing on an active Stripe subscription.
+
+### Updating add-ons on pending-start memberships
+
+You can add or remove add-ons on a member before their first Sailia billing cycle starts. This is useful when an import omitted an add-on, included the wrong quantity, or the member changed their selection before going live.
+
+- **Recurring add-ons** are added to or removed from the scheduled subscription, so they are included from the first billing cycle.
+- **One-time add-ons** are billed on the first invoice that Sailia generates for the member when their billing cycle begins.
+- One-time add-ons cannot be removed once added, because they are tied to the upcoming invoice.
+
+For memberships that have already migrated to active billing, add-on changes apply to the active Stripe subscription as normal, with proration on the current billing cycle.
 
 ## Accounting
 
