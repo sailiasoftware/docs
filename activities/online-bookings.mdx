@@ -75,6 +75,25 @@ When a customer adds items to their basket, Sailia tracks the basket contents in
 
 Customers can apply [discount codes](/pricing/discount-codes) at checkout. If a discount is set to [auto-apply](/pricing/discount-codes#create-a-discount-code), it is added automatically without entering a code.
 
+## Upsells
+
+During the booking wizard, Sailia surfaces **upsells** — additional items related to the session a customer is booking. Upsells help increase order value by suggesting products the customer might want alongside their booking.
+
+Each session can have any combination of the following upsell types configured against it:
+
+| Upsell type | What the customer sees |
+| --- | --- |
+| **Activity pass** | A [prepaid pass](/pricing/activity-passes) the customer can buy to discount future bookings. The card displays the pass name, price, and number of redemptions included. |
+| **Shop product** | A [shop product](/point-of-sale/shop-products) such as merchandise or rentals. The card displays the price and remaining stock. |
+| **Add-on** | An [add-on](/activities/activities#add-ons) that complements the activity, like equipment hire. |
+| **Session** | Another session the customer might book in addition to their current selection. The card displays the next available date and starting price. |
+
+Upsells appear as cards in the booking wizard that the customer can add to their basket in one click. Activity pass upsells skip single-user-only and archived passes automatically, so customers only see passes they can actually purchase.
+
+<Note>
+  Activity pass upsells show the **number of redemptions** included with the pass so customers understand the value at a glance — for example, *"10 redemptions for £80"*.
+</Note>
+
 <Note>
   [Gift cards](/pricing/gift-cards) can also be redeemed at checkout to cover part or all of the order total.
 </Note>
