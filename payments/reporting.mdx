@@ -84,7 +84,48 @@ All payment options are selected by default. Deselect a group to exclude those r
 
 ### Payout exports
 
-Each payout includes a downloadable CSV breakdown showing individual transactions, amounts, fees, and product categories. This is the same CSV that gets attached to Xero invoices when [accounting sync](/integrations/accounting-sync) is enabled.
+Each individual payout includes a downloadable CSV breakdown showing the transactions, amounts, fees, and product categories included in that payout. This is the same CSV that gets attached to Xero invoices when [accounting sync](/integrations/accounting-sync) is enabled.
+
+You can also export payout data across a date range from the **Payouts** tab of the financial dashboard.
+
+#### Export payouts
+
+Click **Export Data** on the Payouts tab to download a list of recent payouts as a CSV. Each row represents a single payout from Stripe to your connected bank account.
+
+| Column | Description |
+| --- | --- |
+| `payout_id` | The Stripe payout identifier |
+| `payout_amount` | Net payout amount (in your account currency) |
+| `payout_status` | Stripe payout status (for example, `paid`, `pending`, `failed`) |
+| `payout_arrival_date` | Date the payout is expected in your bank account |
+| `payout_source_type` | Source of the funds (typically `card`) |
+| `payout_currency` | Three-letter currency code |
+| `created` | Date the payout was created |
+
+The export includes up to the 100 most recent payouts, filtered to the date range you select. Use the quick presets (**Today**, **Month to date**, **Last 7 days**, **Last month**, **Year to date**, **All time**) or pick custom start and end dates.
+
+#### Export transactions
+
+Click **Export Transactions** on the Payouts tab to download a transaction-level CSV across a date range. Each row represents a single charge or refund.
+
+| Column | Description |
+| --- | --- |
+| `amount` | Gross transaction amount (negative for refunds) |
+| `available_on` | Date the funds become available in your Stripe balance |
+| `balance_transaction_id` | Stripe balance transaction identifier |
+| `created` | Date and time the transaction was created (UTC) |
+| `currency` | Three-letter currency code |
+| `description` | Linked basket UUID or membership invoice reference |
+| `fee` | Application and processing fees deducted from the transaction |
+| `net` | Net amount after fees |
+| `reporting_category` | Either `charge` or `refund` |
+| `basket_id` | UUID of the linked basket, if any |
+
+Pick a date range using the same quick presets as the payouts export, or enter custom start and end dates. The export includes only card transactions with a Stripe balance transaction ID.
+
+<Tip>
+  Use the transaction export to reconcile individual charges and refunds against your Stripe dashboard. Use the payouts export when you only need totals per payout.
+</Tip>
 
 ## Monitoring automated emails
 
