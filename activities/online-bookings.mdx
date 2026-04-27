@@ -90,6 +90,8 @@ Each session can have any combination of the following upsell types configured a
 
 Upsells appear as cards in the booking wizard that the customer can add to their basket in one click. Activity pass upsells skip single-user-only and archived passes automatically, so customers only see passes they can actually purchase.
 
+Activity pass upsells are also hidden when the customer already has enough remaining redemptions on their existing passes to cover the current booking. This avoids prompting customers to buy a pass they don't need. Sailia checks each of the customer's purchased passes that are eligible for the session being booked — taking into account remaining redemptions, single-user restrictions, and the participants selected — and only shows the upsell when the available redemptions fall short of what the booking requires.
+
 <Note>
   Activity pass upsells show the **number of redemptions** included with the pass so customers understand the value at a glance — for example, *"10 redemptions for £80"*.
 </Note>
