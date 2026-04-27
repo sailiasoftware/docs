@@ -20,6 +20,25 @@ These emails are sent by Sailia without any setup required:
 | **Membership renewal** | When a [membership](/pricing/memberships) payment is processed or fails |
 | **Waiver request** | When a customer has outstanding [waivers](/customers/waivers) to complete — includes an authenticated link to fill them in |
 
+## Passwordless booking links
+
+Workflow emails for group bookings and instalment plans include a **manage booking** link that opens the customer's booking directly — no login required.
+
+Each link includes a secure, time-limited token scoped to that specific booking or instalment plan. When a customer clicks the link from their email, they go straight to the booking view without needing to enter their account credentials.
+
+| Email | Link merge field |
+| --- | --- |
+| **Group booking** ([trigger](/integrations/workflow-triggers#group-booking-triggers)) | `manage_booking_details` |
+| **Instalment plan** ([trigger](/integrations/workflow-triggers#instalment-triggers)) | `open_in_sailia_link` |
+
+<Note>
+  Tokens are valid for 12 hours from when the email is sent and only grant access to the specific booking or instalment plan referenced in the link. Customers still need to sign in to access other parts of their account.
+</Note>
+
+<Tip>
+  Customers without an account can still use these links to view their booking. This is helpful for guest checkouts where the recipient does not yet have a Sailia login.
+</Tip>
+
 ## Custom workflows
 
 For messages beyond the built-in set, use [automated workflows](/integrations/workflows). Workflows let you send custom emails or SMS messages triggered by events across bookings, memberships, instalments, and more.
