@@ -94,11 +94,16 @@ Memberships are billed through Stripe. When a customer signs up:
 
 The **Renewal date** on your subscription settings page indicates when the next billing cycle begins.
 
-## Past-due payments
+## Past-due and pending payments
 
 When a membership payment fails — including the initial payment for a newly requested membership — Sailia marks the subscription as past due and displays a warning banner on the customer's **Memberships** profile tab. The banner reads "Action required — One or more subscription payments have failed" and includes a **Complete Payment** button.
 
-On the admin side, the member detail page shows an "Action required" warning with a **Complete Payment** button. You can use this button directly, or direct the client to their profile to complete the payment through the Stripe customer portal.
+On the admin side, the member detail page shows an "Action required" warning with a **Complete Payment** button. Where the button takes the customer depends on the membership status:
+
+- **Pending** memberships — the customer has not yet provided a payment method (for example, an admin created the membership manually or the signup payment did not complete). The button opens Sailia's payment page so the customer can enter their card details and finish setup.
+- **Past due** memberships — the customer has a payment method on file but a charge failed. The button opens the Stripe customer portal, where the customer can update their card and retry the outstanding invoice.
+
+You can use the button directly from the admin view, or direct the customer to their profile to resolve the payment themselves.
 
 You can also set up an [automated workflow](/integrations/workflows) using the **Membership past due** trigger to send an email or SMS when a payment fails. This lets you proactively notify the customer and include a direct link to resolve the issue, without waiting for them to log in and see the banner.
 
@@ -182,6 +187,10 @@ If you use [Xero accounting sync](/integrations/accounting-sync), assign account
 <AccordionGroup>
   <Accordion title="A member's payment failed">
     Stripe handles recurring payment retries automatically. If all retries fail, the membership may be paused or cancelled depending on your Stripe settings. When a payment fails — whether it is an initial signup payment or a recurring renewal — the membership is marked as past due and a warning banner appears on both the admin member detail page and the customer's **Memberships** profile tab. Use the **Complete Payment** button on either page to resolve the issue through the Stripe customer portal. You can also configure a **Membership past due** [workflow](/integrations/workflows) to automatically email or text the customer when this happens.
+  </Accordion>
+
+  <Accordion title="A pending member needs to provide payment details">
+    Memberships in a **pending** state are waiting for a payment method — typically because an admin created the membership directly or the customer abandoned signup before entering card details. On a pending membership, the **Complete Payment** button takes the customer to Sailia's payment page (rather than the Stripe customer portal) so they can enter their card and activate the subscription.
   </Accordion>
 
   <Accordion title="Cannot purchase a membership for a family member">
