@@ -112,8 +112,11 @@ The exported CSV uses human-readable column headers so the file is easy to share
 | `Current billing cycle end date` | The end of the member's current billing period |
 | `Cancelled date` | The date the membership was cancelled, if applicable |
 | `Status` | The current membership status (e.g. `ACTIVE`, `PAST_DUE`, `CANCELLED`) |
+| `Migration status` | The [migration status](#migration-statuses) for imported members, or `-` for members who signed up directly in Sailia |
 | `Membership` | The membership name (e.g. "Gold Membership") |
 | `Plan` | The plan name within that membership (e.g. "Annual") |
+
+The `Migration status` column makes it easy to identify which members are still mid-migration from another system. Use it to spot members who are pending payment info or have not yet reached their first Sailia billing cycle, alongside members who have fully transitioned.
 
 <Tip>
   If you have automated reports that read this CSV, check that they reference the column headers above. Earlier exports used different column labels — update any scripts or spreadsheet templates to match the current names.
@@ -200,8 +203,12 @@ Each row in your import data can include:
 
 Each imported membership has a migration status that determines how billing and add-on changes are applied:
 
-- **Pending start** — the membership has been imported but its first Sailia billing cycle has not started yet. The Stripe subscription exists as a scheduled subscription, not an active one.
+- **Pending payment info** — the membership has been imported but the customer has not yet provided payment details. Billing cannot start until payment information is captured.
+- **Pending start** — payment details are on file and the membership is scheduled, but its first Sailia billing cycle has not started yet. The Stripe subscription exists as a scheduled subscription, not an active one.
 - **Migrated** — the membership has fully transitioned to Sailia and is billing on an active Stripe subscription.
+- **Aborted** — the migration was stopped before completing. The membership will not transition to active billing in Sailia.
+
+Migration statuses are also available in the [members CSV export](#exporting-members), so you can review the migration progress for your full member directory in one place.
 
 ### Updating add-ons on pending-start memberships
 
