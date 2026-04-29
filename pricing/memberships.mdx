@@ -84,6 +84,41 @@ The detail page also shows the **current billing period** as a date range (e.g.,
 
 On a customer's profile, the **Memberships** tab lists all active memberships with the same membership and plan name labels, the current billing period, any attached add-ons, and the member users.
 
+## Exporting members
+
+You can export your member directory to a CSV file for reporting, finance reconciliation, or syncing with external systems. The export reflects whatever filters are currently applied to the directory, so you can scope the file to a specific status or membership before downloading.
+
+<Steps>
+  <Step title="Open the member directory">
+    Navigate to your memberships dashboard and open the directory.
+  </Step>
+  <Step title="Filter the list (optional)">
+    Use the status switches (**All**, **Active**, **Requested**, **Past Due**, **Cancelled**) to narrow the export to the members you want to include.
+  </Step>
+  <Step title="Export to CSV">
+    Click **Export to CSV**, set the number of rows to export, and click **Export** to download the file.
+  </Step>
+</Steps>
+
+The exported CSV uses human-readable column headers so the file is easy to share without further formatting:
+
+| Column | Description |
+| --- | --- |
+| `MemberNumber` | The member's subscription number, including any custom number preserved from a [migration](#migrating-memberships) |
+| `Name` | The member's full name |
+| `Email` | The member's email address |
+| `Started date` | The date the membership started billing in Sailia |
+| `Current billing cycle start date` | The start of the member's current billing period |
+| `Current billing cycle end date` | The end of the member's current billing period |
+| `Cancelled date` | The date the membership was cancelled, if applicable |
+| `Status` | The current membership status (e.g. `ACTIVE`, `PAST_DUE`, `CANCELLED`) |
+| `Membership` | The membership name (e.g. "Gold Membership") |
+| `Plan` | The plan name within that membership (e.g. "Annual") |
+
+<Tip>
+  If you have automated reports that read this CSV, check that they reference the column headers above. Earlier exports used different column labels — update any scripts or spreadsheet templates to match the current names.
+</Tip>
+
 ## Billing
 
 Memberships are billed through Stripe. When a customer signs up:
