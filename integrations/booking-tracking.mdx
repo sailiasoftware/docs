@@ -1,97 +1,127 @@
 ---
 title: Booking tracking events
-description: Track booking funnel activity with automatic events sent to your analytics providers.
-keywords: ['booking tracking', 'analytics', 'Google Tag Manager', 'PostHog', 'conversion tracking']
+description: Track booking funnel activity with automatic GA4 e-commerce events sent to your analytics providers.
+keywords: ['booking tracking', 'analytics', 'Google Tag Manager', 'GA4', 'PostHog', 'conversion tracking', 'ecommerce']
 ---
 
 Sailia automatically fires tracking events at key points in the booking flow. If you have an analytics provider connected — such as Google Tag Manager or PostHog — these events are forwarded automatically, giving you visibility into how customers move through your booking funnel.
 
+When events are forwarded to Google Tag Manager, they are pushed using **GA4 reserved e-commerce event names** (such as `view_item`, `add_to_cart`, `begin_checkout`, `add_payment_info`, and `purchase`). This means you can wire your GTM container up to Google Analytics 4 with no custom event mapping — Sailia's funnel slots straight into the prebuilt **Monetisation** and **Funnel exploration** reports.
+
 ## How it works
 
-When a customer interacts with your booking page, Sailia sends events to every analytics provider you have configured. Each event includes contextual properties like the session name, ticket counts, and estimated value. You can use these events to build conversion funnels, retargeting audiences, and revenue attribution reports in your analytics tool.
+When a customer interacts with your booking page, Sailia sends events to every analytics provider you have configured. Each event includes contextual properties like the session name, ticket counts, and order value. You can use these events to build conversion funnels, retargeting audiences, and revenue attribution reports in your analytics tool.
 
 <Note>
-  Tracking events are only sent when at least one analytics provider is configured. See [setting up a provider](#supported-providers) below.
+  Tracking events are only sent when at least one analytics provider is configured. See [supported providers](#supported-providers) below.
 </Note>
 
 ## Booking funnel events
 
-The following events fire automatically during the booking flow. No additional configuration is needed once a provider is connected.
+The following events fire automatically during the booking flow. The **Sailia event name** is the internal name fired into PostHog and the Sailia backend tracker. The **GA4 event name** is the name pushed into the GTM `dataLayer` so it slots directly into GA4's prebuilt e-commerce reports.
 
-| Event | When it fires | Key properties |
+| Sailia event | GA4 event | When it fires |
 | --- | --- | --- |
-| `booking_start` | Customer begins the booking process by interacting with the first step | `session_id`, `session_name`, `session_type`, `step_name` |
-| `booking_completed` | Customer finishes the booking and the order is ready for payment | `session_id`, `session_name`, `session_type`, `tickets_selected`, `selected_products`, `conversion_value`, `currency` |
+| `booking_grid_view` | `view_item_list` | Customer views a list of available sessions |
+| `session_view` | `view_item` | Customer views a session's details |
+| `add_to_basket` | `add_to_cart` | Customer adds tickets to their basket |
+| `booking_start` | `begin_checkout` | Customer begins the booking process |
+| `pay_now_click` | `add_payment_info` | Customer clicks **Pay now** |
+| `booking_completed` | `purchase` | Payment succeeds and the booking is confirmed |
 
-### Event properties
+<Info>
+  The `purchase` event fires from the payment success page using the authoritative paid total returned by the server. GA4 deduplicates on `transaction_id` (the basket UUID), so refreshing the success page does **not** double-count the conversion.
+</Info>
 
-Every event includes a standard set of properties alongside event-specific ones:
+### Common event properties
+
+Every event includes a relevant subset of these properties:
 
 | Property | Description |
 | --- | --- |
 | `session_id` | The unique identifier of the activity session |
 | `session_name` | The display name of the activity session |
 | `session_type` | The type of session (e.g. course, hire, event) |
-| `tickets_selected` | Number of ticket types the customer selected |
-| `selected_products` | Number of products or sessions in the booking |
-| `conversion_value` | Estimated total value of the booking in the smallest currency unit |
-| `currency` | The currency code (e.g. `GBP`) |
-| `step_name` | The booking step that triggered the event |
+| `tickets_selected` | Number of tickets the customer selected |
+| `value` | Order value in **major currency units** (e.g. pounds, not pence) |
+| `currency` | ISO 4217 currency code (e.g. `GBP`) |
+| `transaction_id` | The basket UUID. Present on `purchase`. GA4 dedupes on this. |
+| `coupon` | Comma-separated list of any discount codes applied to the order |
+| `payment_type` | The payment method used (e.g. `card`, `pay_at_pos`) |
+| `tax` | Order-level fees, in major currency units |
 
 <Info>
-  The `conversion_value` is an estimate based on selected tickets and quantities. The final charged amount may differ after discounts, gift cards, or membership benefits are applied at checkout.
+  Sailia reports **order-level data only** — `value`, `currency`, `transaction_id`, `coupon`, and `payment_type`. Per-item product data (the GA4 `items[]` array) is intentionally not forwarded to your analytics tools.
 </Info>
-
-## Additional tracking events
-
-Beyond the core funnel events above, Sailia also tracks granular interactions during the booking flow:
-
-| Event | Description |
-| --- | --- |
-| `booking_wizard_opened` | The booking wizard was opened for a session |
-| `booking_wizard_step_*` | Customer viewed a specific step (e.g. `booking_wizard_step_select_date`) |
-| `session_view` | Customer viewed the details of a session |
-| `add_to_basket` | Customer added items to their basket |
-| `pay_now_click` | Customer clicked the pay button |
-
-These events help you identify where customers drop off and which sessions generate the most interest.
 
 ## Supported providers
 
 Sailia supports the following analytics providers. Events are sent to all active providers simultaneously.
 
 <AccordionGroup>
-  <Accordion title="Google Tag Manager">
-    Connect your GTM container to receive all tracking events in the `dataLayer`. Each event is pushed with its full set of properties, so you can create triggers and tags in GTM without any custom code.
+  <Accordion title="Google Tag Manager (GA4)">
+    Connect your GTM container to receive booking events in the `dataLayer` using GA4-standard event names. Each commerce event is pushed with a structured `ecommerce` payload, so you can connect a GA4 configuration tag with no custom event mapping.
 
-    Events appear in the `dataLayer` in this format:
+    Sailia follows GA4 best practice and clears the `ecommerce` object before each push so values don't bleed between events:
 
     ```json
-    {
-      "event": "booking_completed",
-      "session_id": "abc123",
-      "session_name": "Kayaking for Beginners",
-      "session_type": "course",
-      "tickets_selected": 2,
-      "selected_products": 1,
-      "conversion_value": 5000,
-      "currency": "GBP"
-    }
+    [
+      { "ecommerce": null },
+      {
+        "event": "purchase",
+        "sailia_event": "booking_completed",
+        "ecommerce": {
+          "transaction_id": "b1f4a4e2-5a2c-4f0a-9d8b-1a2b3c4d5e6f",
+          "value": 50.00,
+          "currency": "GBP",
+          "tax": 1.50,
+          "coupon": "SUMMER10"
+        },
+        "basket_uuid": "b1f4a4e2-5a2c-4f0a-9d8b-1a2b3c4d5e6f",
+        "basket_value": 50.00,
+        "basket_currency": "GBP",
+        "basket_coupon": "SUMMER10",
+        "basket_payment_method": "card"
+      }
+    ]
     ```
 
-    If you provide your website URL alongside the GTM container, Sailia automatically configures cross-domain tracking between your website and your Sailia booking page.
+    The original Sailia event name is preserved on every push as `sailia_event`, so you can still trigger custom tags off Sailia-specific names if you need to.
+
+    ### Top-level basket fields
+
+    To make it easy to fire **non-GA4** tags — Meta Pixel, Google Ads, TikTok, server-side custom tags — Sailia also mirrors the key e-commerce fields at the top level of the `dataLayer` push under explicit, Sailia-named keys. You don't need to dig into the structured `ecommerce` object to read them.
+
+    | Top-level key | Description | Events |
+    | --- | --- | --- |
+    | `basket_value` | Order value in major currency units | All commerce events |
+    | `basket_currency` | ISO 4217 currency code | All commerce events |
+    | `basket_uuid` | Unique transaction id | `purchase` only |
+    | `basket_coupon` | Discount codes applied | `purchase` only |
+    | `basket_payment_method` | Payment method used | `purchase` only |
+
+    ### Cross-domain tracking
+
+    If you provide your website URL alongside the GTM container, Sailia automatically configures cross-domain tracking between your website and your Sailia booking page. You can pass additional domains via the `linkerDomains` config option to extend the linker to other hostnames.
+
+    ### User identification
+
+    When a logged-in customer is on the booking page, Sailia pushes a `user_id` into the `dataLayer` once at GTM initialisation time. Anonymous and zero-value user ids are skipped, so you don't pollute reports with placeholder users.
   </Accordion>
   <Accordion title="PostHog">
     Connect your PostHog project to capture booking events as PostHog events. Sailia automatically identifies logged-in customers, so you can build funnels and cohorts based on booking behaviour.
+
+    PostHog receives the **Sailia** event names (`booking_completed`, `add_to_basket`, etc.) — the GA4 mapping only applies to the GTM provider.
   </Accordion>
 </AccordionGroup>
 
 ## Use cases
 
-- **Conversion funnels** — track the drop-off between `booking_start` and `booking_completed` to identify friction in your booking flow
-- **Revenue attribution** — use `conversion_value` with your ad platform to measure return on ad spend
-- **Retargeting** — build audiences of customers who started but did not complete a booking
-- **Session performance** — compare `session_view` and `booking_completed` rates across different activities
+- **GA4 prebuilt reports** — events flow straight into GA4's **Monetisation** and **Funnel exploration** reports with no remapping
+- **Conversion funnels** — track drop-off between `begin_checkout`, `add_payment_info`, and `purchase`
+- **Revenue attribution** — `value` and `transaction_id` give you accurate ROAS in Google Ads and Meta Ads
+- **Retargeting** — build audiences of customers who reached `add_to_cart` but did not `purchase`
+- **Multi-tag firing** — use the top-level `basket_value` / `basket_uuid` keys to trigger Meta Pixel, Google Ads, and TikTok tags without parsing the GA4 `ecommerce` object
 
 ## Related guides
 
