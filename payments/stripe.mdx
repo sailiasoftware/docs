@@ -54,6 +54,37 @@ In Sailia, you can view payout details in the finances section, including:
 
 If you have [Xero accounting sync](/integrations/accounting-sync) enabled, each payout is automatically sent to Xero as a categorized invoice.
 
+### Instant refund reserve
+
+If you use manual payouts, Sailia automatically holds back a small portion of your available balance so that customer refunds can always be processed instantly — even when most of your funds have already been paid out to your bank account.
+
+The reserve is shown alongside your **Available Balance** on the financial dashboard, with a **Target reserve** value beneath it. Each manual payout is sized so that your Stripe balance never falls below this target.
+
+#### How the target is calculated
+
+The target reserve is recalculated from your recent activity over the last 35 days. Sailia uses the largest of the following values:
+
+- A minimum buffer of £200.00
+- 35% of your refund volume
+- 2% of your payment volume
+
+If no card payments or refunds have been processed for 80 days or more, the reserve is automatically released to zero.
+
+#### How the reserve affects payouts
+
+When a manual payout runs:
+
+1. Sailia calculates the target reserve based on your recent activity.
+2. Eligible payments are added to the payout up to your available Stripe balance.
+3. If the payout would leave your balance below the target reserve, individual charges are removed from the payout until the reserve is preserved. Refunds are never removed.
+4. The reserve is topped up gradually — at most 10% of an eligible payout is diverted toward closing any gap to the target.
+
+If there isn't enough available balance to safely pay out without dipping into the reserve, Sailia skips the payout and waits until more funds are available.
+
+<Note>
+  The instant refund reserve only applies when **manual payouts** are enabled on your Stripe account. Tenants on Stripe's standard daily or weekly payout schedule are not affected.
+</Note>
+
 ## Refunds
 
 You can process refunds from the booking details in your dashboard:
