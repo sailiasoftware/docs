@@ -21,6 +21,31 @@ The financial dashboard gives you a centralized view of all payment activity acr
   Access to the financial dashboard requires the **Financial Dashboard** [permission](/staff/management#permissions). Staff without this permission cannot view payout data or export reports.
 </Note>
 
+### Baskets table
+
+The **Baskets** tab lists every basket on your account. Each row shows the most relevant details at a glance:
+
+| Column | Description |
+| --- | --- |
+| **Amount** | Basket total in your account currency |
+| **Status** | Current basket status (for example, Paid, Pending, Refunded) |
+| **Payment Option** | How the basket was paid — including [card brand and last four digits](#card-details-on-card-payments) for card payments |
+| **Customer** | The customer name, or **Guest** for guest checkouts |
+| **ID** | Basket identifier. Click the copy icon to copy the full UUID |
+| **Last Updated** | When the basket last changed status |
+
+Click any row to open the full receipt, where you can issue refunds, view items, and inspect the payment method used.
+
+#### Card details on card payments
+
+For card and invoice baskets, the **Payment Option** column displays the card brand logo (Visa, Mastercard, American Express, Discover, JCB, Diners Club, UnionPay) alongside the last four digits of the card. If the customer paid with a digital wallet such as Apple Pay, Google Pay, or Stripe Link, the wallet's underlying card details are shown.
+
+The same card details also appear in the **Payment Method** row of the receipt popup so you can confirm which card a customer used without leaving Sailia.
+
+<Note>
+  Card brand and last four digits are captured automatically from Stripe at the time of payment. Older baskets paid before this feature was released may not show card details.
+</Note>
+
 ## Payouts
 
 Stripe sends payouts to your connected bank account on a regular schedule. Each payout in Sailia shows:
