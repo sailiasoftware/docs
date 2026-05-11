@@ -82,9 +82,14 @@ Use [automated workflows](/integrations/workflows) to keep customers informed th
 
 ## Terminating an instalment plan
 
-You can manually terminate an active instalment plan from the refund wizard. This is useful when a customer cancels a booking that is being paid in instalments and you want to stop future collections at the same time as issuing a refund.
+You can manually terminate an active instalment plan in two places:
 
-To terminate a plan:
+- **From the refund wizard** — when you're cancelling the booking and issuing a refund at the same time.
+- **From the financial dashboard** — when the underlying booking items have already been cancelled and you just need to stop future collections.
+
+### From the refund wizard
+
+Use this option when a customer cancels a booking that is being paid in instalments and you want to stop future collections at the same time as issuing a refund.
 
 1. Open the booking and select **Refund**.
 2. For the item that is part of an instalment plan, enable **Terminate instalment plan for this item**.
@@ -96,8 +101,27 @@ Sailia processes the refund, marks the plan as terminated, and emails the custom
   If you leave **Terminate instalment plan for this item** disabled, the plan stays active and Sailia continues to prompt the customer to pay future instalments — even after the refund is issued. Enable the checkbox whenever the refund should also stop the remaining schedule.
 </Note>
 
+### From the financial dashboard
+
+Use this option when the booking items linked to an instalment plan have already been cancelled but the plan itself is still in progress — for example, if the refund was issued without enabling **Terminate instalment plan for this item**, or if the items were cancelled separately. Terminating the plan here stops Sailia from prompting the customer for any remaining payments.
+
+1. Go to your [financial dashboard](/payments/reporting) and open the **Instalments** tab.
+2. Select the in-progress instalment plan you want to terminate.
+3. If the base booking items have already been cancelled, a **Terminate Instalment Plan** button appears below the instalment timeline.
+4. Click **Terminate Instalment Plan** and confirm.
+
+The plan moves to a terminated state and no further instalment payments are collected. The button only appears when:
+
+- The plan status is **In progress**.
+- At least one of the original booking items linked to the plan has been cancelled.
+- You have the **Financial Dashboard** [permission](/staff/permissions).
+
+<Note>
+  If the booking items are still active, terminate the plan through the refund wizard instead so the cancellation and refund happen together.
+</Note>
+
 <Warning>
-  Terminating a plan is permanent. Remaining scheduled payments are stopped and cannot be restarted.
+  Terminating a plan is permanent. Remaining scheduled payments are stopped and cannot be restarted — the customer would need to be rebooked to resume collection.
 </Warning>
 
 ## Troubleshooting
@@ -109,6 +133,10 @@ Sailia processes the refund, marks the plan as terminated, and emails the custom
 
   <Accordion title="A customer wants to cancel and stop future payments">
     Open the booking, select **Refund**, and enable **Terminate instalment plan for this item** before confirming. The plan is cancelled along with the refund and no further payments are collected. See [Terminating an instalment plan](#terminating-an-instalment-plan).
+  </Accordion>
+
+  <Accordion title="The booking was cancelled but the instalment plan is still running">
+    Open the **Instalments** tab in the [financial dashboard](/payments/reporting), select the plan, and click **Terminate Instalment Plan**. This button appears whenever the base booking items have been cancelled but the plan is still in progress. See [From the financial dashboard](#from-the-financial-dashboard).
   </Accordion>
 
   <Accordion title="A customer wants to pay off their remaining balance early">
