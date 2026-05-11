@@ -80,11 +80,31 @@ Use [automated workflows](/integrations/workflows) to keep customers informed th
   Set up an "instalment due" workflow to send a reminder a few days before each payment. This reduces failed payments and improves the customer experience.
 </Tip>
 
+## Terminating an instalment plan
+
+You can manually terminate an active instalment plan from the refund wizard. This is useful when a customer cancels a booking that is being paid in instalments and you want to stop future collections at the same time as issuing a refund.
+
+To terminate a plan:
+
+1. Open the booking and select **Refund**.
+2. For the item that is part of an instalment plan, enable **Terminate instalment plan for this item**.
+3. Enter the refund amount and confirm.
+
+Sailia processes the refund, marks the plan as terminated, and emails the customer to confirm that the plan has been cancelled. Outstanding scheduled payments are no longer collected. See [Cancelling instalment bookings](/activities/cancellations-and-refunds#cancelling-instalment-bookings) for the full refund workflow.
+
+<Warning>
+  Terminating a plan is permanent. Remaining scheduled payments are stopped and cannot be restarted.
+</Warning>
+
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="A customer's instalment payment failed">
     Stripe automatically retries failed payments on its default schedule. If retries are exhausted, the plan is marked as abandoned. Check the customer's payment method in Stripe and contact them to update their card details if needed.
+  </Accordion>
+
+  <Accordion title="A customer wants to cancel and stop future payments">
+    Open the booking, select **Refund**, and enable **Terminate instalment plan for this item** before confirming. The plan is cancelled along with the refund and no further payments are collected. See [Terminating an instalment plan](#terminating-an-instalment-plan).
   </Accordion>
 
   <Accordion title="A customer wants to pay off their remaining balance early">
