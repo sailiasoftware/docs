@@ -12,13 +12,31 @@ These emails are sent by Sailia without any setup required:
 
 | Email | When it's sent |
 | --- | --- |
-| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address. Includes a PDF receipt attachment. |
-| **Guest receipt** | When a guest (no account) enters their email on the payment success page. Sends the booking confirmation and PDF receipt to the provided address. See [guest receipts](/activities/online-bookings#guest-receipts). |
+| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address. Includes a PDF receipt and a calendar invite (`.ics`) attachment. |
+| **Guest receipt** | When a guest (no account) enters their email on the payment success page. Sends the booking confirmation, PDF receipt, and calendar invite to the provided address. See [guest receipts](/activities/online-bookings#guest-receipts). |
 | **Refund notification** | When a [refund](/payments/stripe#refunds) is processed for a booking |
 | **Gift card delivery** | When a customer purchases a [gift card](/pricing/gift-cards) — sent to the buyer or recipient |
 | **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session — includes a direct booking link |
 | **Membership renewal** | When a [membership](/pricing/memberships) payment is processed or fails |
 | **Waiver request** | When a customer has outstanding [waivers](/customers/waivers) to complete — includes an authenticated link to fill them in |
+
+## Calendar invites
+
+Booking confirmation emails include a calendar invite (`.ics` file) attachment that customers can add to Apple Calendar, Google Calendar, Outlook, or any other calendar app that supports the iCalendar format.
+
+The invite covers the booking's session name, location address, and a short description. Times are converted to your tenant timezone, and overnight bookings are emitted as all-day events spanning the full duration.
+
+| Behavior | Detail |
+| --- | --- |
+| **When it's attached** | Booking confirmation emails sent to the booking owner, and guest receipts requested on the payment success page. |
+| **What's included** | Public event details only — session name, address, and a short public-facing description. Customer or staff notes are never included. |
+| **Multiple activities** | Orders with several bookings produce a single `.ics` file containing one event per booking. |
+| **All-day bookings** | Overnight sessions are emitted as multi-day all-day events. |
+| **File name** | Named after the activity (for example, `Surf lesson.ics`) when all events share a name, otherwise `Booking.ics`. |
+
+<Note>
+  Calendar invites are sent automatically — no setup required. The attachment is only added when the recipient is the customer who made the booking (or the guest who requested the receipt), so manually forwarded confirmations sent to a different address do not include the invite.
+</Note>
 
 ## Passwordless booking links
 
@@ -84,7 +102,7 @@ This is useful when:
 - You made changes to the booking and want to send an updated confirmation
 
 <Note>
-  The resent email uses the same booking confirmation template with the current booking details and PDF receipt. If the booking has been modified since the original confirmation, the email reflects the latest information.
+  The resent email uses the same booking confirmation template with the current booking details and PDF receipt. If the booking has been modified since the original confirmation, the email reflects the latest information. The calendar invite attachment is only included when the email is sent to the booking owner's address.
 </Note>
 
 ## Related guides
