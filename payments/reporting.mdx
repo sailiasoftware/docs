@@ -58,6 +58,22 @@ You can export transaction data as CSV files from the financial dashboard. Click
 
 After selecting an export type, a dialog appears where you set a date range and optional filters before downloading the CSV.
 
+#### Basket item amounts
+
+Basket item exports include both the pre-discount row cost and any discounts as separate columns, plus a computed line total so you can read the final per-line amount without doing arithmetic in your spreadsheet.
+
+| Column | Description |
+| --- | --- |
+| `item_unit_cost` | Unit price of the product, in pounds |
+| `item_quantity` | Quantity purchased on this line |
+| `item_row_cost_pre_discount` | Row total before discounts (`item_unit_cost` × `item_quantity`), in pounds |
+| `total_item_discounts_value` | Total discounts applied to this line, in pounds |
+| `item_line_total_after_discounts` | Final line total after discounts (`item_row_cost_pre_discount` − `total_item_discounts_value`), in pounds |
+
+<Tip>
+  Use `item_line_total_after_discounts` when reconciling line-level revenue against basket totals or when summing net revenue per product in a spreadsheet.
+</Tip>
+
 ### Export filters
 
 Depending on the export type, you can narrow down which records are included.
