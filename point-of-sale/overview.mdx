@@ -179,7 +179,25 @@ You can set a custom title on any tile to override the default product name. Cus
 
 - Custom titles have a maximum length of 20 characters.
 - If no custom title is set, the tile shows the current name of the linked item.
+- Long titles are truncated on the tile. Hover the tile to see the full title.
 - Folders and category tiles also use custom titles for their display name.
+
+### Tile meta captions
+
+Each tile shows a short caption in the bottom-left corner that gives staff at-a-glance context without opening the item. The caption depends on the tile type:
+
+| Tile type | Caption shown |
+| --- | --- |
+| **Shop product** (no variants) | Default price |
+| **Shop product** (with variants) | Number of variants — for example, `3 variants` |
+| **Activity** | Ticket price range — for example, `£5.00 – £12.00`. Shows a single price when all tickets are the same price. Upsell-only tickets are excluded. |
+| **Membership** or **Activity pass** | Default price |
+| **Gift card** | Default price |
+| **Discount code** | Discount amount — `10%` for percentage codes, or the fixed amount for fixed-value codes |
+| **Folder** | Folder icon |
+| **Category** | `Category` label |
+
+Captions update automatically when prices, variants, or discount values change on the underlying item — you don't need to edit POS tiles after pricing changes elsewhere in Sailia.
 
 ### Folders
 

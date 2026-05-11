@@ -51,6 +51,14 @@ Both channels share the same product catalog and pricing configuration.
 
 When you enable stock tracking for a product or variant, Sailia monitors available inventory and prevents overselling.
 
+### Out-of-stock tiles in the POS
+
+When a stock-tracked product runs out, its tile in the POS grid is greyed out and shows an **Out of Stock** overlay so staff can't add it to the basket.
+
+- For products **without variants**, the tile is marked out of stock when stock reaches zero.
+- For products **with variants**, the tile is marked out of stock only when every stock-tracked variant has run out. If at least one variant still has stock, the tile stays available and the variant selector shows which options can be sold.
+- The available quantity already accounts for items currently in the active basket, so a tile flips to out of stock as soon as the last unit is added to an order.
+
 ### Pending basket quantities
 
 When a customer adds a stock-tracked product to their basket, the quantity is held until the basket expires or the order is completed. These held quantities are shown as **pending basket warnings** when you adjust stock levels.
