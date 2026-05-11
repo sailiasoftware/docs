@@ -12,13 +12,34 @@ These emails are sent by Sailia without any setup required:
 
 | Email | When it's sent |
 | --- | --- |
-| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address. Includes a PDF receipt attachment. |
+| **Booking confirmation** | Immediately after a successful online booking or POS sale with an email address. Includes a PDF receipt attachment, plus a calendar invite (`.ics`) for any scheduled bookings — see [calendar invites](#calendar-invites). |
 | **Guest receipt** | When a guest (no account) enters their email on the payment success page. Sends the booking confirmation and PDF receipt to the provided address. See [guest receipts](/activities/online-bookings#guest-receipts). |
 | **Refund notification** | When a [refund](/payments/stripe#refunds) is processed for a booking |
 | **Gift card delivery** | When a customer purchases a [gift card](/pricing/gift-cards) — sent to the buyer or recipient |
 | **Waitlist notification** | When a spot opens up on a [waitlisted](/activities/waitlists) session — includes a direct booking link |
 | **Membership renewal** | When a [membership](/pricing/memberships) payment is processed or fails |
 | **Waiver request** | When a customer has outstanding [waivers](/customers/waivers) to complete — includes an authenticated link to fill them in |
+
+## Calendar invites
+
+Booking confirmation emails include a calendar invite (`.ics`) attachment for any scheduled bookings in the order. Customers can open the attachment to add the activity directly to Apple Calendar, Google Calendar, Outlook, or any other calendar app that supports the iCalendar format.
+
+The invite includes:
+
+- **Title** — the session name (or your business name if the session has no name)
+- **Date and time** — the booking start time, converted to your tenant's [timezone](/getting-started/account-settings). Overnight sessions are added as all-day events spanning the full duration.
+- **Location** — the address of the centre running the activity
+- **Description** — a short summary of the session description and any location notes
+
+Calendar invites are attached automatically — no setup is required. The attachment only appears when the confirmation email is sent to the customer who made the booking, so internal staff notifications and forwarded copies do not include it.
+
+<Note>
+  Calendar invites are only included for bookings tied to a scheduled session. Orders that contain only memberships, gift cards, or other non-scheduled products do not generate an invite.
+</Note>
+
+<Tip>
+  The invite file is named after the session — for example, `Beginner Surf Lesson.ics`. When an order contains multiple different sessions, the file is named `Booking.ics`.
+</Tip>
 
 ## Passwordless booking links
 
