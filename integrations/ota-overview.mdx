@@ -1,0 +1,61 @@
+---
+title: OTA integrations
+description: Distribute your activities through online travel agencies like GetYourGuide, Viator, Tripadvisor, Klook, and Google Things to Do.
+keywords: ['OTA', 'online travel agency', 'distribution', 'GetYourGuide', 'Viator', 'Tripadvisor', 'Klook', 'Google Things to Do', 'Adventuro']
+---
+
+Sailia connects to the major online travel agencies (OTAs) so you can list your activities on third-party marketplaces while keeping availability, bookings, and customer data centralized in Sailia.
+
+## How OTA integrations work
+
+Each integration pulls real-time availability from Sailia and pushes bookings back into your dashboard. Bookings made through any OTA appear alongside your online and POS bookings in the [bookings dashboard](/activities/managing-bookings) and share the same capacity — a booking through GetYourGuide reduces available spots everywhere.
+
+The Sailia API used for these integrations follows the **OTA Core** specification. If you build directly against it, see the [OTA Core API reference](/api-reference/ota-core).
+
+## Supported OTAs
+
+<Columns cols={2}>
+  <Card title="Adventuro" icon="mountain" href="/integrations/adventuro">
+    UK-focused marketplace for outdoor and adventure experiences.
+  </Card>
+  <Card title="GetYourGuide" icon="globe" href="/integrations/getyourguide">
+    Global tours and activities marketplace.
+  </Card>
+  <Card title="Viator" icon="ship" href="/integrations/viator">
+    Tripadvisor's global activities marketplace.
+  </Card>
+  <Card title="Tripadvisor Experiences" icon="map" href="/integrations/tripadvisor">
+    Activities visible directly on Tripadvisor listings.
+  </Card>
+  <Card title="Google Things to Do" icon="google" href="/integrations/google-things-to-do">
+    Surface your activities in Google Search and Maps.
+  </Card>
+  <Card title="Klook" icon="plane" href="/integrations/klook">
+    Major distribution channel across Asia-Pacific.
+  </Card>
+</Columns>
+
+## What you'll typically need
+
+Setting up an OTA connection usually involves:
+
+1. Creating or claiming your account on the OTA platform.
+2. Generating an API key in Sailia (or providing credentials from the OTA).
+3. Mapping each of your Sailia products to the matching product on the OTA.
+
+The specific steps differ by provider — see the individual guides for details.
+
+## Where bookings appear
+
+OTA bookings are tagged with the source channel in the bookings dashboard. You can filter or export by channel to see how much business each OTA brings in. Refunds and rescheduling for OTA bookings are handled through Sailia in the normal way.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="OTA Core API" icon="code" href="/api-reference/ota-core">
+    Build a custom integration against the OTA Core spec.
+  </Card>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    View OTA bookings alongside online and POS bookings.
+  </Card>
+</Columns>

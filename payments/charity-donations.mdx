@@ -1,0 +1,81 @@
+---
+title: Charity donations
+description: Let customers add a charity donation to their booking at checkout.
+keywords: ['charity', 'donations', 'checkout', 'fundraising', 'good causes']
+---
+
+You can give customers the option to add a charity donation alongside their booking or purchase. Donations are processed in the same transaction as the rest of the basket, so customers don't need to pay separately.
+
+<Note>
+  Donations are taken at checkout as part of a single Stripe payment. They appear as a separate line item in your reporting so you can track total donations raised over any period.
+</Note>
+
+## Enable donations
+
+<Steps>
+  <Step title="Open payments settings">
+    Go to **Admin → Settings → Payments** and scroll to the **Charity Donations** section.
+  </Step>
+  <Step title="Turn donations on">
+    Open the **Donations Status** card, switch **Enable charity donations** on, and save.
+  </Step>
+  <Step title="Set the charity name">
+    Open the **Charity Name** card and enter the name of your chosen charity. This is required — the donation option won't appear at checkout without a name set. The checkout displays `Donation to [Charity Name]`.
+  </Step>
+</Steps>
+
+## Charity details
+
+Beyond the name, you can also add:
+
+| Field | Description |
+| --- | --- |
+| **Charity description** | A short explanation of how donations are used. Shown inside the donation box at checkout. |
+| **Charity image** | A logo or relevant image displayed alongside the donation option. |
+
+Both are optional but help customers understand what they're supporting and improve conversion.
+
+## How donations appear at checkout
+
+Once enabled, customers see a donation card during checkout with:
+
+- Suggested amounts
+- A custom amount field
+- The charity name, description, and image (if set)
+
+The donation is added to the basket and paid in the same transaction as their booking.
+
+<Note>
+  The maximum donation amount per transaction is **£100,000**.
+</Note>
+
+## Track total donations
+
+To see how much has been raised:
+
+<Steps>
+  <Step title="Open finances">
+    Go to **Admin → Finances** and open the **Baskets** view.
+  </Step>
+  <Step title="Export basket items">
+    Click **Export Data**, choose your date range, then click **Export Basket Items**.
+  </Step>
+  <Step title="Filter for donations">
+    In the CSV, filter the `product_type` column for `ONE_OFF_PAYMENT`, or filter the product name column for "Donation to". Sum the `amount` or `row_cost` column for those rows to get the total raised.
+  </Step>
+</Steps>
+
+## Disable donations
+
+If you want to stop offering donations, return to **Settings → Payments → Charity Donations** and switch **Donations Status** off. The donation option disappears from checkout immediately. Existing donation records remain in your reports.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Stripe payments" icon="credit-card" href="/payments/stripe">
+    How payments are processed in Sailia.
+  </Card>
+  <Card title="Financial reporting" icon="chart-line" href="/payments/reporting">
+    Export and analyze your transactions.
+  </Card>
+</Columns>
