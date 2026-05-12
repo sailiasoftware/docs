@@ -12,6 +12,7 @@ The financial dashboard gives you a centralized view of all payment activity acr
 
 - View gross revenue, Stripe fees, and net payouts
 - Browse individual transactions with payment method, status, and customer details
+- See the card brand and last four digits on card transactions at a glance
 - Filter by date range, payment method, or transaction type
 - Compare periods and see percentage changes at a glance in chart tooltips
 - Track [instalment plan](/payments/instalments) progress
@@ -19,6 +20,16 @@ The financial dashboard gives you a centralized view of all payment activity acr
 
 <Note>
   Access to the financial dashboard requires the **Financial Dashboard** [permission](/staff/management#permissions). Staff without this permission cannot view payout data or export reports.
+</Note>
+
+### Card details on transactions
+
+Card transactions in the financial dashboard and on order receipts display the card brand logo alongside the last four digits of the card used — for example, a Visa logo followed by `•••• 4242`. This makes it easier to identify which card a customer paid with when reconciling a payment or handling a customer query.
+
+Brand logos are shown for Visa, Mastercard, American Express, Discover, Diners Club, JCB, and UnionPay. For wallet payments (Apple Pay, Google Pay), the wallet is shown in addition to the underlying card. Cash, invoice, and other non-card payments are unaffected.
+
+<Note>
+  Card brand and last four digits are populated automatically from Stripe and only appear for transactions completed after this feature shipped. Older transactions continue to display the payment method without card details.
 </Note>
 
 ## Payouts
