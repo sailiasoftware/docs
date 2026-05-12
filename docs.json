@@ -21,6 +21,7 @@
               "getting-started/admin-dashboard",
               "getting-started/setup-checklist",
               "getting-started/account-settings",
+              "getting-started/branding",
               "getting-started/booking-page",
               "getting-started/embedding",
               "getting-started/locations",
@@ -32,6 +33,7 @@
             "group": "Activities and scheduling",
             "pages": [
               "activities/activities",
+              "activities/add-ons",
               "activities/online-bookings",
               "activities/managing-bookings",
               "activities/group-bookings",
@@ -47,6 +49,7 @@
               "customers/overview",
               "customers/customer-accounts",
               "customers/family-accounts",
+              "customers/importing-customers",
               "customers/waivers",
               "customers/file-uploads",
               "customers/notifications",
@@ -86,6 +89,7 @@
             "group": "Staff and operations",
             "pages": [
               "staff/management",
+              "staff/qualifications",
               "staff/permissions",
               "staff/auto-timesheets",
               "staff/availability",
@@ -114,6 +118,7 @@
             "pages": [
               "help/common-tasks",
               "help/customer-guide",
+              "help/data-privacy",
               "help/faq",
               "help/troubleshooting",
               "getting-started/glossary",

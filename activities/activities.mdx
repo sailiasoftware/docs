@@ -16,7 +16,11 @@ Sailia supports three types of activities:
 | **Hires** | Equipment or resource rentals for a defined duration, such as kayak hire or wetsuit rental |
 | **Events** | One-off or recurring events with attendee management, such as a beach clean-up or open day |
 
-All three types share the same booking and payment flow. The main differences are in how scheduling and capacity work.
+All three types share the same booking and payment flow. The main differences are in how scheduling and capacity work:
+
+- **Courses** have a fixed schedule with specific start times. You define when each session runs and how many sessions make up the course. Customers book individual sessions or the full course.
+- **Hires** are time-slot based. You define the available hours and duration options, and customers choose their preferred slot.
+- **Events** are typically one-off or annual occasions. You set the date, time, and attendee capacity.
 
 ## Create an activity
 
@@ -85,15 +89,9 @@ If you choose to measure from the end time instead, the cutoff is calculated bac
 
 ## Add-ons
 
-Add-ons are optional extras that customers can purchase alongside an activity booking. Examples include equipment hire, photography packages, or meal upgrades.
+Add-ons are optional extras that customers can purchase alongside an activity booking. Examples include equipment hire, photography packages, or meal upgrades. Each add-on can be charged per person or per booking.
 
-When creating an add-on:
-
-1. Give it a name, description, and price.
-2. Link it to one or more activities.
-3. Choose whether it is per-person or per-booking.
-
-Add-ons appear during the checkout flow and are included in the order total. They are also eligible for [discount codes](/pricing/discount-codes) if configured.
+See [add-ons](/activities/add-ons) for a full guide on creating, managing, and pricing add-ons.
 
 ## Accounting categories
 
@@ -104,10 +102,16 @@ Add-ons are categorized independently of the activities they are linked to. Assi
 ## Related guides
 
 <Columns cols={2}>
+  <Card title="Add-ons" icon="puzzle-piece" href="/activities/add-ons">
+    Offer optional extras alongside activity bookings.
+  </Card>
   <Card title="Online bookings" icon="globe" href="/activities/online-bookings">
     Learn how customers book activities through your booking page.
   </Card>
   <Card title="Waitlists" icon="user-plus" href="/activities/waitlists">
     Manage demand when activities are fully booked.
+  </Card>
+  <Card title="Seasonal scheduling" icon="snowflake" href="/activities/seasonal-scheduling">
+    Manage seasonal availability and holiday schedules.
   </Card>
 </Columns>
