@@ -1,0 +1,208 @@
+---
+title: Connecting Google Analytics
+description: Step-by-step setup for connecting Google Analytics 4, Google Tag Manager, and Meta Pixel to your Sailia booking page.
+keywords: ['Google Analytics', 'GA4', 'Google Tag Manager', 'GTM', 'Meta Pixel', 'Facebook Pixel', 'conversion tracking', 'analytics setup']
+---
+
+Sailia automatically fires GA4-format e-commerce events from your booking page (see [booking tracking events](/integrations/booking-tracking) for the full list). This guide walks you through the one-time setup to actually receive those events in Google Analytics 4 via Google Tag Manager.
+
+If you only want to know which events Sailia fires, see the [booking tracking reference](/integrations/booking-tracking).
+
+## What you'll need
+
+Before you start, make sure you have:
+
+- A free [Google Tag Manager](https://tagmanager.google.com/) container
+- A [Google Analytics 4](https://analytics.google.com/) property
+- Your **GA4 Measurement ID** (looks like `G-XXXXXXXXXX`)
+- Your **GTM Container ID** (looks like `GTM-XXXXXXX`)
+- Access to your Sailia admin settings
+- Optional: a [Meta Business Manager](https://business.facebook.com/) account if you also want Facebook/Instagram Pixel tracking
+
+## 1. Add your GTM container to Sailia
+
+In Sailia, go to **Admin → Settings → Business Details** and add:
+
+- Your **GTM Container ID**
+- Your **Website URL**
+
+Sailia uses this to load your GTM container on customer-facing booking pages. It also helps GA4 understand that customers moving from your main website to Sailia are part of the same session.
+
+## 2. Create your Google tag in GTM
+
+Open Google Tag Manager and select your container.
+
+<Steps>
+  <Step title="Create a new tag">
+    Go to **Tags → New** and choose **Google Tag**.
+  </Step>
+  <Step title="Set the Tag ID">
+    Enter your GA4 Measurement ID (`G-XXXXXXXXXX`).
+  </Step>
+  <Step title="Trigger on all pages">
+    Set the trigger to **All Pages**.
+  </Step>
+  <Step title="Name and save">
+    Name it `Google Tag - GA4` and save.
+  </Step>
+</Steps>
+
+## 3. Create the GA4 event tag
+
+This tag forwards Sailia's e-commerce events into GA4.
+
+<Steps>
+  <Step title="Create a new tag">
+    Go to **Tags → New** and choose **Google Analytics: GA4 Event** (may appear as "Google Analytics event" in newer GTM accounts).
+  </Step>
+  <Step title="Configure the tag">
+    | Field | Value |
+    | --- | --- |
+    | Event name | `{{Event}}` |
+    | Google Tag | The tag you created in step 2 |
+    | Send Ecommerce data | Enabled |
+    | Data source | Data Layer |
+  </Step>
+  <Step title="Name and save">
+    Name it `Sailia GA4 Ecommerce Events`. You'll attach a trigger next.
+  </Step>
+</Steps>
+
+## 4. Create the trigger
+
+<Steps>
+  <Step title="Create a new trigger">
+    Go to **Triggers → New** and choose **Custom Event**.
+  </Step>
+  <Step title="Set the event name">
+    Use this regex:
+
+    ```
+    ^(view_item_list|view_item|add_to_cart|begin_checkout|add_payment_info|purchase)$
+    ```
+
+    Enable **Use regex matching**, and set it to fire on **All Custom Events**.
+  </Step>
+  <Step title="Attach to the tag">
+    Name it `Sailia GA4 Ecommerce Events` and attach it to the GA4 Event tag from step 3.
+  </Step>
+</Steps>
+
+## 5. Test in GTM Preview mode
+
+Before publishing:
+
+1. In GTM, click **Preview** and open your Sailia booking page.
+2. Complete a test booking through to the payment success page.
+3. In Tag Assistant, you should see events fire: `view_item_list`, `view_item`, `begin_checkout`, `add_payment_info`, and finally `purchase`.
+4. Click the `purchase` event. Under **Tags Fired** you should see `Sailia GA4 Ecommerce Events`.
+5. Check the **Data Layer** tab — you should see values like `basket_uuid`, `basket_value`, `basket_currency`, and `ecommerce.transaction_id`.
+
+If you see those, your tracking is working.
+
+## 6. Publish your container
+
+Once testing looks correct, click **Submit** in GTM, add a version name like `Add Sailia GA4 booking and purchase tracking`, and publish. Events won't be sent live until the container is published.
+
+## 7. Mark purchase as a key event in GA4
+
+In GA4, go to **Admin → Events**. Once GA4 has received a `purchase` event, find it in the list and enable **Mark as key event**. This makes purchases count as conversions.
+
+You can also mark `add_to_cart`, `begin_checkout`, and `add_payment_info` as funnel events if you want them in GA4's funnel exploration reports — but usually only `purchase` should be the main key event.
+
+## 8. Confirm in GA4
+
+GA4's standard reports lag by up to 24 hours. For immediate verification:
+
+- **Reports → Realtime** — see live events as they fire
+- **Admin → DebugView** — see the full data layer payload for each event
+
+If `purchase` appears under key events, the integration is live.
+
+## What Sailia sends
+
+For the `purchase` event, Sailia pushes order-level data into GTM and GA4:
+
+```json
+{
+  "event": "purchase",
+  "sailia_event": "booking_completed",
+  "basket_uuid": "bas_abc123",
+  "basket_value": 395,
+  "basket_currency": "GBP",
+  "basket_coupon": "SUMMER10",
+  "basket_payment_method": "CARD",
+  "ecommerce": {
+    "transaction_id": "bas_abc123",
+    "value": 395,
+    "currency": "GBP",
+    "tax": 25.88,
+    "coupon": "SUMMER10"
+  }
+}
+```
+
+The integration is **order-level** — individual line items aren't sent to GA4. For deeper analysis, use Sailia's [financial exports](/payments/reporting).
+
+## Cross-domain tracking (recommended)
+
+To keep attribution connected between your website and Sailia, configure your domains in GA4:
+
+**GA4 → Admin → Data streams → Web stream → Configure tag settings → Configure your domains**
+
+Add your main website domain and your Sailia subdomain:
+
+```
+yourwebsite.com
+yourbusiness.sailia.com
+```
+
+Don't include `https://`. This stops GA4 treating Sailia as a referral and breaking session attribution.
+
+## Using the data for other tags
+
+Because Sailia pushes friendly top-level values into the data layer, you can reuse them for other marketing tags.
+
+For example, **Google Ads conversion tracking**:
+
+| Field | Value |
+| --- | --- |
+| Conversion value | `{{basket_value}}` |
+| Currency | `{{basket_currency}}` |
+| Transaction ID | `{{basket_uuid}}` |
+
+Or **Meta Pixel Purchase**:
+
+| Field | Value |
+| --- | --- |
+| Value | `{{basket_value}}` |
+| Currency | `{{basket_currency}}` |
+
+Fire these tags on the same custom event trigger (`purchase`).
+
+## Troubleshooting
+
+**Sailia is pushing events, but GA4 isn't showing them.** In GTM Preview, click the `purchase` event. If you see the data layer payload but no GA4 tag fired, check that:
+
+- The GA4 Event tag exists
+- The trigger is a Custom Event trigger
+- Regex matching is enabled
+- The regex is exactly the string above
+- The GA4 Event tag uses `{{Event}}` as the event name
+
+**The tag fires, but GA4 reports are empty.** GA4's standard reports lag. Use **Reports → Realtime** or **Admin → DebugView**. Also confirm you're looking at the same GA4 property as the Measurement ID in GTM.
+
+**`gtm.init` appears as an event in GA4.** The GA4 Event tag is firing too broadly. Make sure it only fires on the Sailia custom event trigger, not on "All Pages", "All Events", "Initialization", or "Container Loaded".
+
+**Purchase isn't a key event option.** GA4 can't mark an event as a key event until it has received that event at least once. Make a test purchase, wait for `purchase` to appear in GA4, then mark it.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Booking tracking events" icon="chart-line" href="/integrations/booking-tracking">
+    The full list of events Sailia fires.
+  </Card>
+  <Card title="Embedding" icon="code" href="/getting-started/embedding">
+    How to add Sailia to your website.
+  </Card>
+</Columns>

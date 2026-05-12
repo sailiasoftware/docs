@@ -1,0 +1,102 @@
+---
+title: Product variants
+description: Sell one product with multiple options like size and colour, each with its own stock and SKU.
+keywords: ['variants', 'product options', 'sizes', 'colours', 'stock', 'SKU', 'merchandise']
+---
+
+Product variants let you sell **one product with multiple options** — sizes, colours, materials, or any combination — without creating a separate product for each. Sailia generates every combination automatically and tracks them individually for stock, pricing, and reporting.
+
+<Note>
+  Variants are configured on [shop products](/point-of-sale/shop-products). They work in both the [POS](/point-of-sale/overview) and the online booking page.
+</Note>
+
+## A simple example
+
+A T-Shirt product with:
+
+- **Sizes:** S, M, L
+- **Colours:** Red, Blue
+
+Sailia automatically creates six variants:
+
+- S / Red, S / Blue
+- M / Red, M / Blue
+- L / Red, L / Blue
+
+Each variant can have its own:
+
+- Stock level
+- SKU
+- Image
+- Price (optional override)
+
+## Create variants
+
+<Steps>
+  <Step title="Open the product">
+    Go to **Products → Shop Products** and open or create the product you want to add variants to.
+  </Step>
+  <Step title="Enable stock tracking (recommended)">
+    Turn on stock tracking so Sailia can manage availability per variant.
+  </Step>
+  <Step title="Add an option type">
+    In the **Variants** section, add an option type (e.g. "Size") and its values (S, M, L, XL).
+  </Step>
+  <Step title="Add more option types (optional)">
+    Add a second option type like "Colour" with its own values. Sailia generates every combination automatically.
+  </Step>
+  <Step title="Configure each variant">
+    Set stock quantities, SKUs, and (optionally) variant-specific images or prices.
+  </Step>
+</Steps>
+
+## Variant stock management
+
+Each variant can have its own quantity, or be set to unlimited stock. When a variant hits zero:
+
+- Customers can't add it to a basket online
+- The POS prevents staff from overselling it
+
+Stock decrements as variants are sold and increments back when refunded.
+
+## Variant images and SKUs
+
+Per-variant images are useful when colour matters — showing the red T-shirt photo when "Red" is selected, for example.
+
+Per-variant SKUs are useful for:
+
+- Inventory and stock reporting
+- Barcode workflows
+- Matching variants to your accounting or fulfilment system
+
+## Selling variants at the POS
+
+When you tap a product with variants in the [POS](/point-of-sale/overview):
+
+1. A variant selector appears
+2. Choose size, colour, or any other option
+3. Add to basket
+
+The POS shows live stock per variant and prevents you from selling something that's out of stock.
+
+## When to use variants
+
+Use variants for anything that comes in multiple styles or sizes of the same item:
+
+- Clothing and merchandise
+- Wetsuits
+- Branded apparel
+- Equipment in different sizes
+
+Don't create separate products for each size or colour — variants are cleaner, faster to manage, and keep your reporting consistent.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Shop products" icon="shop" href="/point-of-sale/shop-products">
+    Create and manage physical and digital products.
+  </Card>
+  <Card title="Point of sale" icon="cash-register" href="/point-of-sale/overview">
+    Use variants at the in-person checkout.
+  </Card>
+</Columns>

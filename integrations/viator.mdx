@@ -1,0 +1,55 @@
+---
+title: Viator integration
+description: Connect Sailia to Viator (Tripadvisor) to receive bookings from one of the world's largest activity marketplaces.
+keywords: ['Viator', 'Tripadvisor', 'OTA', 'marketplace', 'distribution']
+---
+
+[Viator](https://www.viator.com) is Tripadvisor's global activities marketplace. The Sailia integration syncs availability to Viator and pulls bookings back into your dashboard.
+
+See [OTA integrations](/integrations/ota-overview) for an overview of all supported marketplaces.
+
+## Before you start
+
+You'll need:
+
+- An active Viator supplier account
+- API access enabled in your supplier dashboard
+- At least one product set up in Viator
+
+## Connect Viator
+
+<Steps>
+  <Step title="Generate your API key in Viator">
+    Log in to your Viator supplier account and go to **Account → API / Connectivity → Generate API Key**. Copy your API key and your Supplier ID if shown.
+  </Step>
+  <Step title="Open the Sailia Integrations dashboard">
+    In Sailia, go to **Settings → Integrations** and select **Viator**.
+  </Step>
+  <Step title="Paste your credentials">
+    Enter your Viator API key, Supplier ID, and any required product codes. Save to validate the connection.
+  </Step>
+  <Step title="Map your products">
+    Once credentials are validated, map your Viator products to the matching Sailia experiences. Bookings begin syncing automatically.
+  </Step>
+</Steps>
+
+## What syncs
+
+- **Availability** is pushed to Viator in real time
+- **Bookings** appear in Sailia's [bookings dashboard](/activities/managing-bookings) with the Viator channel tag
+- **Capacity is shared** across all channels
+
+## Tripadvisor Experiences
+
+Tripadvisor Experiences runs on the same underlying connectivity as Viator, but some suppliers manage their Tripadvisor listings separately. If you have a dedicated Tripadvisor Experiences account, see the [Tripadvisor integration guide](/integrations/tripadvisor).
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Tripadvisor Experiences" icon="map" href="/integrations/tripadvisor">
+    Connect Tripadvisor separately if needed.
+  </Card>
+  <Card title="OTA integrations" icon="globe" href="/integrations/ota-overview">
+    See all supported OTAs.
+  </Card>
+</Columns>

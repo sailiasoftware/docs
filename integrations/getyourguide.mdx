@@ -1,0 +1,61 @@
+---
+title: GetYourGuide integration
+description: Sync availability and receive bookings from GetYourGuide directly into your Sailia dashboard.
+keywords: ['GetYourGuide', 'GYG', 'OTA', 'marketplace', 'distribution']
+---
+
+The GetYourGuide integration lists your Sailia activities on the [GetYourGuide](https://www.getyourguide.com) marketplace. Once connected, availability is synced in real time and bookings flow back into Sailia automatically.
+
+See [OTA integrations](/integrations/ota-overview) for an overview of all supported marketplaces.
+
+## Before you start
+
+You'll need:
+
+- A live GetYourGuide supplier account
+- At least one product set up in your GYG supplier dashboard
+- Access to your Sailia **Integrations** settings
+
+## Connect GetYourGuide
+
+<Steps>
+  <Step title="Get your External Product IDs">
+    Log in to your GetYourGuide supplier account and open each product you want to connect. Copy the **External Product ID** from the product settings. You'll need one ID per product you want to sync.
+  </Step>
+  <Step title="Open the Sailia Integrations dashboard">
+    In Sailia, go to **Settings → Integrations** and find **GetYourGuide** in the list.
+  </Step>
+  <Step title="Map your products">
+    For each Sailia product you want to sync, click **Add Product Mapping**, paste the GetYourGuide External Product ID, and save. Availability sync and booking import begin immediately.
+  </Step>
+  <Step title="Notify GetYourGuide (if needed)">
+    Some supplier accounts need GetYourGuide to enable the connection on their end. If prompted, email your GYG account manager to confirm you're connecting via Sailia.
+  </Step>
+</Steps>
+
+## What syncs
+
+Once connected:
+
+- **Availability** is pushed to GetYourGuide whenever it changes in Sailia
+- **Bookings** made on GetYourGuide appear in your [bookings dashboard](/activities/managing-bookings) with the GYG channel tag
+- **Capacity is shared** — a GYG booking reduces spots available across all channels
+
+## Managing GYG bookings
+
+GetYourGuide bookings behave like any other booking in Sailia. You can:
+
+- View participants and contact details
+- Apply [refunds and rescheduling](/activities/cancellations-and-refunds) where your refund policy allows
+- See them in financial exports tagged with the GYG source
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="OTA integrations" icon="globe" href="/integrations/ota-overview">
+    See all supported OTAs.
+  </Card>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    View GYG bookings alongside others.
+  </Card>
+</Columns>

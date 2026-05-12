@@ -1,0 +1,124 @@
+---
+title: Campaigns
+description: Send targeted marketing emails to filtered groups of customers from inside Sailia.
+keywords: ['campaigns', 'email marketing', 'newsletter', 'audience filters', 'broadcast emails']
+---
+
+Campaigns are one-off marketing emails you build and send from inside Sailia. Use them to promote sessions, share updates, run seasonal offers, or stay in touch with specific groups of customers — without exporting lists into another tool.
+
+Unlike [automated workflows](/integrations/workflows), which fire on triggers, campaigns are sent manually (or scheduled) to a defined audience.
+
+<Note>
+  Campaigns is included for all Sailia accounts. Access requires the **Communications Dashboard** permission.
+</Note>
+
+## What's in a campaign
+
+Each campaign has four parts:
+
+| Part | What it does |
+| --- | --- |
+| **Basic info** | Campaign name (internal), subject line (shown in inbox), and preview text |
+| **Compose** | The email itself — built with a drag-and-drop editor that supports text, images, buttons, and [saved blocks](/customers/notifications#saved-blocks) |
+| **Audience** | Filters that decide who receives the email |
+| **Send** | Send now or schedule for later |
+
+## Create and send a campaign
+
+<Steps>
+  <Step title="Start a new campaign">
+    Go to **Communications → Campaigns** and click **New campaign**. Give it an internal name and a subject line. Add preview text if you want extra context to appear in the inbox preview.
+  </Step>
+  <Step title="Build the email">
+    In **Compose**, drag in blocks for text, images, buttons, or saved blocks. Click **Save** when you're done — if you leave the editor without saving, your changes are lost.
+  </Step>
+  <Step title="Choose the audience">
+    Open **Audience**, add filters (see below), and preview the count before continuing. Filters can be combined with **All conditions** (every rule must match) or **Any condition** (at least one).
+  </Step>
+  <Step title="Review and send">
+    Check the subject, content, and audience size on the review screen. Send immediately or schedule for a future time.
+  </Step>
+</Steps>
+
+## Audience filters
+
+Filters control exactly who receives the campaign. Without them, it's easy to send the wrong email to the wrong people.
+
+| Filter | Use case |
+| --- | --- |
+| **Course purchase** | Target people who bought a specific activity, optionally filtered by location and date range |
+| **Course attended** | Target people based on attendance |
+| **Shop purchase** | Target people who bought a specific shop product |
+| **Family created** | Target families created within a date range |
+| **Contact subscribed** | Target subscribers, optionally by subscription date |
+| **Contact tag** | Target contacts with one or more tags (e.g. `member`, `schools`) |
+| **Membership has** | Target customers who hold a specific [membership](/pricing/memberships) |
+
+Some filters support extra conditions like purchase date, start date, location ID, or membership add-on, so you can narrow the audience further.
+
+### Example audiences
+
+- **Customers who booked a Powerboat course in the last 6 months** — Course purchase filter with session ID and a date range.
+- **Members who haven't booked recently** — Membership filter combined with a "course not attended in X days" rule.
+- **Newly subscribed contacts** — Contact subscribed filter with a recent date.
+- **School groups** — Contact tag filter for `school`.
+
+<Note>
+  Unsubscribed contacts are excluded from campaign audiences automatically. They are never included in the recipient list, even if they match your filters.
+</Note>
+
+## Common campaign ideas
+
+| Goal | Approach |
+| --- | --- |
+| **Promote upcoming sessions** | Filter to customers who booked recently; tell them what's available next |
+| **Seasonal promotion** | Target a broad audience with a clear offer and date range (often paired with an [auto-applied discount code](/pricing/discount-codes#auto-applied-discounts)) |
+| **Re-engage lapsed customers** | Filter for contacts who haven't booked in 6+ months |
+| **Promote a specific group** | Use tags to send tailored messages to families, schools, members, or corporate clients |
+| **Promote add-ons or memberships** | Filter to recent customers and pitch the natural next step |
+
+## Results and metrics
+
+After sending, open the campaign to see how it performed:
+
+| Metric | What it measures |
+| --- | --- |
+| **Sent** | Total recipients the email was delivered to |
+| **Opened** | Recipients who opened the email |
+| **Clicks** | Total clicks on links inside the email |
+| **Bounced** | Emails that could not be delivered |
+| **Spam** | Recipients who marked the email as spam |
+| **Unsubscribed** | Recipients who opted out via the campaign |
+| **Conversions and revenue** | Bookings and revenue attributed to clicks from the email |
+
+A high unsubscribe rate usually means the audience was too broad. A high bounce rate suggests contact-list quality issues. A high open rate with low clicks means the subject worked but the body needs a stronger call to action.
+
+## Editing, scheduling, and cancelling
+
+- **Draft campaigns** can be edited or deleted at any time.
+- **Scheduled campaigns** can be cancelled back to draft before the send time.
+- **Sent campaigns** can't be edited — results are read-only.
+
+## Tips
+
+- Keep subject lines short and specific. Focus on one main message per campaign.
+- Always preview the audience count before sending. If it looks too high or low, revisit the filters.
+- If you want to track multiple channels separately (e.g. email vs social), create separate [discount codes](/pricing/discount-codes) for each.
+- Use [saved blocks](/customers/notifications#saved-blocks) for headers, footers, and other reusable content to keep branding consistent.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Marketing and audience" icon="users" href="/customers/marketing">
+    Manage your contact list and subscribers.
+  </Card>
+  <Card title="Automated notifications" icon="bell" href="/customers/notifications">
+    Set up triggered emails and SMS.
+  </Card>
+  <Card title="Newsletter signup forms" icon="envelope" href="/customers/newsletter-forms">
+    Capture subscribers from your website.
+  </Card>
+  <Card title="Discount codes" icon="tag" href="/pricing/discount-codes">
+    Pair campaigns with codes to drive bookings.
+  </Card>
+</Columns>

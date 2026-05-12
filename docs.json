@@ -35,6 +35,7 @@
               "activities/online-bookings",
               "activities/managing-bookings",
               "activities/group-bookings",
+              "activities/upsells",
               "activities/seasonal-scheduling",
               "activities/waitlists",
               "activities/cancellation-policies",
@@ -42,7 +43,7 @@
             ]
           },
           {
-            "group": "Customers",
+            "group": "Customers and communications",
             "pages": [
               "customers/overview",
               "customers/customer-accounts",
@@ -51,6 +52,7 @@
               "customers/file-uploads",
               "customers/notifications",
               "customers/marketing",
+              "customers/campaigns",
               "customers/newsletter-forms"
             ]
           },
@@ -58,16 +60,18 @@
             "group": "Pricing and promotions",
             "pages": [
               "pricing/memberships",
+              "pricing/membership-migration",
               "pricing/activity-passes",
               "pricing/discount-codes",
               "pricing/gift-cards"
             ]
           },
           {
-            "group": "Point of sale",
+            "group": "Point of sale and products",
             "pages": [
               "point-of-sale/overview",
               "point-of-sale/shop-products",
+              "point-of-sale/product-variants",
               "point-of-sale/card-readers",
               "point-of-sale/custom-pricing"
             ]
@@ -79,6 +83,8 @@
               "payments/instalments",
               "payments/taxes",
               "payments/donations",
+              "payments/charity-donations",
+              "payments/instant-refund-reserve",
               "payments/reporting"
             ]
           },
@@ -87,6 +93,7 @@
             "pages": [
               "staff/management",
               "staff/permissions",
+              "staff/qualifications",
               "staff/auto-timesheets",
               "staff/availability",
               "staff/timesheet-invoices"
@@ -98,8 +105,20 @@
               "integrations/workflows",
               "integrations/workflow-triggers",
               "integrations/booking-tracking",
+              "integrations/analytics-setup",
               "integrations/accounting-sync",
-              "integrations/adventuro"
+              {
+                "group": "OTAs",
+                "pages": [
+                  "integrations/ota-overview",
+                  "integrations/adventuro",
+                  "integrations/getyourguide",
+                  "integrations/viator",
+                  "integrations/tripadvisor",
+                  "integrations/google-things-to-do",
+                  "integrations/klook"
+                ]
+              }
             ]
           },
           {

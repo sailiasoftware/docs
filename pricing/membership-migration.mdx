@@ -1,0 +1,77 @@
+---
+title: Migrating members from another system
+description: Bring existing members into Sailia from another booking platform, CRM, or spreadsheet.
+keywords: ['membership migration', 'import members', 'switching platforms', 'Bookwhen', 'BookNow', 'Eola', 'Roller']
+---
+
+If you already have members in another system, you don't need to recreate them by hand. Sailia handles member migrations as a managed process — we import your members, their plans, and their renewal dates, then notify each member about the switch.
+
+<Note>
+  Migrations are handled by the Sailia team. Contact [support@sailia.com](mailto:support@sailia.com) to get started — usually all we need is a CSV export or read-only access to your current system.
+</Note>
+
+## What gets migrated
+
+Where the data is available, we import:
+
+- Member names and contact details
+- Membership types and plans
+- Renewal dates and payment history
+- Linked benefits and discounts
+
+Once imported, members appear in your [memberships dashboard](/pricing/memberships) ready to book, renew, and use their benefits straight away.
+
+## What members see
+
+After your import, Sailia automatically sends each migrated member a **welcome email** explaining:
+
+- Their membership has been transferred to Sailia
+- They'll need to add their card details to renew when their current term ends
+- They'll get reminders in the run-up to their renewal date
+
+The aim is a smooth, transparent switch — no surprise charges, no loss of benefits.
+
+## Migration status badges
+
+A migrated member can be in one of these states on their subscription page:
+
+| Badge | Meaning |
+| --- | --- |
+| **Migrating (Pending payment info)** | Member hasn't added a payment method yet. We'll keep reminding them. |
+| **Migrating (Pending renewal)** | Member is set up and will start billing on their normal renewal date. |
+| **Will not renew** | Migration was cancelled; the current term ends without renewal. |
+
+Once a member adds a payment method and their first renewal goes through, they become a standard active member.
+
+## Supported source platforms
+
+We can migrate members from almost any system. We've already built imports for the most common platforms, including:
+
+- Bookwhen
+- BookNow
+- Eola
+- SportBooker
+- Roller
+- Cinolla
+- Checkfront
+
+If your current platform isn't listed, we can usually import from a CSV export or via an API connection — get in touch and we'll work out the right approach.
+
+## Getting started
+
+1. Email [support@sailia.com](mailto:support@sailia.com) letting us know you'd like to migrate.
+2. Share an export file or set up read-only access to your current system.
+3. We confirm the data, run the import, and trigger the welcome emails.
+
+Most migrations take a few days end-to-end.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Memberships" icon="id-card" href="/pricing/memberships">
+    How memberships work in Sailia.
+  </Card>
+  <Card title="Stripe payments" icon="credit-card" href="/payments/stripe">
+    Members' renewals are billed through Stripe.
+  </Card>
+</Columns>

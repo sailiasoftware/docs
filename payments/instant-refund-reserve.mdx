@@ -1,0 +1,82 @@
+---
+title: Instant refund reserve
+description: How Sailia holds a protected balance in your Stripe account so refunds can be issued instantly.
+keywords: ['refunds', 'reserve', 'Stripe', 'cash flow', 'payouts', 'refund reserve']
+---
+
+The instant refund reserve is a protected balance held in your Stripe account so refunds can be paid out to customers immediately, without waiting for new income. Sailia calculates and maintains this reserve automatically and adjusts payouts to keep cash flow stable.
+
+## Why the reserve exists
+
+Before instant refunds, customers could wait days for a refund to clear, or Sailia would advance the money out of pocket. Neither scales. The reserve gives every account enough liquidity to refund customers on the spot, while keeping payouts predictable.
+
+## How the reserve target is calculated
+
+The target reserve is recalculated regularly using a rolling **35-day lookback**:
+
+| Component | Value |
+| --- | --- |
+| **Minimum buffer** | £200 |
+| **Refund-based reserve** | 35% of refund volume in the last 35 days |
+| **Processing floor reserve** | 2% of payment volume in the last 35 days |
+
+The target is the **greatest** of these three values. This makes sure there is always enough cash on hand to cover the typical refund pattern of your account.
+
+If you processed nothing in the last 35 days, the formula collapses to the minimum buffer of £200.
+
+## How payouts are adjusted
+
+When your reserve is below target, Sailia doesn't withhold the full gap in one go. Instead, the held reserve increases by up to **10% of that day's baseline payout** per payout run. This means:
+
+- Payouts continue, just slightly reduced
+- The reserve builds up in controlled steps
+- You avoid a sudden cash-flow hit
+
+### Whole-basket payouts
+
+Payout selection works at the basket level:
+
+- Oldest baskets are picked first
+- Baskets are never split across payouts
+- If including the next whole basket would break the reserve rules, it's held back for a later run
+
+## What happens during a refund
+
+When you issue a refund:
+
+1. Sailia refunds the customer immediately from the held reserve.
+2. The reserve decreases by the refund amount.
+3. Future payouts top the reserve back up using the 10%-per-run cap.
+
+### If the refund is bigger than the reserve
+
+If a single refund exceeds your current reserve balance, the difference is taken from upcoming payouts or debited from your linked bank account. The reserve then rebuilds from the next set of payments.
+
+## Benefits
+
+- Refunds reach customers instantly
+- Day-to-day cash flow is protected
+- No sudden withholding of payouts
+- The rules are deterministic and auditable
+
+## Common questions
+
+**Can the target change over time?** Yes — it updates with each recalculation based on recent refund and payment volume.
+
+**Will payouts ever stop completely?** Not under normal conditions. The 10% top-up cap is designed to keep payouts flowing while still building the reserve.
+
+**Where do I see my current reserve?** It's visible alongside your payouts in the financial dashboard, under **Finances → Payouts**.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Stripe payments" icon="credit-card" href="/payments/stripe">
+    How payments and payouts flow through Stripe.
+  </Card>
+  <Card title="Financial reporting" icon="chart-line" href="/payments/reporting">
+    Review payouts, baskets, and refunds.
+  </Card>
+  <Card title="Cancellations and refunds" icon="rotate-left" href="/activities/cancellations-and-refunds">
+    Refunding and rescheduling bookings.
+  </Card>
+</Columns>
