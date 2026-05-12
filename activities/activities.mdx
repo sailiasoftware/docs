@@ -67,23 +67,23 @@ Each kit item on a session has three settings:
 
 | Setting | Description |
 | --- | --- |
-| **Kit ratio** | How people and kit are matched. See [Kit ratio modes](#kit-ratio-modes) below. |
-| **Ratio mode** | Whether the ratio is expressed as *people per item of kit* or *items of kit per person*. |
+| **Kit ratio mode** | Whether the ratio is expressed as *people per kit* or *kit per person*. See [Kit ratio modes](#kit-ratio-modes) below. |
+| **Kit ratio** | The number used in the ratio (for example, `6`). |
 | **Share between bookings** | Whether one item of kit can be split across multiple separate bookings on the same session. |
 
 ### Kit ratio modes
 
-A kit ratio describes the relationship between people on the session and items of kit. There are two modes:
+A kit ratio describes the relationship between people on the session and items of kit. Select a mode using the tabs above the ratio field:
 
 | Mode | What it means | Example |
 | --- | --- | --- |
-| **People per resource** (`USERS_PER_KIT`) | Each item of kit supports a fixed number of people. | A coach boat that seats 6 — set the ratio to `6 people to 1 item of kit`. |
-| **Resource per person** (`KIT_PER_USER`) | Each person needs a fixed number of items of kit. | A SUP tour where every paddler needs 1 board and 1 paddle — set the ratio to `2 items of kit to 1 person`. |
+| **People per kit** | Each item of kit supports a fixed number of people. | A coach boat that seats 6 — pick *People per kit* and enter `6` for *6 people to 1 item of kit*. |
+| **Kit per person** | Each person needs a fixed number of items of kit. | A SUP tour where every paddler needs 1 board and 1 paddle — pick *Kit per person* and enter `2` for *2 items of kit to 1 person*. |
 
-Sailia uses the mode to convert between the number of people booked and the number of kit items reserved, so capacity stays accurate however your equipment is allocated. **People per resource** is the default and matches the behaviour of existing kit configurations.
+Sailia uses the mode to convert between the number of people booked and the number of kit items reserved, so capacity stays accurate however your equipment is allocated. **People per kit** is the default and matches the behaviour of existing kit configurations.
 
 <Note>
-  If a session has multiple kit items, each item can use its own ratio mode. For example, a sailing lesson could have boats configured as *people per resource* (6 sailors per boat) and buoyancy aids as *resource per person* (1 aid per sailor).
+  If a session has multiple kit items, each item can use its own ratio mode. For example, a sailing lesson could have boats configured as *people per kit* (6 sailors per boat) and buoyancy aids as *kit per person* (1 aid per sailor).
 </Note>
 
 ### Share between bookings
@@ -105,10 +105,10 @@ Hire-type activities default to **No** (exclusive), and course-type activities d
     In the **Resources** area, select **Add Kit** and choose the kit from the list.
   </Step>
   <Step title="Choose a ratio mode">
-    Use the tabs to pick **People per resource** or **Resource per person**.
+    Use the tabs to pick **People per kit** or **Kit per person**.
   </Step>
   <Step title="Set the ratio">
-    Enter the number for the ratio. The label updates to show the full ratio in plain English (for example, *6 people to 1 item of kit*).
+    Enter the number for the ratio. The help text below the field updates to show the full ratio in plain English (for example, *5 people to 1 item of kit*).
   </Step>
   <Step title="Choose sharing behaviour">
     Set **Share between bookings** to **Yes** or **No** depending on whether the kit can be split across bookings.
