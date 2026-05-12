@@ -59,6 +59,69 @@ Each activity session has a maximum capacity. As customers book, the available s
   Capacity is tracked per session, not per activity. A weekly surf lesson with 10 spots has 10 spots available for each individual session.
 </Note>
 
+## Kit and resources
+
+Kit lets you attach physical resources — boats, boards, bikes, wetsuits, helmets — to an activity so that availability is tracked against the resource as well as against the session capacity. When a customer books, Sailia reserves the right quantity of kit automatically.
+
+Each kit item on a session has three settings:
+
+| Setting | Description |
+| --- | --- |
+| **Kit ratio** | How people and kit are matched. See [Kit ratio modes](#kit-ratio-modes) below. |
+| **Ratio mode** | Whether the ratio is expressed as *people per item of kit* or *items of kit per person*. |
+| **Share between bookings** | Whether one item of kit can be split across multiple separate bookings on the same session. |
+
+### Kit ratio modes
+
+A kit ratio describes the relationship between people on the session and items of kit. There are two modes:
+
+| Mode | What it means | Example |
+| --- | --- | --- |
+| **People per resource** (`USERS_PER_KIT`) | Each item of kit supports a fixed number of people. | A coach boat that seats 6 — set the ratio to `6 people to 1 item of kit`. |
+| **Resource per person** (`KIT_PER_USER`) | Each person needs a fixed number of items of kit. | A SUP tour where every paddler needs 1 board and 1 paddle — set the ratio to `2 items of kit to 1 person`. |
+
+Sailia uses the mode to convert between the number of people booked and the number of kit items reserved, so capacity stays accurate however your equipment is allocated. **People per resource** is the default and matches the behaviour of existing kit configurations.
+
+<Note>
+  If a session has multiple kit items, each item can use its own ratio mode. For example, a sailing lesson could have boats configured as *people per resource* (6 sailors per boat) and buoyancy aids as *resource per person* (1 aid per sailor).
+</Note>
+
+### Share between bookings
+
+The **Share between bookings** setting controls whether a single item of kit can be reserved by more than one booking on the same session:
+
+- **Yes** — kit is shared. A 6-person boat can be filled by two separate bookings of 3 people each.
+- **No** — kit is exclusive to the booking that reserves it. A boat booked by one customer is unavailable to others, even if seats remain.
+
+Hire-type activities default to **No** (exclusive), and course-type activities default to **Yes** (shared). You can override the default per kit item.
+
+### Add kit to a session
+
+<Steps>
+  <Step title="Open the session">
+    Open the activity and select the session you want to configure.
+  </Step>
+  <Step title="Add a kit item">
+    In the **Resources** area, select **Add Kit** and choose the kit from the list.
+  </Step>
+  <Step title="Choose a ratio mode">
+    Use the tabs to pick **People per resource** or **Resource per person**.
+  </Step>
+  <Step title="Set the ratio">
+    Enter the number for the ratio. The label updates to show the full ratio in plain English (for example, *6 people to 1 item of kit*).
+  </Step>
+  <Step title="Choose sharing behaviour">
+    Set **Share between bookings** to **Yes** or **No** depending on whether the kit can be split across bookings.
+  </Step>
+  <Step title="Save the session">
+    Save the session. Future availability is recalculated using the new ratio and mode.
+  </Step>
+</Steps>
+
+<Tip>
+  Changing the ratio or ratio mode on an existing session triggers a recalculation of how much kit each future booking holds. Existing reservations are adjusted automatically so capacity matches the new configuration.
+</Tip>
+
 ## Minimum notice period
 
 The minimum notice period controls how far in advance customers must book a session. Once the notice period has passed, the session no longer appears on your booking page.
