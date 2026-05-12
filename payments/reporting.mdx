@@ -94,9 +94,14 @@ Basket item exports include both the pre-discount row cost and any discounts as 
 | `item_row_cost_pre_discount` | Row total before discounts (`item_unit_cost` × `item_quantity`), in pounds |
 | `total_item_discounts_value` | Total discounts applied to this line, in pounds |
 | `item_line_total_after_discounts` | Final line total after discounts (`item_row_cost_pre_discount` − `total_item_discounts_value`), in pounds |
+| `accounting_category_name` | The [accounting category](/integrations/accounting-sync) assigned to the product, or blank if none is mapped |
 
 <Tip>
   Use `item_line_total_after_discounts` when reconciling line-level revenue against basket totals or when summing net revenue per product in a spreadsheet.
+</Tip>
+
+<Tip>
+  Sort or pivot on `accounting_category_name` to total revenue by accounting category — useful when reconciling sales against the categories you sync to Xero.
 </Tip>
 
 ### Export filters
