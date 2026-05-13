@@ -105,6 +105,46 @@ This is useful when:
   The resent email uses the same booking confirmation template with the current booking details and PDF receipt. If the booking has been modified since the original confirmation, the email reflects the latest information. The calendar invite attachment is only included when the email is sent to the booking owner's address.
 </Note>
 
+## Email delivery status
+
+Every email Sailia sends is tracked with a delivery status so you can see whether it reached the recipient — or if something went wrong on the way. Statuses update automatically as the email provider reports back, and they appear in the **Communications** dashboard next to each sent email.
+
+### Where to find it
+
+Open **Communications → Sent** to see a list of recent emails with a **Status** column. Click any row to open the email detail view, which shows the most recent status and a full **Delivery events** timeline ordered from newest to oldest.
+
+Platform-level emails (visible to super admins) are tracked in the same way under the **Platform communications** tab.
+
+### Status reference
+
+The status reflects the latest event the email provider has reported for that message.
+
+| Status | What it means | What to do |
+| --- | --- | --- |
+| **Sent** | Sailia handed the email off to the email provider. | Wait for a delivery update. |
+| **Delivered** | The email was accepted by the recipient's mail server. | Nothing — the email arrived. |
+| **Opened** | The recipient opened the email. | Nothing — engagement confirmed. |
+| **Clicked** | The recipient clicked a tracked link in the email. | Nothing — engagement confirmed. |
+| **Delayed** | The recipient's mail server is temporarily deferring the message. | Wait — most delays resolve automatically and the status updates to **Delivered**. |
+| **Bounced** | The email was rejected. The detail view shows whether the bounce was permanent (bad address) or transient (temporary issue). | For permanent bounces, correct or remove the address. Transient bounces usually clear on their own. |
+| **Reported** | The recipient marked the email as spam. | Remove the recipient from future sends to protect your sender reputation. |
+| **Rejected** | The email provider refused to send the message (for example, the content was flagged). | Review the message content and resend. |
+| **Failed** | Sailia could not hand the email to the provider. | Try resending. If it keeps failing, [contact support](/help/contact). |
+| **Rendering failed** | A merge field in the template could not be filled in. | Open the template, fix the broken field, and resend. |
+| **Unknown** | No status has been received yet. | Wait a few minutes — most statuses arrive within seconds, but some providers can take longer. |
+
+<Note>
+  Status tracking covers transactional emails (booking confirmations, workflow emails, password resets, and similar). Bulk [campaign](/customers/campaigns) emails report their own aggregate metrics on the campaign page.
+</Note>
+
+### Acting on bounces and complaints
+
+A small number of bounces and complaints is normal, but a sustained pattern can hurt your sender reputation and reduce deliverability for everyone.
+
+- **Hard bounces** (permanent) — remove the address from your customer record or update it after confirming with the customer.
+- **Soft bounces** (transient) — no action needed; the provider will retry automatically.
+- **Spam complaints** — stop sending marketing emails to that recipient. Transactional emails (such as booking confirmations) can still be sent if the customer continues to book.
+
 ## Related guides
 
 <Columns cols={2}>
