@@ -69,6 +69,56 @@ The system determines pay rates for auto-generated entries in this order:
 
 Pay rates are resolved per booking, so a single day's timesheet can include entries at different rates if the staff member is assigned to bookings with different rate amendments.
 
+## Export staff hours
+
+Export a CSV showing the total hours each staff member worked each day across a date range. Use this when you need to share worked-hours data with payroll, audit a pay period, or analyse staff utilisation outside of Sailia.
+
+The export is available from the **Hours Worked** section of the staff dashboard.
+
+<Steps>
+  <Step title="Open the staff dashboard">
+    Navigate to your staff dashboard and scroll to the **Hours Worked** section.
+  </Step>
+  <Step title="Open the export popup">
+    Select **Export Staff Hours** to open the date range picker.
+  </Step>
+  <Step title="Choose a date range">
+    Pick a quick preset or set custom start and end dates.
+
+    | Preset | Range |
+    | --- | --- |
+    | **Today** | The current day only |
+    | **Month to date** | The first of the current month through today |
+    | **Last 7 days** | The previous 7 days through today |
+    | **Last month** | The full previous calendar month |
+    | **Year to date** | January 1 of the current year through today |
+    | **All time** | January 1, 1970 through today |
+    | **Custom** | Any start and end date you choose |
+  </Step>
+  <Step title="Download the CSV">
+    Select **Export**. Sailia downloads a file named `staff-hours-<from>-to-<to>.csv` containing one row per staff member.
+  </Step>
+</Steps>
+
+### What the CSV contains
+
+The export is a matrix with one row per staff member and one column per day in the selected range:
+
+| Column | Contents |
+| --- | --- |
+| **Staff Member** | The staff member's full name |
+| One column per day (`YYYY-MM-DD`) | Total hours worked that day, rounded to 2 decimal places |
+
+A `0` is shown for days when a staff member did not log any hours. Rejected and deleted timesheet entries are excluded from the totals.
+
+<Note>
+  Only staff with an assigned permission group are included in the export. Customer-account permissions and unassigned profiles are filtered out automatically.
+</Note>
+
+### Permissions
+
+Admins with the **Manage Staff** [permission](/staff/management#permissions) can export hours for all staff. Staff without this permission can only export their own hours.
+
 ## Related guides
 
 <Columns cols={2}>
