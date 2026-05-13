@@ -20,6 +20,10 @@ When the trigger fires, Sailia queues the message and sends it at the configured
   Workflow emails are tracked as `workflow-email-sent` events in [meter usage tracking](/api-reference/meter-tracking#built-in-meters), so you can monitor how many automated emails are being sent.
 </Note>
 
+<Note>
+  Time-based triggers (such as **Course starting**, **Session starting**, or **Group booking** reminders) evaluate their send windows in your [business timezone](/getting-started/account-settings#timezone). For example, a workflow set to send 24 hours before a session uses the tenant-local time of that session, so customers receive reminders at the expected local time regardless of where Sailia runs.
+</Note>
+
 ## Available triggers
 
 Sailia provides 30+ triggers across bookings, courses, memberships, instalments, accounts, waivers, waitlists, qualifications, and staff events. You can attach one or more workflow communications to any trigger.
