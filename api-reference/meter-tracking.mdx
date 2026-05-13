@@ -121,6 +121,7 @@ Sailia automatically records usage entries for certain platform events. These me
 | `order-completed` | A customer completes a purchase and payment succeeds | `BasketID` — the ID of the completed basket |
 | `waitlist-notified` | A waitlist notification email is sent to a customer | `WaitlistID`, `MultiBookingID` — identifiers for the waitlist entry and booking |
 | `workflow-email-sent` | An automated workflow sends an email on your behalf | None |
+| `campaign-email-sent` | Recipients are queued for a [marketing campaign](/customers/campaigns) send | `campaignID`, `campaignUUID`, `campaignName` — identifiers and the campaign's internal name |
 
 ### Example summary with built-in meters
 
@@ -132,8 +133,8 @@ Sailia automatically records usage entries for certain platform events. These me
       "To": "2026-03-31"
     },
     "Totals": {
-      "Usage": 135.0,
-      "Events": 135
+      "Usage": 155.0,
+      "Events": 137
     },
     "Meters": [
       {
@@ -145,6 +146,11 @@ Sailia automatically records usage entries for certain platform events. These me
         "Meter": "workflow-email-sent",
         "TotalUsage": 50.0,
         "EventCount": 50
+      },
+      {
+        "Meter": "campaign-email-sent",
+        "TotalUsage": 20.0,
+        "EventCount": 2
       },
       {
         "Meter": "waitlist-notified",

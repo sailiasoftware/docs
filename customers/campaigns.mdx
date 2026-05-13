@@ -93,6 +93,17 @@ After sending, open the campaign to see how it performed:
 
 A high unsubscribe rate usually means the audience was too broad. A high bounce rate suggests contact-list quality issues. A high open rate with low clicks means the subject worked but the body needs a stronger call to action.
 
+## Monitoring campaign email usage
+
+Sailia records every campaign send against the `campaign-email-sent` [built-in meter](/api-reference/meter-tracking#built-in-meters), with the campaign's ID, UUID, and internal name attached to each entry. The usage amount equals the number of recipients queued for that send.
+
+You can review this volume in two places:
+
+- **Settings dashboard** — a **Campaign Emails Sent** card shows the running total for the current month, alongside your other billing and usage cards.
+- **Meter usage API** — query the `campaign-email-sent` meter for any date range to break sends down by campaign using the `ExtraInfo` payload.
+
+This is useful for staying within plan limits, reconciling marketing volume against billing, and spotting unusually large sends before they go out.
+
 ## Editing, scheduling, and cancelling
 
 - **Draft campaigns** can be edited or deleted at any time.
