@@ -83,12 +83,18 @@ Workflow messages support merge fields to personalize content. Available fields 
 | Merge field | Description |
 | --- | --- |
 | Customer name | The customer's full name |
+| Customer first name | The customer's first name. Falls back to the full name if no first name is recorded. |
+| Customer last name | The customer's last name. Falls back to the full name if no last name is recorded. |
 | Customer email | The customer's email address |
 | Transaction details | A summary of items in the booking |
 | Total paid | The total amount charged |
 | Checkout link | A link for the customer to complete payment (for pending baskets) |
 | Waiver link | A link for the customer to complete outstanding waivers |
 | Receipt breakdown | An itemised breakdown of the booking |
+
+<Tip>
+  Use **Customer first name** for friendlier greetings — for example, "Hi {'{'}{'{'}user_first_name{'}'}{'}'}," instead of using the full name. If a contact only has a single name on file, the first and last name fields safely fall back to the full name so the greeting is never blank.
+</Tip>
 
 ### Membership merge fields
 
@@ -111,6 +117,8 @@ Qualification triggers provide merge fields specific to the staff member and the
 | Merge field | Description |
 | --- | --- |
 | Staff name | The staff member's name |
+| Staff first name | The staff member's first name (falls back to the full name if not recorded) |
+| Staff last name | The staff member's last name (falls back to the full name if not recorded) |
 | Staff email | The staff member's email address |
 | Staff phone | The staff member's phone number |
 | Qualification name | The name of the qualification |
