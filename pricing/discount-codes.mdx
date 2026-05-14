@@ -190,6 +190,24 @@ The discounts table includes filter tabs to narrow the list by application type:
 
 Each tab displays a count of matching discounts.
 
+## Baskets using this code
+
+The discount details page includes a **Baskets using this code** table that lists every basket where the discount has been redeemed. Use it to review how a code is being used, troubleshoot customer queries, or audit redemptions.
+
+Each row shows:
+
+| Column | Description |
+| --- | --- |
+| **Amount** | The total amount the customer paid for the basket |
+| **Status** | The current state of the basket — Pending, Successful, Failed, Unreconciled, Expired, or Void |
+| **Customer** | The customer or family associated with the basket |
+
+Select any row to open the full basket details, including line items, payment method, and refund history.
+
+<Note>
+  The table only lists baskets that successfully applied the discount. Baskets where the code was entered but rejected (for example, because a usage limit was reached) are not shown.
+</Note>
+
 ## Deactivating a discount code
 
 You can deactivate a discount code at any time. Deactivating a code:
