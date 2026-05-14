@@ -59,6 +59,43 @@ Stripe sends payouts to your connected bank account on a regular schedule. Each 
 
 If you use [Xero accounting sync](/integrations/accounting-sync), each payout is automatically sent to Xero as a categorized invoice with full VAT breakdowns.
 
+## Instant refund reserve
+
+The **Instant refund reserve** is a buffer of funds Sailia keeps in your Stripe balance so that customer refunds can be processed without waiting for additional incoming payments to clear. The reserve is calculated automatically based on your recent refund and payment activity, and it is replenished gradually from each payout.
+
+You can monitor the reserve from the **Payouts** tab of the financial dashboard. The card shows:
+
+| Field | Description |
+| --- | --- |
+| **Target reserve** | The amount Sailia is currently aiming to hold back, based on your refund and payment history |
+| **Current balance** | The available balance in your Stripe account that can cover refunds today |
+
+### How the target is calculated
+
+Sailia reviews the last 35 days of card activity for your account and sets the target reserve to the largest of the following values:
+
+- A minimum buffer of £200 (or local currency equivalent)
+- 35% of refund volume over the lookback window
+- 2% of payment volume over the lookback window
+
+If your account has not processed any card activity for 89 days or more, the reserve is automatically released.
+
+### How the reserve is replenished
+
+The reserve is topped up incrementally rather than all at once. On any given day, Sailia holds back at most 10% of that day's payout to grow the reserve toward the target. This keeps payouts predictable while ensuring refund capacity is in place when you need it.
+
+<Note>
+  The reserve only applies to card payments processed through Stripe. Cash payments and other payment methods are not affected.
+</Note>
+
+### When to review your reserve
+
+Check the reserve if you:
+
+- Notice payouts are smaller than expected on days following high refund volume
+- Plan to issue a large refund and want to confirm that funds are immediately available
+- Have stopped processing card payments and want to confirm the reserve has been released
+
 ## Cash payouts
 
 Cash payments taken through the [point of sale](/point-of-sale/overview) are tracked separately from card payments. Cash payouts appear in a dedicated section of the financial dashboard with:
