@@ -1,0 +1,63 @@
+---
+title: How discounts apply per item
+description: A discount code is applied to each qualifying item in the basket — not the basket total. This is the most common source of confusion with codes.
+keywords: ['per item', 'per basket', 'discount calculation', 'multiple items']
+---
+
+When a customer enters a discount code, it isn't taken off their basket total. It's applied to **each qualifying item** in the basket individually. This is the single most common source of confusion with codes — worth understanding before you set anything up.
+
+## A simple example
+
+A customer has three identical bookings in their basket at £45 each, and enters a code for £10 off.
+
+| Item | Price | Discount |
+| --- | --- | --- |
+| Booking 1 | £45 | -£10 |
+| Booking 2 | £45 | -£10 |
+| Booking 3 | £45 | -£10 |
+| **Total** | **£135** | **-£30** |
+
+The customer saves £30, not £10. Because the code qualifies against each item, it applies to each one.
+
+## What counts as an item
+
+Each separate booking line in the basket is its own item:
+
+- Three tickets for the same activity = three items.
+- Two bikes hired across two 1-hour slots = four items.
+- One booking plus one add-on = two items (if the code covers both).
+
+## When a code applies to some items but not others
+
+If a code has an allowlist or product-type restriction, it only applies to items it qualifies for. Items that don't qualify stay at full price.
+
+For example, a code restricted to a specific activity won't touch other activities or shop products in the same basket.
+
+| Item | Price | Discount |
+| --- | --- | --- |
+| Eligible activity | £30 | -£5 |
+| Other product | £50 | No discount |
+| **Total** | **£80** | **-£5** |
+
+## What this means when setting amounts
+
+Because fixed codes apply per item, the amount you set is what comes off **each qualifying item**. If you want to give £10 off an order and the customer is likely to have multiple items, the total saving will be higher than £10.
+
+To cap the total discount given, use a **usage limit** or **minimum basket value** limit rather than a lower per-item amount — or use a **percentage discount**, which scales naturally with the basket size.
+
+## Percentage discounts work the same way
+
+A percentage discount applies to each qualifying item separately too. 10% off a basket containing two activity bookings and a shop product applies 10% off each of those three items.
+
+The percentage is always taken from the item's price after any earlier discounts in the [stack](/pricing/discount-stacking).
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Discount code types" icon="tags" href="/pricing/discount-code-types">
+    Fixed, percentage, tiered, auto-apply, and membership.
+  </Card>
+  <Card title="Discount limits" icon="ban" href="/pricing/discount-limits">
+    Use limits to cap total discount given.
+  </Card>
+</Columns>

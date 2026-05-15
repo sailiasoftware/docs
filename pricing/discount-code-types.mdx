@@ -1,0 +1,64 @@
+---
+title: Discount code types
+description: Fixed, percentage, tiered, auto-apply, and membership discount types — what each one does and when to use it.
+keywords: ['discount types', 'fixed discount', 'percentage discount', 'tiered discount', 'auto-apply']
+---
+
+Discount codes in Sailia come in several types and modes. Each suits a different scenario — from straight-up sales to membership benefits and hire-length tiers.
+
+## Fixed
+
+Takes a flat monetary amount off the item price.
+
+A £10 fixed discount on a £45 booking leaves £35 to pay.
+
+## Percentage
+
+Takes a percentage off the item price. If another discount has already been applied, the percentage is taken from what's left, not the original price.
+
+For example, a £45 booking already has a £5 membership discount on it. A 10% code then takes 10% of £40 (£4 off), not 10% of £45.
+
+## Tiered
+
+Mainly used for [hire](/activities/hire-setup), where you want each extra hour to cost less than the previous one. Instead of one flat rate, you define different discount amounts that kick in based on how many hours are in the basket.
+
+For example, with a £25/hour kayak hire:
+
+| Hours booked | Discount per hour |
+| --- | --- |
+| 1 | £0 |
+| 2 or more | £10 off each |
+| 3 or more | £15 off each |
+
+Booking 3 hours then costs £25 + £15 + £10 = £50, rather than £75 at full price.
+
+<Note>
+  Tiered discounts only work on activities — not shop products or add-ons.
+</Note>
+
+## Auto-apply
+
+Not a separate type, more of a behaviour setting. When **Auto apply** is on, the discount attaches automatically — the customer doesn't enter anything. It just works in the background.
+
+Good for centre-wide offers, seasonal pricing, or anything you want to apply quietly without asking customers to take action.
+
+## Activity pass discounts
+
+When a customer buys an [activity pass](/pricing/activity-passes), a discount can be set to activate automatically as a result. Once active, it applies to future eligible bookings. Link the discount to a pass when setting it up.
+
+## Membership benefit discounts
+
+These apply only when at least one person on the booking holds an active membership of the required type. Choose the membership when creating the code, and optionally a specific membership add-on as well.
+
+Membership discounts run **before** regular discounts in the stack, so a regular code always works from the already-reduced price. See [stacking and application order](/pricing/discount-stacking) for the full ordering rules.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Discount codes" icon="tag" href="/pricing/discount-codes">
+    The full overview of creating and managing codes.
+  </Card>
+  <Card title="Stacking order" icon="layer-group" href="/pricing/discount-stacking">
+    How discounts combine and in what order they're applied.
+  </Card>
+</Columns>

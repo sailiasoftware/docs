@@ -1,0 +1,56 @@
+---
+title: Capacity management
+description: Control how many people can book a session using manual or auto capacity, and prevent overbooking across shared resources.
+keywords: ['capacity', 'overbooking', 'auto capacity', 'manual capacity', 'session limits']
+---
+
+Capacity controls how many participants can book a session. Sailia gives you two ways to manage it — **manual** for a fixed limit, and **auto** for sessions that share equipment or staff with other sessions.
+
+## Manual capacity
+
+Manual capacity sets a fixed number of spaces on a session — for example, six people on a kayak tour. It's the right choice when a session has a clear, independent participant cap that doesn't depend on shared resources.
+
+- Set the number in the session's capacity field.
+- The session shows as **sold out** once the limit is reached.
+- Customers can join a [waitlist](/activities/waitlists) if it's enabled.
+
+## Auto capacity
+
+Auto capacity calculates available spaces dynamically from the [kit and resources](/activities/activities#kit-and-resources) assigned to the session. Use it when the same equipment is shared between overlapping sessions and you need to prevent double-booking.
+
+For example, if you have 10 paddleboards split between a beginner lesson and an open hire running at the same time, auto capacity automatically reduces the spaces on each session as bookings come in on the other.
+
+## Capacity is always enforced
+
+However you configure it, Sailia enforces capacity strictly:
+
+- Online checkout blocks bookings once a session is full.
+- Walk-in [POS](/point-of-sale/overview) sales respect the same limits.
+- Shared booking links cannot exceed the available spaces.
+- Partial overbookings are prevented — a basket needing 4 spaces fails cleanly if only 3 remain.
+
+<Note>
+  Staff with the right [permissions](/staff/permissions) can override capacity for admin-created bookings (for example, to squeeze in a regular customer). Online customers can never exceed the limit.
+</Note>
+
+## Choosing between manual and auto
+
+| Use case | Recommended setting |
+| --- | --- |
+| A standalone session with a fixed group size | **Manual** |
+| A class that doesn't share equipment with anything else | **Manual** |
+| A hire that shares boats with a lesson at the same time | **Auto** |
+| Multiple sessions that share the same kit pool | **Auto** |
+
+See [group bookings](/activities/group-bookings) for the related question of how to size tickets and capacity for parties.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Activities" icon="calendar" href="/activities/activities">
+    Set kit ratios, sharing rules, and the underlying capacity configuration.
+  </Card>
+  <Card title="Group bookings" icon="users" href="/activities/group-bookings">
+    Configure tickets and capacity for larger parties.
+  </Card>
+</Columns>

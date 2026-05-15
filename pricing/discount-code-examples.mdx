@@ -1,0 +1,118 @@
+---
+title: Discount code examples
+description: Worked examples — summer sale, returning customer reward, group discount, tiered hire, early bird, last minute, bundle, auto-apply, and tracking.
+keywords: ['discount code examples', 'summer sale', 'group discount', 'early bird', 'tiered hire', 'returning customer']
+---
+
+Each section below walks through a common discount-code scenario — what to set, which [limits](/pricing/discount-limits) to use, and what to watch for. Pair these with [discount types](/pricing/discount-code-types) and [stacking rules](/pricing/discount-stacking) for the full picture.
+
+## Running a summer sale
+
+Goal: take a percentage off every activity for a defined date range.
+
+- **Type:** Percentage
+- **Amount:** e.g. 15%
+- **Applies to:** Activities (optionally narrow to specific activities)
+- **Auto apply:** On — customers don't need to enter a code
+- **Limits:**
+  - **Purchase date** — the sale window (e.g. 1 June – 31 August)
+  - Optionally **activity date range** if you only want it to apply to activities running in summer
+
+<Tip>
+  Pair with a [campaign email](/customers/campaigns) announcing the sale to drive bookings.
+</Tip>
+
+## Rewarding customers who have booked before
+
+Goal: thank returning customers automatically.
+
+- **Type:** Fixed or percentage
+- **Auto apply:** On
+- **Limits:**
+  - **Previous purchase** — the activity (or set of activities) the customer must have booked before
+  - Optionally constrain to *within the last N days* for active customers only
+
+No code-sharing needed — qualifying customers see the discount applied at checkout.
+
+## Giving a group discount
+
+Goal: cheaper price when a single booking has 4 or more people.
+
+- **Type:** Fixed or percentage
+- **Auto apply:** Off (or on — your call)
+- **Limits:**
+  - **Minimum tickets** — set to 4
+
+Remember discounts apply [per item](/pricing/discount-per-item) — for a one-line group booking this works as you'd expect.
+
+## Making hire cheaper the longer someone books
+
+Goal: a customer who hires 3 hours pays less per hour than someone who hires 1.
+
+- **Type:** Tiered (see [tiered discounts](/pricing/discount-code-types#tiered))
+- **Applies to:** Activities only (tiered isn't available on shop products)
+- **Auto apply:** On
+- **Tiers:** for example, £0 off the first hour, £10 off each from 2 hours, £15 off each from 3 hours
+
+## Giving a discount for booking in advance
+
+Goal: reward customers who book well ahead.
+
+- **Type:** Fixed or percentage
+- **Limits:**
+  - **Early booking** — set the minimum days ahead (e.g. 30)
+
+Only applies if the activity is still that many days away at checkout.
+
+## Giving a discount for last-minute bookings
+
+Goal: fill last-minute capacity.
+
+- **Type:** Fixed or percentage
+- **Limits:**
+  - **Last minute (surge)** — within N days of the activity start
+
+The opposite of early booking. Useful for filling slots a few days out.
+
+## Giving a discount for booking multiple activities together
+
+Goal: a bundle deal for booking Activity A and Activity B together.
+
+- **Type:** Fixed or percentage
+- **Limits:**
+  - **Activity combination** — select every activity that must be present
+
+If any required activity is missing from the basket, the code doesn't apply.
+
+## Giving a discount automatically
+
+Goal: a discount that just works, with no code to share.
+
+- **Code:** Leave blank
+- **Auto apply:** On
+- **Applies to:** Activities or memberships (the supported types for auto-apply)
+- **Limits:** Whatever conditions you need — purchase date, activity date range, etc.
+
+Customers see the discount applied at checkout without typing anything.
+
+## Sharing a code and tracking its usage
+
+Goal: hand out a discount code and see who used it.
+
+- Pick a memorable **code** (e.g. `SUMMER25`).
+- Add a **usage** limit if you want a hard cap.
+- Optionally add a **max usages per family** limit for a *one per customer* rule.
+- After launch, open the code's detail page to see the **Baskets using this code** table — every basket where the code was successfully applied, with status and customer.
+
+For audit and reporting, this table is your source of truth on redemptions.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Create and manage codes" icon="tag" href="/pricing/discount-codes">
+    Where to set the values described in each example above.
+  </Card>
+  <Card title="Discount limits" icon="ban" href="/pricing/discount-limits">
+    Full reference for every limit type.
+  </Card>
+</Columns>

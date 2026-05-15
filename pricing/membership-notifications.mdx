@@ -1,0 +1,38 @@
+---
+title: Membership notifications
+description: Automated emails sent for membership renewals, expiry reminders, and payment failures.
+keywords: ['membership notifications', 'renewal reminder', 'failed payment', 'membership emails']
+---
+
+Sailia sends automated emails to keep members informed about their subscription status and payment activity. These notifications run in the background — you don't need to configure them per member.
+
+## Renewal reminders
+
+Renewal reminder emails go out as a member approaches their renewal or expiry date. The exact timing is driven by reminder windows configured on your account — typically a few weeks or months before renewal.
+
+These reminders ensure members know what's coming up and can take action (update payment details, switch plans, cancel) before the next charge.
+
+## Failed payment notifications
+
+If a renewal payment fails, the member receives an email with:
+
+- A note that the latest payment was unsuccessful.
+- Any change to their membership status as a result.
+- Instructions to update billing in their customer portal.
+
+This nudges members to fix payment problems quickly and helps avoid silent membership lapses.
+
+## Where to customise content
+
+You can edit the underlying email content via [workflow templates](/integrations/workflows) for the membership triggers. See [workflow triggers](/integrations/workflow-triggers) for the full list of membership-related events you can hook into.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Manage a subscription" icon="user-gear" href="/pricing/manage-subscription">
+    View invoice history and process refunds.
+  </Card>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Customise membership emails and SMS.
+  </Card>
+</Columns>

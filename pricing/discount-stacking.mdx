@@ -1,0 +1,50 @@
+---
+title: Stacking and application order
+description: How multiple discounts combine on a booking, and the exact order Sailia uses to calculate the final price.
+keywords: ['discount stacking', 'application order', 'multiple discounts', 'non-stackable']
+---
+
+When more than one discount applies to a single item, Sailia follows specific rules about which can coexist and the order the maths runs in. This page explains both.
+
+## Can codes stack?
+
+Each discount code has a **Stackable** setting:
+
+- **Stackable** — can sit alongside other discounts on the same booking.
+- **Non-stackable** — if a non-stackable discount is already on the booking, a second one won't apply.
+
+Only one non-stackable regular discount can be on a booking at a time. If a customer tries to add a second non-stackable code to a booking that already has one, the second is rejected.
+
+Membership discounts are always treated as stackable with regular discounts — they run in a separate layer and don't compete with regular codes.
+
+## Application order
+
+When checkout calculates the total for a booking, discounts are applied in this order:
+
+1. **Membership percentage discounts** — taken off the full price first.
+2. **Membership fixed discounts** — taken off what's left after step 1.
+3. **Regular percentage discounts** — taken off what's left after steps 1–2.
+4. **Regular fixed discounts** — taken off what's left after steps 1–3.
+
+Each step reduces the price the next step works from. A 10% membership benefit on a £60 booking gives £6 off, leaving £54 — then a £5 regular fixed discount brings it to £49.
+
+The total discount can never exceed the original price — you can't discount something below £0.
+
+## Entering multiple codes at checkout
+
+A customer can enter several codes if each one passes its own checks. Each code is tested against each booking in the basket — a code might apply to one booking but not another, depending on what it covers and what limits are set.
+
+## Auto-apply and entered codes
+
+Auto-apply discounts attach before the customer types anything. When they then enter a code, the stacking rules still apply — a non-stackable manual code won't sit alongside a non-stackable auto-apply discount that's already attached.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Discount code types" icon="tags" href="/pricing/discount-code-types">
+    Fixed, percentage, tiered, auto-apply, and membership types.
+  </Card>
+  <Card title="Discount code limits" icon="ban" href="/pricing/discount-limits">
+    Add usage, date, and basket conditions to your codes.
+  </Card>
+</Columns>

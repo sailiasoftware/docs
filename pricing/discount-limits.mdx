@@ -1,0 +1,86 @@
+---
+title: Discount code limits
+description: Restrict when, where, and how often a discount code can be used with usage caps, date windows, and basket conditions.
+keywords: ['discount limits', 'usage cap', 'early booking', 'last minute', 'minimum tickets', 'activity combination']
+---
+
+Limits let you control exactly when a discount code can and can't be used. A single code can have several limits — all of them must pass for the code to apply.
+
+## Available limits
+
+### Purchase date
+
+The code is only valid between two dates. Outside that window it won't apply. Use for flash sales, seasonal promotions, and introductory offers.
+
+For restricting by **activity date**, see Activity date range below.
+
+### Activity date range
+
+The code only applies to activities scheduled within a specific date range. This is about when the activity *runs*, not when the customer buys.
+
+Example: offer a discount on any session taking place during a particular month, regardless of when it was booked.
+
+### Usage
+
+Caps the total number of times the code can be redeemed across all customers. Once that number is hit, the code stops working. The count increments after each successful payment.
+
+### Max usages per family
+
+Limits how many times a single family can use the code. Useful for a "one per customer" deal that doesn't stop everyone else from using it.
+
+### Minimum tickets
+
+The booking must include at least a certain number of tickets for the code to apply — for example, a group discount that kicks in at 4+ people on a single booking.
+
+### Minimum of same activity in basket
+
+Requires a certain number of bookings of the same activity to be in the basket. Different from minimum tickets — this counts separate bookings, not people on one booking.
+
+Example: a code only applies when there are 3 or more kayak hire hours in the basket. Useful alongside [tiered hire discounts](/pricing/discount-code-types#tiered).
+
+### Minimum items in basket
+
+Looks at the total number of eligible items across the whole basket — e.g. require at least 3 activity bookings before the code works.
+
+### Early booking
+
+The code only applies if the customer is booking at least X days before the activity starts. Good for rewarding people who plan ahead.
+
+Example: a 30-day early-booking limit means the code only works if the activity is still at least a month away when the customer checks out.
+
+### Last minute (surge)
+
+The opposite of early booking. The code only applies if the customer is booking within X days of the activity start. Good for filling last-minute capacity.
+
+### Previous purchase
+
+Requires the customer (or someone in their family) to have previously booked a specific activity. You can optionally require the previous booking to be within the last N days.
+
+Example: a returning-customer discount that only applies if they've done a particular activity before — or done it within the last 90 days.
+
+### Activity combination
+
+The code only applies when a specific set of activities is all in the basket together. If any of the required activities is missing, the code won't apply.
+
+Example: a bundle deal that only works when a customer books both a logbook and a Level 2 sailing course in the same basket.
+
+### Minimum basket value
+
+Requires the basket to meet a minimum value before the code applies. Less common, but available.
+
+## How limits combine
+
+All limits on a code are checked together. If any one fails, the code doesn't apply.
+
+Some limits only make sense for activity bookings — early booking, last minute, activity date range, previous purchase, activity combination, and minimum tickets are only checked when the item is an activity. They're skipped (and don't block the code) on shop products or memberships.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Discount code types" icon="tags" href="/pricing/discount-code-types">
+    Fixed, percentage, tiered, auto-apply, and membership.
+  </Card>
+  <Card title="Per-item application" icon="list" href="/pricing/discount-per-item">
+    Why a £10 code can take more than £10 off a multi-item basket.
+  </Card>
+</Columns>

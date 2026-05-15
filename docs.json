@@ -23,20 +23,40 @@
               "getting-started/overview",
               "getting-started/admin-dashboard",
               "getting-started/setup-checklist",
-              "getting-started/account-settings",
-              "getting-started/booking-page",
-              "getting-started/embedding",
-              "getting-started/locations",
-              "getting-started/billing",
-              "getting-started/system-requirements"
+              "getting-started/calendar-view",
+              "getting-started/system-requirements",
+              {
+                "group": "Account setup",
+                "pages": [
+                  "getting-started/account-settings",
+                  "getting-started/branding",
+                  "getting-started/terms-and-conditions",
+                  "getting-started/uploading-images",
+                  "getting-started/locations",
+                  "getting-started/billing"
+                ]
+              },
+              {
+                "group": "Your booking page",
+                "pages": [
+                  "getting-started/booking-page",
+                  "getting-started/embedding"
+                ]
+              }
             ]
           },
           {
             "group": "Activities and scheduling",
             "pages": [
               "activities/activities",
+              "activities/courses-vs-hire",
+              "activities/course-setup",
+              "activities/hire-setup",
+              "activities/addon-setup",
+              "activities/capacity-management",
               "activities/online-bookings",
               "activities/managing-bookings",
+              "activities/session-notes",
               "activities/group-bookings",
               "activities/upsells",
               "activities/seasonal-scheduling",
@@ -46,26 +66,70 @@
             ]
           },
           {
-            "group": "Customers and communications",
+            "group": "Customers",
             "pages": [
               "customers/overview",
               "customers/customer-accounts",
               "customers/family-accounts",
               "customers/waivers",
-              "customers/file-uploads",
+              "customers/file-uploads"
+            ]
+          },
+          {
+            "group": "Communications",
+            "pages": [
               "customers/notifications",
-              "customers/marketing",
-              "customers/campaigns",
-              "customers/newsletter-forms"
+              "customers/session-groups",
+              "customers/email-templates",
+              {
+                "group": "Automated emails",
+                "pages": [
+                  "customers/booking-confirmation-emails",
+                  "customers/pre-arrival-reminders",
+                  "customers/follow-up-emails"
+                ]
+              },
+              {
+                "group": "Marketing",
+                "pages": [
+                  "customers/marketing",
+                  "customers/campaigns",
+                  "customers/campaign-examples",
+                  "customers/newsletter-forms"
+                ]
+              }
             ]
           },
           {
             "group": "Pricing and promotions",
             "pages": [
-              "pricing/memberships",
-              "pricing/membership-migration",
+              {
+                "group": "Memberships",
+                "pages": [
+                  "pricing/memberships",
+                  "pricing/memberships-vs-plans",
+                  "pricing/membership-dashboard",
+                  "pricing/membership-benefits",
+                  "pricing/membership-addons",
+                  "pricing/create-membership",
+                  "pricing/create-plan",
+                  "pricing/manage-subscription",
+                  "pricing/membership-notifications",
+                  "pricing/membership-migration"
+                ]
+              },
               "pricing/activity-passes",
-              "pricing/discount-codes",
+              {
+                "group": "Discount codes",
+                "pages": [
+                  "pricing/discount-codes",
+                  "pricing/discount-code-types",
+                  "pricing/discount-limits",
+                  "pricing/discount-stacking",
+                  "pricing/discount-per-item",
+                  "pricing/discount-code-examples"
+                ]
+              },
               "pricing/gift-cards"
             ]
           },
@@ -80,7 +144,7 @@
             ]
           },
           {
-            "group": "Payments and billing",
+            "group": "Payments and finance",
             "pages": [
               "payments/stripe",
               "payments/instalments",
@@ -88,7 +152,14 @@
               "payments/donations",
               "payments/charity-donations",
               "payments/instant-refund-reserve",
-              "payments/reporting"
+              {
+                "group": "Reporting",
+                "pages": [
+                  "payments/finance-dashboard",
+                  "payments/payouts-dashboard",
+                  "payments/reporting"
+                ]
+              }
             ]
           },
           {
@@ -97,6 +168,7 @@
               "staff/management",
               "staff/permissions",
               "staff/qualifications",
+              "staff/recording-qualifications",
               "staff/auto-timesheets",
               "staff/availability",
               "staff/timesheet-invoices"
