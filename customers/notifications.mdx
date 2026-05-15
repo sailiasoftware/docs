@@ -105,6 +105,42 @@ This is useful when:
   The resent email uses the same booking confirmation template with the current booking details and PDF receipt. If the booking has been modified since the original confirmation, the email reflects the latest information. The calendar invite attachment is only included when the email is sent to the booking owner's address.
 </Note>
 
+## Communications dashboard overview
+
+The **Communications** dashboard opens to an overview that summarizes how many emails and SMS messages Sailia has sent on your behalf, with a stacked bar chart showing send volume over time broken down by template.
+
+Use it to spot trends, sanity-check that a new workflow is firing, or investigate a spike in sends before it affects your bill.
+
+### Headline stats
+
+The top of the page shows totals and per-day averages for emails and SMS, comparing the current month to the previous month. Per-day figures divide the month's total by the number of days elapsed (current month) or the full month length (last month).
+
+### Filtering the chart
+
+Two filters control the stacked bar chart underneath the headline stats:
+
+| Filter | What it does |
+| --- | --- |
+| **Time period** | Sets the date range plotted on the chart. Choose a preset (for example, **Last 7 days**, **This month**, **This year**) or pick a custom start and end date. |
+| **Email template** | Narrows the chart to one or more specific [email templates](/customers/email-templates). Leave it empty to include every template plus manual sends. |
+
+Granularity is chosen automatically from the selected time period:
+
+| Time period | Bar interval |
+| --- | --- |
+| A single day | Hour |
+| Up to ~3 months | Day |
+| Up to ~2 years | Month |
+| Longer ranges | Year |
+
+Sends that aren't linked to a template — for example, one-off emails or SMS messages sent from a customer record — are grouped under **Email (manual)** or **SMS (manual)** in the chart legend.
+
+<Note>
+  Selecting one or more templates in the **Email template** filter limits the chart to email sends only. Clear the filter to see SMS volume again.
+</Note>
+
+If no communications were sent in the selected range, the chart area shows **No communications data available for the selected period** instead of an empty plot.
+
 ## Email delivery status
 
 Every email Sailia sends is tracked with a delivery status so you can see whether it reached the recipient — or if something went wrong on the way. Statuses update automatically as the email provider reports back, and they appear in the **Communications** dashboard next to each sent email.
