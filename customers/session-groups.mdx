@@ -1,0 +1,52 @@
+---
+title: Session groups
+description: Group courses and products so you can send tailored automated emails to different customers.
+keywords: ['session groups', 'targeted email', 'communication groups', 'workflow targeting']
+---
+
+Session groups let you organise courses and products so different customers get different automated emails. Without session groups, every booking customer gets the same templates. With them, you can send targeted content based on what someone booked.
+
+## A concrete example
+
+You run sailing courses and kayaking courses. The pre-arrival email needs to say different things — different kit, different meeting points, different briefings. Session groups make this trivial:
+
+- Create a group called *Sailing courses*.
+- Add every sailing course to it.
+- In your **Course start** [workflow](/integrations/workflows), select the *Sailing courses* group.
+
+Only customers booked on sailing courses receive that email. Kayaking customers can have their own workflow with their own group.
+
+## How it works
+
+<Steps>
+  <Step title="Create a session group">
+    Go to **Communications → Workflows** and click **New session group**. Give it a clear name (e.g. *Rentals*, *Kids programs*, *Sailing courses*) and save.
+  </Step>
+  <Step title="Add courses or products to the group">
+    From the group's menu (the three dots), select **Add to group** and pick the courses or shop products you want in it.
+  </Step>
+  <Step title="Use the group in a workflow">
+    When you create or edit a workflow, select your group from the **Session group** dropdown. Only bookings on items in that group fire the workflow.
+  </Step>
+</Steps>
+
+<Warning>
+  An empty session group sends nothing. If a workflow uses a group with no items in it, no emails or SMS are sent. Always add at least one course or product after creating a group.
+</Warning>
+
+## Tips
+
+- A single course or product can belong to multiple groups. Use this for layered messaging — for example, a sailing course in both *Sailing courses* (specialised content) and *Watersports* (general operational emails).
+- Use **All sessions** in a workflow when you genuinely want every booking to fire it (e.g. a generic post-booking thank you).
+- Name groups by purpose, not by what's in them — *Rentals* ages better than *Kayak hire and SUP hire 2025*.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Automated workflows" icon="bolt" href="/integrations/workflows">
+    Create the email and SMS workflows that use session groups.
+  </Card>
+  <Card title="Notifications and emails" icon="envelope" href="/customers/notifications">
+    Overview of every automated email Sailia sends.
+  </Card>
+</Columns>

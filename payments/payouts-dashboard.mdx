@@ -1,0 +1,47 @@
+---
+title: Payouts dashboard
+description: Track your available balance, pending payments, next payout, and total paid out over time.
+keywords: ['payouts', 'cashflow', 'stripe payouts', 'available balance', 'pending balance']
+---
+
+The **Payouts** view inside the Finances section shows the cash side of your business — what's collected, what's settling, and what's heading to your bank account next.
+
+## The four key sections
+
+| Section | What it shows |
+| --- | --- |
+| **Available balance** | Money that has cleared Stripe and is ready to pay out |
+| **Pending balance** | Money collected but still settling — typically 2–7 days, depending on your Stripe configuration |
+| **Next payout** | The amount and date of your next scheduled payout to your bank |
+| **Total paid out** | The lifetime total of payouts to your bank account |
+
+## How money moves through Sailia
+
+1. A customer pays — by card online, at the [POS](/point-of-sale/overview), or via an [instalment plan](/payments/instalments).
+2. The amount appears in **Pending balance** while Stripe settles it.
+3. Settled funds move to **Available balance**.
+4. Stripe sends a payout to your bank on your configured schedule and the amount is added to **Total paid out**.
+5. If you've connected [Xero](/integrations/accounting-sync), each payout posts as a categorised invoice with VAT breakdowns.
+
+## Planning around your cashflow
+
+Use the four numbers together to plan:
+
+- **Available + Pending** tells you what you've already earned in this cycle, even if not all of it is in your bank yet.
+- **Next payout** is the amount that will hit your account on the scheduled date.
+- A growing **pending balance** with strong booking volumes is normal during busy periods — Stripe settles per transaction, not in bulk.
+
+<Note>
+  Refunds reduce the balance pools you'd expect — pending refunds come out of pending balance, while same-day refunds on cleared payments come out of available balance. See [refunds](/activities/cancellations-and-refunds).
+</Note>
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Finance dashboard" icon="chart-pie" href="/payments/finance-dashboard">
+    Gross earnings, sales volume, and best-performing periods.
+  </Card>
+  <Card title="Xero integration" icon="file-invoice" href="/integrations/accounting-sync">
+    Sync every payout into Xero as a categorised invoice.
+  </Card>
+</Columns>

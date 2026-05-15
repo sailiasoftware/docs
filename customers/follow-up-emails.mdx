@@ -1,0 +1,91 @@
+---
+title: Follow-up emails
+description: Send a thank-you, feedback request, or rebooking nudge after a course or hire ends.
+keywords: ['follow-up email', 'thank you email', 'feedback request', 'rebooking', 'course end trigger']
+---
+
+A follow-up email lands in the customer's inbox shortly after their session ends. It's a low-effort way to thank them, gather feedback, and encourage the next booking — all without manual work.
+
+## What follow-ups are good for
+
+- Saying thank you and showing appreciation
+- Asking for feedback or a review
+- Encouraging a repeat booking with relevant next sessions
+- Sharing photos or related resources
+- Building a longer-term relationship
+
+## Build the email
+
+<Steps>
+  <Step title="Open Communications → Workflows">
+    Find the **Course end** trigger. It fires based on the session's end time.
+  </Step>
+  <Step title="Choose a session group">
+    Use **All sessions** to start, or a specific [session group](/customers/session-groups) for different follow-ups by course type.
+  </Step>
+  <Step title="Create a new template">
+    Click **Add communication → Create new template** and name it (e.g. *Thank you and feedback*).
+  </Step>
+  <Step title="Write a warm subject line">
+    Examples: *Thank you for joining us! How was {{session_name}}?* or *We hope you enjoyed {{session_name}}*.
+  </Step>
+  <Step title="Write the body">
+    Lead with thanks. Ask for feedback gently. Offer a next-step booking or related session.
+  </Step>
+  <Step title="Set timing — after, not before">
+    Switch to **Custom timer**. Choose a value and unit (e.g. `1` `Days`) and set the direction to **After** the trigger.
+  </Step>
+  <Step title="Send to the client email">
+    Pick **Client email** as the recipient.
+  </Step>
+  <Step title="Test and save">
+    Use **Send test email** before going live.
+  </Step>
+</Steps>
+
+## Good timing windows
+
+| Value | Why |
+| --- | --- |
+| **A few hours after** | Still vivid — but customers may not be home yet |
+| **1 day after** | The most common choice. Fresh in memory but they've had time to settle |
+| **2–3 days after** | Slightly cooler, still relevant |
+| **1 week after** | More about rebooking than reflection |
+
+## What to include
+
+1. **Thank you** — open with appreciation.
+2. **Personal touch** — use the customer's name and the session name.
+3. **Feedback request** — keep it optional and easy.
+4. **Rebooking opportunity** — show relevant upcoming sessions or a special offer.
+5. **Warm closing** — end on a positive note.
+
+For the full merge field list, see [booking confirmation emails](/customers/booking-confirmation-emails#merge-field-reference).
+
+## A simple follow-up sequence
+
+For repeat-booking customers, a short sequence outperforms a single email:
+
+1. **Same day or next day** — short thank-you.
+2. **2–3 days later** — feedback or review request.
+3. **1 week later** — relevant rebooking offer.
+
+Space them out — don't fire all three within 24 hours.
+
+## Tips
+
+- Be genuine. Auto-generated thank-yous that sound corporate are easy to spot.
+- Keep it short. Long follow-ups don't get read.
+- Test the direction — **After**, not **Before**. A "thank you" arriving before the session is awkward.
+- Pair with a [discount code](/pricing/discount-codes) for a stronger rebooking nudge.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Pre-arrival reminders" icon="clock" href="/customers/pre-arrival-reminders">
+    The reminder that goes out before the session starts.
+  </Card>
+  <Card title="Confirmation emails" icon="envelope-open-text" href="/customers/booking-confirmation-emails">
+    The first email a customer sees after booking.
+  </Card>
+</Columns>

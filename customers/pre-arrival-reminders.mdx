@@ -1,0 +1,80 @@
+---
+title: Pre-arrival reminders
+description: Send a reminder email 24 or 48 hours before a course or hire starts to reduce no-shows.
+keywords: ['pre-arrival reminder', 'reminder email', 'course start trigger', 'workflow']
+---
+
+A pre-arrival reminder lands in the customer's inbox shortly before their booking begins. It reduces no-shows, gives them time to prepare, and is a low-effort way to feel attentive without manual work.
+
+## Build the reminder
+
+<Steps>
+  <Step title="Open Communications → Workflows">
+    Find the **Course start** trigger. It fires based on the session's start time — perfect for reminders.
+  </Step>
+  <Step title="Choose a session group">
+    Use **All sessions** to start. Switch to a specific [session group](/customers/session-groups) when you want different reminders for different course types.
+  </Step>
+  <Step title="Create a new template">
+    Click **Add communication → Create new template** and name it (e.g. *24-hour reminder*).
+  </Step>
+  <Step title="Write the subject line">
+    Use merge fields and a hint of urgency. Examples: *Reminder: {{session_name}} starts tomorrow!* or *See you soon — {{session_name}}*.
+  </Step>
+  <Step title="Build the body">
+    Cover the essentials: details, what to bring, where to meet, arrival time, contact.
+  </Step>
+  <Step title="Set the timing — this is the important step">
+    Switch from **Immediate** to **Custom timer**. Set a value and unit (e.g. `24` `Hours`), then set the direction to **Before** trigger. **Not after.**
+  </Step>
+  <Step title="Send to the client email">
+    Pick **Client email** as the recipient.
+  </Step>
+  <Step title="Test and save">
+    Use **Send test email** with a real-looking booking before going live.
+  </Step>
+</Steps>
+
+<Warning>
+  Selecting **After** instead of **Before** sends the reminder once the session has already started — far too late. Always double-check the direction.
+</Warning>
+
+## Good timing windows
+
+| Value | Best for |
+| --- | --- |
+| **24 hours before** | Most reminders — late enough to feel imminent, early enough to prepare |
+| **48 hours before** | Activities that need more preparation or travel |
+| **1 week before** | Multi-day courses or important high-ticket bookings |
+| **A few hours before** | An optional second reminder on the same day |
+
+## Suggested content
+
+1. Friendly reminder line.
+2. Booking details (date, time, location, participants) via merge fields.
+3. What to bring — equipment, clothing, documents.
+4. Meeting point and arrival time.
+5. Parking and access info if relevant.
+6. A contact number for last-minute issues.
+
+For the full merge field list, see [booking confirmation emails](/customers/booking-confirmation-emails#merge-field-reference) — the same fields work in reminders.
+
+## Multiple reminders
+
+For higher-value bookings, send two reminders:
+
+1. **48 hours before** — *Your course is coming up* — what to prepare.
+2. **24 hours before** — *See you tomorrow* — final logistics.
+
+Don't send three reminders unless you really need to — most customers find a single, well-timed reminder more useful than a stream.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Confirmation emails" icon="envelope-open-text" href="/customers/booking-confirmation-emails">
+    The email that goes out immediately after booking.
+  </Card>
+  <Card title="Follow-up emails" icon="reply" href="/customers/follow-up-emails">
+    Send a thank-you and feedback request after the session ends.
+  </Card>
+</Columns>

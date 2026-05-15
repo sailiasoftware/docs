@@ -1,0 +1,115 @@
+---
+title: Booking confirmation emails
+description: Build a personalised confirmation email that goes out the moment a customer books.
+keywords: ['booking confirmation', 'confirmation email', 'workflow', 'booking confirmed trigger']
+---
+
+Sailia sends a built-in booking confirmation immediately after every successful booking. To customise it — add your branding, set the tone, and include specific instructions — build a workflow on the **Booking confirmed** trigger.
+
+## What makes a good confirmation
+
+A solid confirmation email:
+
+- Confirms what they booked, when, and where
+- Feels personal (uses their name)
+- Looks consistent with your brand
+- Tells them what's next — what to bring, when to arrive, who to contact
+
+## Build the email
+
+<Steps>
+  <Step title="Open Communications → Workflows">
+    Find the **Booking confirmed** trigger.
+  </Step>
+  <Step title="Choose a session group">
+    Pick **All sessions** to start, or a specific [session group](/customers/session-groups) if you want different confirmations for different course types.
+  </Step>
+  <Step title="Create a new template">
+    Click **Add communication → Create new template**. Name it clearly (e.g. *Booking confirmation*).
+  </Step>
+  <Step title="Write a clear subject line">
+    Use merge fields to make it personal — for example, *Your booking is confirmed — {{session_name}}* or *You're all set! {{session_name}} on {{start_date}}*.
+  </Step>
+  <Step title="Build the body">
+    See the merge field reference below and include all key details.
+  </Step>
+  <Step title="Set timing and recipient">
+    Pick **Immediate** timing and send to the **Client email**.
+  </Step>
+  <Step title="Test and save">
+    Use **Send test email** before going live. Check on both mobile and desktop.
+  </Step>
+</Steps>
+
+## What to include in the body
+
+1. **Friendly greeting** — use the customer's name.
+2. **Confirmation statement** — make it clear the booking is locked in.
+3. **Booking details** — name, date, time, location, participants.
+4. **What to expect** — anything they should know in advance.
+5. **Next steps** — waiver to complete, arrival time, where to park.
+6. **Contact info** — how to reach you if anything changes.
+
+## Merge field reference
+
+These fields are filled in automatically for each booking.
+
+### Customer
+
+| Field | Inserts |
+| --- | --- |
+| `{{user_name}}` | Booker's name |
+| `{{user_email}}` | Booker's email |
+| `{{user_phone}}` | Booker's phone |
+
+### Booking
+
+| Field | Inserts |
+| --- | --- |
+| `{{session_name}}` | Course or hire name |
+| `{{start_date}}` | Start date |
+| `{{start_time}}` | Start time |
+| `{{end_date}}` | End date |
+| `{{end_time}}` | End time |
+| `{{participant_names}}` | All participant names |
+
+### Location
+
+| Field | Inserts |
+| --- | --- |
+| `{{location_name}}` | Location name |
+| `{{location_address}}` | Full address |
+| `{{location_description}}` | Location notes |
+
+### Links
+
+| Field | Inserts |
+| --- | --- |
+| `{{profile_url}}` | Direct link to the customer's profile |
+| `{{tnc}}` | Link to your [terms and conditions](/getting-started/terms-and-conditions) |
+| `{{logo_url}}` | Your business logo |
+
+## Tips
+
+- Keep it scannable — headings and bullet points work better than long paragraphs on mobile.
+- Always test with a real booking before going live.
+- For different course types with very different content, use [session groups](/customers/session-groups) and build a template per group.
+- Reuse headers, footers, and signatures via [saved blocks](/customers/email-templates#saved-blocks).
+
+## Common mistakes
+
+- Forgetting merge fields — the email feels generic.
+- Including too much information — customers won't read it.
+- Missing the date, time, or location — the most important details.
+- Skipping the test step — small typos and broken merge fields slip through easily.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Pre-arrival reminders" icon="clock" href="/customers/pre-arrival-reminders">
+    Send a reminder 24 hours before the session starts.
+  </Card>
+  <Card title="Follow-up emails" icon="reply" href="/customers/follow-up-emails">
+    Send a thank-you and feedback request after the session.
+  </Card>
+</Columns>
