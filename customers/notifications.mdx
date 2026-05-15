@@ -121,17 +121,17 @@ Two filters control the stacked bar chart underneath the headline stats:
 
 | Filter | What it does |
 | --- | --- |
-| **Time period** | Sets the date range plotted on the chart. Choose a preset (for example, **Last 7 days**, **This month**, **This year**) or pick a custom start and end date. |
+| **Time period** | Sets the date range plotted on the chart. Choose between **1D**, **7D**, **4W**, **1M** (month to date), **6M**, **YTD**, **1Y**, or **MAX**. Defaults to **6M**. |
 | **Email template** | Narrows the chart to one or more specific [email templates](/customers/email-templates). Leave it empty to include every template plus manual sends. |
 
 Granularity is chosen automatically from the selected time period:
 
 | Time period | Bar interval |
 | --- | --- |
-| A single day | Hour |
-| Up to ~3 months | Day |
-| Up to ~2 years | Month |
-| Longer ranges | Year |
+| **1D** | Hour |
+| **7D**, **4W**, **1M** | Day |
+| **6M**, **YTD**, **1Y** | Month |
+| **MAX** | Year |
 
 Sends that aren't linked to a template — for example, one-off emails or SMS messages sent from a customer record — are grouped under **Email (manual)** or **SMS (manual)** in the chart legend.
 
