@@ -53,13 +53,19 @@
               "activities/course-setup",
               "activities/hire-setup",
               "activities/addon-setup",
-              "activities/capacity-management",
-              "activities/online-bookings",
-              "activities/managing-bookings",
-              "activities/session-notes",
-              "activities/group-bookings",
               "activities/upsells",
+              "activities/capacity-management",
               "activities/seasonal-scheduling",
+              "activities/session-notes"
+            ]
+          },
+          {
+            "group": "Bookings",
+            "pages": [
+              "activities/online-bookings",
+              "activities/book-in-person",
+              "activities/managing-bookings",
+              "activities/group-bookings",
               "activities/waitlists",
               "activities/cancellation-policies",
               "activities/cancellations-and-refunds"
@@ -167,11 +173,21 @@
             "pages": [
               "staff/management",
               "staff/permissions",
-              "staff/qualifications",
-              "staff/recording-qualifications",
-              "staff/auto-timesheets",
               "staff/availability",
-              "staff/timesheet-invoices"
+              {
+                "group": "Qualifications",
+                "pages": [
+                  "staff/qualifications",
+                  "staff/recording-qualifications"
+                ]
+              },
+              {
+                "group": "Timesheets",
+                "pages": [
+                  "staff/auto-timesheets",
+                  "staff/timesheet-invoices"
+                ]
+              }
             ]
           },
           {
