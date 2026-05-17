@@ -1,0 +1,74 @@
+---
+title: Book a customer in person
+description: Add a customer to an existing session from the calendar, take payment, and confirm the booking.
+keywords: ['book customer', 'in-person booking', 'calendar booking', 'walk-in', 'manual booking']
+---
+
+When a customer calls, emails, or walks up to the desk, you can book them onto an existing session directly from the calendar — without sending them to your public booking page. This guide covers the end-to-end flow.
+
+<Tip>
+  For walk-in shop sales, food and drink, or any sale not tied to a specific session on the schedule, use the [point of sale](/point-of-sale/overview) instead.
+</Tip>
+
+## Prerequisites
+
+- The session must already exist on your [calendar](/getting-started/calendar-view). To add sessions, see [course setup](/activities/course-setup) and [hire setup](/activities/hire-setup).
+- You need the **Operator Booking** permission to create bookings.
+- To take card payments at the desk, [pair a card reader](/point-of-sale/card-readers).
+
+## Book a customer onto a session
+
+<Steps>
+  <Step title="Open the session">
+    Find the session on the calendar and click it to open the session popup. The popup shows the current bookings, remaining capacity, and assigned staff.
+  </Step>
+  <Step title="Start a new booking">
+    Select **New booking** in the top right of the popup. Choose how many tickets to add using the **+** and **−** buttons, then continue.
+  </Step>
+  <Step title="Select or create the customer">
+    Search by name or email to find an existing customer. If they're not in your database, select **New customer** and fill in their name, email, age, and any other required details.
+
+    If the customer has [family members](/customers/family-accounts) on their account, you can pick which family member is attending.
+  </Step>
+  <Step title="Choose a payment method">
+    Pick how the customer is paying:
+
+    | Method | When to use it |
+    | --- | --- |
+    | **Card** | Take payment now via a [card reader](/point-of-sale/card-readers) or manual entry |
+    | **Cash** | Record an in-person cash payment |
+    | **Invoice** | Send an invoice — useful for corporate or large group bookings |
+    | **Defer** | Confirm the booking now and collect payment later |
+    | **Other** | Record payment received via bank transfer or another external method |
+  </Step>
+  <Step title="Accept terms and finalise">
+    Tick the terms and conditions box on the customer's behalf. You can also tick the mailing-list opt-in if they've agreed to it.
+
+    Select **Pay now** to complete the order, or **Add to basket** to keep adding items before charging.
+  </Step>
+</Steps>
+
+The booking now appears on the session, the customer receives a [confirmation email](/customers/notifications#automatic-emails), and any [waivers](/customers/waivers) attached to the activity are sent to them automatically.
+
+## After the booking
+
+- The booking shows up in the [bookings dashboard](/activities/managing-bookings#bookings-dashboard) and on the session's register.
+- The customer can view the booking by signing in to their [customer account](/customers/customer-accounts).
+- If you need to amend it later — change attendees, move the session, or refund — see [managing bookings](/activities/managing-bookings) and [cancellations and refunds](/activities/cancellations-and-refunds).
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Managing bookings" icon="calendar-check" href="/activities/managing-bookings">
+    Edit, cancel, and track every booking across sales channels.
+  </Card>
+  <Card title="Point of sale" icon="cash-register" href="/point-of-sale/overview">
+    Sell shop products, take walk-in payments, and manage a till.
+  </Card>
+  <Card title="Group bookings" icon="users" href="/activities/group-bookings">
+    Take and manage bookings for schools, parties, and corporate groups.
+  </Card>
+  <Card title="Customer accounts" icon="user" href="/customers/customer-accounts">
+    Link sales to a customer account for history and family management.
+  </Card>
+</Columns>
